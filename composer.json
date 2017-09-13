@@ -1,0 +1,42 @@
+{
+    "name": "occitech/parafor",
+    "description": "Parasol/Materiel Forain",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "occitech",
+            "email": "contact@occitech.fr"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/colinmollenhour/modman"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "bragento/magento-composer-installer": "~1",
+        "magento/core": "1.9.3.4",
+        "colinmollenhour/modman": "1.12"
+    },
+    "require-dev": {
+        "n98/magerun": "dev-master"
+    },
+    "scripts": {
+        "post-update-cmd": "vendor/bin/modman deploy-all --force",
+        "post-install-cmd": "vendor/bin/modman deploy-all --force"
+    },
+    "extra": {
+        "magento-root-dir": "htdocs/",
+        "magento-force": 1,
+        "magento-deploystrategy": "link"
+    },
+    "config" : {
+        "secure-http": false
+    }
+}

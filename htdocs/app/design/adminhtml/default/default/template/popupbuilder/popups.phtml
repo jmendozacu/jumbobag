@@ -1,0 +1,83 @@
+<div class="crud-wrapper">
+	<?php
+		$model = Mage::getModel("popupbuilder/Sgpopup");
+		//logic for pagination
+		$pn = $this->getRequest()->getParam('pn');
+		$popupsPageUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('popups');
+		
+		$total = $model->getCollection()->count();
+		$pagenum = isset($pn) ? (int)$pn : 1;
+		$limit = SG_POPUP_TABLE_LIMIT;
+
+		$numOfPages = ceil($total / $limit );
+
+		if ($pagenum>$numOfPages || $pagenum < 1) {
+			$pagenum = 1;
+		}
+
+		//Give Add new page url with your key
+		$addNewPageUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('addNew');
+		$editPageurl = Mage::helper('popupbuilder/GetData')->getPageUrl('edit');
+		$deleteUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('deletePopup');
+		$key = Mage::getSingleton('core/session')->getFormKey();
+
+		
+		$collection = $model->getCollection()->setPageSize($limit)->setCurPage($pagenum);
+		
+		$collection->setOrder("id","desc");
+		$allData = $collection->getData();  
+		//getSelect()->limit(20)   ->setPageSize($limit)->setCurPage($pagenum);
+	?>
+	<h3>Popups <a href="<?php echo $addNewPageUrl;?>"><button type="button" class="btn btn-primary btn-sm">Add New</button></a></h3>
+
+	<table class="table table-bordered">
+		<tr>
+			<td>Id</td>
+			<td>Title</td> 
+			<td>Type</td>
+			<td>Options</td>
+		</tr>
+		
+		<?php foreach($allData as $data): ?>
+			<tr>
+				<td><?php echo $data['id'];?></td>
+				<td><?php echo $data['title'];?></td>
+				<td><?php echo $data['type'];?></td>
+				<form>
+					<td><a href="<?php echo $editPageurl.'id/'.$data['id'].'/type/'.$data['type']?>">Edit</a><a data-sg-popup-id="<?php echo $data['id']; ?>" class="sg-js-delete-link" data-delete-popup-url="<?php echo $deleteUrl; ?>" data-form-key="<?php echo $key;?>" data-model-name="Sgpopup" href="#">Delete</a></td>
+				</form>
+			</tr>
+		<?php endforeach?>
+		<?php if(empty($allData)): ?>
+			<tr>
+				<td colspan="4">No popups</td>
+			</tr>
+		<?php endif?>
+		<tr>
+			<td>Id</td>
+			<td>Title</td> 
+			<td>Type</td>
+			<td>Options</td>
+		</tr>
+	</table>
+
+	<?php
+		if($numOfPages > 1) {
+			$paginationList = '<ul class="pagination">';
+			
+			for($i=1; $i<=$numOfPages; $i++) {
+				$class = '';
+				if($pagenum == $i) {
+					$class = 'active';
+				}
+				$paginationList .= '<li class="'.$class.'"><a href="'.$popupsPageUrl.'pn/'.$i.'">'.$i.'</a></li>';
+			}
+			$paginationList .= "</ul>";
+		}
+		
+	?>
+	<div class="text-right">
+		<?php echo @$paginationList;?>
+	</div>
+</div>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/sg_popup_backend.js') ?>"></script>

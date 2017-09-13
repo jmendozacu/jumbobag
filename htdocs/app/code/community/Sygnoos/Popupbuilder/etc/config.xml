@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Sygnoos_Popupbuilder>
+			<version>1.1.1</version>
+		</Sygnoos_Popupbuilder>
+	</modules>
+	<admin>
+        <routers>
+            <adminhtml>
+            	<use>admin</use>
+                <args>
+                    <modules>
+                        <Sygnoos_Popupbuilder after="Mage_Adminhtml">Sygnoos_Popupbuilder_Adminhtml</Sygnoos_Popupbuilder>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
+	<adminhtml>
+		<menu>
+	        <popupbuilder module="popupbuilder">
+	            <title>Popup Builder</title>
+	            <action>adminhtml/popupbuilder/popups</action>
+	            <sort_order>65</sort_order>
+	            <children>
+	                <popups module="popupbuilder">
+	                    <title>All Popups</title>
+	                    <action>adminhtml/popupbuilder/popups</action>
+	                    <sort_order>0</sort_order>
+	                </popups>
+	                <addNew module="popupbuilder">
+	                    <title>Add new</title>
+	                    <action>adminhtml/popupbuilder/addNew</action>
+	                    <sort_order>1</sort_order>
+	                </addNew>
+	                <edit module="popupbuilder">
+	                    <title>Edit Popup</title>
+	                    <action>adminhtml/popupbuilder/edit</action>
+	                    <sort_order>2</sort_order>
+	                </edit>
+	                <subscribers module="popupbuilder">
+	                    <title>Subscribers</title>
+	                    <action>adminhtml/popupbuilder/subscribers</action>
+	                    <sort_order>3</sort_order>
+	                </subscribers>
+	            </children>
+	        </popupbuilder>
+	    </menu>
+        <layout>
+            <updates>
+                <popupbuilder>
+                    <file>popupbuilder.xml</file>
+                </popupbuilder>
+            </updates>
+       </layout>
+    </adminhtml>
+
+    <frontend>
+		<routers>
+			<popupbuilder module="popupbuilder">
+				<use>standard</use>
+				<args>
+					<module>Sygnoos_Popupbuilder</module>
+					<frontName>popupbuilder</frontName>
+				</args>
+			</popupbuilder>
+		</routers>
+   </frontend>
+   <frontend>
+		 <routers>
+            <popupbuilder>
+                <use>standard</use>
+                <args>
+                    <module>Sygnoos_Popupbuilder</module>
+					<frontName>popupbuilder</frontName>
+                </args>
+            </popupbuilder>
+        </routers>
+   </frontend>
+
+   <frontend>
+        <layout>
+            <updates>
+                <popupbuilder>
+                    <file>popupbuilder.xml</file>
+                </popupbuilder>
+            </updates>
+        </layout>
+   </frontend>
+
+    <global>
+        <resources>
+            <popupbuilder_setup>
+                <setup>
+                    <module>Sygnoos_Popupbuilder</module>
+                    <class>Sygnoos_Popupbuilder_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </popupbuilder_setup>
+
+            <popupbuilder_write>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </popupbuilder_write>
+
+            <popupbuilder_read>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </popupbuilder_read>
+        </resources>
+        <helpers>
+            <popupbuilder>
+                <class>Sygnoos_Popupbuilder_Helper</class>
+            </popupbuilder>
+        </helpers>
+        <blocks>
+	      	<popupbuilder>
+	        	<class>Sygnoos_Popupbuilder_Block</class>
+	     	</popupbuilder>
+	    </blocks>
+        <models>
+            <popupbuilder>
+                <class>Sygnoos_Popupbuilder_Model</class>
+                <resourceModel>popupbuilder_resource</resourceModel>
+            </popupbuilder>
+
+            <popupbuilder_resource>
+				<class>Sygnoos_Popupbuilder_Model_Resource</class>
+				<entities>
+					<sgpopup>
+						<table>sg_popup</table>
+					</sgpopup>
+					<sghtmlpopup>
+						<table>sg_html_popup</table>
+					</sghtmlpopup>
+					<sgimagepopup>
+						<table>sg_image_popup</table>
+					</sgimagepopup>
+					<sgfblikepopup>
+						<table>sg_fblike_popup</table>
+					</sgfblikepopup>
+					<sgiframepopup>
+						<table>sg_iframe_popup</table>
+					</sgiframepopup>
+					<sgvideopopup>
+						<table>sg_video_popup</table>
+					</sgvideopopup>
+					<sgagerestrictionpopup>
+						<table>sg_age_restriction_popup</table>
+					</sgagerestrictionpopup>
+					<sgcountdownpopup>
+						<table>sg_countdown_popup</table>
+					</sgcountdownpopup>
+					<sgsocialpopup>
+						<table>sg_social_popup</table>
+					</sgsocialpopup>
+					<sgexitintentpopup>
+						<table>sg_exit_intent_popup</table>
+					</sgexitintentpopup>
+					<sgsubscriptionpopup>
+						<table>sg_subscription_popup</table>
+					</sgsubscriptionpopup>
+					<subscribers>
+						<table>sg_subscribers</table>
+					</subscribers>
+					<sgcontactformpopup>
+						<table>sg_contact_form_popup</table>
+					</sgcontactformpopup>
+					<sgpopupinpagespopup>
+						<table>sg_popup_in_pages</table>
+					</sgpopupinpagespopup>
+					<sgpopupinproducts>
+						<table>sg_popup_in_products</table>
+					</sgpopupinproducts>
+				</entities>
+			</popupbuilder_resource>
+        </models>
+    </global>
+</config>

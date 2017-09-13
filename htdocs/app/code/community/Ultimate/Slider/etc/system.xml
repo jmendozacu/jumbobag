@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ultimate_Slider extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Images & Media
+ * @package        Ultimate_Slider
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ * @modified       2015-11-21 04:54:53 PM IST
+ */
+--> 
+<config>
+    <tabs>
+        <ultimate translate="label" module="ultimate_slider">
+            <label>Ultimate Slider</label>
+            <sort_order>2000</sort_order>
+        </ultimate>
+    </tabs>
+    <sections>
+        <ultimate_slider translate="label" module="ultimate_slider">
+            <class>separator-top</class>
+            <label>Options</label>
+            <tab>ultimate</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <slider translate="label" module="ultimate_slider">
+                    <label>Slider Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <!--Field 1-->
+                        <enabled translate="label">
+                                <label>Enable Slider On Frontend</label>
+                                <frontend_type>select</frontend_type>
+                                <comment>Including custom blocks and on BaseUrl/ultimate_slider.</comment>
+                                <source_model>adminhtml/system_config_source_yesno</source_model>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                        </enabled>
+
+                        <!--Field 2-->
+                        <breadcrumbs translate="label">
+                            <label>Use Breadcrumbs</label>
+                            <comment>Used only on the BaseUrl/ultimate_slider. If you custom block method then this feature will not be available.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs>
+
+                        <!--Field 3-->
+                        <items_per_slide translate="label">
+                            <label>Maximum number of slides to roll on frontend</label>
+                            <comment>Empty value is the same as default 3 and value lesser than 3 will be overrided by default value.</comment>
+                            <sort_order>50</sort_order>
+                            <depends><enabled>1</enabled></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </items_per_slide>
+
+                        <!--Field 4-->
+                        <roll_slides_active translate="label">
+                            <label>Enable Slider Autoplay</label>
+                            <comment>If you are using image banners and want the slider to play automatically enable this option.</comment>
+                            <sort_order>70</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </roll_slides_active>
+                    </fields>
+
+                </slider>
+            </groups>
+        </ultimate_slider>
+    </sections>
+</config>

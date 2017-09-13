@@ -1,0 +1,52 @@
+<div class="crud-wrapper">
+	<?php
+		$model = Mage::getModel("popupbuilder/Subscribers");
+
+		$deleteUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('deletePopup');
+		$key = Mage::getSingleton('core/session')->getFormKey();
+
+		$collection = $model->getCollection();
+		$collection->setOrder("id","desc");
+		$allData = $collection->getData();
+		$subscribersAcrtion = Mage::helper('popupbuilder/GetData')->getPageUrl('getSubscribers');
+	?>
+	<span data-subscribers-url="<?php echo $subscribersAcrtion;?>" id="sg-get-subscribers">Get subscribers list:</span>
+	<a href="<?php echo $subscribersAcrtion;?>"><button type="button" class="btn btn-primary btn-sm">Download</button></a>
+	<table style="width:100%" class="table table-bordered sg-subscribers-list">
+		<tr>
+			<td>Id</td>
+			<td>First name</td> 
+			<td>Last name</td>
+			<td>Email</td>
+			<td>Subscription type</td>
+			<td>Options</td>
+		</tr>
+		
+		<?php foreach($allData as $data): ?>
+			<tr>
+				<td><?php echo $data['id'];?></td>
+				<td><?php echo $data['firstName'];?></td>
+				<td><?php echo $data['lastName'];?></td>
+				<td><?php echo $data['email'];?></td>
+				<td><?php echo $data['subscriptionType'];?></td>
+				<form>
+					<td><a data-sg-popup-id="<?php echo $data['id']; ?>" class="sg-js-delete-link" data-delete-popup-url="<?php echo $deleteUrl; ?>" data-form-key="<?php echo $key;?>" data-model-name="Subscribers" href="#">Delete</a></td>
+				</form>
+			</tr>
+		<?php endforeach?>
+		<?php if(empty($allData)): ?>
+			<tr>
+				<td colspan="6">No record</td>
+			</tr>
+		<?php endif?>
+		<tr>
+			<td>Id</td>
+			<td>First name</td> 
+			<td>Last name</td>
+			<td>Email</td>
+			<td>Subscription type</td>
+			<td>Options</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/sg_popup_backend.js') ?>"></script>

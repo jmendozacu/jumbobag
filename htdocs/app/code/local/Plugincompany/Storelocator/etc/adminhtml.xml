@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <plugincompany_storelocator translate="title" module="plugincompany_storelocator">
+                                        <title>Storelocator</title>
+                                    </plugincompany_storelocator>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <cms>
+                        <children>
+                            <plugincompany_storelocator translate="title" module="plugincompany_storelocator">
+                                <title>Store Finder</title>
+                                <children>
+                                    <storelocation translate="title" module="plugincompany_storelocator">
+                                        <title>Manage Store Locations</title>
+                                        <sort_order>0</sort_order>
+                                    </storelocation>
+                                    <storelocation_comments translate="title" module="plugincompany_storelocator">
+                                        <title>Manage Store Comments</title>
+                                        <sort_order>5</sort_order>
+                                    </storelocation_comments>
+                                    <storelocationeav_attributes translate="title" module="plugincompany_storelocator">
+                                        <title>Custom Store Attributes</title>
+                                        <sort_order>17</sort_order>
+                                    </storelocationeav_attributes>
+                                    <import_export translate="title" module="plugincompany_storelocator">
+                                        <title>Import / Export Stores</title>
+                                        <sort_order>32</sort_order>
+                                    </import_export>
+                                </children>
+                            </plugincompany_storelocator>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <cms>
+            <children>
+                <plugincompany_storelocator translate="title" module="plugincompany_storelocator">
+                    <title>Store Finder</title>
+                    <sort_order>65</sort_order>
+                    <children>
+                        <storelocation translate="title" module="plugincompany_storelocator">
+                            <title>Manage Store Locations</title>
+                            <action>adminhtml/storelocator_storelocation</action>
+                            <sort_order>0</sort_order>
+                        </storelocation>
+                        <storelocation_comments translate="title" module="plugincompany_storelocator">
+                            <title>Manage Store Comments</title>
+                            <action>adminhtml/storelocator_storelocation_comment</action>
+                            <sort_order>4</sort_order>
+                        </storelocation_comments>
+                        <storelocationeav_attributes translate="title" module="plugincompany_storelocator">
+                            <title>Custom Store Attributes</title>
+                            <action>adminhtml/storelocator_storelocationeav_attribute</action>
+                            <sort_order>17</sort_order>
+                        </storelocationeav_attributes>
+                        <import_export translate="title" module="plugincompany_storelocator">
+                            <title>Import / Export Stores</title>
+                            <action>adminhtml/storelocator_importexport</action>
+                            <sort_order>36</sort_order>
+                        </import_export>
+                    </children>
+                </plugincompany_storelocator>
+            </children>
+        </cms>
+    </menu>
+</config>

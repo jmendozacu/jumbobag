@@ -1,0 +1,15 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/jquery-1.12.0.min.js') ?>"></script>
+<?php
+echo '<script type="text/javascript">
+	$jsg = jQuery.noConflict();
+</script>';
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/jquery-ui.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/colorpicker.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/bootstrap.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/PopupBuilder/bootstrap-select.js') ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->getSkinUrl('css/PopupBuilder/popupless.css') ?>">
+<link type="text/css" rel="stylesheet" href="<?php echo $this->getSkinUrl('css/PopupBuilder/bootstrap-select.min.css') ?>">
+<link type="text/css" rel="stylesheet" href="<?php echo $this->getSkinUrl('css/PopupBuilder/jquery-ui.min.css') ?>">
+<?php 
+echo Mage::helper('popupbuilder/GetData')->getWysiwygData();

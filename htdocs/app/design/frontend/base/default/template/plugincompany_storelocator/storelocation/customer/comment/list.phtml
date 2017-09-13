@@ -1,0 +1,56 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+/**
+ * customer Store locations comments template
+ * @category    Plugincompany
+ * @package     Plugincompany_Storelocator
+ * @author      Milan Simek
+ */
+?>
+
+<?php
+    $helper = Mage::helper('plugincompany_storelocator');
+?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title">
+    <h1><?php echo $helper->__('My Store locations Comments') ?></h1>
+</div>
+<?php if( $this->getCollection() && $this->count()): ?>
+    <?php echo $this->getToolbarHtml() ?>
+    <table class="data-table" id="my-storelocation-comments-table">
+        <col width="1" />
+        <col width="1" />
+        <col />
+        <col width="1" />
+        <tbody>
+            <?php foreach ($this->getCollection() as $_comment): ?>
+            <tr>
+                <td><span class="nobr"><?php echo $this->dateFormat($_comment->getCtCreatedAt()); ?></span></td>
+                <td><h2 class="product-name"><a href="<?php echo $this->getStorelocationLink($_comment) ?>"><?php echo $this->htmlEscape($_comment->getLocname()) ?></a></h2></td>
+                <td><?php echo Mage::helper('core')->escapeHtml($_comment->getCtTitle()) ?></td>
+                <td><a href="<?php echo $this->getCommentLink($_comment) ?>" class="nobr"><?php echo $helper->__('View Details') ?></a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <script type="text/javascript">decorateTable('my-storelocation-comments-table')</script>
+    <?php echo $this->getToolbarHtml() ?>
+<?php else: ?>
+    <p><?php echo $helper->__('You have submitted no comments for store locations.') ?></p>
+<?php endif; ?>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php echo $helper->__('Back') ?></a></p>
+</div>

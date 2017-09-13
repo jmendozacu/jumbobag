@@ -1,0 +1,366 @@
+<?php
+	require_once(Mage::getModuleDir("community", "Sygnoos_Popupbuilder").DS."public".DS."boot.php");
+
+	$defaults = Mage::helper('popupbuilder/Defaults')->dataArray();
+	$functions = Mage::helper('popupbuilder/SgFunctions');
+
+	$popupType = $this->getRequest()->getParam('type');
+	$popupId = $this->getRequest()->getParam('id');
+	$saved = $this->getRequest()->getParam('saved');
+
+
+	if (!$popupType) {
+		$popupType = 'html';
+	}
+	$dirname = dirname(__FILE__);
+	$actionUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('save');
+	$uploadImageUrl = Mage::helper('popupbuilder/GetData')->getPageUrl('save');
+	
+	$getData = Mage::helper('popupbuilder/GetData')->getPopupData($popupId);
+	$popupTypeData = $getData['popupTypeData'];
+?>
+<div class="crud-wrapper">
+<?php if($saved):?>
+	<div id="messages">
+		<ul class="messages">
+			<li class="success-msg">
+				<ul>
+					<li>
+						<span>Popup updated.</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+<?php endif;?>
+<form method="POST" action="<?php echo $actionUrl;?>" id="main-form" class="form-horizontal sg-popup-builder-form" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-md-6">
+			<?php if (isset($popupId)): ?>
+				<h2>Edit popup</h2>
+			<?php else: ?>
+				<h2>Create new popup</h2>
+			<?php endif; ?>
+		</div>
+		<div class="col-md-6">
+			<input type="submit" class="btn btn-primary btn-sm pull-right" value="Save Changes">
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 sg-popup-title-wrraper">
+			<input id="title" class="sg-js-popup-title form-control" type="text" name="title" size="30" value="<?php echo $getData['popuptitle'];?>" spellcheck="true" autocomplete="off" required = "required"  placeholder='Enter title here'>
+		</div>
+		<div class="col-md-6">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">General</div>
+				<div class="panel-body">
+					<?php require_once($dirname."/main_section/".$popupType.".php");?>
+					<input type="hidden" name="type" value="<?php echo $popupType;?>">
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Popup theme:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+							<?php echo $functions->sgCreateSelect($defaults['sgPopupTheme'],'theme',$getData['sgColorboxTheme']);?>
+							<div class="theme1 sg-hide"></div>
+							<div class="theme2 sg-hide"></div>
+							<div class="theme3 sg-hide"></div>
+							<div class="theme4 sg-hide"></div>
+							<div class="theme5 sg-hide"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row theme-colse-text sg-hide">
+
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Close button text:</label>
+						</div>
+						<div class="col-xs-4">
+							<input type="text" name="theme-close-text"  class="form-control input-md" value="<?php echo $getData['sgThemeCloseText'];?>">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Effects</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Effect type:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<?php echo $functions->sgCreateSelect($defaults['sgPopupEffects'],'effect',$getData['effect']);?>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<span class="js-preview-effect"></span>
+							<div class="effectWrapper"><div id="effectShow" ></div></div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Effect duration:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="duration" value="<?php echo $getData['duration'];?>" pattern = "\d+" title="It must be number" /><span class="dashicons dashicons-info contentClick infoImageDuration sameImageStyle"></span><span class="infoDuration samefontStyle">Specify how long the popup appearance animation should take (in sec).</span>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Initial delay:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="delay" value="<?php echo $getData['delay'];?>"  pattern = "\d+" title="It must be number"/><span class="dashicons dashicons-info contentClick infoImageDelay sameImageStyle"></span><span class="infoDelay samefontStyle">Specify how long the popup appearance should be delayed after loading the page (in sec).</span>
+							</div>
+						</div>
+					</div>
+					
+			  	</div>
+			</div>
+
+			<?php require_once($dirname."/options_section/".$popupType.".php");?>
+
+		</div>
+		<div class="col-md-6">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Dimensions</div>
+				<div class="panel-body">
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Width:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="width" value="<?php echo $getData['sgWidth'];?>"  pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" /><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>	
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Height:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="height" value="<?php echo $getData['sgHeight'];?>" pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" /><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Max width:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="maxWidth" value="<?php echo $getData['sgMaxWidth'];?>"  pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" /><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Max height:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="maxHeight" value="<?php echo $getData['sgMaxHeight'];?>"   pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" /><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Initial width:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="initialWidth" value="<?php echo $getData['sgInitialWidth'];?>"  pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" /><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Initial height:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="initialHeight" value="<?php echo $getData['sgInitialHeight'];?>"  pattern = "\d+(([px]+|\%)|)" title="It must be number  + px or %" ><img class='errorInfo' src=""><span class="validateError">It must be a number + px or %</span>
+							</div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Options</div>
+				<div class="panel-body">
+
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Dismiss on &quot;esc&quot; key:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" id="checkbox" name="escKey" <?php echo $getData['sgEscKey'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Show &quot;close&quot; button:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" name="closeButton" <?php echo $getData['sgCloseButton'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Enable content scrolling:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" name="scrolling" <?php echo $getData['sgScrolling'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Enable responsiveness:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" name="reposition" <?php echo $getData['sgReposition'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Dismiss on overlay click:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" name="overlayClose" <?php echo $getData['sgOverlayClose'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Dismiss on content click:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input type="checkbox" name="contentClick" <?php echo $getData['sgContentClick'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Change overlay color:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<div class="sg-color-picker-wrapper">
+									<input type="text" id="sgOverlayColor"  placeholder="Select color" name="sgOverlayColor" class="sg-color-picker sg-color sg-contact-btn-border-color" value="<?php echo $getData['sgOverlayColor'];?>">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Change background color:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<div class="sg-color-picker-wrapper">
+									<input type="text" id="sgOverlayColor"  placeholder="Select color" name="sgBackgroundColor" class="sg-color-picker sg-color sg-contact-btn-border-color" value="<?php echo @$getData['sgBackgroundColor'];?>">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Background overlay opacity:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<div class="slider-wrapper">
+									<input type="text" class="js-decimal" value="<?php echo $getData['sgOpacity'];?>" rel="<?php echo $getData['sgOpacity'];?>" name="opacity"/>
+									<div id="js-display-decimal" class="display-box"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Overlay custom class:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="sgOverlayCustomClasss" value="<?php echo $getData['sgOverlayCustomClasss'];?>">
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Content custom class:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<input class="form-control input-md" type="text" name="sgContentCustomClasss" value="<?php echo $getData['sgContentCustomClasss'];?>">
+							</div>
+						</div>
+					</div>
+					<div class="row sg-static-margin-bottom">
+						<div class="col-xs-4">
+							<label class="control-label" for="textinput">Popup location:</label>
+						</div>
+						<div class="col-xs-4">
+							<div class="checkbox">
+								<input class="js-on-all-pages js-checkbox-acordion-content" data-acordion-conetnt="sg-popup-fixed-position" type="checkbox" name="popupFixed" <?php echo $getData['sgPopupFixed'];?>>
+							</div>
+						</div>
+					</div>
+					<div class="row sg-popup-fixed-position">
+						<div class="col-xs-4">
+					
+						</div>
+						<div class="col-xs-4">
+							<div class="sg-align-checkbox">
+								<div class="fixed-wrapper">
+									<div class="js-fixed-position-style" id="fixed-position1" data-sgvalue="1"></div>
+									<div class="js-fixed-position-style" id="fixed-position2"data-sgvalue="2"></div>
+									<div class="js-fixed-position-style" id="fixed-position3" data-sgvalue="3"></div>
+									<div class="js-fixed-position-style" id="fixed-position4" data-sgvalue="4"></div>
+									<div class="js-fixed-position-style" id="fixed-position5" data-sgvalue="5"></div>
+									<div class="js-fixed-position-style" id="fixed-position6" data-sgvalue="6"></div>
+									<div class="js-fixed-position-style" id="fixed-position7" data-sgvalue="7"></div>
+									<div class="js-fixed-position-style" id="fixed-position8" data-sgvalue="8"></div>
+									<div class="js-fixed-position-style" id="fixed-position9" data-sgvalue="9"></div>
+									<input type="hidden" name="fixedPostion" class="js-fixed-postion" value="<?php echo $getData['sgFixedPostion'];?>">
+								</div>
+							
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<?php require_once($dirname."/options_section/pro.php");?>
+
+		</div>
+	</div>
+<input type="hidden" name="form_key" class="form-key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>"  data-upload-url="<?php echo $uploadImageUrl;?>" >
+<input type="hidden" value="<?php echo $popupId;?>" name="hidden_popup_number" />
+<input type="hidden" class="sg-popup-type" value="<?php echo $popupType;?>">
+</form>
+</div>

@@ -1,0 +1,23 @@
+<?php
+/**
+ * Blackbird Agency
+ *
+ * @category    Blackbird
+ * Date: 09/06/17
+ * Time: 00:00
+ * @copyright   Copyright (c) 2017 Blackbird Agency. (http://black.bird.eu)
+ * @author Jérémie Poisson (hello@bird.eu)
+ */
+
+class Blackbird_Monetico_SeveralController extends Blackbird_Monetico_Controller_Action
+{
+    /**
+     * Get current Monetico Method Instance
+     *
+     * @return Blackbird_Monetico_Model_Method_Multitime
+     */
+    public function getMethodInstance()
+    {
+        return Mage::getSingleton('blackbird_monetico/method_multitime');
+    }
+}

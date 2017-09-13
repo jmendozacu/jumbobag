@@ -1,0 +1,1127 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <monetico_payment module="blackbird_monetico">
+                    <label>MONETICO</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+
+                    <fields>
+
+                        <!-- GENERAL SETTINGS -->
+                        <monetico_settings type="group" translate="label comment">
+                            <label>Common Settings</label>
+                            <comment>These data are common for all payment methods through Monetico.</comment>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <sort_order>0</sort_order>
+
+                            <fields>
+                                <canceled_empty_cart translate="label">
+                                    <label>Empty the Cart after Cancellation</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico/canceled_empty_cart</config_path>
+                                </canceled_empty_cart>
+
+                                <canceled_redirect_cart translate="label comment">
+                                    <label>Redirect to the Cart after Cancellation</label>
+                                    <comment>We will redirect the customer to the default failure page if the redirect option is disabled.</comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><canceled_empty_cart>0</canceled_empty_cart></depends>
+                                    <config_path>payment/monetico/canceled_redirect_cart</config_path>
+                                </canceled_redirect_cart>
+
+                                <canceler_error_message translate="label comment">
+                                    <label>Cancellation Message</label>
+                                    <comment>We will replace the default message on the failure page by this one.</comment>
+                                    <frontend_type>textarea</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico/canceled_error_message</config_path>
+                                </canceler_error_message>
+
+                                <use_cron_cancel translate="label comment">
+                                    <label>Enable Automatic Cancellation</label>
+                                    <comment>We will run a cron to cancel orders, in new status, older than the value you have configured.</comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico/use_cron_cancel</config_path>
+                                </use_cron_cancel>
+
+                                <cancel_delay translate="label comment">
+                                    <label>Delay Before Cancellation</label>
+                                    <comment>The value is the number of days before the order is canceled.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><use_cron_cancel>1</use_cron_cancel></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico/cancel_delay</config_path>
+                                </cancel_delay>
+
+                                <debug_mode translate="label comment">
+                                    <label>Enable Debug Mode</label>
+                                    <comment>We will trace the events in the /var/log/monetico.log file.</comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico/debug_mode</config_path>
+                                </debug_mode>
+                            </fields>
+                        </monetico_settings>
+
+
+                        <!-- Monetico Onetime -->
+                        <monetico_onetime type="group" translate="label comment">
+                            <label>One-time Payment</label>
+                            <comment>The purchases are fully paid in one time.</comment>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <sort_order>1</sort_order>
+
+                            <fields>
+                                <active translate="label">
+                                    <label>Enable this Solution</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico_onetime/active</config_path>
+                                    <requires>monetico_required</requires>
+                                </active>
+
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <config_path>payment/monetico_onetime/title</config_path>
+                                </title>
+
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <validate>validate-number</validate>
+                                    <config_path>payment/monetico_onetime/sort_order</config_path>
+                                </sort_order>
+
+                                <!-- API CONFIGURATION -->
+                                <monetico_required type="group" translate="label comment">
+                                    <label>API Monetico Settings</label>
+                                    <comment>These information are available in your Monetico account.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>40</sort_order>
+
+                                    <fields>
+                                        <version translate="label">
+                                            <label>Version</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/version</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_version</source_model>
+                                        </version>
+
+                                        <environment translate="label">
+                                            <label>Environment</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/environment</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_environment</source_model>
+                                        </environment>
+
+                                        <tpe_number translate="label">
+                                            <label>TPE Number</label>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/tpe_number</config_path>
+                                        </tpe_number>
+
+                                        <site_code translate="label">
+                                            <label>Site Code</label>
+                                            <sort_order>50</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/site_code</config_path>
+                                        </site_code>
+
+                                        <private_key translate="label">
+                                            <label>Security Hash Key</label>
+                                            <frontend_type>obscure</frontend_type>
+                                            <sort_order>60</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <backend_model>Mage_Adminhtml_Model_System_Config_Backend_Encrypted</backend_model>
+                                            <config_path>payment/monetico_onetime/private_key</config_path>
+                                        </private_key>
+                                    </fields>
+                                </monetico_required>
+
+                                <!-- CONFIGURE ORDER STATUS -->
+                                <monetico_status type="group" translate="label">
+                                    <label>Order Status Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>50</sort_order>
+
+                                    <fields>
+                                        <order_status translate="label">
+                                            <label>New Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Newprocessing</source_model>
+                                            <config_path>payment/monetico_onetime/order_status</config_path>
+                                        </order_status>
+
+                                        <order_status_payment_accepted translate="label">
+                                            <label>Payment Validated Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Processing</source_model>
+                                            <config_path>payment/monetico_onetime/order_status_payment_accepted</config_path>
+                                        </order_status_payment_accepted>
+
+                                        <order_status_payment_refused translate="label">
+                                            <label>Payment Refused Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/order_status_payment_refused</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
+                                        </order_status_payment_refused>
+
+                                        <order_status_payment_canceled translate="label">
+                                            <label>Payment Canceled Order status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/order_status_payment_canceled</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
+                                        </order_status_payment_canceled>
+
+                                        <create_invoice translate="label">
+                                            <label>Create Invoice</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>50</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/create_invoice</config_path>
+                                        </create_invoice>
+                                    </fields>
+                                </monetico_status>
+
+                                <!-- ADVANCED OPTIONS -->
+                                <monetico_country_specific type="group" translate="label comment">
+                                    <label>Country Specific Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>60</sort_order>
+
+                                    <fields>
+                                        <allowspecific translate="label">
+                                            <label>Payment from Applicable Countries</label>
+                                            <frontend_type>allowspecific</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Payment_Allspecificcountries</source_model>
+                                            <config_path>payment/monetico_onetime/allowspecific</config_path>
+                                        </allowspecific>
+
+                                        <specificcountry translate="label">
+                                            <label>Payment from Specific Countries</label>
+                                            <frontend_type>multiselect</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Country</source_model>
+                                            <can_be_empty>1</can_be_empty>
+                                            <config_path>payment/monetico_onetime/specificcountry</config_path>
+                                        </specificcountry>
+                                    </fields>
+                                </monetico_country_specific>
+
+                                <monetico_3dsecure type="group" translate="label">
+                                    <label>3D Secure Verification Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>70</sort_order>
+
+                                    <fields>
+                                        <verify_3dsecure translate="label">
+                                            <label>Enable 3DSecure Verification</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/verify_3dsecure</config_path>
+                                        </verify_3dsecure>
+
+                                        <verify_3dsecure_min_amount translate="label">
+                                            <label>Maximum Amount before 3D-Secure</label>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><verify_3dsecure>0</verify_3dsecure></depends>
+                                            <validate>validate-zero-or-greater</validate>
+                                            <config_path>payment/monetico_onetime/max_amount</config_path>
+                                        </verify_3dsecure_min_amount>
+                                    </fields>
+                                </monetico_3dsecure>
+
+                                <monetico_interface type="group" translate="label">
+                                    <label>Monetico Interface Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>80</sort_order>
+
+                                    <fields>
+                                        <use_iframe translate="label comment">
+                                            <label>Include in Iframe</label>
+                                            <comment>You should have signed the option in your Monetico contract.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/use_iframe</config_path>
+                                        </use_iframe>
+
+                                        <locale translate="label comment">
+                                            <label>Locale Configuration</label>
+                                            <comment>We will use the current store language in preference.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/locale</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_availableLocales</source_model>
+                                        </locale>
+                                    </fields>
+                                </monetico_interface>
+
+                                <monetico_transaction type="group" translate="label comment">
+                                    <label>Transaction Description</label>
+                                    <comment>
+                                        <![CDATA[
+                                            <p>You can customize the transaction description, these variables can be used:<p>
+                                            <ul class="monetico-variable-list">
+                                                <li class="monetico-variable"><strong>%order_id%</strong><span>Order ID number</span></li>
+                                                <li class="monetico-variable"><strong>%payment_method%</strong><span>Payment Method name</span></li>
+                                                <li class="monetico-variable"><strong>%code_societe%</strong><span>Store Code Name</span></li>
+                                            </ul>
+                                        ]]>
+                                    </comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>90</sort_order>
+
+                                    <fields>
+                                        <transaction_description translate="label comment">
+                                            <label>Transaction Message</label>
+                                            <comment>We will set a default message if the value is empty.</comment>
+                                            <frontend_type>textarea</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>1</show_in_store>
+                                            <config_path>payment/monetico_onetime/transaction_description</config_path>
+                                        </transaction_description>
+                                    </fields>
+                                </monetico_transaction>
+                                <monetico_options type="group" translate="label comment">
+                                    <label>Options Settings</label>
+                                    <comment>Enable or disable Monetico options and configure them.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>100</sort_order>
+
+                                    <fields>
+                                        <payment_express translate="label comment">
+                                            <label>Enable the Payment Express Option</label>
+                                            <comment>You should have signed the option in your Monetico contract.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/payment_express</config_path>
+                                        </payment_express>
+
+                                        <force_cb translate="label">
+                                            <label>Force the Credit Card Input</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><payment_express>1</payment_express></depends>
+                                            <config_path>payment/monetico_onetime/force_cb</config_path>
+                                        </force_cb>
+
+                                        <allow_options translate="label comment">
+                                            <label>Enable all Payment Options</label>
+                                            <comment>We will display the payment options on the Monetico payment page, from your settings.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/allow_options</config_path>
+                                        </allow_options>
+
+                                        <disabled_options translate="label">
+                                            <label>Disable Specific Payment Options</label>
+                                            <frontend_type>multiselect</frontend_type>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><allow_options>0</allow_options></depends>
+                                            <config_path>payment/monetico_onetime/disabled_options</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_optionPayment</source_model>
+                                            <validate>required-entry</validate>
+                                        </disabled_options>
+                                    </fields>
+                                </monetico_options>
+                            </fields>
+                        </monetico_onetime>
+
+
+                        <!-- Monetico Multitime -->
+                        <monetico_multitime type="group" translate="label comment">
+                            <label>Multi-time Payment</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The purchases are paid in several times.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <sort_order>2</sort_order>
+
+                            <fields>
+                                <active translate="label">
+                                    <label>Enable this Solution</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico_multitime/active</config_path>
+                                    <requires>monetico_required_multi</requires>
+                                </active>
+
+                                <amount_min translate="label">
+                                    <label>Minimum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_multitime/amount_min</config_path>
+                                </amount_min>
+
+                                <amount_max translate="label">
+                                    <label>Maximum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_multitime/amount_max</config_path>
+                                </amount_max>
+
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <config_path>payment/monetico_multitime/title</config_path>
+                                </title>
+
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <validate>validate-number</validate>
+                                    <config_path>payment/monetico_multitime/sort_order</config_path>
+                                </sort_order>
+
+                                <!-- API CONFIGURATION -->
+                                <monetico_required_multi type="group" translate="label comment">
+                                    <label>API Monetico Settings</label>
+                                    <comment>These information are available in your Monetico account.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>60</sort_order>
+
+                                    <fields>
+                                        <version translate="label">
+                                            <label>Version</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_onetime/version</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_version</source_model>
+                                        </version>
+
+                                        <environment translate="label">
+                                            <label>Environment</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/environment</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_environment</source_model>
+                                        </environment>
+
+                                        <tpe_number translate="label">
+                                            <label>TPE Number</label>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/tpe_number</config_path>
+                                        </tpe_number>
+
+                                        <site_code translate="label">
+                                            <label>Site Code</label>
+                                            <sort_order>50</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/site_code</config_path>
+                                        </site_code>
+
+                                        <private_key translate="label">
+                                            <label>Security Hash Key</label>
+                                            <frontend_type>obscure</frontend_type>
+                                            <sort_order>60</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <backend_model>Mage_Adminhtml_Model_System_Config_Backend_Encrypted</backend_model>
+                                            <config_path>payment/monetico_multitime/private_key</config_path>
+                                        </private_key>
+                                    </fields>
+                                </monetico_required_multi>
+
+                                <!-- CONFIGURE ORDER STATUS -->
+                                <monetico_status_multi type="group" translate="label">
+                                    <label>Order Status Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>70</sort_order>
+
+                                    <fields>
+                                        <order_status translate="label">
+                                            <label>New Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Newprocessing</source_model>
+                                            <config_path>payment/monetico_multitime/order_status</config_path>
+                                        </order_status>
+
+                                        <order_status_payment_accepted translate="label">
+                                            <label>Payment Validated Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Processing</source_model>
+                                            <config_path>payment/monetico_multitime/order_status_payment_accepted</config_path>
+                                        </order_status_payment_accepted>
+
+                                        <order_status_payment_refused translate="label">
+                                            <label>Payment Refused Order Status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/order_status_payment_refused</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
+                                        </order_status_payment_refused>
+
+                                        <order_status_payment_canceled translate="label">
+                                            <label>Payment Canceled Order status</label>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/order_status_payment_canceled</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
+                                        </order_status_payment_canceled>
+
+                                        <create_invoice translate="label">
+                                            <label>Create Invoice</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>50</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/create_invoice</config_path>
+                                        </create_invoice>
+                                    </fields>
+                                </monetico_status_multi>
+
+                                <!-- ADVANCED OPTIONS -->
+                                <monetico_several_payment type="group" translate="label comment">
+                                    <label>Several Payment Configuration</label>
+                                    <comment>We will split equally the payment in many capture amount if the values are empty. The total terms rate should be equal to 100%.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>80</sort_order>
+
+                                    <fields>
+                                        <number_terms translate="label comment">
+                                            <label>Number of Payment Terms</label>
+                                            <comment>We will process the payment in many several monthly captures.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/number_terms</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_paymentTerms</source_model>
+                                        </number_terms>
+
+                                        <term_rate_1 translate="label comment">
+                                            <label>1st Rate Term (%)</label>
+                                            <comment>We will capture this order rate amount on the first term.</comment>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <validate>validate-greater-than-zero</validate>
+                                            <config_path>payment/monetico_multitime/term_rate_1</config_path>
+                                        </term_rate_1>
+
+                                        <term_rate_2 translate="label comment">
+                                            <label>2nd Rate Term (%)</label>
+                                            <comment>We will capture this order rate amount on the second term.</comment>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>30</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <validate>validate-greater-than-zero</validate>
+                                            <config_path>payment/monetico_multitime/term_rate_2</config_path>
+                                        </term_rate_2>
+
+                                        <term_rate_3 translate="label comment">
+                                            <label>3rd Rate Term (%)</label>
+                                            <comment>We will capture this order rate amount on the third term.</comment>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>40</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <validate>validate-greater-than-zero</validate>
+                                            <config_path>payment/monetico_multitime/term_rate_3</config_path>
+                                        </term_rate_3>
+
+                                        <term_rate_4 translate="label comment">
+                                            <label>4th Rate Term (%)</label>
+                                            <comment>We will capture this order rate amount on the fourth term.</comment>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>50</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><number_terms>4</number_terms></depends>
+                                            <validate>validate-greater-than-zero</validate>
+                                            <config_path>payment/monetico_multitime/term_rate_3</config_path>
+                                        </term_rate_4>
+                                    </fields>
+                                </monetico_several_payment>
+                                <monetico_country_specific_multi type="group" translate="label comment">
+                                    <label>Country Specific Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>90</sort_order>
+
+                                    <fields>
+                                        <allowspecific translate="label">
+                                            <label>Payment from Applicable Countries</label>
+                                            <frontend_type>allowspecific</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Payment_Allspecificcountries</source_model>
+                                            <config_path>payment/monetico_multitime/allowspecific</config_path>
+                                        </allowspecific>
+
+                                        <specificcountry translate="label">
+                                            <label>Payment from Specific Countries</label>
+                                            <frontend_type>multiselect</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <source_model>Mage_Adminhtml_Model_System_Config_Source_Country</source_model>
+                                            <can_be_empty>1</can_be_empty>
+                                            <config_path>payment/monetico_multitime/specificcountry</config_path>
+                                        </specificcountry>
+                                    </fields>
+
+                                </monetico_country_specific_multi>
+                                <monetico_3dsecure_multi type="group" translate="label">
+                                    <label>3D Secure Verification Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>100</sort_order>
+
+                                    <fields>
+                                        <verify_3dsecure translate="label">
+                                            <label>Enable 3DSecure Verification</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/verify_3dsecure</config_path>
+                                        </verify_3dsecure>
+
+                                        <verify_3dsecure_min_amount translate="label">
+                                            <label>Maximum Amount before 3D-Secure</label>
+                                            <frontend_type>text</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><verify_3dsecure>0</verify_3dsecure></depends>
+                                            <validate>validate-zero-or-greater</validate>
+                                            <config_path>payment/monetico_multitime/max_amount</config_path>
+                                        </verify_3dsecure_min_amount>
+                                    </fields>
+                                </monetico_3dsecure_multi>
+                                <monetico_interface_multi type="group" translate="label">
+                                    <label>Monetico Interface Settings</label>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>110</sort_order>
+
+                                    <fields>
+                                        <use_iframe translate="label">
+                                            <label>Include in Iframe</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/use_iframe</config_path>
+                                        </use_iframe>
+
+                                        <locale translate="label comment">
+                                            <label>Locale Configuration</label>
+                                            <comment>We will use the current store language in preference.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/locale</config_path>
+                                            <source_model>blackbird_monetico/system_config_source_availableLocales</source_model>
+                                        </locale>
+                                    </fields>
+                                </monetico_interface_multi>
+                                <monetico_transaction_multi type="group" translate="label comment">
+                                    <label>Transaction Description</label>
+                                    <comment>
+                                        <![CDATA[
+                                            <p>You can customize the transaction description, these variables can be used:<p>
+                                            <ul class="monetico-variable-list">
+                                                <li class="monetico-variable"><strong>%order_id%</strong><span>Order ID number</span></li>
+                                                <li class="monetico-variable"><strong>%payment_method%</strong><span>Payment Method name</span></li>
+                                                <li class="monetico-variable"><strong>%code_societe%</strong><span>Store Code Name</span></li>
+                                            </ul>
+                                        ]]>
+                                    </comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>120</sort_order>
+
+                                    <fields>
+                                        <transaction_description translate="label comment">
+                                            <label>Transaction Message</label>
+                                            <comment>We will set a default message if the value is empty.</comment>
+                                            <frontend_type>textarea</frontend_type>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>1</show_in_store>
+                                            <config_path>payment/monetico_multitime/transaction_description</config_path>
+                                        </transaction_description>
+                                    </fields>
+                                </monetico_transaction_multi>
+                                <monetico_options_multi type="group" translate="label comment">
+                                    <label>Options Settings</label>
+                                    <comment>Enable or disable Monetico options and configure them.</comment>
+                                    <frontend_type>text</frontend_type>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <sort_order>130</sort_order>
+
+                                    <fields>
+                                        <payment_express translate="label comment">
+                                            <label>Enable the Payment Express Option</label>
+                                            <comment>You should have signed the option in your Monetico contract.</comment>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>10</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <config_path>payment/monetico_multitime/payment_express</config_path>
+                                        </payment_express>
+
+                                        <force_cb translate="label">
+                                            <label>Force the Credit Card Input</label>
+                                            <frontend_type>select</frontend_type>
+                                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                                            <sort_order>20</sort_order>
+                                            <show_in_default>1</show_in_default>
+                                            <show_in_website>1</show_in_website>
+                                            <show_in_store>0</show_in_store>
+                                            <depends><payment_express>1</payment_express></depends>
+                                            <config_path>payment/monetico_multitime/force_cb</config_path>
+                                        </force_cb>
+                                    </fields>
+                                </monetico_options_multi>
+                            </fields>
+                        </monetico_multitime>
+
+
+                        <!-- Monetico Cofidis 3xCB -->
+                        <monetico_3xcb type="group" translate="label comment">
+                            <label>Cofidis 3xCB Payment</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The purchases are paid in 3 times by the customer, but the merchant is paid in one time.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <sort_order>3</sort_order>
+
+                            <fields>
+                                <active translate="label comment">
+                                    <label>Enable this Solution</label>
+                                    <comment>
+                                        <![CDATA[You should have signed the option in your Monetico contract.
+                                        <br />The One-time payment method should be configured.]]>
+                                    </comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico_3xcb/active</config_path>
+                                    <requires>monetico_required</requires>
+                                </active>
+
+                                <amount_min translate="label">
+                                    <label>Minimum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_3xcb/amount_min</config_path>
+                                    <depends><active>1</active></depends>
+                                </amount_min>
+
+                                <amount_max translate="label">
+                                    <label>Maximum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_3xcb/amount_max</config_path>
+                                    <depends><active>1</active></depends>
+                                </amount_max>
+
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <config_path>payment/monetico_3xcb/title</config_path>
+                                </title>
+
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <validate>validate-number</validate>
+                                    <config_path>payment/monetico_3xcb/sort_order</config_path>
+                                </sort_order>
+                            </fields>
+                        </monetico_3xcb>
+
+
+                        <!-- Monetico Cofidis 4xCB -->
+                        <monetico_4xcb type="group" translate="label comment">
+                            <label>Cofidis 4xCB Payment</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The purchases are paid in 4 times by the customer, but the merchant is paid in one time.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <sort_order>4</sort_order>
+
+                            <fields>
+                                <active translate="label comment">
+                                    <label>Enable this Solution</label>
+                                    <comment>
+                                        <![CDATA[You should have signed the option in your Monetico contract.
+                                        <br />The One-time payment method should be configured.]]>
+                                    </comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico_4xcb/active</config_path>
+                                    <requires>monetico_required</requires>
+                                </active>
+
+                                <amount_min translate="label">
+                                    <label>Minimum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_4xcb/amount_min</config_path>
+                                    <depends><active>1</active></depends>
+                                </amount_min>
+
+                                <amount_max translate="label">
+                                    <label>Maximum Amount</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <depends><active>1</active></depends>
+                                    <validate>validate-zero-or-greater</validate>
+                                    <config_path>payment/monetico_4xcb/amount_max</config_path>
+                                    <depends><active>1</active></depends>
+                                </amount_max>
+
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <config_path>payment/monetico_4xcb/title</config_path>
+                                </title>
+
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <validate>validate-number</validate>
+                                    <config_path>payment/monetico_4xcb/sort_order</config_path>
+                                </sort_order>
+                            </fields>
+                        </monetico_4xcb>
+
+
+                        <!-- Monetico Paypal -->
+                        <monetico_paypal type="group" translate="label comment">
+                            <label>Paypal Payment</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>PayPal is a worldwide payment method.</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <sort_order>5</sort_order>
+
+                            <fields>
+                                <active translate="label comment">
+                                    <label>Enable this Solution</label>
+                                    <comment>
+                                        <![CDATA[You should have signed the option in your Monetico contract.
+                                        <br />The One-time payment method should be configured.]]>
+                                    </comment>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <config_path>payment/monetico_paypal/active</config_path>
+                                    <requires>monetico_required</requires>
+                                </active>
+
+                                <title translate="label">
+                                    <label>Title</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <config_path>payment/monetico_paypal/title</config_path>
+                                </title>
+
+                                <sort_order translate="label">
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>0</show_in_store>
+                                    <validate>validate-number</validate>
+                                    <config_path>payment/monetico_paypal/sort_order</config_path>
+                                </sort_order>
+                            </fields>
+                        </monetico_paypal>
+
+                    </fields>
+                </monetico_payment>
+            </groups>
+        </payment>
+    </sections>
+</config>

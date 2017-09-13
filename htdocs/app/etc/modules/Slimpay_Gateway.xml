@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Slimpay_Gateway>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends><Mage_Payment /></depends>
+        </Slimpay_Gateway>
+    </modules>
+</config>

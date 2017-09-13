@@ -1,0 +1,182 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->getLang(); ?>"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->getLang(); ?>"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="<?php echo $this->getLang(); ?>" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $this->getLang(); ?>"> <!--<![endif]-->
+<head>
+	<?php echo $this->getChildHtml('head') ?>
+</head>
+<body class="<?php echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?><?php echo Mage::getStoreConfig('shoppersettings/design/responsive') ? '': ' non-responsive ' ?>">
+     <script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("a[rel=fancybox],a[rel=fancybox-main],li[rel=fancybox],li[rel=fancybox-main]").fancybox({
+            'padding' : 10,
+            'margin' : 20,
+            'scrolling' : 'auto',
+            'autoScale' : 1,
+            'hideOnOverlayClick' : 1,
+            'overlayShow' : 1,
+            'overlayOpacity' : 0.3,
+            'overlayColor' : '#666',
+            'titleShow' : 1,
+            'transitionIn' : 'elastic',
+            'transitionOut' : 'elastic',
+            'changeFade' : 'fast',
+            'easingIn' : 'swing',
+            'easingOut' : 'swing',
+            'showCloseButton' : 1,
+            'showNavArrows' : 1,
+            'enableEscapeButton' : 1
+                    });
+
+                });
+            </script>
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+     chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main row clearfix">
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+										<section id="intro" class="container">
+                      <h1>Jumbobag : Poufs et fauteuils design</h1>
+                      <p>
+                        Jumbo Bag est une <strong>marque Française</strong> qui propose toute une gamme de <strong>poufs XXL, gros coussins et poufs géants</strong> ainsi que de nombreux fauteuils design. Avoir un <strong>pouf géant</strong> Jumbo Bag, c’est faire entrer dans
+                        sa maison et son jardin un univers coloré, fun et original. Disponible en différentes couleurs et motifs imprimés (motif léopard, drapeau anglais ou américain et bien d’autres encore), le <strong>pouf géant</strong> sublimera votre habitat.
+                      </p>
+                      <p>
+                        Les <strong>coussins géants</strong> Jumbo bag, bénéficient d’une qualité de fabrication exceptionnelle. Les produits vendus sont fabriqués en Allemagne afin de vous garantir une résistance à toute épreuve. Les tissus
+                        qui composent <strong>les poufs et les coussins ont subi de nombreux tests</strong> avant leur commercialisation. (Résistance à l’usure, résistance aux UV, compatible avec les produits d’entretien standard).
+                      </p>
+                    </section>
+                    <section id="paralax">
+                      <div class="container">
+                        <div>
+                          <strong>10</strong>
+                          ans d'existance
+                        </div>
+                        <div>
+                          <strong>99.7%</strong>
+                          satisfaction client
+                        </div>
+                        <div>
+                          <strong>+60k</strong>
+                          Poufs vendus
+                        </div>
+                        <div>
+                          <strong>+250</strong>
+                          Références
+                        </div>
+                      </div>
+                      <p><strong>Jumbobag</strong> c'est la promesse d'un confort inimitable</p>
+                    </section>
+                    <section id="gammes" class="container">
+                      <article id="original">
+                        <div class="product-image col-md-4">
+                          <img src="images/original.png" alt="Original" />
+                        </div>
+                        <div class="product-text col-md-4">
+                          <h2>Le Jumbobag Original</h2>
+                          <p>The Original est le <strong>pouf géant</strong> incontournable de la marque Jumbo Bag. Entièrement <strong>imperméable</strong> : il peut aussi bien être utilisé en tant que <strong>coussin d’extérieur</strong> ou comme <strong>pouf design</strong> en intérieur. De plus sa housse amovible
+                            lui permet d’être lavé en machine. Un choix de 16 couleurs est proposé pour s’adapter parfaitement à votre <strong>décoration</strong>.</p>
+                          <a href="voir-la-collection.html">Voir la collection</a>
+                        </div>
+                      </article>
+                      <article id="imprimes">
+                        <div class="product-text col-md-4">
+                          <h2>La collection d'imprimés</h2>
+                          <p>The Original Jumbobag Printed est LE <strong>pouf design</strong> et <strong>tendance</strong> qu’il vous faut. Il se fondra facilement dans votre <strong>décoration intérieure</strong> grâce à une palette de plus de
+                            30 motifs. Avec son tissu <strong>imperméable</strong> le pouf imprimé Jumbobag peut également être une super <strong>idée déco</strong> pour votre <strong>jardin</strong>.</p>
+                          <a href="voir-la-collection.html">Voir la collection</a>
+                        </div>
+                        <div class="product-image col-md-4">
+                          <img src="images/imprimes.png" alt="Imprimés" />
+                        </div>
+                      </article>
+                      <article id="flottant">
+                        <div class="product-image col-md-4">
+                          <img src="images/flottant.png" alt="Flottant" />
+                        </div>
+                        <div class="product-text col-md-4">
+                          <h2>Les poufs flottants</h2>
+                          <p>Découvrez la gamme <strong>Swimming bag</strong> ! Jumbobag propose différents types de <strong>poufs flottants</strong> allant du <strong>coussin géant</strong> au <strong>donnut</strong> pour s’adapter à
+                            toutes les <strong>piscines</strong>. <strong>Design</strong> et colorés nos coussins flottants sauront se fondre avec l’ambiance de votre choix.</p>
+                          <a href="voir-la-collection.html">Voir la collection</a>
+                        </div>
+                      </article>
+                      <article id="x-trem">
+                        <div class="product-text col-md-4">
+                          <h2>La collection X-Trem</h2>
+                          <p>Jumbo bag présente sa collection X-trem ! Entièrement <strong>fabriquée en France</strong> les poufs de cette collection ont été conçus pour une <strong>utilisation intensive</strong>.  En tissus <strong>Sunbrella®</strong>
+                             ou simili <strong>cuir</strong> les trois produits phares de la marque sont déclinés : Le <strong>coussin géant</strong> The Original, le Swimming Bag, le cube ainsi que le <strong>pouf poire</strong> Scuba XXL. A découvrir sans attendre. </p>
+                          <a href="voir-la-collection.html">Voir la collection</a>
+                        </div>
+                        <div class="product-image col-md-4">
+                          <img src="images/x-trem.png" alt="x-trem" />
+                        </div>
+                      </article>
+                    </section>
+                    <section id="instagram">
+                    </section>
+                    <section id="parle-de-nous">
+                      <ul>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                        <li><a href="#"><img src="images/logo-ouest-france.png" alt="Ouest France" /></a></li>
+                      </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+	        <?php echo $this->getChildHtml('footer') ?>
+        </div>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

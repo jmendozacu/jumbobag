@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <lengow translate="label" module="lentracker">
+            <label>Lengow</label>
+            <sort_order>210</sort_order>
+        </lengow>
+    </tabs>
+    <sections>
+        <lentracker translate="label" module="lentracker">
+            <label>Customer Account</label>
+            <tab>lengow</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>89</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <check translate="label, comment">
+                    <label/>
+                    <frontend_type>note</frontend_type>
+                    <frontend_model>Lengow_Tracker_Block_Adminhtml_System_Config_Check</frontend_model>
+                    <sort_order>-1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                </check>
+                <general translate="label, comment">
+                    <label>Lengow API</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>1</sort_order>
+                    <fields>
+                        <version2>
+                            <label>Compatibility with the old version of the Lengow platform</label>
+                            <comment>Activate this option if you have the old version of the Lengow platform</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </version2>
+                        <login>
+                            <label>Customer ID</label>
+                            <comment>Your Customer ID of Lengow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><version2>1</version2></depends>
+                        </login>
+                        <group>
+                            <label>Group ID</label>
+                            <comment>Your Group ID of Lengow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><version2>1</version2></depends>
+                        </group>
+                        <api_key>
+                            <label>Token API</label>
+                            <comment>Your Token API of Lengow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><version2>1</version2></depends>
+                        </api_key>
+                        <version3>
+                            <label>Compatibility with the new version of the Lengow platform</label>
+                            <comment>Activate this option if you have the new version of the Lengow platform</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </version3>
+                        <account_id>
+                            <label>Account ID</label>
+                            <comment>Your Account ID of Lengow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><version3>1</version3></depends>
+                        </account_id>
+                        <access_token>
+                            <label>Access token</label>
+                            <comment>Your Access Token of Lengow</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><version3>1</version3></depends>
+                        </access_token>
+                        <secret>
+                            <label>Secret</label>
+                            <comment>Your Secret Token of Lengow</comment>         
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><version3>1</version3></depends>
+                        </secret>
+                    </fields>
+                </general>
+                <tag translate="label, comment">
+                    <label>TagCapsule</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <sort_order>2</sort_order>
+                    <fields>
+                        <type>
+                            <label>Tracker Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Lengow_Tracker_Model_System_Config_Source_Tracker</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </type>
+                        <identifiant>
+                            <label>Tracker Product's identifiant</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Lengow_Tracker_Model_System_Config_Source_Identifiant</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </identifiant>
+                    </fields>
+                </tag>
+                <hidden translate="label, comment">
+                    <label>Hidden fields</label>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>1</sort_order>
+                    <fields>
+                        <last_synchro>
+                            <label>Date of plugins.xml synchro</label>                        
+                            <sort_order>1</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Last date of plugins.xml synchronisation</comment>
+                        </last_synchro>
+                    </fields>
+                </hidden>
+            </groups>
+        </lentracker>
+    </sections>
+</config>

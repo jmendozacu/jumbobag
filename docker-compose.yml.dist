@@ -1,0 +1,47 @@
+web:
+  build: ./docker/Magento
+  ports:
+    - 80
+  links:
+    - db
+    - mail
+  volumes:
+    - .:/var/www
+    - ./docker/entrypoint.sh:/docker-entrypoint.sh
+  entrypoint: /docker-entrypoint.sh
+  command: apache2 -DFOREGROUND
+  environment:
+    VIRTUAL_HOST: jumbobag.test
+
+db:
+  image: mysql:5.6
+  environment:
+    MYSQL_ROOT_PASSWORD: "root"
+    MYSQL_DATABASE: jumbobag
+
+mail:
+  image: occitech/alpine-mailhog
+  ports:
+    - 8025
+  environment:
+    VIRTUAL_HOST: mail.jumbobag.test
+    VIRTUAL_PORT: 8025
+
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links:
+    - db
+  ports:
+    - 80
+  environment:
+    VIRTUAL_HOST: pma.jumbobag.test
+
+composer:
+  build: ./docker/composer
+  links:
+    - db
+  volumes:
+    - $HOME/.composer:/composer
+    - ./docker/php_additional.ini:/usr/local/etc/php/conf.d/php_additional.ini
+    - .:/var/www
+  working_dir: /var/www

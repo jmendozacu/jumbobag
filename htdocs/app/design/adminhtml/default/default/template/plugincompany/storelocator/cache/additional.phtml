@@ -1,0 +1,28 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+?>
+
+<?php if ($this->canShowButton()): ?>
+<table class="form-list">
+    <tr>
+        <td class="scope-label">
+            <button onclick="setLocation('<?php echo $this->getCleanExternalCacheUrl()?>')" type="button" class="scalable"><span><?php echo Mage::helper('plugincompany_storelocator')->__('Flush Store Finder Cache') ?></span></button>
+        </td>
+        <td class="scope-label">
+            <?php echo Mage::helper('plugincompany_storelocator')->__('Store locations JSON cache.')?>
+        </td>
+    </tr>
+</table>
+<?php endif;?>

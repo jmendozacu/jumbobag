@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+	<!-- Adding tab in customer account for SlimPay settings -->
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="addLink">
+				<name>SlimPay Settings</name>
+				<path>gateway/settings</path>
+				<label>SlimPay Settings</label>
+			</action>
+		</reference>
+	</customer_account>
+
+	<gateway_settings_index> <!-- module here matches node directly beneath <routers> in config.xml -->
+       <update handle="customer_account"/> <!-- include existing customer account layout -->
+       <reference name="my.account.wrapper"> <!-- target parent block -->
+           <block type="gateway/block" name="gateway.settings" template="gateway/settings/template.phtml"/>
+           <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml" /> <!-- add a back link -->
+       </reference>
+   </gateway_settings_index>
+</layout>

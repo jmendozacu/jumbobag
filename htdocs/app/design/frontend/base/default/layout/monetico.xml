@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <!--
+        Adding css on checkout page
+    -->
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/blackbird/monetico.css</stylesheet></action>
+        </reference>
+    </checkout_onepage_index>
+
+    <!--
+        Monetico Failure Response Page
+    -->
+    <blackbird_monetico_payment_error>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="blackbird_monetico/error" name="monetico_error" template="monetico/error.phtml"></block>
+        </reference>
+    </blackbird_monetico_payment_error>
+
+    <blackbird_monetico_payment_iframe>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/blackbird/monetico.css</stylesheet></action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="blackbird_monetico/iframe" name="monetico_iframe" template="monetico/iframe.phtml"></block>
+        </reference>
+    </blackbird_monetico_payment_iframe>
+
+    <blackbird_monetico_several_iframe>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/blackbird/monetico.css</stylesheet></action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="blackbird_monetico/iframe" name="monetico_iframe" template="monetico/iframe.phtml"></block>
+        </reference>
+    </blackbird_monetico_several_iframe>
+</layout>

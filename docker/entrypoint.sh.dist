@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+MAGENTO_HOST=jumbobag.test
+
+echo "
+LockFile /var/lock/apache2/accept.lock
+PidFile /var/run/lock/apache2.pid
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+User www-data
+Group www-data
+HostnameLookups Off
+ErrorLog /proc/self/fd/2
+LogLevel warn
+
+Include mods-enabled/*.load
+Include mods-enabled/*.conf
+
+Listen 80
+<IfModule ssl_module>
+    Listen 443
+</IfModule>
+<IfModule mod_gnutls.c>
+    Listen 443
+</IfModule>
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+    Deny from all
+</Directory>
+
+<Directory /var/www/>
+    AllowOverride All
+    Allow from all
+</Directory>
+
+<VirtualHost *:80>
+    ServerName $MAGENTO_HOST
+    DocumentRoot /var/www/htdocs
+</VirtualHost>
+
+AccessFileName .htaccess
+<FilesMatch \"^\.ht\">
+    Deny from all
+</FilesMatch>
+
+CustomLog /proc/self/fd/1 combined
+
+<FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+DirectoryIndex disabled
+DirectoryIndex index.php index.html
+
+Include sites-enabled/*.conf
+" > /etc/apache2/apache2.conf
+
+exec "$@"

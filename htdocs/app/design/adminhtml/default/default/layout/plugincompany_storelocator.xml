@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+-->
+<layout>
+    <adminhtml_storelocator_storelocation_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>plugincompany_storelocator/storelocation</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocation" name="storelocation"/>
+        </reference>
+    </adminhtml_storelocator_storelocation_index>
+    <adminhtml_storelocator_storelocation_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_grid" name="storelocation_grid"/>
+        </block>
+    </adminhtml_storelocator_storelocation_grid>
+    <!-- Storelocation add/edit action -->
+    <adminhtml_storelocator_storelocation_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="addItem">
+                <type>js_css</type>
+                <name>plugincompany/storelocator/addresspicker/styles.css</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/jquerynoconflict.js</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/storelocator/maps.js</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/storelocator/addresspicker/dist/typeahead.js</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/storelocator/addresspicker/dist/typeahead-addresspicker.min.js</name>
+            </action>
+            <action method="addJs">
+                <name>plugincompany/storelocator/addresspicker/script.js</name>
+            </action>
+        </reference>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>plugincompany_storelocator/storelocation</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_edit" name="storelocation_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_edit_tabs"
+                   name="storelocation_tabs"></block>
+        </reference>
+    </adminhtml_storelocator_storelocation_edit>
+    
+    <adminhtml_storelocator_storelocation_storeproduct>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_edit_tab_product" name="storelocator.edit.tab.product"/>
+            <block type="adminhtml/widget_grid_serializer" name="storelocator_grid_serializer">
+                <reference name="storelocator_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>storelocator.edit.tab.product</grid_block_name>
+                        <data_callback>getSelectedStoreLocationProducts</data_callback>
+                        <hidden_input_name>links[storelocation_products]</hidden_input_name>
+                        <reload_param_name>storelocation_products</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_storelocator_storelocation_storeproduct>
+    
+    <adminhtml_storelocator_storelocation_storeproductgrid>
+        <block type="core/text_list" name="root"  output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_edit_tab_product" name="storelocator.edit.tab.product"/>
+        </block>
+    </adminhtml_storelocator_storelocation_storeproductgrid>
+    
+    <adminhtml_storelocator_storelocation_comment_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>plugincompany_storelocator/storelocation_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_comment" name="storelocation_comment_grid"/>
+        </reference>
+    </adminhtml_storelocator_storelocation_comment_index>
+    <adminhtml_storelocator_storelocation_comment_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_comment_grid"
+                   name="storelocation_comment_grid"/>
+        </block>
+    </adminhtml_storelocator_storelocation_comment_grid>
+    <adminhtml_storelocator_storelocation_comment_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>plugincompany_storelocator/storelocation_comment</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_comment_edit"
+                   name="storelocation_comment_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_comment_edit_tabs"
+                   name="storelocation_comment_tabs"></block>
+        </reference>
+    </adminhtml_storelocator_storelocation_comment_edit>
+
+    <!-- EAV SECTION -->
+    <adminhtml_storelocator_storelocationeav_attribute_index>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocationeav_attribute" name="attribute_grid"></block>
+        </reference>
+    </adminhtml_storelocator_storelocationeav_attribute_index>
+    <adminhtml_storelocator_storelocationeav_attribute_edit>
+        <reference name="left">
+            <block type="plugincompany_storelocator/adminhtml_storelocationeav_attribute_edit_tabs"
+                   name="attribute_edit_tabs"></block>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocationeav_attribute_edit"
+                   name="attribute_edit_content"></block>
+        </reference>
+        <reference name="js">
+            <block type="adminhtml/template" name="attribute_edit_js"
+                   template="plugincompany/storelocator/attribute/js.phtml">
+                <action method="setMainEntityName">
+                    <name>storelocationeav</name>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_storelocator_storelocationeav_attribute_edit>
+
+    <!-- IMPORT EXPORT -->
+    <adminhtml_storelocator_importexport_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>plugincompany_storelocator/storelocation</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_importexport" name="storelocation_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="plugincompany_storelocator/adminhtml_storelocation_importexport_tabs" name="storelocation_tabs"></block>
+        </reference>
+    </adminhtml_storelocator_importexport_index>
+           
+    <adminhtml_cache_index>
+        <reference name="cache.additional">
+            <block type="plugincompany_storelocator/adminhtml_cache_additional" name="plugincompany.storelocator.additional" template = "plugincompany/storelocator/cache/additional.phtml" />
+        </reference>
+    </adminhtml_cache_index>
+
+
+    <adminhtml_storelocator_storelocation_storelocation>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_catalog_product_tab_storelocation_grid" name="storelocator.edit.tab.storelocations"/>
+            <block type="adminhtml/widget_grid_serializer" name="storelocator_grid_serializer">
+                <reference name="storelocator_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>storelocator.edit.tab.storelocations</grid_block_name>
+                        <data_callback>getSelectedProductsStoreLocation</data_callback>
+                        <hidden_input_name>links[product_storelocations]</hidden_input_name>
+                        <reload_param_name>product_storelocations</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_storelocator_storelocation_storelocation>
+    
+    <adminhtml_storelocator_storelocation_storelocationgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="plugincompany_storelocator/adminhtml_catalog_product_tab_storelocation_grid" name="storelocator.edit.tab.storelocations"/>
+        </block>
+    </adminhtml_storelocator_storelocation_storelocationgrid>
+
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <action method="addTab">
+                <name>plugincompany_storelocator_product</name>
+                <block>plugincompany_storelocator/adminhtml_catalog_product_tab_storelocation</block>
+            </action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+</layout>
+

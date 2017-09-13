@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<widgets>    
+	<popupbuilder_popupwidget type="popupbuilder/PopupWidget" module="popupbuilder">
+		<name>Popup Builder</name>
+		<description type="desc">Insert your popup</description>
+		<parameters>
+			<link_options>
+				<label>Select Your popup</label>
+				<visible>1</visible>
+				<required>1</required>
+				<type>select</type>
+				<source_model>popupbuilder/options</source_model>
+			</link_options>
+		</parameters>
+	</popupbuilder_popupwidget>
+</widgets>

@@ -1,0 +1,77 @@
+<h3>Importing new store locations</h3>
+<p>
+    The easiest way to import new stores is to create one store location manually first, run an export and use the resulting CSV file as a template.
+</p>
+<p>
+    Because custom store attributes without values are not exported, it's recommended to assign a value to each custom attribute before running an export.
+</p>
+<p>
+    To import new store locations, simply leave the 'entity_id' column of the CSV template blank or completely remove it.
+</p>
+<p>
+    Fill the other columns with the desired store data and import the saved CSV file in the 'Import Store Locations' section above.
+</p>
+<br>
+<h3>Updating existing store locations</h3>
+<p>
+    To update existing store locations, run a CSV export of your stores and modify the store data where necessary, making sure to keep the 'entity_id' column intact.
+</p>
+<p>
+    Import the updated and saved CSV file in the 'Import Store Locations' section above.
+</p>
+<br>
+<h3>
+    Updating specific data only
+</h3>
+<p>
+    When importing store locations, only the values of the columns included in your CSV file are updated; the values of attributes that are not included in the CSV file are left as is.
+</p>
+<p>
+    When updating specific data only, your CSV file should at least contain the 'entity_id' column and one (custom) attribute column.
+</p>
+<br>
+<h3>Importing store images</h3>
+<p>
+    Store images can be easily imported with a CSV file by following the two steps below.
+</p>
+<br>
+<h4>1. Upload images</h4>
+<p>
+    Upload the store images to the following directory on your web server, in which [magentodir] is the root folder of your Magento installation:<br><b>[magentodir]/media/storelocation/import/</b>
+</p>
+<br>
+<h4>2. Add uploaded images to CSV file</h4>
+<p>
+    Enter the following data in the 'image' column of your CSV template: <b>/import/[filename].[ext]</b>
+</p>
+<p>in which [filename] refers to the file name of the image and [ext] to the file extension.</p>
+<p>For example, when importing the following image: media/storelocation/import/myimage.jpg, the value entered in the CSV template would be: /import/myimage.jpg</p>
+<br>
+<h3>Retrieving Geocode locations</h3>
+<p>
+    Based on the entered address in the CSV file, the Store Finder extension can automatically calculate the store location coordinates during import using the Google Geocode Location API. These coordinates are used to define the exact map location which is shown on the front-end store page.
+</p>
+<p>
+    To auto-calculate the store location coordinates during import, check the 'Retrieve Geocode locations' box in the 'Import Store Locations' section above.
+</p>
+<p>
+    The Google API will only calculate the coordinates of the stores that have no longitude and latitude values ('lng' and 'lat' columns) in the CSV file.
+</p>
+<p>
+    The Google Geocode Location API is limited to 2000 requests per 24 hours. When importing a large store database it's therefore recommended to only check the 'Retrieve Geocode locations' box on the final import, so you won't use up the Geocode API limit while testing.
+</p>
+<p>
+    Because the Google Geocode API is also limited to 5 requests per second, it might take a while to import a large number of store locations at the same time (approx. 1000 stores per 3-4 minutes).
+</p>
+<style type="text/css">
+    #storelocation_storelocation_import_info td.label {
+        display:none;
+    }
+</style>
+
+<script type="text/javascript">
+    function runImport(){
+        $('edit_form').action = '<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/storelocator_importexport/import'); ?>';
+        $('edit_form').submit();
+    }
+</script>

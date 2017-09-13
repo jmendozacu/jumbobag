@@ -1,0 +1,32 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+?>
+
+    <h4>Product Page Iframe</h4>
+    <textarea style="width:400px;height:110px;" readonly="1">
+<?php echo htmlentities("<iframe
+  width='300'
+  height='850'
+  frameborder='0'
+  src='<?php echo Mage::helper('plugincompany_storelocator/storelocation')->getProductPageStoreListingUrl() ?>'
+/>"); ?>
+    </textarea>
+
+
+ <style type="text/css">
+     #row_plugincompany_storelocator_iframe_embed_iframe_embed .scope-label {
+         display:none;
+     }
+ </style>

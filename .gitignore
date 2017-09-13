@@ -1,0 +1,13 @@
+/vendor/
+/node_modules/
+docker-compose.yml
+docker/entrypoint.sh
+
+/htdocs/.htaccess
+/htdocs/var/
+/htdocs/media/
+/htdocs/app/etc/local.xml
+/htdocs/sitemaps
+/htdocs/sitemaps_de.xml
+/htdocs/sitemaps_en.xml
+/htdocs/sitemaps_it.xml

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<layout version="1.0.0">
+	<default>
+	</default>
+
+	<adminhtml_popupbuilder_popups>
+			<reference name="content">
+				<block type="core/template" name="header" template="popupbuilder/header.phtml" />
+				<block type="core/template" name="popups" template="popupbuilder/popups.phtml" />
+			</reference>
+			<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>css/PopupBuilder/popupstyles.css</name>
+			</action>
+		</reference>
+	</adminhtml_popupbuilder_popups>
+	<adminhtml_popupbuilder_addnew>
+			<reference name="content">
+				<block type="core/template" name="header" template="popupbuilder/header.phtml" />
+				<block type="core/template" name="popups" template="popupbuilder/addNew.phtml" />
+			</reference>
+			<reference name="head">
+				<action method="addItem">
+					<type>skin_css</type>
+					<name>css/PopupBuilder/popupstyles.css</name>
+				</action>
+			</reference>
+	</adminhtml_popupbuilder_addnew>
+	<adminhtml_popupbuilder_edit>
+			<update handle="editor" />
+			<reference name="content">
+				<block type="core/template" name="header" template="popupbuilder/header.phtml" />
+				<block type="core/template" name="popups" template="popupbuilder/editPopup.phtml" />
+				<block type="core/template" name="footer" template="popupbuilder/footer.phtml" />
+			</reference>
+			<reference name="head">
+				<action method="addItem">
+					<type>skin_css</type>
+					<name>css/PopupBuilder/popupstyles.css</name>
+				</action>
+			</reference>
+	</adminhtml_popupbuilder_edit>
+	<adminhtml_popupbuilder_subscribers>
+			<reference name="content">
+				<block type="core/template" name="header" template="popupbuilder/header.phtml" />
+				<block type="core/template" name="popups" template="popupbuilder/subscribers.phtml" />
+			</reference>
+			<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<name>css/PopupBuilder/popupstyles.css</name>
+			</action>
+		</reference>
+	</adminhtml_popupbuilder_subscribers>
+	
+</layout>

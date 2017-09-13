@@ -1,0 +1,52 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+?>
+<?php foreach(Mage::app()->getStores() as $store){
+    $url = Mage::app()->getStore($store->getStoreId())
+        ->getBaseUrl(
+                Mage_Core_Model_Store::URL_TYPE_LINK,
+                Mage::app()->getStore()->isCurrentlySecure()
+        );
+
+    //add prefix
+    if(Mage::getStoreConfig('plugincompany_storelocator/storelocation/url_prefix')){
+        $url .= Mage::getStoreConfig('plugincompany_storelocator/storelocation/url_prefix') . '/';
+    }
+
+    //add store finder url key
+    if(Mage::getStoreConfig('plugincompany_storelocator/storefinder/url_finder')){
+        $url .= Mage::getStoreConfig('plugincompany_storelocator/storefinder/url_finder');
+    }else{
+        $url .= 'store-finder';
+    }
+
+    //add suffix
+    if(Mage::getStoreConfig('plugincompany_storelocator/storelocation/url_suffix')){
+        $url .= Mage::getStoreConfig('plugincompany_storelocator/storelocation/url_suffix');
+    }else{
+        $url .= '/';
+    }
+    ?>
+
+    <p style="width:500px">
+        <a href="<?php echo $url; ?>"><?php echo $url; ?></a>
+    </p>
+<?php } ?>
+
+ <style type="text/css">
+     #row_plugincompany_storelocator_preview_links_previewlinks .scope-label {
+         display:none;
+     }
+ </style>

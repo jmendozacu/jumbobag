@@ -1,0 +1,687 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+-->
+<config>
+    <tabs>
+        <plugincompany translate="label" module="plugincompany_storelocator">
+            <label>Plugin Company</label>
+            <sort_order>2000</sort_order>
+        </plugincompany>
+    </tabs>
+    <sections>
+        <plugincompany_storelocator translate="label" module="plugincompany_storelocator">
+            <class>separator-top</class>
+            <label>Store Finder</label>
+            <tab>plugincompany</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <storelocation translate="label" module="plugincompany_storelocator">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable extension</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enable the extension for the current store view.</comment>
+                        </enabled>
+                        <breadcrumbs translate="label">
+                            <label>Enable breadcrumbs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show breadcrumbs navigation at the top of all Store Finder pages.</comment>
+                        </breadcrumbs>
+                        <url_prefix translate="label comment">
+                            <label>Default URL prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Optional URL prefix for store pages and store locator.</comment>
+                        </url_prefix>
+                        <url_suffix translate="label comment">
+                            <label>Default URL suffix</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Optional URL suffix for store pages and store locator.</comment>
+                        </url_suffix>
+                        <api_key translate="label comment">
+                            <label>Google Maps API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[In some cases an API key is needed, which can be obtained <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>.]]></comment>
+                        </api_key>
+                    </fields>
+                </storelocation>
+                <libraries translate="label" module="plugincompany_storelocator">
+                    <label>Javascript / CSS Libraries</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <jquery translate="label">
+                            <label>Include jQuery</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select 'No' if your store theme includes jQuery.</comment>
+                        </jquery>
+                        <fawesome translate="label">
+                            <label>Include Font Awesome</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select 'No' if your store theme includes Font Awesome.</comment>
+                        </fawesome>
+                    </fields>
+                </libraries>
+                <storepage translate="label" module="plugincompany_storelocator">
+                    <label>Store Page Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <allow_comment translate="label">
+                            <label>Allow comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Customers can submit comments on store pages.</comment>
+                        </allow_comment>
+                        <allow_guest_comment translate="label">
+                            <label>Allow guest comments</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <allow_comment>1</allow_comment>
+                            </depends>
+                            <comment>Customers can submit comments without logging in.</comment>
+                        </allow_guest_comment>
+                        <allow_rating translate="label">
+                            <label>Enable store rating</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <allow_comment>1</allow_comment>
+                            </depends>
+                            <comment>Customers can rate stores when leaving a comment.</comment>
+                        </allow_rating>
+                    </fields>
+                </storepage>
+                <storelist translate="label" module="plugincompany_storelocator">
+                    <label>Store Locations List Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <url_rewrite_list translate="label comment">
+                            <label>Store Locations URL key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The URL key of the Store Locations list page. Example: http://www.example.com/{urlkey}</comment>
+                        </url_rewrite_list>
+                        <limits translate="label comment">
+                            <label>Store location filter options</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Comma-separated options list for the Store Locations page filter, for example: 10,20,50,all</comment>
+                        </limits>
+                        <limit_default translate="label comment">
+                            <label>Default store location amount</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The default amount of items shown per Store Locations page. Use 'all' to show all store locations on one page.</comment>
+                        </limit_default>
+                        <use_image_not_map translate="label">
+                            <label>Show store image instead of map</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show a custom store image on the store locations list page by default.</comment>
+                        </use_image_not_map>
+                        <showlistlink translate="label">
+                            <label>Create menu item</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Locations link to the top store menu.</comment>
+                        </showlistlink>
+                        <show_in_toplinks translate="label comment">
+                            <label>Create header link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Locations link to the store header.</comment>
+                        </show_in_toplinks>
+                        <show_in_footer translate="label comment">
+                            <label>Create footer link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Locations link to the store footer.</comment>
+                        </show_in_footer>
+                        <listlinktitle translate="label">
+                            <label>Menu item / link title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <depends>
+                                <showlistlink>1</showlistlink>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The title of the Store Locations menu item and links.</comment>
+                        </listlinktitle>
+                        <meta_title translate="label">
+                            <label>Meta title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_title>
+                        <meta_description translate="label">
+                            <label>Meta description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_description>
+                        <meta_keywords translate="label">
+                            <label>Meta keywords</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_keywords>
+                    </fields>
+                </storelist>
+                <storefinder translate="label" module="plugincompany_storelocator">
+                    <label>Store Finder Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <url_finder translate="label comment">
+                            <label>Store Finder URL key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The URL key of the store locator page. Example: http://www.example.com/{prefix}/{urlkey}{suffix}</comment>
+                        </url_finder>
+                        <findertitle translate="label">
+                            <label>Store Finder title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The title of the store locator page.</comment>
+                        </findertitle>
+                        <findertext translate="label">
+                            <label>Store Finder description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The description shown above the store locator.</comment>
+                        </findertext>
+                        <showfinderlink translate="label">
+                            <label>Create menu item</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Finder link to the top store menu.</comment>
+                        </showfinderlink>
+                        <show_in_toplinks translate="label">
+                            <label>Create header link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Finder link to the store header.</comment>
+                        </show_in_toplinks>
+                        <show_in_footer translate="label comment">
+                            <label>Create footer link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add a Store Finder link to the store footer.</comment>
+                        </show_in_footer>
+                        <finderlinktitle translate="label">
+                            <label>Menu item / link title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <depends>
+                                <showfinderlink>1</showfinderlink>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The title of the Store Finder menu item and links.</comment>
+                        </finderlinktitle>
+                        <meta_title translate="label">
+                            <label>Meta title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_title>
+                        <meta_description translate="label">
+                            <label>Meta description</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_description>
+                        <meta_keywords translate="label">
+                            <label>Meta keywords</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </meta_keywords>
+                        <auto_geocode translate="label">
+                            <label>Enable auto-geocoding</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Allow store locator to auto-detect the visitor's location.</comment>
+                        </auto_geocode>
+                        <defaultloc translate="label">
+                            <label>Enable default location</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show default location if no visitor location is specified.</comment>
+                        </defaultloc>
+                        <defaultloclat translate="label">
+                            <label>Default location latitude</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <defaultloc>1</defaultloc>
+                            </depends>
+                        </defaultloclat>
+                        <defaultloclng translate="label">
+                            <label>Default location longitude</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <defaultloc>1</defaultloc>
+                            </depends>
+                        </defaultloclng>
+                        <lengthunit translate="label">
+                            <label>Distance measurement unit</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>plugincompany_storelocator/adminhtml_source_lengthunit</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The measurement unit to calculate map distances.</comment>
+                        </lengthunit>
+                        <max_distance translate="label">
+                            <label>Enable radius selection</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show a maximum distance / radius drop-down menu.</comment>
+                        </max_distance>
+                        <radius_options translate="label">
+                            <label>Radius selection options</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>165</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Comma-separated radius selection list, for example: 5,10,20,30,40,50,100,150,250,500</comment>
+                            <depends>
+                                <max_distance>1</max_distance>
+                            </depends>
+                        </radius_options>
+                        <radius_default translate="label">
+                            <label>Default radius selection</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>166</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The default radius. Leave empty to use any distance.</comment>
+                            <depends>
+                                <max_distance>1</max_distance>
+                            </depends>
+                        </radius_default>
+                        <name_filter translate="label">
+                            <label>Enable store name filter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>167</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Show store name filter option.</comment>
+                        </name_filter>
+                        <zoom translate="label">
+                            <label>Default zoom level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>plugincompany_storelocator/adminhtml_source_zoom</source_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The default map zoom level when a location is entered.</comment>
+                        </zoom>
+                        <storelimit translate="label">
+                            <label>Maximum store locations</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The maximum amount of store locations shown at once (use -1 for unlimited locations).</comment>
+                        </storelimit>
+                        <originmarker translate="label">
+                            <label>Show visitor location marker</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mark the visitor's location on the map.</comment>
+                        </originmarker>
+                        <origin_marker_img translate="label comment">
+                            <label>Visitor location marker</label>
+                            <comment><![CDATA[Allowed file types: .jpeg, .gif, .png<br>Leave empty to use the default marker image.]]></comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">plugincompany/storefinder</upload_dir>
+                            <base_url type="media" scope_info="1">plugincompany/storefinder</base_url>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </origin_marker_img>
+                        <location_marker_img translate="label comment">
+                            <label>Store location marker</label>
+                            <comment><![CDATA[Allowed file types: .jpeg, .gif, .png<br>Leave empty to use the default marker image.]]></comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">plugincompany/storefinder</upload_dir>
+                            <base_url type="media" scope_info="1">plugincompany/storefinder</base_url>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </location_marker_img>
+                        <theme translate="label">
+                            <label>Custom map theme</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Enter a JavaScript style array to customize the map theme. Examples: <a href="https://snazzymaps.com">snazzymaps.com</a>]]></comment>
+                        </theme>
+                    </fields>
+                </storefinder>
+                <preview_links translate="label" module="plugincompany_storelocator">
+                    <label>Store Finder Preview Links</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <previewlinks translate="label">
+                            <label>Store Finder URLs</label>
+                            <frontend_type>link</frontend_type>
+                            <frontend_model>plugincompany_storelocator/adminhtml_config_element_previewurls</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Links to Store Finder page(s), which will be updated after saving the configuration.</comment>
+                        </previewlinks>
+                    </fields>
+                </preview_links>
+                <product_detail_page translate="label" module="plugincompany_storelocator">
+                    <label>Product Page Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enable_store_inventory_locator translate="label">
+                            <label>Enable product page integration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add Store Finder functionality to product pages.</comment>
+                        </enable_store_inventory_locator>
+                        <manually_manage_inventory_locator translate="label">
+                            <label>Select store location products</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Manually manage product inventory per store location.</comment>
+                            <depends><enable_store_inventory_locator>1</enable_store_inventory_locator></depends>
+                        </manually_manage_inventory_locator>
+                        <show_in_product_tabs translate="label">
+                            <label>Show Store Locations tab</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add Store Locations list tab to product details menu.</comment>
+                            <depends><enable_store_inventory_locator>1</enable_store_inventory_locator></depends>
+                        </show_in_product_tabs>
+                        <show_locator translate="label">
+                            <label>Show Store Finder tab</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Add store locator tab to product details menu.</comment>
+                            <depends><enable_store_inventory_locator>1</enable_store_inventory_locator></depends>
+                        </show_locator>
+                        <geocode translate="label">
+                            <label>Enable auto-geocoding</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Allow store locator to auto-detect the visitor's location.</comment>
+                            <depends>
+                                <enable_store_inventory_locator>1</enable_store_inventory_locator>
+                            </depends>
+                        </geocode>
+                    </fields>
+                </product_detail_page>
+                <cache translate="label" module="plugincompany_storelocator">
+                    <label>Cache Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>7</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable store locations cache</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <lifetime translate="label">
+                            <label>Cache lifetime</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Cache lifetime in seconds (7200s = 2hrs). Please remember to flush the cache after editing your store locations.</comment>
+                        </lifetime>
+                    </fields>
+                </cache>
+                <iframe_embed translate="label" module="plugincompany_storelocator">
+                    <label>Iframe Embedding</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>8</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <expanded>1</expanded>
+                    <fields>
+                        <iframe_embed translate="label">
+                            <label>Store Finder embed codes</label>
+                            <frontend_type>link</frontend_type>
+                            <frontend_model>plugincompany_storelocator/adminhtml_config_element_location_iframeembed</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Store Finder Iframe embed codes which can be used on external websites.</comment>
+                        </iframe_embed>
+                    </fields>
+                </iframe_embed>
+            </groups>
+        </plugincompany_storelocator>
+    </sections>
+</config>

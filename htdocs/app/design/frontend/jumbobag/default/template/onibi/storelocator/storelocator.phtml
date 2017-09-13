@@ -1,0 +1,59 @@
+<div id="maps">
+    <div id="map_canvas"></div>
+</div>
+
+<div class="container magasins">
+  <h1><?php echo $this->__('Trouver le magasin le plus proche');?></h1>
+
+  <div id="search">
+     <input type="text" name="address" id="address" class="input-text" placeholder="Ville ..."/>
+     <!--<button class="submit" onclick="googleMapChange();"><img src="<?php /*echo $this->getSkinUrl('images/loupe.png');*/?>" alt="loupe"/></button>-->
+  </div>
+
+  <div class="store-list-jumbo">
+      <?php foreach($this->getStores() as $store) :?>
+              <div class="store-table grid_4 <?php echo str_replace(array(' ','\''),"-",$store->getCity()); ?>" style="display:none;">
+                  <div class="store-image-jumbo">
+                    <img src="<?php echo $store->getImage(); ?>" alt="<?php echo $store->getName()?>" width="150">
+                  </div>
+                  <div class="store-text">
+                    <div class="store-name">
+                      <h2 id="store<?php echo $store->getId(); ?>"><?php echo $store->getName()?></h2>
+                    </div>
+                    <div class="col-address adresse">
+                      <p><?php echo $store->getAddress()?><br /><?php echo $store->getZipcode()." ".$store->getCity()?></p>
+                    </div>
+                    <?php if(!is_null($store->getPhone()) && $store->getPhone()!= ''):?>
+                      <div class="tel">
+                          <a href="tel:<?php echo str_replace(' ', '', $this->__('%s', $store->getPhone())); ?>"><?php echo $this->__('%s', $store->getPhone()); ?></a>
+                      </div>
+                    <?php endif; ?>
+                    <?php if(!is_null($store->getStoreUrl()) && $store->getStoreUrl() != '' && $store->getStoreUrl() != 'None'):?>
+                      <div class="website">
+                        <a href="<?php echo $store->getStoreUrl(); ?>" target='_blank'><?php echo $store->getStoreUrl();?></a>
+                      </div>
+                    <?php endif; ?>
+                    <?php if(!is_null($store->getDescription()) && $store->getDescription() != ''):?>
+                      <div class="description">
+                        <?php echo $this->__('%s', $store->getDescription());?>
+                      </div>
+                    <?php endif; ?>
+                  </div>
+              </div>
+      <?php endforeach;?>
+  </div>
+  <div class="vide"></div>
+  <div id="panel"></div>
+</div>
+
+<script type="text/javascript">
+    var estimateDirectionLabel = '<?php echo $this->__('Calculating the estimated'); ?>';
+    var gmapUrl = '<?php echo $this->getGoogleApiUrl(); ?>';
+    var apiSensor = <?php echo Mage::getStoreConfig('storelocator/general/apisensor'); ?>;
+    var stores = <?php echo Mage::helper('core')->jsonEncode($this->getStores()->toArray()); ?>;
+    var mediaUrl = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>';
+    var pathMarker = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>';
+    var defaultMarker = '<?php echo $this->getDefaultMarker(); ?>';
+    var directionEnable = <?php echo Mage::getStoreConfig('storelocator/general/direction'); ?>;
+    window.onload = loadScript;
+</script>

@@ -1,0 +1,5 @@
+/** Changing the size of the Monetico Payment Methods tables */
+
+#payment_monetico_payment table {
+    width: 100%;
+}

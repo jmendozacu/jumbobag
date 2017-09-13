@@ -1,0 +1,12 @@
+{
+  "name": "sodezign",
+  "version": "1.0.0",
+  "description": "sodezign",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://"
+  },
+  "author": "commit42",
+  "private": true,
+  "homepage": "",
+}

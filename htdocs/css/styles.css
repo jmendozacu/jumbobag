@@ -1,0 +1,69 @@
+#intro h1
+{
+  font-size:40px;
+  text-transform:uppercase;
+  color:#31419f;
+  text-align:center;
+}
+
+#intro p
+{
+  font-size:16px;
+  color:#666666;
+}
+
+#paralax
+{
+  color:#ffffff;
+}
+
+#paralax div
+{
+  font-size:16px;
+}
+
+#paralax div strong
+{
+  font-family: "Lato black", sans-serif;
+  font-size:60px;
+}
+
+#paralax p
+{
+  font-family: "Lato Black", sans-serif;
+  font-size:21px;
+  text-align:center;
+}
+
+#paralax p strong
+{
+  font-family: "ChuckFive", sans-serif;
+  font-size:21px;
+}
+
+
+
+#gammes article .product-text
+{
+  color:#666666;
+  font-size:16px;
+}
+
+#gammes article .product-text a
+{
+  background-color:#30409f;
+  text-transform:uppercase;
+  border-radius:10px;
+  padding:14px 45px;
+  font-size:14px;
+  display:block;
+  color:#ffffff;
+  text-decoration: none;
+}
+
+#gammes article .product-text h2
+{
+  font-family: "Lato Light", sans-serif;
+  color:#31419f;
+  text-transform:uppercase;
+}

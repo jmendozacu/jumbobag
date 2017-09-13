@@ -1,0 +1,19 @@
+
+
+<?php $post = $this->getPost(); ?>
+<div class="postWrapper">
+    <div class="image">
+      <a href="<?php echo $post['address'] ?>"><span class="helper"></span><img src="/media/wysiwyg/images/<?php echo $post['filename'] ?>" alt="image news" /></a>
+    </div>
+
+<div class="text_news_post">
+	
+	<div class="title"><h1><?php echo $post->getTitle(); ?></h1></div>
+	<div class="date"><?php $_ct= new Zend_Date($post->getCreatedTime());
+		echo $_ct->toString('dd MMM yyyy'); ?></div>
+
+
+	<div class="contenu"><?php echo $post->getPostContent(); ?></div>
+</div>
+
+</div>
