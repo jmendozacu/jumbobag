@@ -1,2 +1,2 @@
-0.x
-Magento: 1.x
+1.0.0
+Magento: 1.9.3.1
