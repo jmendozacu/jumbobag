@@ -296,6 +296,9 @@
 				<action method="setBlockId"><block_id>shopper_custom_abovecart</block_id></action>
 			</block>
 		</reference>
+        <reference name="checkout.cart.methods.amazonpayments_pay.top">
+            <action method="setEnableOr"><value>0</value></action>
+        </reference>
 	</checkout_cart_index>
 
 	<cms_page translate="label">
