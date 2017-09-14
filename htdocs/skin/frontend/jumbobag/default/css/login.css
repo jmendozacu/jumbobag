@@ -13,3 +13,11 @@
 .customer-account-login .amazonLogin__button {
 	margin-top: 20px;
 }
+
+@media only screen and (max-width: 959px) and (min-width: 768px) {
+	.customer-account-login .col1-layout .col-main {
+		width: auto;
+		margin: 0 5px;
+	}
+}
+
