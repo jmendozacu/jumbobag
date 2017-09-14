@@ -1,3 +1,7 @@
+.customer-account-login .col {
+	min-height: 400px;
+}
+
 .login__forgotPsw {
 	display: block;
 	margin-top: 10px;
