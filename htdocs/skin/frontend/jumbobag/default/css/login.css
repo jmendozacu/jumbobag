@@ -5,3 +5,7 @@
 	font-size: 14px;
 	font-weight: 600;
 }
+
+.customer-account-login .amazonLogin__button {
+	margin-top: 20px;
+}
