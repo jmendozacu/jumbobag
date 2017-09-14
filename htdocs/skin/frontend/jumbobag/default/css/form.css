@@ -1,0 +1,44 @@
+.form {
+	display: block; /* forcé à inline par defaut */
+	font-family: lato;
+}
+.form * {
+	box-sizing: border-box;
+}
+
+.form__group {
+	margin-top: 20px;
+	text-align: left;
+}
+.form__group:first-child {
+	margin-top: 0;
+}
+.form__group label {
+	display: block;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	color: #30409f;
+	font-size: 15px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.form__group input {
+	height: auto;
+	line-height: 30px;
+	padding: 4px 10px;
+	width: 100%;
+	background-color: #e9e8e8;
+	border: none;
+	border-radius: 8px;
+	font-family: inherit;
+	font-size: 15px;
+}
+
+.form__submit {
+	margin: 20px 0;
+}
+
+.form__extra {
+	color: #999999;
+	font-weight: 600;
+}

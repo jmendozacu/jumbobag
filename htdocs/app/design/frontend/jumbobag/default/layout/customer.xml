@@ -91,7 +91,12 @@ Layout for customer login page
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
-            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml" />
+            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml">
+                <block type="amazonpayments/login_button" name="amazon_sign_in" template="creativestyle/amazonpayments/login/button/account_login.phtml">
+                    <action method="setIdSuffix"><value>div</value></action>
+                    <!-- <action method="setMoveBefore"><value>login-form</value></action> -->
+                </block>
+            </block>
         </reference>
     </customer_account_login>
 
