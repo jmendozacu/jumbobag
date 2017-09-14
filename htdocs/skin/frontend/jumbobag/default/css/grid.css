@@ -1,0 +1,15 @@
+.rowContainer {
+	box-sizing: border-box;
+	margin-bottom: 40px;
+}
+.rowContainer .col {
+	box-sizing: border-box;
+	display: inline-block;
+	float: none; /* hérité de l'espace ;) */
+	vertical-align: top;
+}
+
+.rowContainer--col2 .col {
+	width: 46%;
+	margin: 0 2%;
+}

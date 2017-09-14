@@ -34,10 +34,12 @@
 			<action method="addCss"><stylesheet>css/animation.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/settings.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/captions.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/grid.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/well.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/form.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/button.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/login.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/amazonLogin.css</stylesheet></action>
 			<action ifconfig="shoppersettings/design/override_css" method="addItem"><type>skin_css</type><name>css/override.css</name></action>
 
             <action method="addItem"><type>js</type><name>queldorei/html5shiv.js</name><params/><if>lt IE 9</if></action>
@@ -314,4 +316,7 @@
 		</reference>
 	</cms_page>
 
+	<customer_account_login>
+		<remove name="amazonpayments_login"></remove>
+    </customer_account_login>
 </layout>
