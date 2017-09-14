@@ -162,7 +162,7 @@ body.non-responsive{min-width:1200px;}
 .checkout-cart-index{}
 .checkout-cart-index .page-title h1{line-height:42px;}
 .cart .page-title .checkout-types{margin-top:0px;}
-.cart .title-buttons .checkout-types li{margin:0}
+.cart .title-buttons .checkout-types li{margin:0px 12px;}
 .sendfriend-product-send .form-list li.wide textarea{width:100%;}
 .sendfriend-product-send .buttons-set{text-align:left;}
 .sendfriend-product-send .buttons-set button.button{float:none;}

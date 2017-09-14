@@ -36,6 +36,7 @@
 			<action method="addCss"><stylesheet>css/captions.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/grid.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/well.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/headings.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/form.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/button.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/login.css</stylesheet></action>
