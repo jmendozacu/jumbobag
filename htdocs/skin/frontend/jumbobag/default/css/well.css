@@ -26,3 +26,11 @@
 .well__body {
 	text-align: center;
 }
+.well__body p {
+	line-height: 20px;
+	margin: 20px 0;
+	color: #666666;
+	font-family: inherit;
+	font-size: 14px;
+	text-align: left;
+}
