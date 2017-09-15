@@ -72,31 +72,36 @@
 
 /* Tablet */	
 @media only screen and (max-width: 959px) and (min-width: 768px) {
-	/*
-	 * LOGIN
-	 */
-	.customer-account-login .col1-layout .col-main {
+	.customer-account-login .col1-layout .col-main,
+	.customer-account-forgotpassword .col1-layout .col-main {
 		width: auto;
 		margin: 0 5px;
+	}
+
+	.customer-account-forgotpassword .well__header__title {
+		font-size: 28px;
 	}
 }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
 	.customer-account-login .row,
+	.customer-account-forgotpassword .row,
 	.customer-account-create .row {
 		width: auto;
 	}
 	.customer-account-login .col1-layout .col-main,
+	.customer-account-forgotpassword .col1-layout .col-main,
 	.customer-account-create .col1-layout .col-main {
 		width: auto;
 		margin: 0;
 		padding: 0;
 	}
+
+	.customer-account-forgotpassword .well__header__title {
+		font-size: 28px;
+	}
 	
-	/*
-	 * REGISTER
-	 */
 	.customer-account-create .well {
 		border-radius: 0;
 	}
