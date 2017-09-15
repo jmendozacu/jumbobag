@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+.form__row {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
 .form__group {
 	margin-top: 20px;
 	text-align: left;
@@ -13,6 +18,11 @@
 .form__group:first-child {
 	margin-top: 0;
 }
+.form__row .form__group {
+	display: inline-block;
+	margin: 0 5px;
+}
+
 .form__group label {
 	display: block;
 	margin-bottom: 5px;
@@ -41,4 +51,12 @@
 .form__extra {
 	color: #999999;
 	font-weight: 600;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.form__row .form__group {
+		display: block;
+		margin: 0;
+	}
 }

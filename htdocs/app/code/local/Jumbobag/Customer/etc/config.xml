@@ -1,0 +1,15 @@
+<config>
+  <modules>
+    <Jumbobag_Customer>
+      <version>1.0.0</version>
+    </Jumbobag_Customer>
+  </modules>
+
+  <global>
+    <blocks>
+      <jumbobag_customer>
+        <class>Jumbobag_Customer_Block</class>
+      </jumbobag_customer>
+    </blocks>
+  </global>
+</config>

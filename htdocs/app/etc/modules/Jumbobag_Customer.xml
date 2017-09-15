@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <Jumbobag_Customer>
+        <active>true</active>
+        <codePool>local</codePool>
+     </Jumbobag_Customer>
+   </modules>
+</config>
