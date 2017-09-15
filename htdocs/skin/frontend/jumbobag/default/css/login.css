@@ -14,6 +14,7 @@
 	margin-top: 20px;
 }
 
+/* Tablet */	
 @media only screen and (max-width: 959px) and (min-width: 768px) {
 	.customer-account-login .col1-layout .col-main {
 		width: auto;
@@ -21,3 +22,14 @@
 	}
 }
 
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.customer-account-login .row {
+		width: auto;
+	}
+	.customer-account-login .col1-layout .col-main {
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+}
