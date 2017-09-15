@@ -1,6 +1,9 @@
-.heading {
+.blueCapitalized {
 	color: #30409f;
+	text-transform: uppercase;
+}
+
+.heading {
 	font-size: 40px;
 	font-weight: 300;
-	text-transform: uppercase;
 }

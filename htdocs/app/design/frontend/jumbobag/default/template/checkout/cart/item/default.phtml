@@ -29,11 +29,12 @@ $_item = $this->getItem();
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 $helper = $this->helper('shoppersettings/image');
-$imgX = 200;
+$imgX = 50;
 $imgY = $helper->calculateHeight($imgX);
 ?>
-<tr>
-    <td class="td-image"><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize($imgX,$imgY); ?>" data-srcX2="<?php echo $this->getProductThumbnail()->resize($imgX*2,$imgY*2); ?>" width="<?php echo $imgX;?>" height="<?php echo $imgY;?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
+<tr class="blueTable__row">
+    <td class="td-image"><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize($imgX,$imgY); ?>" data-srcX2="<?php echo $this->getProductThumbnail()->resize($imgX*2,$imgY*2); ?>" width="<?php echo $imgX;?>" height="<?php echo $imgY;?>" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?>
+    </td>
     <td class="td-name">
         <h2 class="product-name">
         <?php if ($this->hasProductUrl()):?>
@@ -43,7 +44,7 @@ $imgY = $helper->calculateHeight($imgX);
         <?php endif; ?>
         </h2>
         <?php if ($_options = $this->getOptionList()):?>
-        <dl class="item-options clearfix">
+        <dl class="item-options">
             <?php foreach ($_options as $_option) : ?>
             <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
             <dt><?php echo $this->htmlEscape($_option['label']) ?></dt>
@@ -69,7 +70,7 @@ $imgY = $helper->calculateHeight($imgX);
             <?php echo $addtInfoBlock->setItem($_item)->toHtml() ?>
         <?php endif;?>
     </td>
-    <td class="a-center td-edit">
+    <td class="a-center td-edit blueCapitalized">
         <?php if ($isVisibleProduct): ?>
         <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
         <?php endif ?>

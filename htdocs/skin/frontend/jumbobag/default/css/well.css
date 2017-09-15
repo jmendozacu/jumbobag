@@ -2,11 +2,28 @@
 	margin: auto;
 	margin-bottom: 10px;
 	padding: 10px 30px;
-	width: 50%;
 	border-radius: 10px;
 	background-color: #f6f6f6;
 	font-family: lato;
 }
+
+.well--cart-block { /* Force and reset some style for cart blocks */
+    border: none !important;
+    background-color: #f6f6f6 !important;
+    margin: auto !important;
+	margin-bottom: 10px !important;
+	padding: 10px 30px !important;
+	border-radius: 10px !important;
+}
+
+.well--cart-block.well--gray {
+    background-color: #e9e8e8 !important;
+}
+
+.well--half {
+	width: 50%;
+}
+
 .well--gray {
 	background-color: #e9e8e8;
 }
