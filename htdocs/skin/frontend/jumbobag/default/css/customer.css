@@ -83,15 +83,39 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
-	/*
-	 * LOGIN
-	 */
-	.customer-account-login .row {
+	.customer-account-login .row,
+	.customer-account-create .row {
 		width: auto;
 	}
-	.customer-account-login .col1-layout .col-main {
+	.customer-account-login .col1-layout .col-main,
+	.customer-account-create .col1-layout .col-main {
 		width: auto;
 		margin: 0;
 		padding: 0;
+	}
+	
+	/*
+	 * REGISTER
+	 */
+	.customer-account-create .well {
+		border-radius: 0;
+	}
+	.customer-account-create .well__header__title {
+		font-size: 36px;
+	}
+	.customerRegister__well--amazon {
+		margin-bottom: 0;
+	}
+	.customer-account-create .form__group {
+		float: none;
+		width: 100%;
+	}
+	.customer-account-create .form__group--firstname,
+	.customer-account-create .form__group--lastname {
+		display: inline-block;
+		width: 49%;
+	}
+	.customer-account-create .form__group--firstname {
+		margin-right: 2%;
 	}
 }

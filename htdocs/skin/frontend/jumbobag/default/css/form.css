@@ -52,3 +52,11 @@
 	color: #999999;
 	font-weight: 600;
 }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.form__row .form__group {
+		display: block;
+		margin: 0;
+	}
+}
