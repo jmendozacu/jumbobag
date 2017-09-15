@@ -1,0 +1,97 @@
+/*
+ * LOGIN
+ */
+.customer-account-login .col {
+	min-height: 400px;
+}
+.login__forgotPsw {
+	display: block;
+	margin-top: 10px;
+	color: #30409f;
+	font-size: 14px;
+	font-weight: 600;
+}
+.customer-account-login .amazonLogin__button {
+	margin-top: 20px;
+}
+
+/*
+ * REGISTER
+ */
+.customer-account-create .col {
+	width: 100%;
+	padding: 0;
+}
+.customer-account-create .col > .well__header {
+	padding: 10px 30px 0 30px;
+}
+.customer-account-create .col .form {
+	padding: 0 30px;
+}
+.customerRegister__well--amazon {
+	width: 100%;
+	margin-top: 5px;
+	padding-top: 40px;
+}
+.customer-account-create .form__group {
+	margin: 0;
+}
+.customer-account-create .form__group label,
+.customer-account-create .form__group label em {
+	color: #30409f!important;
+}
+.customer-account-create .form__group--firstname,
+.customer-account-create .form__group--lastname {
+	width: 24%;
+}
+.customer-account-create .form__group--firstname {
+	margin-right: 2%;
+}
+.customer-account-create .form__group--email {
+	width: 50%;
+}
+.customer-account-create .form__group--psw,
+.customer-account-create .form__group--pswConfirm {
+	float: right;
+	width: 47%;
+}
+.customer-account-create .form__group--newsletter {
+	margin-top: 10px;
+	text-align: center;
+}
+.customer-account-create .form__group--newsletter input {
+	width: auto;
+	vertical-align: middle;
+}
+.customer-account-create .form__group--newsletter label {
+	display: inline;
+	padding: 0;
+	font-size: 12px;
+	text-transform: none;
+}
+
+/* Tablet */	
+@media only screen and (max-width: 959px) and (min-width: 768px) {
+	/*
+	 * LOGIN
+	 */
+	.customer-account-login .col1-layout .col-main {
+		width: auto;
+		margin: 0 5px;
+	}
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	/*
+	 * LOGIN
+	 */
+	.customer-account-login .row {
+		width: auto;
+	}
+	.customer-account-login .col1-layout .col-main {
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+}

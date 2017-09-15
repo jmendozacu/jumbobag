@@ -1,0 +1,114 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Create account form template
+ *
+ * @var $this Mage_Customer_Block_Form_Register
+ */
+?>
+<div class="rowContainer">
+    <section class="col well">
+        <header class="well__header">
+            <h1 class="well__header__title heading"><?= $this->__('Create an Account') ?></h1>
+        </header>
+
+        <article class="well__body">
+            <?= $this->getChildHtml('form_fields_before')?>
+            <?= $this->getMessagesBlock()->toHtml() ?>
+            <?php /* Extensions placeholder */ ?>
+            <?= $this->getChildHtml('customer.form.register.extra')?>
+
+            <form class="form" action="<?= $this->getPostActionUrl() ?>" method="post" id="form-customer-register">
+                <input type="hidden" name="success_url" value="<?= $this->getSuccessUrl() ?>" />
+                <input type="hidden" name="error_url" value="<?= $this->getErrorUrl() ?>" />
+                <input type="hidden" name="form_key" value="<?= Mage::getSingleton('core/session')->getFormKey() ?>" />
+
+                <div class="form__row">
+                    <?= $this->getChildHtml('customer_register.widget_name')?>
+                    
+                    <div class="form__group form__group--psw">
+                        <label for="password" class="required">
+                            <?= $this->__('Password') ?><em>*</em>
+                        </label>
+                        <input type="password" name="password" id="password" title="<?= Mage::helper('core')->quoteEscape($this->__('Password')) ?>" class="input-text required-entry validate-password" />
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="form__group form__group--email">
+                        <label for="email_address" class="required">
+                            <?= $this->__('Email Address') ?><em>*</em>
+                        </label>
+                        <input type="text" name="email" id="email_address" value="<?= $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?= Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
+                    </div>
+
+                    <div class="form__group form__group--pswConfirm">
+                        <label for="confirmation" class="required">
+                            <?= $this->__('Confirm Password') ?><em>*</em>
+                        </label>
+                        <input type="password" name="confirmation" title="<?= Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>" id="confirmation" class="input-text required-entry validate-cpassword" />
+                    </div>
+                </div>
+
+                <div class="form__submit">
+                    <button type="submit" class="btn" title="<?= Mage::helper('core')->quoteEscape($this->__('Submit')) ?>">
+                        <?= $this->__('Submit') ?>
+                    </button>
+
+                    <?php if ($this->isNewsletterEnabled()): ?>
+                        <div class="form__group form__group--newsletter">
+                            <input type="checkbox" name="is_subscribed" title="<?= Mage::helper('core')->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                            <label for="is_subscribed">
+                                <?= $this->__('Sign Up for Newsletter') ?>
+                            </label>
+                        </div>
+                    <?php endif ?>
+                </div>
+
+                <div class="form__extra">
+                    <?= $this->__('* Required Fields') ?>
+                </div>
+            </form>
+
+            <section class="well well--gray customerRegister__well--amazon">
+                <article class="well__body">
+                    <?= $this->getChildHtml('amazon_sign_in')?>
+                </article>
+            </section>
+        </article>
+    </section>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-customer-register', true);
+    <?php if($this->getShowAddressFields()): ?>
+    new RegionUpdater('country', 'region', 'region_id', <?= $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+    <?php endif; ?>
+//]]>
+</script>

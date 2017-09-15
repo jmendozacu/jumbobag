@@ -4,7 +4,7 @@
 }
 .rowContainer .col {
 	box-sizing: border-box;
-	display: inline-block;
+	display: block;
 	float: none; /* hérité de l'espace ;) */
 	vertical-align: top;
 }
@@ -12,6 +12,7 @@
 .rowContainer--col2 .col {
 	width: 46%;
 	margin: 0 2%;
+	display: inline-block;
 }
 
 @media only screen and (max-width: 767px) {
