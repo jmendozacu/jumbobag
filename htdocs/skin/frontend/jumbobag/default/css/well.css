@@ -30,6 +30,11 @@
 .well * {
 	box-sizing: border-box;
 }
+.well a {
+	color: #30409f;
+    font-size: 14px;
+    font-weight: 600;
+}
 
 .well__header {
 	text-align: center;
@@ -38,6 +43,8 @@
 }
 .well__header__title {
 	line-height: 80px;
+	line-height: 50px;
+    padding: 20px 0;
 }
 
 .well__body {

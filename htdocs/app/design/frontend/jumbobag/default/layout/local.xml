@@ -274,6 +274,19 @@
         </reference>
     </customer_account>
 
+    <customer_account_forgotpasswordsent>
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="customer"><title>Check your inbox</title></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="forgotPasswordSent" template="customer/form/forgotpasswordsent.phtml"/>
+        </reference>
+    </customer_account_forgotpasswordsent>
+
     <catalog_product_compare_index>
         <reference name="head">
             <action method="removeItem"><type>skin_css</type><name>css/responsive.css</name></action>
