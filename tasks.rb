@@ -1,3 +1,4 @@
+Dir.chdir(File.dirname(__FILE__))
 source_root(File.dirname(__FILE__))
 
 SHELL = "/bin/bash"
@@ -62,9 +63,23 @@ task :install do |url|
 	sql_cat_cmd = "zcat tmp/dump.sql.gz" if File.exists?("tmp/dump.sql.gz")
 	fatal("Could not find tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
 
-	info("Copying file")
-	copy_file("docker-compose.yml.dist", "docker-compose.yml")
-	copy_file("docker/entrypoint.sh.dist", "docker/entrypoint.sh")
+	unless File.exists?("docker-compose.yml")
+		info("copying docker-compose.yml")
+		copy_file("docker-compose.yml.dist", "docker-compose.yml")
+		if yes?("Do you want to edit docker-compose.yml? [y/N]")
+			system(%{"${EDITOR:-vim}" docker-compose.yml })
+		end
+	end
+
+	unless File.exists?("docker/entrypoint.sh")
+		info("copying docker-compose.yml")
+		copy_file("docker/entrypoint.sh.dist", "docker/entrypoint.sh")
+		if yes?("Do you want to edit docker/entrypoint.sh? [y/N]")
+			system(%{"${EDITOR:-vim}" docker/entrypoint.sh })
+		end
+	end
+
+	info("Chmoding docker/entrypoint.sh")
 	chmod("docker/entrypoint.sh", 0755)
 
 	# info("Invoking composer install")
