@@ -15,6 +15,15 @@
            </args>
        </customer>
      </routers>
+     <translate>
+        <modules>
+          <Jumbobag_Customer>
+            <files>
+              <default>Jumbobag_Customer.csv</default>
+            </files>
+          </Jumbobag_Customer>
+        </modules>
+     </translate>
   </frontend>
 
   <global>

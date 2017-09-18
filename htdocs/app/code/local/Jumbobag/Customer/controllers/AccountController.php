@@ -66,6 +66,11 @@ class Jumbobag_Customer_AccountController extends Mage_Customer_AccountControlle
 
     public function forgotpasswordsentAction()
     {
+        if (!$this->_getSession()->getForgotPasswordEmail()) {
+            $this->_redirect('*/*/forgotpassword');
+            return;
+        }
+
         $this->loadLayout();
 
         $this->getLayout()->getBlock('forgotPasswordSent')->setEmailValue(
