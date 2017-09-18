@@ -101,7 +101,7 @@ h1, h2, h3{color:#000;color:rgba(0,0,0,0.75);letter-spacing:-0.1em;font-weight:4
 .buttons-set .back-link{float:right;}
 .fieldset{border:none;background:transparent;padding:15px;}
 .fieldset .legend{margin:-40px 0 0 -10px;padding:8px;background:transparent;border:none;}
-.form-list label{float:left;color:#000;color:rgba(0,0,0,0.75);font-weight:300;position:relative;z-index:0;margin-top:0px;padding:0 0 3px 2px;}
+.form-list label{float:left;color:#000;font-weight:300;position:relative;z-index:0;margin-top:0px;padding:0 0 3px 2px;}
 .input-box{border:0;padding:0;}
 input.input-text, textarea, input.qty{padding:4px;border:1px solid #e0e0e0;height:19px;-webkit-box-shadow:inset 0px 0px 5px 0px #eaeaea;-moz-box-shadow:inset 0px 0px 5px 0px #eaeaea;box-shadow:inset 0px 0px 5px 0px #eaeaea;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
 select{padding:1px;height:29px;line-height:29px;border:1px solid #e0e0e0;-webkit-box-shadow:inset 0px 0px 5px 0px #eaeaea;-moz-box-shadow:inset 0px 0px 5px 0px #eaeaea;box-shadow:inset 0px 0px 5px 0px #eaeaea;}
@@ -811,7 +811,7 @@ div.alert button:hover{cursor:pointer;background-position:0 -9px;}
 .opc .active .step-title:hover{background:#f7f7f7;}
 .opc h3{margin:0 0 15px;font-size:18px;color:#97d2c9;font-family:"Myriad Pro", serif;font-weight:300;}
 .opc h4{font-size:12px;font-weight:300;color:#97d2c9;}
-.opc .buttons-set{margin:0;}
+.opc .buttons-set{margin:0; margin-bottom: 20px;}
 .opc .form-list{margin:10px 0 0;}
 .opc .form-list li{margin:0;}
 .opc .form-list .input-box{margin:0 0 15px;}
@@ -829,14 +829,13 @@ div.alert button:hover{cursor:pointer;background-position:0 -9px;}
 #checkout-step-login .block .block-title{margin:0;border:none;}
 #checkout-step-login .block .block-content li{margin:0;padding:0;line-height:20px;background:none}
 #checkout-step-login .block-checkout-register h4{margin-top:20px;}
-#checkout-step-login .block-checkout-register ul.ul{}
-#checkout-step-login .block-checkout-register ul.ul li{line-height:24px;font-weight:300;padding:0 0 0 24px;position:relative;}
-#checkout-step-login .block-checkout-register ul.ul li:before{content:'\00b7';font-size:70px;position:absolute;top:2px;left:0px;font-family:"Times New Roman", sans-serif;font-style:normal;color:#97d2c9;}
+#checkout-step-login .block-checkout-register ul.ul{ margin-top: -5px; }
+#checkout-step-login .block-checkout-register ul.ul li{line-height:24px;font-weight:600;padding:0 0 0 24px;position:relative;}
 #checkout-step-login .block-checkout-login .buttons-set button.button{float:left;margin:0 13px 0 0;}
 #checkout-step-login .block-checkout-login .buttons-set .required{float:left;width:200px;}
 #checkout-step-login .block-checkout-login .buttons-set a{float:left;}
 #checkout-step-login input.input-text{width:318px;}
-#checkout-step-login label{color:#808080;margin:0;}
+#checkout-step-login label{margin:0; vertical-align: top;}
 #checkout-review-table{}
 #checkout-review-table h3{margin:0;font-size:12px;font-family:Arial,serif;color:#000;color:rgba(0,0,0,0.75);}
 #checkout-step-review{}

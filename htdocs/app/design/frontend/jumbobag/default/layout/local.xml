@@ -342,4 +342,10 @@
     <customer_account_create>
 		<remove name="amazonpayments_login"></remove>
     </customer_account_create>
+
+    <checkout_onepage_index>
+		<remove name="onepage.amazonpayments.button.login"></remove>
+		<remove name="checkout.progress.wrapper"></remove>
+    </checkout_onepage_index>
+
 </layout>

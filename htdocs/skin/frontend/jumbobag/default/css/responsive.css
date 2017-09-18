@@ -112,8 +112,6 @@
 .one_column_6 .hover .button-container button.button span span em{margin:0 5px 0 0;}
 .top-opc{width:960px;}
 .top-opc li{float:left;width:150px;margin:0 10px 30px 0;}
-.opc{width:630px;}
-#checkout-step-login .block-checkout-register, #checkout-step-login .block-checkout-login{width:258px}
 #checkout-step-login input.input-text{width:248px;}
 .form-list li.wide .input-box{width:100%}
 .form-list li.wide input.input-text{width:98%}
@@ -308,9 +306,7 @@ footer address{margin:15px 0 0;}
 .one_column_6 .product-name{font-size:14px}
 .one_column_6 .hover .button-container button.button span span em{margin:0 5px 0 0;}
 .top-opc{width:600px;margin:0 0 0 50px}
-.opc{width:600px;}
 .opc .td-label{display:block;float:left;}
-#checkout-step-login .block-checkout-register, #checkout-step-login .block-checkout-login{width:378px;margin:20px auto 0 !important;float:none;}
 .buttons-set .back-link{margin:10px 0;}
 #my-orders-table span.title{display:inline-block}
 #my-orders-table tr{border-bottom:1px solid #e9e9e9}
@@ -500,12 +496,9 @@ header .grid_12{margin-bottom:5px;}
 .one_column_6 .product-name{font-size:16px}
 .top-opc{width:300px;margin:0}
 .top-opc li{margin:0 0 30px 0}
-.opc{width:300px;}
 .opc .form-list select{width:126px}
 .opc .td-label{display:block;float:left;}
 #checkout-review-submit p{margin:0 20px 0 0;}
-#checkout-step-login .block-checkout-register, #checkout-step-login .block-checkout-login{width:228px;margin:20px auto 0 !important;float:none;}
-#checkout-step-login input.input-text{width:218px;}
 #review-buttons-container{text-align:center}
 #review-buttons-container button{float:none;}
 #my-orders-table span.title{display:inline-block}

@@ -7,7 +7,7 @@
 	font-family: lato;
 }
 
-.well--cart-block { /* Force and reset some style for cart blocks */
+.well--block { /* Force and reset some style for blocks */
     border: none !important;
     background-color: #f6f6f6 !important;
     margin: auto !important;
@@ -16,7 +16,7 @@
 	border-radius: 10px !important;
 }
 
-.well--cart-block.well--gray {
+.well--block.well--gray {
     background-color: #e9e8e8 !important;
 }
 
