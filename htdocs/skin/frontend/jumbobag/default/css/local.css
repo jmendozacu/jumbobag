@@ -58,8 +58,8 @@ button.button span{background:#97d2c9 url('../images/btn_overlay.png') 0 0 repea
 button.button span span{line-height:42px;padding:0 16px;font-size:14px;font-weight:300;color:#fff;text-align:center;white-space:nowrap;text-transform:lowercase;}
 button.button:hover span{background-color:#393431;}
 button.button:hover span span{}
-button.invert span, button.btn-continue span, .cart-shipping button span, .cart-coupon button span{background-color:#393431;}
-button.invert:hover span, button.btn-continue:hover span, .cart-shipping button:hover span, .cart-coupon button:hover span{background-color:#97d2c9;}
+button.invert span, button.btn-continue span {background-color:#393431;}
+button.invert:hover span, button.btn-continue:hover span{background-color:#97d2c9;}
 button.btn-proceed-checkout span span{padding-right:60px;background:url('../images/arrow_button.png') 100% 50% no-repeat;}
 button.btn-proceed-checkout:hover span span{background-position:98% 50%;}
 button.button_white{height:42px;-webkit-box-shadow:1px 1px 5px 0px rgba(0, 0, 0, 0.15);-moz-box-shadow:1px 1px 5px 0px rgba(0, 0, 0, 0.15);box-shadow:1px 1px 5px 0px rgba(0, 0, 0, 0.15);}
@@ -715,11 +715,6 @@ div.alert button:hover{cursor:pointer;background-position:0 -9px;}
 .cart .cart-collaterals .cart-total{padding:0;}
 .cart .cart-collaterals .cart-total .checkout-types{float:none;position:relative;width:100%;overflow:hidden;margin:0;padding:30px 0 25px;background:#fbfbfb;text-align:center;-webkit-box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);-moz-box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);}
 .cart .cart-collaterals .cart-total .checkout-types button.button{margin:0 0 10px}
-
-#shopping-cart-totals-table{margin:20px auto 17px;border-radius:2px}
-#shopping-cart-totals-table strong{font-family:"Myriad Pro", serif;font-size:24px;font-weight:400;text-transform:uppercase;letter-spacing:-1.2px;color:#000;color:rgba(0,0,0,0.75);}
-#shopping-cart-totals-table .a-right{text-align:center !important;}
-#shopping-cart-totals-table td{padding:0 0 5px;width:60%;}
 
 .data-table th, .data-table td, .data-table td a{color:#000;}
 .data-table td a.product-image, .data-table td a.product-image img{display:block;margin:0 auto;}

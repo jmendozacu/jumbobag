@@ -295,7 +295,7 @@ footer a:hover, footer ul.links li a:hover {color:<?php echo $config['appearance
 #slide-timeline {background-color:<?php echo $config['appearance']['timeline']; ?>}
 <?php endif; ?>
 
-button.invert span, button.btn-continue span, .cart-shipping button span, .cart-coupon button span {background-color:#393431;}
+button.invert span, button.btn-continue span {background-color:#393431;}
 #queldoreiNav > li > a:hover, #queldoreiNav > li.active > a, #queldoreiNav > li.over > a,
 #nav > li > a:hover, #nav > li.active > a, #nav > li.over > a,
 #mobile-nav > li > a:hover, #mobile-nav > li.active > a, #mobile-nav > li.over > a {color:#373230}

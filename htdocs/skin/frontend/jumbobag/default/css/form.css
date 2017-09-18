@@ -32,7 +32,16 @@
 	font-weight: 600;
 	text-transform: uppercase;
 }
-.form__group input {
+
+.form__group--noUppercase label {
+	text-transform: inherit;
+}
+
+.form__group--smaller label {
+	font-size: 13px;
+}
+
+.form__group input, .form__group select {
 	height: auto;
 	line-height: 30px;
 	padding: 4px 10px;
@@ -42,6 +51,30 @@
 	border-radius: 8px;
 	font-family: inherit;
 	font-size: 15px;
+}
+
+.form__group--smaller input,
+.form__group--smaller select {
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.form__group select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.form__group select::-ms-expand {
+    display: none;
+}
+
+.form__group label.required em {
+    float: none;
+    font-style: normal;
+    color: inherit;
+    position: static;
 }
 
 .form__submit {

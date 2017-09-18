@@ -291,8 +291,6 @@ p.required{font-size:10px;text-align:right;color:#f00;}
 .data-table th.label{font-weight:bold;background-color:#f6f6f6;}
 .data-table td.value{}
 tr.summary-total{cursor:pointer;}
-tr.summary-total td{}
-tr.summary-total .summary-collapse{float:right;text-align:right;padding-left:20px;background:url(../images/bkg_collapse.gif) 0 4px no-repeat;cursor:pointer;}
 tr.show-details .summary-collapse{background-position:0 -53px;}
 tr.show-details td{}
 tr.summary-details td{font-size:11px;background-color:#dae1e4;color:#626465;}

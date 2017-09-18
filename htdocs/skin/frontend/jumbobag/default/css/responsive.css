@@ -230,7 +230,6 @@ footer address{margin:15px 0 0;}
 .flexslider .slides .content strong{font-size:48px;line-height:40px;}
 .flex-direction-nav{width:768px;display:none !important;}
 .site-block, .mousetrap, #cloud-big-zoom{display:none;}
-#shopping-cart-totals-table strong{font-size:18px;padding:0 10px 0 0;}
 .data-table table, .data-table thead, .data-table tbody, tablr.data-table th, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
 .data-table tfoot td{text-align:right !important;}
 .data-table th{display:none;}
@@ -478,7 +477,6 @@ header .grid_12{margin-bottom:5px;}
 .cart .page-title{height:auto;}
 .cart .page-title .checkout-types{margin:60px 15px 0;float:none;}
 .cart .title-buttons .checkout-types li{float:none;margin:0;text-align:center;}
-#shopping-cart-totals-table strong{font-size:20px;padding:0 10px 0 0;}
 .data-table table, .data-table thead, .data-table tbody, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
 .data-table th{display:none;}
 .data-table td{padding:10px;}

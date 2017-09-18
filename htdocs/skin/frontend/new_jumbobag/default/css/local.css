@@ -4648,7 +4648,7 @@ div.alert button:hover {
   margin: 0 0 10px;
 }
 .cart .cart-collaterals .input-box input {
-  width: 96%;
+  width: 100%;
 }
 .cart .cart-collaterals .input-box select {
   width: 100%;
@@ -4683,22 +4683,6 @@ div.alert button:hover {
 }
 #shopping-cart-totals-table {
   margin: 20px auto 17px;
-}
-#shopping-cart-totals-table strong {
-  font-family: "Myriad Pro", serif;
-  font-size: 24px;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: -1.2px;
-  color: #000;
-  color: rgba(0, 0, 0, 0.75);
-}
-#shopping-cart-totals-table .a-right {
-  text-align: center !important;
-}
-#shopping-cart-totals-table td {
-  padding: 0 0 5px;
-  width: 60%;
 }
 .data-table {
   border-collapse: separate;
