@@ -230,20 +230,6 @@ footer address{margin:15px 0 0;}
 .flexslider .slides .content strong{font-size:48px;line-height:40px;}
 .flex-direction-nav{width:768px;display:none !important;}
 .site-block, .mousetrap, #cloud-big-zoom{display:none;}
-.data-table table, .data-table thead, .data-table tbody, tablr.data-table th, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
-.data-table tfoot td{text-align:right !important;}
-.data-table th{display:none;}
-.data-table td{padding:10px;}
-.data-table td.td-name h2{font-size:20px;font-weight:300;}
-.data-table td.td-image a{text-align:center;}
-.data-table td.td-image img{width:200px;}
-.data-table td.td-edit, .data-table .btn-remove{display:none;}
-.data-table .td-actions .btn-remove, .data-table .td-actions .btn-edit{display:inline-block;}
-.data-table td.td-price{padding:10px;background:#fafafa;}
-.data-table td.td-qty{padding:0 10px;background:#fafafa;}
-.data-table td.td-delete{background:#fafafa;text-align:center !important;}
-.data-table .td-title{display:inline-block;width:100px;padding:0 10px 0 0;font-weight:bold;}
-.data-table .td-actions{display:inline;padding:0 5px;}
 .data-table th.td-wishlist, .data-table td.td-wishlist{display:none;}
 #product-attribute-specs-table th{display:block;}
 #product-review-table{display:table;}
@@ -474,20 +460,8 @@ header .grid_12{margin-bottom:5px;}
 .home-main .jcarousel-skin-tango .jcarousel-clip-horizontal{width:300px;}
 .product-slider-container{width:300px}
 .product-slider-container h2{width:200px;}
-.cart .page-title{height:auto;}
-.cart .page-title .checkout-types{margin:60px 15px 0;float:none;}
-.cart .title-buttons .checkout-types li{float:none;margin:0;text-align:center;}
-.data-table table, .data-table thead, .data-table tbody, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
-.data-table th{display:none;}
-.data-table td{padding:10px;}
-.data-table td.td-name h2{font-size:20px;font-weight:300;}
-.data-table td.td-image a{text-align:center;}
-.data-table td.td-image img{width:200px;}
-.data-table td.td-edit, .data-table .btn-remove{display:none;}
-.data-table .td-actions .btn-remove, .data-table .td-actions .btn-edit{display:inline-block;}
-.data-table td.td-price{padding:10px;background:#fafafa;}
-.data-table td.td-qty{padding:0 10px;background:#fafafa;}
-.data-table td.td-delete{background:#fafafa;text-align:center !important;}
+.cart .page-title{ text-align: left !important; margin-top: 0 !important; padding-bottom: 0;}
+.cart .page-title .checkout-types{margin:25px 15px 0;float:none; text-align: center;}
 .data-table .td-title{display:inline-block;width:100px;padding:0 10px 0 0;font-weight:bold;}
 .data-table .td-actions{display:inline;padding:0 5px;}
 .data-table .button, .data-table .btn-continue{float:none;display:block;margin:0 auto 10px}

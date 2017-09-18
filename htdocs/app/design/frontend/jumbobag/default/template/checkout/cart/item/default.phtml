@@ -43,6 +43,16 @@ $imgY = $helper->calculateHeight($imgX);
         <?php if ($addtInfoBlock = $this->getProductAdditionalInformationBlock()):?>
             <?php echo $addtInfoBlock->setItem($_item)->toHtml() ?>
         <?php endif;?>
+        <div class="item-actions blueCapitalized">
+            <span class="item-action">
+                <?php if ($isVisibleProduct): ?>
+                <a href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
+                <?php endif ?>
+            </span>
+            <span class="item-action">
+                <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>"><?php echo $this->__('Remove') ?></a>
+            </span>
+        </div>
     </td>
     <td class="a-center td-edit blueCapitalized">
         <?php if ($isVisibleProduct): ?>

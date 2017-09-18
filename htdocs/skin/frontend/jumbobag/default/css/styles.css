@@ -633,7 +633,6 @@ tr.summary-details-excluded{font-style:italic;}
 .rss-table .link-rss{display:block;line-height:1.35;background-position:0 2px;}
 .cart{}
 .cart .checkout-types{float:right;text-align:right;}
-.cart .title-buttons .checkout-types li{float:left;margin:0 0 5px 5px;}
 .cart .checkout-types .paypal-or{margin:0 8px;line-height:2.3;}
 .cart .totals .checkout-types .paypal-or{clear:both;display:block;padding:3px 55px 8px 0;line-height:1.0;font-size:11px;}
 .cart-table .item-msg{font-size:10px;}

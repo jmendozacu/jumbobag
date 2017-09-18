@@ -162,7 +162,7 @@ body.non-responsive{min-width:1200px;}
 .checkout-cart-index{}
 .checkout-cart-index .page-title h1{line-height:42px;}
 .cart .page-title .checkout-types{margin-top:0px;}
-.cart .title-buttons .checkout-types li{margin:0px 12px;}
+.cart .title-buttons .checkout-types li{margin:12px;}
 .sendfriend-product-send .form-list li.wide textarea{width:100%;}
 .sendfriend-product-send .buttons-set{text-align:left;}
 .sendfriend-product-send .buttons-set button.button{float:none;}
@@ -716,9 +716,7 @@ div.alert button:hover{cursor:pointer;background-position:0 -9px;}
 .cart .cart-collaterals .cart-total .checkout-types{float:none;position:relative;width:100%;overflow:hidden;margin:0;padding:30px 0 25px;background:#fbfbfb;text-align:center;-webkit-box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);-moz-box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);box-shadow:inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15);}
 .cart .cart-collaterals .cart-total .checkout-types button.button{margin:0 0 10px}
 
-.data-table th, .data-table td, .data-table td a{color:#000;}
 .data-table td a.product-image, .data-table td a.product-image img{display:block;margin:0 auto;}
-.data-table td a:hover{color:#000;text-decoration:none;}
 .data-table .product-name{font-weight:700;}
 .data-table .td-title{display:none;}
 .data-table .td-actions{display:none;}

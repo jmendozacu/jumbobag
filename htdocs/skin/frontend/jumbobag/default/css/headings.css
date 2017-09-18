@@ -1,4 +1,5 @@
-.blueCapitalized {
+.blueCapitalized,
+.blueCapitalized a {
 	color: #30409f;
 	text-transform: uppercase;
 }
