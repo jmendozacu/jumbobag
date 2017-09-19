@@ -1,12 +1,14 @@
-.checkout-cart-index .main-container  {
-	background: #fff;
+.checkout-cart-index .main-container,
+.checkout-onepage-index .main-container #checkout-step-review {
+	background: #fff !important;
 }
 
 .checkout-cart-index .td-delete {
 	padding: 20px;
 }
 
-.checkout-cart-index .td-name {
+.checkout-cart-index .td-name,
+#opc-review .td-name {
 	text-align: left;
 }
 
@@ -14,12 +16,14 @@
 	color: #30409f;
 }
 
-.checkout-cart-index .td-image img {
+.checkout-cart-index .td-image img,
+#opc-review .td-image img {
 	width:50px;
 	height:auto;
 }
 
-.checkout-cart-index tfoot tr {
+.checkout-cart-index tfoot tr,
+#opc-review tfoot tr {
 	background: transparent;
 }
 
@@ -162,6 +166,99 @@
 	width: 300px;
 }
 
+.checkout-onepage-index #checkout-step-shipping .fields:first-child, 
+.checkout-onepage-index #checkout-step-billing .fields:first-child {
+	margin-top: -15px;
+}
+
+.checkout-onepage-index #checkout-step-shipping .form__group:first-child,
+.checkout-onepage-index #checkout-step-billing .form__group:first-child {
+    margin-top: 20px;
+}
+
+.checkout-onepage-index #checkout-step-shipping select,
+.checkout-onepage-index #checkout-step-billing select {
+	width: 90%;
+	height: 38px;
+}
+
+.checkout-onepage-index #checkout-step-shipping .control label,
+.checkout-onepage-index #checkout-step-billing .control label {
+	vertical-align: top;
+}
+
+.checkout-onepage-index #checkout-step-shipping #shipping-new-address-form,
+.checkout-onepage-index #checkout-step-billing #billing-new-address-form {
+	padding-bottom: 15px;
+}
+
+.checkout-onepage-index #checkout-step-shipping .form__group label,
+.checkout-onepage-index #checkout-step-billing .form__group label {
+	text-transform: none;
+}
+
+.checkout-onepage-index #checkout-step-shipping .form__group--lastname {
+	margin-bottom: 15px;
+}
+
+.checkout-onepage-index #checkout-shipping-method-load {
+	width: 60%;
+	margin: auto;
+}
+
+.checkout-onepage-index #shipping-method-buttons-container {
+	margin-top: 30px;
+}
+
+.checkout-onepage-index #shipping-method-buttons-container .back-link {
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+
+.checkout-onepage-index .buttons-set .back-link {
+	float: none;
+}
+
+.checkout-onepage-index #opc-payment {
+	width: 460px;
+}
+
+.checkout-onepage-index #opc-review .td-label {
+  display: none;
+}
+
+.checkout-onepage-index #agreements_and_totals {
+	border-collapse: separate;
+	border-spacing: 20px;
+	border-left: 0px;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-top: -10px;
+}
+
+
+.checkout-onepage-index #agreements_and_totals .agreement-content {
+	padding: 15px;
+	background-color: #f6f6f6;
+}
+
+.checkout-onepage-index #agreements_and_totals #totals > table {
+	background-color: #f6f6f6;
+	border: 15px solid transparent;
+	margin-top: 10px;
+}
+
+.checkout-onepage-index #agreements_and_totals .agree  {
+  margin-top: 5px
+}
+
+.checkout-onepage-index #agreements_and_totals .agree label {
+  vertical-align: top;
+  color: #30409f;
+  font-weight: 600;
+  margin-left: 2px;
+} 
 
 @media only screen and (min-width: 1200px) {
 	.checkout-cart-index .cart-collaterals > div:nth-of-type(2) {
@@ -286,12 +383,38 @@
 	.checkout-onepage-index .top-opc li {
 		width: 33%;
 	}
+
+	.checkout-onepage-index #checkout-step-billing 
+	.form-list .field,
+	.checkout-onepage-index #checkout-step-shipping 
+	.form-list .field {
+		width: 100%;
+	}
+
+	.checkout-onepage-index #checkout-step-billing 
+	.form-list .field input,
+	.checkout-onepage-index #checkout-step-billing 
+	.form-list .field select,
+	.checkout-onepage-index #checkout-step-billing 
+	.form-list li.wide input.input-text,
+	.checkout-onepage-index #checkout-step-shipping 
+	.form-list .field input,
+	.checkout-onepage-index #checkout-step-shipping 
+	.form-list .field select,
+	.checkout-onepage-index #checkout-step-shipping 
+	.form-list li.wide input.input-text {
+		width: 100%;
+	}
 }
 
 
 @media only screen and (max-width: 459px) {
 	.checkout-onepage-index .top-opc li {
 		width: 50%;
+	}
+
+	.checkout-onepage-index #opc-payment {
+		width: 100%;
 	}
 }
 

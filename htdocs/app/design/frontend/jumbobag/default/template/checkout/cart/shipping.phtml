@@ -51,7 +51,7 @@
 
         <?php if (($_shippingRateGroups = $this->getEstimateRates())): ?>
         <form id="co-shipping-method-form" action="<?php echo $this->getUpdateFormActionUrl() ?>">
-            <dl class="sp-methods">
+a            <dl class="sp-methods">
                 <?php foreach ($_shippingRateGroups as $code => $_rates): ?>
                     <dt><?php echo $this->escapeHtml($this->getCarrierName($code)) ?></dt>
                     <dd>

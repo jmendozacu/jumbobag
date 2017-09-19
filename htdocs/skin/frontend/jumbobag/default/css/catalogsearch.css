@@ -28,6 +28,30 @@
 	display: none;
 }
 
+.catalogsearch-result-index .price-box .price{
+	color:#1d4b99;
+	font-weight:400;
+	font-size:16px;
+}
+.catalogsearch-result-index .price-box .old-price { 
+	color: red; 
+	font-size: 1em; 
+	text-decoration: line-through; 
+	font-weight: bolder;
+}
+
+.catalogsearch-result-index .price-box .special-price .price-label, 
+.catalogsearch-result-index .price-box .old-price .price-label { 
+	display: none; 
+}
+
+.catalogsearch-result-index .price-box .old-price .price { 
+	color:#1d4b99; 
+	text-decoration: none; 
+	font-size: 1em;
+}
+
+
 .catalogsearch-result-index .product-name {
 	margin-top: 0;
 	margin-left: 0;

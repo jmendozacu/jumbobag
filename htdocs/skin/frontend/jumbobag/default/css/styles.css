@@ -2205,7 +2205,7 @@ h2.p2 span strong {
 	footer .liens-footer .footer-bank-mobile {    display: block !important;    float: none;    margin: 0 auto !important;}
 	.footer-bank-mobile.col-sm-4 > ul {    margin: 25px 0 0;    text-align: center;}
 	.social-links.col-sm-3 .bank {    display: none;}
-	footer .liens-footer .social {    text-align: center;    position: static;    margin-top: -143px;}
+	footer .liens-footer .social {    text-align: center;    position: static;    margin-top: -120px; padding-right: 15px;}
 	.block-subscribe .input-box {   width: 70%!important;   margin: 0 auto!important;   float: none;   display: table;}
 
 	footer .liens-footer .payments img:not(:last-child) {   margin-right: 12px;}

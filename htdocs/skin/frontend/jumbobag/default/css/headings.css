@@ -8,3 +8,8 @@
 	font-size: 40px;
 	font-weight: 300;
 }
+
+.heading--smaller {
+	font-size: 32px !important;
+	padding-bottom: 15px;
+}
