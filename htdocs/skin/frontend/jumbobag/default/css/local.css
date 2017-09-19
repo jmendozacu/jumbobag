@@ -442,8 +442,10 @@ a.product-image{display:block;position:relative;}
 .price-box{}
 .price-box a{white-space:nowrap;}
 .price-box a:hover{text-decoration:none;}
-.price-box .price{color:#97d2c9;font-weight:400;font-size:16px;}
-.price-box .old-price .price{color:#8e8e8e;font-weight:400;font-size:11px;}
+.price-box .price{color:#1d4b99;font-weight:400;font-size:16px;}
+.price-box .old-price { color: red; font-size: 1em; text-decoration: line-through; font-weight: bolder; }
+.price-box .special-price .price-label, .price-box .old-price .price-label { display: none; }
+.price-box .old-price .price { color:#1d4b99; text-decoration: none; font-size: 1em;}
 .availability{}
 .in-stock{color:green}
 .out-of-stock{color:red}
