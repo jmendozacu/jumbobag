@@ -349,10 +349,15 @@
 		width: 100%;
 		padding-top: 60px;
 		margin-left: -45px;
+	    pointer-events: none;
 	}
 
+	.checkout-onepage-index #checkout-step-review .edit-cart * {
+		pointer-events: initial; 
+	}
+  
 	.checkout-onepage-index #checkout-step-review #checkout-review-submit {
-	  padding-bottom: 30px
+		padding-bottom: 30px
 	}
 }
 
