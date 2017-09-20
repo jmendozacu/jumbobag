@@ -105,8 +105,12 @@
 	margin: auto;
 }
 
-.checkout-onepage-index .top-opc li.allow .number {
+.checkout-onepage-index .top-opc li.allow.active .number {
 	background: #31419f;
+}
+.checkout-onepage-index .top-opc li.allow:hover h2,
+.checkout-onepage-index .top-opc li.allow.active h2 {
+	color:#322c29;
 }
 
 .checkout-onepage-index .col-main {
@@ -237,6 +241,9 @@
 	margin-top: -10px;
 }
 
+.checkout-onepage-index #co-shipping-method-form li .radio + label {
+	vertical-align: top;
+}
 
 .checkout-onepage-index #agreements_and_totals .agreement-content {
 	padding: 15px;
@@ -244,6 +251,7 @@
 }
 
 .checkout-onepage-index #agreements_and_totals #totals > table {
+	width: 100%;
 	background-color: #f6f6f6;
 	border: 15px solid transparent;
 	margin-top: 10px;
@@ -259,6 +267,43 @@
   font-weight: 600;
   margin-left: 2px;
 } 
+
+
+.checkout-onepage-index #agreements_and_totals .grandtotal-label, 
+.checkout-onepage-index #agreements_and_totals .grandtotal-figure {
+  position: relative;
+  font-size: 14px;
+}
+
+.checkout-onepage-index #agreements_and_totals .grandtotal-figure {
+	height: 30px;
+}
+
+.checkout-onepage-index #agreements_and_totals .grandtotal-label td, 
+.checkout-onepage-index #agreements_and_totals .grandtotal-figure td {
+	position: absolute;
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.checkout-onepage-index #agreements_and_totals .grandtotal-label td {
+  width: 64%;
+  text-align: left !important;
+  text-transform: uppercase;
+}
+
+.checkout-onepage-index #agreements_and_totals .grandtotal-figure td {
+  right: 8px;
+  width: 34%;
+}
+
+.checkout-onepage-index #checkout-step-review {
+	background: #fff !important;
+	border: none !important;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
 
 @media only screen and (min-width: 1200px) {
 	.checkout-cart-index .cart-collaterals > div:nth-of-type(2) {
@@ -297,10 +342,33 @@
 	}
 }
 
+@media only screen and (min-width: 768px) {
+	.checkout-onepage-index #checkout-step-review .edit-cart {
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		padding-top: 60px;
+		margin-left: -45px;
+	}
+
+	.checkout-onepage-index #checkout-step-review #checkout-review-submit {
+	  padding-bottom: 30px
+	}
+}
+
 @media only screen and (max-width: 767px) {
 	.checkout-cart-index .main.row,
 	.checkout-onepage-index .main.row {
 		width: 100%;
+	}
+
+	.checkout-onepage-index #checkout-step-login {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	.checkout-onepage-index #checkout-step-review .edit-cart {
+		font-size: 10px;
 	}
 
 	.checkout-cart-index #shopping-cart-table .blueTable__row th, 
@@ -338,11 +406,14 @@
 		display: none;
 	}
 
+	.checkout-cart-index #checkout-review-table .td-image,
 	.checkout-cart-index #shopping-cart-table .td-image {
 	    padding: 0;
 	    margin: 0;
 	}
 
+	.checkout-cart-index #checkout-review-table .td-image,
+	.checkout-cart-index #checkout-review-table .td-image img,
 	.checkout-cart-index #shopping-cart-table .td-image,
 	.checkout-cart-index #shopping-cart-table .td-image img {
 		max-width: 40px;
@@ -377,7 +448,7 @@
 
 	.checkout-onepage-index #checkoutSteps .block.well--block {
 		float: none;
-		margin: auto;
+		margin: 0 auto 30px !important;
 	}
 
 	.checkout-onepage-index .top-opc li {
@@ -405,16 +476,66 @@
 	.form-list li.wide input.input-text {
 		width: 100%;
 	}
-}
 
+	.checkout-onepage-index #checkout-step-review 
+	#agreements_and_totals,
+	.checkout-onepage-index #checkout-step-review 
+	#agreements_and_totals > tbody,
+	.checkout-onepage-index #checkout-step-review 
+	#agreements_and_totals > tbody > tr > td {
+		display: block;
+	}
+
+	.checkout-onepage-index #checkout-step-review 
+	#agreements_and_totals > tbody > td {
+		width: 100%;
+	}
+  
+  .checkout-onepage-index #checkout-step-review 
+  #agreements_and_totals #totals > table {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .checkout-onepage-index #agreements_and_totals .agree {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
 
 @media only screen and (max-width: 459px) {
 	.checkout-onepage-index .top-opc li {
 		width: 50%;
 	}
+	
+	.checkout-onepage-index .top-opc li h2 {
+		font-size: 14px;
+	}
 
 	.checkout-onepage-index #opc-payment {
 		width: 100%;
 	}
-}
 
+
+	.checkout-onepage-index #checkout-step-review {
+		width: 100%;
+		margin: 0;
+		padding: 0 !important;
+	}	
+  
+	.checkout-onepage-index #agreements_and_totals {
+		width: 100%;
+		margin: 0;
+		border-spacing: 0;
+	}
+
+	.checkout-onepage-index #checkout-step-login .block.well--block {
+		width: 100%;
+		box-shadow: none;
+		margin-bottom: 0 !important;
+	}
+
+	.checkout-onepage-index #checkout-step-login .block.well--block:nth-child(2) {
+		background: white !important;
+	}
+}

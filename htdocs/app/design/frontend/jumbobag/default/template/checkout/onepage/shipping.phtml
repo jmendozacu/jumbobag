@@ -4,7 +4,7 @@
     <?php if ($this->customerHasAddresses()): ?>
        <li class="wide">
            <label for="shipping-address-select"><?php echo $this->__('Select a shipping address from your address book or enter a new address.') ?></label>
-           <div class="input-box">
+           <div class="input-box form__group">
                <?php echo $this->getAddressesHtmlSelect('shipping') ?>
            </div>
        </li>

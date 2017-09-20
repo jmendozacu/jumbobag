@@ -33,7 +33,35 @@
 </div>
 <script type="text/javascript">
 //<![CDATA[
-    var accordion = new Accordion('checkoutSteps', '.step-title', true);
+
+    function DirtyHackordion() {
+        Accordion.call(this)
+        var ___currentSection = this.currentSection;
+
+        Object.defineProperty(
+            this, 
+            "currentSection", 
+            {
+                get: function() {
+                    return ___currentSection;
+                },
+                set: function(val) {
+                    sections = $$(".top-opc .section");
+                    for (var i = sections.length - 1; i >= 0; i--) {
+                        sections[i].classList.remove("active");
+                    }
+                    
+                    $("top-"+val).addClassName("allow").addClassName("active");
+                    return (___currentSection = val);
+                }
+            }
+        );
+    }
+
+    DirtyHackordion.prototype = Object.create(Accordion.prototype);
+    DirtyHackordion.prototype.constructor = DirtyHackordion;
+
+    var accordion = new DirtyHackordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
     <?php endif ?>
@@ -43,5 +71,17 @@
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
+
+    // Dirty hack follow up
+    sections = $$(".top-opc .section");
+    for (var i = sections.length - 1; i >= 0; i--) {
+        sections[i].addEventListener("click", function(event) {
+            section = $(Event.element(event)).up('.section');
+            if(Element.hasClassName(section, 'allow')) {
+                accordion.openSection($(section.id.replace("top-", "")));
+            }
+            Event.stop(event);
+        });
+    }
 //]]>
 </script>

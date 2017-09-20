@@ -13,8 +13,7 @@
         <?php endif; ?>
         <thead>
             <tr>
-                <th rowspan="<?php echo $rowspan ?>"></th>
-                <th rowspan="<?php echo $rowspan ?>"><?php echo $this->__('Product Name') ?></th>
+                <th rowspan="<?php echo $rowspan ?>" colspan="2"><?php echo $this->__('Product Name') ?></th>
                 <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Price') ?></th>
                 <th rowspan="<?php echo $rowspan ?>" class="a-center"><?php echo $this->__('Qty') ?></th>
                 <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Subtotal') ?></th>
@@ -62,7 +61,7 @@
 </script>
 <div id="checkout-review-submit">
     <div class="buttons-set" id="review-buttons-container">
-        <p class="f-left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a></p>
+        <p class="edit-cart"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a></p>
         <?php echo $this->getChildHtml('button') ?>
         <div>
             <span class="please-wait" id="review-please-wait" style="display:none;">

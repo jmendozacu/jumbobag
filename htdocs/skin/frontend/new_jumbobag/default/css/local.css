@@ -5057,12 +5057,7 @@ div.alert button:hover {
 .top-opc li.allow {
   cursor: pointer;
 }
-.top-opc li.allow .number {
-  background: #322c29;
-}
-.top-opc li.allow h2 {
-  color: #322c29;
-}
+
 .top-opc li.allow:hover .number {
   background: #97d2c9;
 }

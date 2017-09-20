@@ -796,8 +796,6 @@ div.alert button:hover{cursor:pointer;background-position:0 -9px;}
 .top-opc li .number{display:block;float:left;width:54px;height:54px;margin:0 10px 0 0;background:#dbdbdb;line-height:52px;font-family:"Myriad Pro",serif;font-size:30px;font-weight:300;color:#fff;text-align:center;border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;}
 .top-opc li h2{overflow:hidden;margin:11px 0 0;line-height:16px;font-size:16px;font-weight:300;color:#dbdbdb;}
 .top-opc li.allow{cursor:pointer;}
-.top-opc li.allow .number{background:#322c29;}
-.top-opc li.allow h2{color:#322c29;}
 .top-opc li.allow:hover .number{background:#97d2c9;}
 .opc{border:0;}
 .opc button.button span{font-size:12px;text-transform:lowercase;}
