@@ -229,7 +229,6 @@ footer address{margin:15px 0 0;}
 .flex-direction-nav{width:768px;display:none !important;}
 .site-block, .mousetrap, #cloud-big-zoom{display:none;}
 
-// fix this
 .data-table table, .data-table thead, .data-table tbody, tablr.data-table th, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
 .data-table tfoot td{text-align:right !important;}
 .data-table th{display:none;}
@@ -475,7 +474,7 @@ header .grid_12{margin-bottom:5px;}
 .product-slider-container h2{width:200px;}
 .cart .page-title{ text-align: left !important; margin-top: 0 !important; padding-bottom: 0;}
 .cart .page-title .checkout-types{margin:25px 15px 0;float:none; text-align: center;}
-// Fix this
+
 .data-table table, .data-table thead, .data-table tbody, table.data-table td, .data-table tr{display:block;border:0;text-align:left !important;}
 .data-table th{display:none;}
 .data-table td{padding:10px;}
