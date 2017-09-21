@@ -44,6 +44,7 @@
 			<action method="addCss"><stylesheet>css/customer.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/amazonLogin.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/catalogsearch.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/account.css</stylesheet></action>
 
 			<action ifconfig="shoppersettings/design/override_css" method="addItem"><type>skin_css</type><name>css/override.css</name></action>
 
@@ -265,7 +266,28 @@
         <reference name="left">
             <action method="unsetChild"><name>catalog.compare.sidebar</name></action>
         </reference>
+
+        <reference name="customer_account_navigation">
+            <action method="renameLink" translate="label"><name>account</name><label>Dashboard</label></action>
+            <action method="renameLink" translate="label"><name>newsletter</name><label>Newsletter</label></action>
+            <action method="removeLink"><name>reviews</name></action>
+            <action method="removeLink"><name>account_edit</name></action>
+            <action method="removeLink"><name>SlimPay Settings</name></action>
+            <action method="addLink" translate="label" module="customer"><name>logout</name><path>customer/account/logout</path>><label>Log Out</label></action>
+        </reference>
     </customer_account>
+
+    <customer_account_index>
+        <reference name="left">
+            <action method="unsetChild"><name>customer_account_navigation</name></action>
+		</reference>
+
+    	<reference name="customer_account_dashboard">
+    		<action method="insert">
+				<block>customer_account_navigation</block>
+			</action>
+    	</reference>
+	</customer_account_index>
 
     <customer_account_forgotpasswordsent>
         <remove name="right"/>
