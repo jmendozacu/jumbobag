@@ -11,11 +11,7 @@
 }
 .checkout-cart-index .data-table tbody td,
 .checkout-onepage-index .data-table tbody td {
-}
-
-.checkout-cart-index .data-table tbody tr:last-child td,
-.checkout-onepage-index .data-table tbody tr:last-child td {
-	padding: 8px;
+	padding: 5px;
 }
 
 .checkout-cart-index .data-table thead,
@@ -657,6 +653,16 @@
   
 	.checkout-onepage-index #checkout-step-review #checkout-review-submit {
 		padding-bottom: 30px
+	}
+
+	.top-opc {
+		text-align: center;
+	}
+
+	.top-opc li {
+		vertical-align: top;
+		float: none !important;
+		display: inline-block;
 	}
 }
 
