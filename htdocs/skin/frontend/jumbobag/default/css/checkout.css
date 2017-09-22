@@ -52,6 +52,13 @@
 	color: #30409f;
 }
 
+.checkout-cart-index .data-table tfoot,
+.checkout-onepage-index .data-table tfoot,
+.checkout-cart-index .data-table tfoot td,
+.checkout-onepage-index .data-table tfoot td {
+	background: transparent !important;
+}
+
 @media only screen and (min-width:480px) and (max-width: 767px) {
 	.row .row {
 		margin: 0;
@@ -384,7 +391,8 @@
 	margin-top: -10px;
 }
 
-.checkout-onepage-index #co-shipping-method-form li .radio + label {
+.checkout-onepage-index #co-shipping-method-form li .radio + label,
+.sp-methods .radio + label {
 	vertical-align: top;
 }
 

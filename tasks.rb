@@ -110,6 +110,14 @@ task :install do |url|
 	invoke "mage:demo_notice", []
 end
 
+package :deploy do
+	desc "preprod", "deploy to preprod"
+	task :preprod do
+		# exec remplace le process actuel
+		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=media/ --exclude=var/cache/  --exclude=var/log/  --exclude=var/sessions/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
+	end
+end
+
 private
 
 require "uri"
