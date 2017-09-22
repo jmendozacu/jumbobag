@@ -244,8 +244,6 @@ p.required{font-size:10px;text-align:right;color:#f00;}
 .breadcrumbs{padding:10px;margin:0 0 10px;}
 .breadcrumbs li{display:inline;}
 .page-title{border-bottom:1px solid #ddd;padding:0 0 5px;margin:0 0 10px;}
-.page-title h1,
-.page-title h2{font-size:18px;color:#000;}
 .page-title .separator{margin:0 3px;}
 .page-title .link-rss{float:right;}
 .title-buttons{text-align:right;}
@@ -293,8 +291,6 @@ p.required{font-size:10px;text-align:right;color:#f00;}
 .data-table th.label{font-weight:bold;background-color:#f6f6f6;}
 .data-table td.value{}
 tr.summary-total{cursor:pointer;}
-tr.summary-total td{}
-tr.summary-total .summary-collapse{float:right;text-align:right;padding-left:20px;background:url(../images/bkg_collapse.gif) 0 4px no-repeat;cursor:pointer;}
 tr.show-details .summary-collapse{background-position:0 -53px;}
 tr.show-details td{}
 tr.summary-details td{font-size:11px;background-color:#dae1e4;color:#626465;}
@@ -637,7 +633,6 @@ tr.summary-details-excluded{font-style:italic;}
 .rss-table .link-rss{display:block;line-height:1.35;background-position:0 2px;}
 .cart{}
 .cart .checkout-types{float:right;text-align:right;}
-.cart .title-buttons .checkout-types li{float:left;margin:0 0 5px 5px;}
 .cart .checkout-types .paypal-or{margin:0 8px;line-height:2.3;}
 .cart .totals .checkout-types .paypal-or{clear:both;display:block;padding:3px 55px 8px 0;line-height:1.0;font-size:11px;}
 .cart-table .item-msg{font-size:10px;}
@@ -2210,7 +2205,7 @@ h2.p2 span strong {
 	footer .liens-footer .footer-bank-mobile {    display: block !important;    float: none;    margin: 0 auto !important;}
 	.footer-bank-mobile.col-sm-4 > ul {    margin: 25px 0 0;    text-align: center;}
 	.social-links.col-sm-3 .bank {    display: none;}
-	footer .liens-footer .social {    text-align: center;    position: static;    margin-top: -143px;}
+	footer .liens-footer .social {    text-align: center;    position: static;    margin-top: -120px; padding-right: 15px;}
 	.block-subscribe .input-box {   width: 70%!important;   margin: 0 auto!important;   float: none;   display: table;}
 
 	footer .liens-footer .payments img:not(:last-child) {   margin-right: 12px;}

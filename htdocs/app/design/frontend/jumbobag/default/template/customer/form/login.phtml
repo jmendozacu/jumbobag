@@ -1,107 +1,58 @@
-<?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php
-/**
- * Customer login form template
- *
- * @see Mage_Customer_Block_Form_Login
- */
-?>
+<div class="rowContainer rowContainer--col2">
+    <section class="col well well--half">
+        <header class="well__header">
+            <h1 class="well__header__title blueCapitalized heading"><?= $this->__('Sign In') ?></h1>
+        </header>
 
-<div class="account-login">
+        <article class="well__body">
+            <?= $this->getMessagesBlock()->getGroupedHtml() ?>
+            <?= $this->getChildHtml('customer.form.login.extra')?>
 
-    <div class="block block-login">
-        <div class="block-slider">
-            <ul class="slides">
-                <li>
-                    <div class="block-title">
-                        <strong><span><?php echo $this->__('Sign In') ?></span></strong>
-                    </div>
-                    <div class="block-content">
+            <form class="form" action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-login">
+                <input type="hidden" name="form_key" value="<?= Mage::getSingleton('core/session')->getFormKey(); ?>" />
 
-                        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-                        <?php /* Extensions placeholder */ ?>
-                        <?php echo $this->getChildHtml('customer.form.login.extra')?>
+                <div class="form__group">
+                    <label for="email" class="required">
+                        <?= $this->__('Email Address') ?><em>*</em>
+                    </label>
+                    <input type="text" name="login[username]" value="<?= $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?= $this->__('Email Address') ?>" />
+                </div>
 
-                        <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
-                            <ul class="form-list">
-                                <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
-                                <li>
-                                    <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
-                                    <div class="input-box">
-                                        <input type="text" name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
-                                    </div>
-                                </li>
-                                <li>
-                                    <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
-                                    <div class="input-box">
-                                        <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
-                                    </div>
-                                </li>
-                                <?php echo $this->getChildHtml('form.additional.info'); ?>
-                            </ul>
+                <div class="form__group">
+                    <label for="pass" class="required">
+                        <?= $this->__('Password') ?><em>*</em>
+                    </label>
+                    <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?= $this->__('Password') ?>" />
+                </div>
 
-                            <button type="submit" class="button" title="<?php echo $this->__('Login') ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
-                            <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="forgot-password" id="forgot-password"><?php echo $this->__('Forgot Your Password?') ?></a>
+                <div class="form__submit">
+                    <button type="submit" class="btn" title="<?= $this->__('Login') ?>" name="send" id="send2">
+                        <?= $this->__('Login') ?>
+                    </button>
 
-                        </form>
-                    </div>
-                </li>
-                <li>
-                    <div class="block-title">
-                        <strong><span><?php echo $this->__('Forgot Your Password?') ?></span></strong>
-                    </div>
-                    <div class="block-content">
-                        <form action="<?php echo $this->getUrl('*/*/forgotpasswordpost') ?>" method="post" id="form-validate">
-                            <ul class="form-list">
-                                <li>
-                                    <label for="email" class="required"><?php echo $this->__('Email Address') ?></label>
-                                    <div class="input-box">
-                                        <input type="text" name="email" alt="email" id="email_address" class="input-text required-entry validate-email" value="<?php echo $this->htmlEscape($this->getEmailValue()) ?>" />
-                                    </div>
-                                </li>
-                                <?php echo $this->getChildHtml('form.additional.info'); ?>
-                            </ul>
-                            <button type="submit" class="button" title="<?php echo $this->__('Submit') ?>"><span><span><?php echo $this->__('Submit') ?></span></span></button>
-                            <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="forgot-password" id="back-login"><?php echo $this->__('Back to Login?'); ?></a>
-                        </form>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="new-users">
-            <button type="button" title="<?php echo $this->__('Create an Account') ?>" class="button invert" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
-        </div>
-    </div>
+                    <a href="<?= $this->getForgotPasswordUrl() ?>" class="login__forgotPsw" id="forgot-password">
+                        <?= $this->__('Forgot Your Password?') ?>
+                    </a>
+                </div>
 
-    <script type="text/javascript">
-        //<![CDATA[
-        var dataForm = new VarienForm('login-form', true);
-        var dataForgetForm = new VarienForm('form-validate', true);
-        //]]>
-    </script>
+                <div class="form__extra">
+                    <?= $this->__('* Required Fields') ?>
+                </div>
+            </form>
+        </article>
+    </section><!--
+
+ --><section class="col well well--gray well--half">
+        <header class="well__header">
+            <h1 class="well__header__title blueCapitalized heading"><?= $this->__('Sign Up') ?></h1>
+        </header>
+
+        <article class="well__body">
+            <button type="button" title="<?= $this->__('Create an Account') ?>" class="btn" onclick="window.location='<?= $this->getCreateAccountUrl() ?>';">
+                <?= $this->__('Create an Account') ?>
+            </button>
+
+            <?php echo $this->getChildHtml('amazon_sign_in')?>
+        </article>
+    </section>
 </div>

@@ -3,7 +3,6 @@
 MAGENTO_HOST=jumbobag.test
 
 echo "
-LockFile /var/lock/apache2/accept.lock
 PidFile /var/run/lock/apache2.pid
 Timeout 300
 KeepAlive On
@@ -56,7 +55,7 @@ CustomLog /proc/self/fd/1 combined
 DirectoryIndex disabled
 DirectoryIndex index.php index.html
 
-Include sites-enabled/*.conf
-" > /etc/apache2/apache2.conf
+Include sites-enabled/*.conf"
+ > /etc/apache2/apache2.conf
 
 exec "$@"

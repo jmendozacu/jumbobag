@@ -11,6 +11,13 @@ a:hover{
     -o-transition: color 10ms ease-in-out;
 }
 
+a.noTransition, .noTransition a {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
+}
+
 .slider-container .jcarousel-list .btn-cart,
 .jcarousel-next-horizontal, .jcarousel-prev-horizontal,
 #toTop,

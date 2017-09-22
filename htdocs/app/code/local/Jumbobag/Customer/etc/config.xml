@@ -1,0 +1,41 @@
+<config>
+  <modules>
+    <Jumbobag_Customer>
+      <version>1.0.0</version>
+    </Jumbobag_Customer>
+  </modules>
+
+  <frontend>
+    <routers>
+       <customer>
+           <args>
+             <modules>
+               <Jumbobag_Customer before="Mage_Customer">Jumbobag_Customer</Jumbobag_Customer>
+             </modules>
+           </args>
+       </customer>
+     </routers>
+     <translate>
+        <modules>
+          <Jumbobag_Customer>
+            <files>
+              <default>Jumbobag_Customer.csv</default>
+            </files>
+          </Jumbobag_Customer>
+        </modules>
+     </translate>
+  </frontend>
+
+  <global>
+    <blocks>
+      <jumbobag_customer>
+        <class>Jumbobag_Customer_Block</class>
+      </jumbobag_customer>
+      <customer>
+        <rewrite>
+          <account_navigation>Jumbobag_Customer_Block_Account_Navigation</account_navigation>
+        </rewrite>
+      </customer>
+    </blocks>
+  </global>
+</config>

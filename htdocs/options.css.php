@@ -165,8 +165,7 @@ nav .nav-top-title div.icon span, .nav-container .nav-top-title div.icon span
 .cms-index-index .block .block-content a:hover, .cms-index-index .block .block-content li a:hover, .cms-index-index .block .block-content li.item a:hover,
 .block-layered-nav .block-content dd li a:hover,
 .product-view .product-shop .no-rating a:hover, .product-view .product-shop .ratings a:hover,
-.product-view .box-up-sell .product-name:hover,
-.data-table td a:hover{color:<?php echo $config['appearance']['color']; ?>}
+.product-view .box-up-sell .product-name:hover {color:<?php echo $config['appearance']['color']; ?>}
 <?php endif; ?>
 
 <?php if ( !empty($config['appearance']['title_color']) ) : ?>
@@ -211,16 +210,14 @@ body, .main-container, .footer-container .product-slider-container {background-c
 .cms-index-index .block .block-content a, .cms-index-index .block .block-content li a, .cms-index-index .block .block-content li.item a,
 .block-layered-nav .block-content dd li a,
 .product-view .product-shop .no-rating a, .product-view .product-shop .ratings a,
-.product-view .box-up-sell .product-name,
-.data-table td a{color:<?php echo $config['appearance']['content_link']; ?>}
+.product-view .box-up-sell .product-name {color:<?php echo $config['appearance']['content_link']; ?>}
 <?php endif; ?>
 <?php if ( !empty($config['appearance']['content_link_hover']) ) : ?>
 .block .block-content a:hover, .block .block-content li a:hover, .block .block-content li.item a:hover,
 .cms-index-index .block .block-content a:hover, .cms-index-index .block .block-content li a:hover, .cms-index-index .block .block-content li.item a:hover,
 .block-layered-nav .block-content dd li a:hover,
 .product-view .product-shop .no-rating a:hover, .product-view .product-shop .ratings a:hover,
-.product-view .box-up-sell .product-name:hover,
-.data-table td a:hover {color:<?php echo $config['appearance']['content_link_hover']; ?>}
+.product-view .box-up-sell .product-name:hover {color:<?php echo $config['appearance']['content_link_hover']; ?>}
 <?php endif; ?>
 
 
@@ -295,7 +292,7 @@ footer a:hover, footer ul.links li a:hover {color:<?php echo $config['appearance
 #slide-timeline {background-color:<?php echo $config['appearance']['timeline']; ?>}
 <?php endif; ?>
 
-button.invert span, button.btn-continue span, .cart-shipping button span, .cart-coupon button span {background-color:#393431;}
+button.invert span, button.btn-continue span {background-color:#393431;}
 #queldoreiNav > li > a:hover, #queldoreiNav > li.active > a, #queldoreiNav > li.over > a,
 #nav > li > a:hover, #nav > li.active > a, #nav > li.over > a,
 #mobile-nav > li > a:hover, #mobile-nav > li.active > a, #mobile-nav > li.over > a {color:#373230}

@@ -1,0 +1,13 @@
+<div class="field form__group form__group--firstname">
+    <label for="pass" class="required">
+        <?= $this->__('Mage_Customer::First Name') ?><em>*</em>
+    </label>
+    <input type="text" id="<?= $this->getFieldId('firstname')?>" name="<?= $this->getFieldName('firstname')?>" title="<?= Mage::helper('core')->quoteEscape($this->getStoreLabel('firstname')) ?>" maxlength="255" class="input-text <?= $this->helper('customer/address')->getAttributeValidationClass('firstname') ?>" <?= $this->getFieldParams() ?> />
+</div><!--
+
+--><div class="field form__group form__group--lastname">
+    <label for="pass" class="required">
+        <?= $this->__('Mage_Customer::Last Name') ?><em>*</em>
+    </label>
+    <input type="text" id="<?= $this->getFieldId('lastname')?>" name="<?= $this->getFieldName('lastname')?>" title="<?= Mage::helper('core')->quoteEscape($this->getStoreLabel('lastname')) ?>" maxlength="255" class="input-text <?= $this->helper('customer/address')->getAttributeValidationClass('lastname') ?>" <?= $this->getFieldParams() ?> />
+</div>

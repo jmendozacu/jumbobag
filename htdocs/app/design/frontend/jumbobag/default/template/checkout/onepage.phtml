@@ -1,29 +1,3 @@
-<?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
 <div class="page-title">
     <h1><?php echo $this->__('Checkout') ?></h1>
 </div>
@@ -40,25 +14,54 @@
 <?php endforeach ?>
 </ul>
 <div class="clear"></div>
-
-<ol class="opc" id="checkoutSteps">
-<?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
-<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
-    <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <div class="step-title">
-            <span class="number"><?php echo $i ?></span>
-            <h2><?php echo $_stepInfo['label'] ?></h2>
-            <a href="#"><?php echo $this->__('Edit') ?></a>
-        </div>
-        <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
-            <?php echo $this->getChildHtml($_stepId) ?>
-        </div>
-    </li>
-<?php endforeach ?>
-</ol>
+<div id="checkoutStepsWrapper">
+    <ol class="opc" id="checkoutSteps">
+    <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+    <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+        <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
+            <div class="step-title">
+                <span class="number"><?php echo $i ?></span>
+                <h2><?php echo $_stepInfo['label'] ?></h2>
+                <a href="#"><?php echo $this->__('Edit') ?></a>
+            </div>
+            <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item well well--block" style="display:none;">
+                <?php echo $this->getChildHtml($_stepId) ?>
+            </div>
+        </li>
+    <?php endforeach ?>
+    </ol>
+</div>
 <script type="text/javascript">
 //<![CDATA[
-    var accordion = new Accordion('checkoutSteps', '.step-title', true);
+
+    function DirtyHackordion() {
+        Accordion.call(this)
+        var ___currentSection = this.currentSection;
+
+        Object.defineProperty(
+            this, 
+            "currentSection", 
+            {
+                get: function() {
+                    return ___currentSection;
+                },
+                set: function(val) {
+                    sections = $$(".top-opc .section");
+                    for (var i = sections.length - 1; i >= 0; i--) {
+                        sections[i].classList.remove("active");
+                    }
+                    
+                    $("top-"+val).addClassName("allow").addClassName("active");
+                    return (___currentSection = val);
+                }
+            }
+        );
+    }
+
+    DirtyHackordion.prototype = Object.create(Accordion.prototype);
+    DirtyHackordion.prototype.constructor = DirtyHackordion;
+
+    var accordion = new DirtyHackordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
     <?php endif ?>
@@ -68,5 +71,17 @@
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );
+
+    // Dirty hack follow up
+    sections = $$(".top-opc .section");
+    for (var i = sections.length - 1; i >= 0; i--) {
+        sections[i].addEventListener("click", function(event) {
+            section = $(Event.element(event)).up('.section');
+            if(Element.hasClassName(section, 'allow')) {
+                accordion.openSection($(section.id.replace("top-", "")));
+            }
+            Event.stop(event);
+        });
+    }
 //]]>
 </script>
