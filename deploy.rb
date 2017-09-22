@@ -6,8 +6,8 @@ set :stages, %w(production wip)
 set :default_stage, "wip"
 
 task :production do
-	server "occitech-magento", :app, :web, :db, :primary => true
-	set :deploy_to, "/home/magento/deployment/prod"
+	server "occitech-jbag", :app, :web, :db, :primary => true
+	set :deploy_to, "/home/jbag/deployment/prod"
 	set :branch, "master"
 
 	before "deploy:create_symlink" do
@@ -19,8 +19,8 @@ task :production do
 end
 
 task :wip do
-	server "occitech-magento", :app, :web, :db, :primary => true
-	set :deploy_to, "/home/magento/deployment/wip"
+	server "occitech-jbag", :app, :web, :db, :primary => true
+	set :deploy_to, "/home/jbag/deployment/wip"
 	set :branch, "develop"
 
 	after "deploy:finalize_update", "magento:password_protect"
@@ -35,8 +35,8 @@ on :load do
 	end
 end
 
-set :application, "magento"
-set :repository,  "git@github.com:Commit42/magento.git"
+set :application, "jumbobag"
+set :repository,  "git@github.com:Commit42/jumbobag.git"
 
 set :scm, :git
 set :git_enable_submodules, 1
@@ -44,12 +44,12 @@ set :deploy_via, :remote_cache
 set :ssh_options, {:forward_agent => true}
 
 set :use_sudo, false
-set :keep_releases, 1
-set :user, "magento"
+set :keep_releases, 2
+set :user, "jbag"
 
 set :app_path, "/htdocs/"
 set :http_auth_path, app_path
-set :app_symlinks, app_symlinks.concat(["/feeds"])
+set :app_symlinks, app_symlinks | []
 set :app_shared_files, ["/app/etc/local.xml"]
 
 set :composer_options, "--verbose --prefer-dist --no-dev"
@@ -91,7 +91,7 @@ namespace :magento do
   end
 
   task :restart_process do
-    run "curl -s https://www.magento.fr > /dev/null"
+    run "curl -s https://www.jumbobag.fr > /dev/null"
     run "pkill php-cgi"
   end
 end
