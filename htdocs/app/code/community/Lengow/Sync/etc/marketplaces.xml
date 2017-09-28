@@ -104,6 +104,86 @@
             <param usedby="shipped">
                 <type>carrier</type>
                 <name>transporteurColis</name>
+                <accepted_values>
+                    <value label="La Poste" default="true">LAPOSTE</value>
+                    <value label="Adrexo">ADREXO</value>
+                    <value label="ADRIATIC GROUP SRL">ADRIATICGROUPSRL</value>
+                    <value label="AfterShip">AFTERSHIP</value>
+                    <value label="Alianca">ALIANCA</value>
+                    <value label="Amazon Logistics">AMAZONLOGISTICS</value>
+                    <value label="Asendia">ASENDIA</value>
+                    <value label="ASM">ASM</value>
+                    <value label="ATS">ATS</value>
+                    <value label="Autre">AUTRE</value>
+                    <value label="Balaji Shipping">BALAJISHIPPING</value>
+                    <value label="B2C">BC</value>
+                    <value label="Blue Sky">BLUESKY</value>
+                    <value label="Bonnard">BONNARD</value>
+                    <value label="bpost__">BPOST__</value>
+                    <value label="C Chez Vous">CCHEZVOUS</value>
+                    <value label="China Shipping">CHINASHIPPING</value>
+                    <value label="Chronopost">CHRONOPOST</value>
+                    <value label="CMA CGM">CMACGM</value>
+                    <value label="Coliposte">COLIPOSTE</value>
+                    <value label="COLISPRIVE">COLISPRIVE</value>
+                    <value label="Colissimo">COLISSIMO</value>
+                    <value label="Colissimo Access">COLISSIMOACCESS</value>
+                    <value label="Colissimo Expert">COLISSIMOEXPERT</value>
+                    <value label="CORREOS">CORREOS</value>
+                    <value label="Courrier Suivi">COURRIERSUIVI</value>
+                    <value label="Dachser">DACHSER</value>
+                    <value label="DELNEXT">DELNEXT</value>
+                    <value label="Deutsche Post">DEUTSCHEPOST</value>
+                    <value label="DHL">DHL</value>
+                    <value label="DHL.DE">DHLDE</value>
+                    <value label="DPD">DPD</value>
+                    <value label="DPD-UK">DPDUK</value>
+                    <value label="DSV">DSV</value>
+                    <value label="Ducros">DUCROS</value>
+                    <value label="Euromatic">EUROMATIC</value>
+                    <value label="Exapaq">EXAPAQ</value>
+                    <value label="Fedex">FEDEX</value>
+                    <value label="France Express">FRANCEEXPRESS</value>
+                    <value label="Geodis Calberson">GEODISCALBERSON</value>
+                    <value label="GLS">GLS</value>
+                    <value label="Go Express">GOEXPRESS</value>
+                    <value label="Henri Ducros">HENRIDUCROS</value>
+                    <value label="HEPPNER">HEPPNER</value>
+                    <value label="Hermes">HERMES</value>
+                    <value label="HK Post">HKPOST</value>
+                    <value label="JCO">JCO</value>
+                    <value label="Kiala">KIALA</value>
+                    <value label="Kuehne et Nagel">KUEHNEETNAGEL</value>
+                    <value label="Lettre Suivie">LETTRESUIVIE</value>
+                    <value label="LPS">LPS</value>
+                    <value label="Mondial Relay">MONDIALRELAY</value>
+                    <value label="Mory Ducros">MORYDUCROS</value>
+                    <value label="MRCI">MRCI</value>
+                    <value label="Other">OTHER</value>
+                    <value label="Parcelforce">PARCELFORCE</value>
+                    <value label="Posten Âland">POSTENALAND</value>
+                    <value label="PostNL">POSTNL</value>
+                    <value label="Relais Colis Transporteur">RELAISCOLISTRANSPORTEUR</value>
+                    <value label="Royal Mail">ROYALMAIL</value>
+                    <value label="schenker-joyau">SCHENKERJOYAU</value>
+                    <value label="SDV">SDV</value>
+                    <value label="Sellier">SELLIER</value>
+                    <value label="SERNAM">SERNAM</value>
+                    <value label="SEUR">SEUR</value>
+                    <value label="SF Express">SFEXPRESS</value>
+                    <value label="Singapore Post">SINGAPOREPOST</value>
+                    <value label="SoColissimo">SOCOLISSIMO</value>
+                    <value label="Spring Global Mail">SPRING</value>
+                    <value label="Sweden Post">SWEDENPOST</value>
+                    <value label="TAT Express">TAT</value>
+                    <value label="TNT">TNT</value>
+                    <value label="UKMail">UKMAIL</value>
+                    <value label="UPS">UPS</value>
+                    <value label="USPS">USPS</value>
+                    <value label="Vir">VIR</value>
+                    <value label="Ziegler">ZIEGLER</value>
+                    <value label="ZIM">ZIM</value>
+                </accepted_values>
             </param>
         </additional_params>
     </marketplace>
@@ -170,7 +250,7 @@
             </param>
             <param usedby="shipped">
                 <type>tracking_url</type>
-                <name>TrackingUrl</name>
+                <name>TrackingColis_url</name>
             </param>
         </additional_params>
     </marketplace>
@@ -2108,6 +2188,7 @@
                     <value label="DHL France">DHL-France</value>
                     <value label="UPS">UPS</value>
                     <value label="Mondial Relay">MRE</value>
+                    <value label="Geodis Calberson">GEODIS</value>
                 </accepted_values>
             </param>
             <param usedby="shipped">
