@@ -39,7 +39,10 @@ class Slimpay_Gateway_Model_PaymentMethod extends Mage_Payment_Model_Method_Abst
     // Try a login to check if the client is authentified, if not disable the payment method
     public function canUseCheckout() {
         try {
-            $this->getSlimpayHelper()->getHapiClient()->getEntryPointResource();
+            $hapiClient = $this->getSlimpayHelper()->getHapiClient();
+            if($hapiclient != null || $hapiclient != false) {
+                $hapiClient->getEntryPointResource();
+            }
             return true;
         } catch(Exception $e) {
             return false;

@@ -303,72 +303,11 @@
     <?php
     if (strpos($this->getRequest()->getPathInfo(), '/catalogsearch/result/') !== false):
 
-        $_q = addslashes(Mage::app()->getRequest()->getQuery('q'));
+        // Ce code a été supprimé dans un 1er temps pour corriger la fatal error lors d'une recherche car la requete n'était pas compatible flat_catalog
 
-        ?>
+        // De plus il faudrait de doute façon revoir complètement ce qui est voulu car il y avait des requetes imbriquées dans des requêtes donc performances catastrophique.
 
-            var catalogSearch = {};
-
-        <?php
-        $position = 1;
-
-$query = Mage::helper("catalogSearch")->getQuery();
-$query->setQueryText($_q);
-$collection = Mage::getResourceModel("catalog/product_collection");
-$collection = $query->getSearchCollection();
-$collection->addSearchFilter($_q);
-$collection->addAttributeToSelect("*")
-                    ->setOrder($tvc_filteroptions->getCurrentOrder(),$tvc_filteroptions->getCurrentDirection())
-                    //->addAttributeToSort($tvc_filteroptions->getCurrentOrder(),$tvc_filteroptions->getCurrentDirection())
-                    ->setPageSize($tvc_filteroptions->getLimit())
-                    ->setCurPage($tvc_getpage);
-
-        $catIds = "";
-        ?>
-
-        <?php
-        foreach ($collection as $_product) {
-            ?>
-
-            <?php
-            $cats = $_product->getCategoryIds();
-            foreach ($cats as $category_id) {
-                $_cat = Mage::getSingleton('catalog/category')->load($category_id);
-                $catIds.=$_cat->getName() . ",";
-            }
-            $inStock = Mage::getSingleton('cataloginventory/stock_item')->loadByProduct($_product)->getIsInStock();
-            ?>
-            <?php
-            if ($_product->getVisibility() > 2 && $inStock != 0) :
-                $product_sku = $_product->getSku();
-                if ($product_sku == ""):
-                    $product_sku = $_product->getId();
-                endif;
-                ?>
-                    catalogSearch['<?php echo $_product->getProductUrl(); ?>'] = {
-                        'sku': '<?php echo addslashes($product_sku); ?>',
-                        'Name': '<?php echo addslashes($_product->getName()); ?>',
-                        'price': '<?php echo $_product->getFinalPrice(); ?>',
-                        'id': '<?php echo $_product->getId(); ?>',
-                        'categories': '<?php echo addslashes(trim($catIds, ",")); ?>',
-                        'position': '<?php echo $position; ?>',
-                        'brand': '<?php echo addslashes(t_getBrandValue($_product, $brand_code)); ?>',
-                        'url2':  '<?php echo $_product->getProductUrl(); ?>',
-                        'visibility': '<?php echo $_product->getVisibility(); ?>',
-                        'instock': '<?php echo $inStock; ?>',
-                        'stock': "<?php echo Mage::getSingleton('cataloginventory/stock_item')->loadByProduct($_product->getId())->getQty(); ?>"
-                    }
-
-
-
-                <?php $catIds = "";
-                $position++;
-            endif;
-        } $currentpage = 1; ?>
-            exec_tvc_t_cs = true;
-
-    <?php endif;
-    ?>
+    endif;?>
 
     <?php if ($this->getProduct()): ?>
 
