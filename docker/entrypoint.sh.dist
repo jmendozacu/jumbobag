@@ -55,7 +55,7 @@ CustomLog /proc/self/fd/1 combined
 DirectoryIndex disabled
 DirectoryIndex index.php index.html
 
-Include sites-enabled/*.conf"
- > /etc/apache2/apache2.conf
+Include sites-enabled/*.conf
+" > /etc/apache2/apache2.conf
 
 exec "$@"
