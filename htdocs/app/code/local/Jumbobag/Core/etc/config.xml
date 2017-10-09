@@ -2,7 +2,21 @@
 <config>
     <modules>
         <Jumbobag_Core>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Jumbobag_Core>
     </modules>
+
+    <global>
+        <resources>
+            <jumbobag_core_setup>
+                <setup>
+                    <module>Jumbobag_Core</module>
+                    <!--<class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>-->
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </jumbobag_core_setup>
+        </resources>
+    </global>
 </config>
