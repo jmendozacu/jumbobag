@@ -121,6 +121,17 @@ package :deploy do
 		# exec remplace le process actuel
 		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=media/ --exclude=var/cache/  --exclude=var/log/  --exclude=var/sessions/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
 	end
+
+  desc "prod", "deploy (almost) to prod"
+  task :prod do
+		exec("rsync --dry-run -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/ | less")
+  end
+
+  desc "prodprod", "deploy (really) to prod"
+  task :prodprod do
+		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/")
+  end
+
 end
 
 private
