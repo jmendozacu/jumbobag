@@ -2315,3 +2315,28 @@ h2.p2 span strong {
 /* .catalog-category-view .products-grid .price-box .minimal-price-link .price {padding: 0;}
  */.catalog-category-view .products-grid .price-box .minimal-price-link .label {float: left; padding-right: 10px;}
 
+/** notice-coolie */
+#notice-cookie-block {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 3px;
+  background-color: #fff;
+}
+#notice-cookie-block .notice-text {
+  display: inline-block;
+  width: 80%;
+  margin-right: -4px;
+}
+#notice-cookie-block .actions {
+  display: inline-block;
+  width: 20%;
+  margin-right: -4px;
+  text-align: right;
+}
+#notice-cookie-block .actions .button,
+#notice-cookie-block .actions .button span {
+  height: 25px;
+  line-height: 25px;
+  text-transform: capitalize;
+}
