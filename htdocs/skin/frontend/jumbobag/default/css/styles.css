@@ -2340,3 +2340,9 @@ h2.p2 span strong {
   line-height: 25px;
   text-transform: capitalize;
 }
+
+/** fancybox */
+.fancybox-close {
+  top: 0;
+  right: 0;
+}
