@@ -30,10 +30,15 @@ $config_slideshow = Mage::getStoreConfig('shopperslideshow', Mage::app()->getSto
 ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <?php if (Mage::getStoreConfig('shoppersettings/design/responsive')) : ?>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
 <?php endif; ?>
 <meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
 <meta property="og:image" content="http://www.jumbobag.fr/skin/frontend/jumbobag/default/images/logo-jumbobag-og.png" />
+<meta property="og:title" content="<?php echo $this->getTitle() ?>" />
+<meta property="og:description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+
+
+
 <title><?php echo $this->getTitle() ?></title>
 <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
 <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
@@ -43,15 +48,13 @@ $config_slideshow = Mage::getStoreConfig('shopperslideshow', Mage::app()->getSto
 <link rel="apple-touch-icon" href="<?php echo $this->getSkinUrl(); ?>apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $this->getSkinUrl(); ?>apple-touch-icon-72x72.png" />
 <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $this->getSkinUrl(); ?>apple-touch-icon-114x114.png" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
- <script type="text/javascript" src="https://www.jumbobag.fr/skin/frontend/jumbobag/default/js/wow.js"></script>
- <script>
-    new WOW().init();
-</script>
-
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl(); ?>css/animated-masonry-gallery.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl(); ?>css/style-r.css" />
 <!--[if lt IE 7]>
 <script type="text/javascript">
-//<![CDATA[
+    //<![CDATA[
     var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
     var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
 //]]>
@@ -59,21 +62,21 @@ $config_slideshow = Mage::getStoreConfig('shopperslideshow', Mage::app()->getSto
 <![endif]-->
 <?php echo $this->getCssJsHtml() ?>
 <?php if (Mage::helper('shopperslideshow/data')->isSlideshowEnabled() && $config_slideshow['config']['slider'] == 'revolution') : ?>
-<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.plugins.min.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.revolution.min.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.plugins.min.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.revolution.min.js'; ?>"></script>
 <?php endif; ?>
 <?php if ($config['enable_font']) :?>
-<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
-<?php if ($config['price_font'] != $config['font'] ) : ?>
-    <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['price_font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+    <?php if ($config['price_font'] != $config['font'] ) : ?>
+        <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['price_font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
     <?php endif; ?>
 <?php endif; ?>
 <?php
 $options_link = '?store='.Mage::app()->getStore()->getCode();
 if ($cat = Mage::registry('current_category')) {
-	$options_link .= '&cat='.$cat->getId();
+    $options_link .= '&cat='.$cat->getId();
 } else if ( $cat = Mage::app()->getRequest()->getParam('qvc') ) {
-	$options_link .= '&cat='.$cat;
+    $options_link .= '&cat='.$cat;
 }
 ?>
 <link href='<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB, Mage::app()->getFrontController()->getRequest()->isSecure()) . 'options.css.php' . $options_link;  ?>' rel='stylesheet' type='text/css'>

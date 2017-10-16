@@ -6,7 +6,7 @@ try {
 $installer = $this;
 $installer->startSetup();
 $installer->run("
-  UPDATE `catalog_product_entity_varchar` SET value='jumbobag/default' WHERE value='new_jumbobag/default';
+  UPDATE `catalog_product_entity_varchar` SET value='jumbobag/modern' WHERE value='new_jumbobag/default';
 ");
 $installer->endSetup();
 } catch (Exception $e) {

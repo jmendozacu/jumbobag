@@ -55,7 +55,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
     .jcarousel-next-horizontal,
     .jcarousel-prev-horizontal { background-image:url("../images/arrow_about@2x.png")}
     button.btn-proceed-checkout span span {background-image:url('../images/arrow_button@2x.png')}
-    .header-switch span.current { background-image:url("../images/arrow_switch@2x.png")}
+    .header-switch span.current { background-image:url("../images/arrow_switch.png")}
     #toTop { background-image:url("../images/arrow_totop@2x.png")}
     .btn-remove, .block-compare .block-content .actions a:before { background-image:url(../images/btn_remove@2x.png);}
     .sorter .view-mode .grid { background-image:url(../images/i_grid_mode@2x.png);}
@@ -65,14 +65,14 @@ only screen and (min-device-pixel-ratio: 1.5) {
     .note-msg { background-image:url(../images/i_msg-note@2x.png);}
     .notice-msg { background-image:url(../images/i_msg-notice@2x.png);}
     .breadcrumbs span { background-image:url(../images/icon_breadcrumb@2x.png);}
-    .cart-top > a, .cart-top-title a span.icon { background-image:url(../images/icon_cart@2x.png);}
+    .cart-top > a, .cart-top-title a span.icon { background-image:url(../images/icon_cart.png);}
     .compare-top, .compare-top-title a span.icon { background-image:url(../images/icon_compare@2x.png);}
     .products-grid .hover .button-container button.button span span em { background-image:url(../images/icon_cart_listing_mask@2x.png);}
     .product-view .add-to-cart button.button span span { background-image:url(../images/icon_cart_product@2x.png);}
     .product-view .add-to-links li span.icon {background-image:url(../images/icon_wishlist@2x.png);}
     .product-view .add-to-links li.compare span.icon { background-image:url(../images/icon_compare@2x.png);}
     .product-view .add-to-links li.email-friend span.icon { background-image:url(../images/icon_email@2x.png);}
-    .search-top, .search-top-container .search-form .search-top-title span.icon {background-image:url(../images/icon_search@2x.png);}
+    .search-top, .search-top-container .search-form .search-top-title span.icon {background-image:url(../images/icon_search.png);}
     .data-table .btn-remove2 {background-image:url(../images/icon_trash@2x.png);}
     .footer-info ul.twitterList li span.tweet-icon {background-image:url(../images/icon_twitter@2x.png);}
     .product-prev span, .product-next span {background-image:url(../images/prev_next@2x.png);}
