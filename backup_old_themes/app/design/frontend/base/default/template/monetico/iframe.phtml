@@ -1,0 +1,30 @@
+ <iframe class="sealed-form" name="monetico-iframe" src="<?php echo $this->getPaymentFormActionUrlEncoded() ?>">
+
+
+    <div class="sealed-form" id="cmcic-sealed-form">
+
+        <div class="message info">
+            <span>
+                <?php // TODO: Add translated sentence ?>
+            </span>
+        </div>
+
+        <form method="POST" action="<?php // TODO: add action ?>" target="_top" name="monetico_payment_checkout" id="monetico_payment_checkout">
+            <fieldset class="fieldset payment">
+                <!--<?php //foreach($dsfgv as $key => $value): // TODO: add correct param ?>
+                    <input name="<?php //echo $key ?>" type="hidden" value="<?php //echo $value ?>">
+                <?php //endforeach; ?>-->
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action pay primary" title="<?php echo $this->__('Place Payment') ?>">
+                        <span><?php echo $this->__('Place Payment'); ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+ </iframe>

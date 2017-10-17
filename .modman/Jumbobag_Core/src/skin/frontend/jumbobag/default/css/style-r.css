@@ -1,0 +1,1479 @@
+
+/*-----------------------------original*/
+
+.product-original .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-original .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-original .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-original .informations-produit .product-infos .product-options-bottom{
+	margin-top: 70px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-original .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-original .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-original .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-original .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-original .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-original .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-original .presentation-produit{
+	padding-bottom: 110px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-original .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-original .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-original .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+
+/*-----------------------------printed*/
+.product-original-printed .presentation-produit-content .texte .arguments .argument h3 {
+	font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Lato-Regular', sans-serif;
+    color: #666666;
+    margin-top: 117px;
+}
+.product-original-printed .presentation-produit-content .texte .arguments .argument {
+    text-align: center;
+    margin-top: 0;
+}
+.product-original-printed .presentation-produit-content .texte .arguments .argument .image-wrapper img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.product-original-printed .presentation-produit-content .texte .bouton-commander {
+    clear: both;
+    padding-top: 30px;
+}
+.product-original-printed .presentation-produit-content{
+	padding-bottom: 0px !important;
+}
+.product-original-printed .presentation-produit .texte h2{
+	font-size: 39px;
+}
+.catalog-product-view .presentation-produit{
+	padding-bottom: 60px;
+}
+.product-original-printed .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-original-printed .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-original-printed .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-original-printed .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-original-printed .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+.product-original-printed .informations-produit .product-infos .product-options-bottom{
+	margin-top: 20px;
+}
+@media (min-width: 1024px){
+.product-original-printed .height-centered h1 .bold-part{
+	font-size: 73px !important;
+}
+
+}
+.product-original-printed .entretien .texte{
+	width: 100%!important;
+	display: inline-block !important;
+	text-align: center !important;
+	margin-top: 300px;
+}
+.product-original-printed .entretien{
+	padding-bottom: 30px;
+}
+@media (max-width: 767px){
+.product-original-printed .presentation-produit-content .texte .arguments .argument h3 {
+margin-top: 200px!important;
+	}
+
+
+.product-original-printed .entretien .texte .arguments .argument .image-wrapper {
+    height: 100px;
+    width: 100%;
+}
+
+}
+@media (max-width: 480px) {
+
+}
+/*-----------------------------cube*/
+
+.product-cube .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-cube .entretien-wrapper {
+	background:transparent !important;
+
+}
+.product-cube .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-cube .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-cube .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-cube .informations-produit .product-infos h2 .thin-part{
+	display: none !important;
+}
+.product-cube .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-cube .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-cube .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-cube .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+
+.product-cube .entretien-wrapper .bouton-commander{
+	display:none !important;
+
+}
+.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 430px;
+}
+.product-cube .diaporama-produit{
+	display: none;
+}
+@media (max-width: 767px){
+.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 230px;
+}
+	}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-cube .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-cube .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 130px;
+}
+}
+@media (max-width: 1024px){
+	.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 0px;
+}
+	.product-cube .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}}
+@media (min-width: 1024px){
+	.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 310px;
+}
+
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+@media (min-width: 1200px){
+	.product-cube .entretien-wrapper .entretien.row{
+	width: 100%;
+	height: 410px;
+}
+}
+
+/*-----------------------------mini swimming bag*/
+
+.product-mini-swimming-bag .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-mini-swimming-bag .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-mini-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-mini-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-mini-swimming-bag .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-mini-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-mini-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-mini-swimming-bag .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-mini-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-mini-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-mini-swimming-bag .presentation-produit{
+	padding-bottom: 30px !important;
+}
+.product-mini-swimming-bag .entretien .texte{
+	width: 100% !important;
+
+}
+
+.product-mini-swimming-bag.catalog-product-view .entretien .texte .body h2, .product-mini-swimming-bag.catalog-product-view .entretien .texte .body .bouton-commander{
+	display: block;
+}
+.product-mini-swimming-bag .entretien .texte h2{
+	display: none;
+}
+.product-mini-swimming-bag .entretien .texte .bouton-commander{
+	display: none;
+}
+.product-mini-swimming-bag .entretien{
+	padding-bottom: 35px;
+}
+.product-mini-swimming-bag .presentation-produit .texte{
+	width: 100%;
+	text-align: center;
+}
+.product-mini-swimming-bag .version-mini{
+	font-family: 'lato-heavy';
+    line-height: 10px;
+    font-size: 17px;
+}
+.product-mini-swimming-bag .presentation-produit .texte h2{
+	line-height: 20px;
+	padding-bottom: 35px;
+}
+.product-mini-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark.wheelmark2{
+	margin-top: 10px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-mini-swimming-bag .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-mini-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-mini-swimming-bag .presentation-produit .texte h2 {
+    line-height: 34px;
+    padding-bottom: 35px;}
+
+	.product-mini-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}
+.product-mini-swimming-bag .presentation-produit-wrapper .texte.col-sm-5 {
+    margin-top: 40px;
+    width: 100%;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*-----------------------------swimming bag*/
+
+.product-swimming-bag .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-swimming-bag .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-swimming-bag .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-swimming-bag .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-swimming-bag .presentation-produit{
+	padding-bottom: 30px !important;
+}
+.product-swimming-bag .entretien .texte{
+	width: 100% !important;
+
+}
+
+.product-swimming-bag.catalog-product-view .entretien .texte .body h2, .product-swimming-bag.catalog-product-view .entretien .texte .body .bouton-commander{
+	display: block;
+}
+.product-swimming-bag .entretien .texte h2{
+	display: none;
+}
+.product-swimming-bag .entretien .texte .bouton-commander{
+	display: none;
+}
+.product-swimming-bag .entretien{
+	padding-bottom: 35px;
+}
+.product-swimming-bag .presentation-produit .texte{
+	width: 100%;
+	text-align: center;
+}
+.product-swimming-bag .version-mini{
+	font-family: 'lato-heavy';
+    line-height: 10px;
+    font-size: 17px;
+}
+.product-swimming-bag .presentation-produit .texte h2{
+	line-height: 20px;
+	padding-bottom: 35px;
+}
+.product-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark.wheelmark2{
+	margin-top: 10px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-swimming-bag .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-swimming-bag .presentation-produit .texte h2 {
+    line-height: 34px;
+    padding-bottom: 35px;}
+
+	.product-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}
+.product-swimming-bag .presentation-produit-wrapper .texte.col-sm-5 {
+    margin-top: 40px;
+    width: 100%;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+
+/*-----------------------------sunbrella*/
+.product-pouf-poire-scuba-xtrem-sunbrella1 .presentation-produit{
+	min-height: 700px !important;
+}
+@media (max-width: 768px){
+	.product-pouf-poire-scuba-xtrem-sunbrella1 .presentation-produit{
+		min-height: auto !important;
+	}
+}
+/*-----------------------------swimbrella*/
+.product-pouf-poire-scuba-xtrem-swimbrella .entretien{
+	min-height: 500px !important;
+}
+@media (max-width: 768px){
+	.product-pouf-poire-scuba-xtrem-swimbrella .entretien{
+		min-height: auto !important;
+	}
+}
+/*-----------------------------SCUBA*/
+.product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row{
+	min-height: 400px !important;
+}
+.product-pouf-poire-scuba-xtrem-scuba.catalog-product-view .presentation-produit .texte h2{
+	margin-top: 35px;
+}
+@media (max-width: 768px){
+	.product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row{
+		min-height: auto !important;
+	}
+	.product-pouf-poire-scuba-xtrem-scuba .presentation-produit{
+		min-height: auto !important;
+	}
+	.product-pouf-poire-scuba-xtrem-scuba.catalog-product-view .presentation-produit{
+		padding-bottom: 0px!important;
+	}
+}
+@media (max-width: 1280px){
+	.product-pouf-poire-scuba-xtrem-scuba.catalog-product-view .presentation-produit{
+		padding-bottom: 200px;
+	}
+}
+@media (min-width: 1280px){
+.product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row {
+   width: 1200px;
+   height: 500px;
+}
+}
+.product-pouf-poire-scuba-xtrem-scuba .informations-produit .product-infos .product-options-bottom {
+    margin-top: 120px;
+   }
+/*-----------------------------scuba xxl*/
+
+.product-scuba-xxl .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-scuba-xxl .entretien-wrapper {
+	background:transparent !important;
+
+}
+.product-scuba-xxl .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-scuba-xxl .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-scuba-xxl .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-scuba-xxl .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-scuba-xxl .informations-produit .product-infos h2 .panier-product-title{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-scuba-xxl .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-scuba-xxl .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-scuba-xxl .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+
+.product-scuba-xxl .entretien-wrapper .bouton-commander{
+	display:none !important;
+
+}
+
+.product-scuba-xxl .entretien-wrapper .entretien.row{
+	
+	height: 500px;
+}
+@media (max-width: 768px) {
+	.product-scuba-xxl .entretien-wrapper .entretien.row{
+	display: none !important;
+}
+}
+@media (max-width: 480px) {
+
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-scuba-xxl .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-scuba-xxl .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+
+}
+@media (max-width: 1024px){
+
+	.product-scuba-xxl .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}}
+@media (min-width: 1024px){
+
+
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+
+/*-----------------------------bowly*/
+
+.product-bowly .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-bowly .entretien-wrapper {
+	background:transparent !important;
+
+}
+.product-bowly .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-bowly .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-bowly .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-bowly .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-bowly .informations-produit .product-infos h2 .panier-product-title{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-bowly .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-bowly .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-bowly .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+
+.product-bowly .entretien-wrapper .bouton-commander{
+	display:none !important;
+
+}
+
+.product-bowly .entretien-wrapper .entretien.row{
+	height: 500px !important;
+}
+@media (max-width: 768px) {
+	.product-bowly .entretien-wrapper .entretien.row{
+	display: none !important;
+}
+}
+@media (max-width: 480px) {
+
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-bowly .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-bowly .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+
+}
+@media (max-width: 1024px){
+
+	.product-bowly .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}}
+@media (min-width: 1024px){
+
+
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*-----------------------------chilly bean*/
+
+.product-chilly-bean .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-chilly-bean .entretien-wrapper {
+	background:transparent !important;
+
+}
+.product-chilly-bean .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-chilly-bean .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-chilly-bean .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-chilly-bean .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-chilly-bean .informations-produit .product-infos h2 .panier-product-title{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-chilly-bean .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-chilly-bean .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-chilly-bean .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+
+.product-chilly-bean .entretien-wrapper .bouton-commander{
+	display:none !important;
+
+}
+
+.product-chilly-bean .entretien-wrapper .entretien.row{
+	height: 500px !important;
+}
+@media (max-width: 768px) {
+	.product-chilly-bean .entretien-wrapper .entretien.row{
+	display: none !important;
+}
+}
+@media (max-width: 480px) {
+
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-chilly-bean .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-chilly-bean .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+
+}
+@media (max-width: 1024px){
+
+	.product-chilly-bean .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}}
+@media (min-width: 1024px){
+
+
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*---------------------------random------------------*/
+footer{
+	min-height: 200px;
+}
+footer .arguments-footer .argument-footer .image-wrapper img{
+	width: 65px !important;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:hover, .catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img.current{
+	margin-top: -5px !important;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img{
+	vertical-align: top;
+}
+footer .arguments-footer .argument-footer .image-wrapper{
+	transition: all .2s ease-in-out;
+}
+footer .arguments-footer .argument-footer:hover .image-wrapper{
+	-webkit-transform: translateY(-7px);
+    transform: translateY(-7px);
+    transition: all .2s ease-in-out;
+}
+.texte .arguments .argument:hover{
+	-webkit-transform: translateY(-7px);
+    transform: translateY(-7px);
+    transition: all .2s ease-in-out;
+}
+.texte .arguments .argument{
+    transition: all .2s ease-in-out;
+}
+.catalog-product-view .height-centered h2 .price-box .old-price .price{
+	position: relative;
+}
+.old-price .price{
+	text-decoration: line-through red;
+}
+/*-----------------------------Lazy swimming bag*/
+
+.product-lazy-swimming-bag .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-lazy-swimming-bag .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-lazy-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-lazy-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-lazy-swimming-bag .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-lazy-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-lazy-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-lazy-swimming-bag .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-lazy-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-lazy-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-lazy-swimming-bag .presentation-produit{
+	padding-bottom: 30px !important;
+}
+.product-lazy-swimming-bag .entretien .texte{
+	width: 100% !important;
+
+}
+
+.product-lazy-swimming-bag.catalog-product-view .entretien .texte .body h2, .product-lazy-swimming-bag.catalog-product-view .entretien .texte .body .bouton-commander{
+	display: block;
+}
+.product-lazy-swimming-bag .entretien .texte h2{
+	display: none;
+}
+.product-lazy-swimming-bag .entretien .texte .bouton-commander{
+	display: none;
+}
+.product-lazy-swimming-bag .entretien{
+	padding-bottom: 35px;
+}
+.product-lazy-swimming-bag .presentation-produit .texte{
+	width: 100%;
+	text-align: center;
+}
+.product-lazy-swimming-bag .version-mini{
+	font-family: 'lato-heavy';
+    line-height: 10px;
+    font-size: 17px;
+}
+.product-lazy-swimming-bag .presentation-produit .texte h2{
+	line-height: 20px;
+	padding-bottom: 35px;
+}
+.product-lazy-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark.wheelmark2{
+	margin-top: 10px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-lazy-swimming-bag .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-lazy-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-lazy-swimming-bag .presentation-produit .texte h2 {
+    line-height: 34px;
+    padding-bottom: 35px;}
+
+	.product-lazy-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}
+.product-lazy-swimming-bag .presentation-produit-wrapper .texte.col-sm-5 {
+    margin-top: 40px;
+    width: 100%;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*-----------------------------Donut swimming bag*/
+
+.product-donut-swimming-bag .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-donut-swimming-bag .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-donut-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important
+	;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-donut-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+.product-donut-swimming-bag .height-centered h1 .title-product-h1{
+	display: none !important;
+}
+.product-donut-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-donut-swimming-bag .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+.product-donut-swimming-bag .informations-produit .product-images{
+	margin-top: -50px!important;
+}
+.product-donut-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-donut-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-donut-swimming-bag .presentation-produit{
+	padding-bottom: 30px !important;
+}
+.product-donut-swimming-bag .entretien .texte{
+	width: 100% !important;
+
+}
+
+.product-donut-swimming-bag.catalog-product-view .entretien .texte .body h2, .product-donut-swimming-bag.catalog-product-view .entretien .texte .body .bouton-commander{
+	display: block;
+}
+.product-donut-swimming-bag .entretien .texte h2{
+	display: none;
+}
+.product-donut-swimming-bag .entretien .texte .bouton-commander{
+	display: none;
+}
+.product-donut-swimming-bag .entretien{
+	padding-bottom: 35px;
+}
+.product-donut-swimming-bag .presentation-produit .texte{
+	width: 100%;
+	text-align: center;
+}
+.product-donut-swimming-bag .version-mini{
+	font-family: 'lato-heavy';
+    line-height: 10px;
+    font-size: 17px;
+}
+.product-donut-swimming-bag .presentation-produit .texte h2{
+	line-height: 20px;
+	padding-bottom: 35px;
+}
+.product-donut-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark.wheelmark2{
+	margin-top: 10px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-donut-swimming-bag .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-donut-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-donut-swimming-bag .presentation-produit .texte h2 {
+    line-height: 34px;
+    padding-bottom: 35px;}
+
+	.product-donut-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}
+.product-donut-swimming-bag .presentation-produit-wrapper .texte.col-sm-5 {
+    margin-top: 40px;
+    width: 100%;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*-----------------------------cube-xtrem--------------------------------*/
+
+.product-cube-xtrem .presentation-produit-wrapper{
+	background:transparent !important;
+
+}
+.product-cube-xtrem .entretien-wrapper{
+	background:transparent !important;
+
+}
+.product-cube-xtrem .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
+	float: none!important;
+}
+
+.marg-plus-tissu{
+	margin-top: 30px;
+}
+.stars-p{
+	text-align: left;
+}
+.catalog-product-view .informations-produit .product-infos #product-options-wrapper .swatches-container .swatch-img:not(:last-child){
+	margin-bottom: 15px;
+}
+.product-cube-xtrem .informations-produit .product-infos .product-options-bottom{
+	margin-top: 70px !important;
+}
+.product-view .add-to-cart button.button span span{
+	background:url('../images/icone-panier-produit.png') no-repeat;
+	background-position:10px center;
+}
+/*.product-cube-xtrem .height-centered h1 .title-product-h1{
+	display: none !important;
+}*/
+.product-cube-xtrem .informations-produit .product-infos h2 .thin-part{
+	display: none;
+}
+.product-cube-xtrem .informations-produit .product-infos h2 .thin-part{
+	 font-family: 'Lato-heavy', sans-serif;
+}
+/*.product-cube-xtrem .informations-produit .product-images{
+	margin-top: -50px!important;
+}*/
+.product-cube-xtrem .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
+	display: none;
+}
+.product-cube-xtrem .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark{
+	margin-top: 0px;
+}
+.product-cube-xtrem .presentation-produit{
+	padding-bottom: 30px !important;
+}
+.product-cube-xtrem .entretien .texte{
+	width: 100% !important;
+
+}
+
+.product-cube-xtrem.catalog-product-view .entretien .texte .body h2, .product-cube-xtrem.catalog-product-view .entretien .texte .body .bouton-commander{
+	display: block;
+}
+.product-cube-xtrem .entretien .texte h2{
+	display: none;
+}
+.product-cube-xtrem .entretien .texte .bouton-commander{
+	display: none;
+}
+.product-cube-xtrem .entretien{
+	display: none !important;
+}
+.product-cube-xtrem .remplissage{
+	display: none!important;
+}
+.product-cube-xtrem .presentation-produit{
+	min-height: 500px;
+}
+.product-cube-xtrem .version-mini{
+	font-family: 'lato-heavy';
+    line-height: 10px;
+    font-size: 17px;
+}
+.product-cube-xtrem .presentation-produit .texte h2{
+	line-height: 20px;
+	padding-bottom: 35px;
+}
+.product-cube-xtrem .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark.wheelmark2{
+	margin-top: 10px !important;
+}
+@media (max-width: 480px) {
+.uvimg1{
+	margin-bottom: 0px;
+	float: left;
+    margin-right: 3px;
+    width: auto;
+}
+.thin-part{
+	display: none;
+}
+.product-cube-xtrem .informations-produit .product-infos h2{
+	font-size: 21px;
+}
+.product-cube-xtrem .informations-produit .product-infos .product-options-bottom{
+	margin-top: 10px !important;
+}
+}
+@media (max-width: 1024px){
+	.product-cube-xtrem .presentation-produit .texte h2 {
+    line-height: 34px;
+    padding-bottom: 35px;}
+
+	.product-cube-xtrem .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px !important;
+}
+.product-cube-xtrem .presentation-produit-wrapper .texte.col-sm-5 {
+    margin-top: 40px;
+    width: 100%;
+}}
+@media (min-width: 1024px){
+.uvimg1{
+	margin-bottom: 40px;
+	float: left;
+    margin-right: 30px;
+    width: auto;
+}
+}
+/*---------remove for instance-------*/
+
+/*---------category galerie-------*/
+.gallery-content-center-full{
+	margin-top: 80px !important;
+}
+/*--------housses swiimming bag----------*/
+.product-housse-coussin-geant-swimming-bag .fullscreen-before{
+	background-image: none !important;
+	max-height: 66px !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .fullscreen-before .height-centered{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .fullscreen-before .en-savoir-plus{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .diaporama-produit{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px;
+}
+.product-housse-coussin-geant-swimming-bag .informations-produit{
+	padding-bottom: 0px;
+}
+.product-housse-coussin-geant-swimming-bag .presentation-produit-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .entretien-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .remplissage{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-swimming-bag .thin-part{
+	display: none !important;
+}
+
+/*--------housses original----------*/
+.product-housse-coussin-geant-original-jumbobag .fullscreen-before{
+	background-image: none !important;
+	max-height: 66px !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .fullscreen-before .height-centered{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .fullscreen-before .en-savoir-plus{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .diaporama-produit{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px;
+}
+.product-housse-coussin-geant-original-jumbobag .informations-produit{
+	padding-bottom: 0px;
+}
+.product-housse-coussin-geant-original-jumbobag .presentation-produit-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .entretien-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .remplissage{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-original-jumbobag .thin-part{
+	display: none !important;
+}
+
+/*--------housses printed----------*/
+.product-housse-coussin-geant-jumbobag-original-printed .fullscreen-before{
+	background-image: none !important;
+	max-height: 66px !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .fullscreen-before .height-centered{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .fullscreen-before .en-savoir-plus{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .diaporama-produit{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .informations-produit .product-infos .product-options-bottom{
+	margin-top: 30px;
+}
+.product-housse-coussin-geant-jumbobag-original-printed .informations-produit{
+	padding-bottom: 0px;
+}
+.product-housse-coussin-geant-jumbobag-original-printed .presentation-produit-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .entretien-wrapper{
+	display: none !important;
+
+}
+.product-housse-coussin-geant-jumbobag-original-printed .remplissage{
+	display: none !important;
+
+}
+.category-products{
+	margin: 0px !important;
+}
+.cms-faq .titleItem h1{
+	padding: 15px 45px 15px 10px !important;
+}
+.product-housse-coussin-geant-jumbobag-original-printed .thin-part{
+	display: none !important;
+}
+/*--------softy----------*/
+.product-pouf-mini-coussin-softy-jumbobag .title-product-h1{
+	display: none !important;
+}
+.product-pouf-mini-coussin-softy-jumbobag .wrapper-en-savoir-plus{
+	display: none !important;
+}
+
+.product-pouf-mini-coussin-softy-jumbobag .entretien{
+	display: none !important;
+}
+.product-pouf-mini-coussin-softy-jumbobag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 150px !important;
+}
+
+
+
+.product-pouf-mini-coussin-softy-jumbobag .presentation-produit .texte h2{
+	font-size: 34px !important;
+}
+.product-pouf-mini-coussin-softy-jumbobag .informations-produit{
+	padding-bottom: 0!important;
+}
+.product-pouf-mini-coussin-softy-jumbobag.catalog-product-view .presentation-produit.row{
+	width: 100% !important;
+	padding: 50px 0 50px 100px !important;
+}
+@media (max-width: 1200px){
+.product-pouf-mini-coussin-softy-jumbobag.catalog-product-view .presentation-produit .texte{
+	    background-position: bottom;
+
+}
+.product-pouf-mini-coussin-softy-jumbobag.catalog-product-view .presentation-produit.row{
+	padding: 0 0 40px 0 !important;
+	background-position: bottom !important;
+}
+.product-pouf-mini-coussin-softy-jumbobag .informations-produit .product-infos .product-options-bottom{
+	margin-top: 0px !important;
+}
+}
+@media (max-width: 768px){
+	.product-pouf-mini-coussin-softy-jumbobag.catalog-product-view .presentation-produit.row{
+	
+	background-position: top !important;
+}
+.product-pouf-mini-coussin-softy-jumbobag.catalog-product-view .presentation-produit-wrapper .image-wrapper.col-sm-7 img{
+	display: none;
+}
+}
+
+/*--------br----------*/
+
+.catalog-product-view .height-centered{
+	max-width: 500px !important;
+}
+}
+.catalog-product-view .title-product-h1{
+	display: none !important;
+}
+.informations-produit .product-infos h2 .thin-part{
+	display: none !important;
+}

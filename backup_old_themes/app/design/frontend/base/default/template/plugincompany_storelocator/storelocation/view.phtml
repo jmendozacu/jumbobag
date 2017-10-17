@@ -1,0 +1,195 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+/**
+ * Store location view template
+ *
+ * @category    Plugincompany
+ * @package     Plugincompany_Storelocator
+ * @author      Milan Simek
+ */
+?>
+
+<?php
+    $helper = Mage::helper('plugincompany_storelocator');
+?>
+
+<?php if(Mage::getStoreConfig('plugincompany_storelocator/libraries/fawesome')){?>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<?php } ?>
+
+<?php $_storelocation = $this->getCurrentStorelocation();?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title storelocation-title">
+    <h1><?php echo $_storelocation->getLocname(); ?></h1>
+</div>
+<div class="storelocation-view">
+
+    <div class="storelocation-left" id="storelocationleft">
+        <h3><?php echo $helper->__('Address Details'); ?></h3>
+
+        <div class="storelocation-box">
+
+            <?php echo Mage::helper('plugincompany_storelocator/storelocation')->getFormattedAddress($_storelocation,true); ?>
+
+        </div>
+        <?php if ($_storelocation->getPhone() || $_storelocation->getFax() || $_storelocation->getEmail()|| $_storelocation->getWeb()) { ?>
+        <h3><?php echo $helper->__('Contact Details'); ?></h3>
+        <?php } ?>
+        <div class="storelocation-box">
+            <?php if ($_storelocation->getPhone()) { ?>
+                <div class="storelocation-phone">
+                    <i class="fa fa-phone fa-fw"></i> <?php echo $_storelocation->getPhone();?>
+                </div>
+            <?php } ?>
+
+            <?php if ($_storelocation->getFax()) { ?>
+                <div class="storelocation-fax">
+                    <i class="fa fa-fax fa-fw"></i> <?php echo $_storelocation->getFax();?>
+                </div>
+            <?php } ?>
+
+            <?php if ($_storelocation->getEmail()) { ?>
+                <div class="storelocation-email">
+                    <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:<?php echo $_storelocation->getEmail();?>"><?php echo $_storelocation->getEmail();?></a>
+                </div>
+            <?php } ?>
+
+            <?php if ($_storelocation->getWeb()) { ?>
+                <div class="storelocation-web">
+                    <i class="fa fa-link fa-fw"></i> <a href="http://<?php echo $_storelocation->getWeb();?>" target="_blank"><?php echo $helper->__('Visit website'); ?></a>
+
+                </div>
+            <?php } ?>
+            <?php if($this->isRatingEnable()): ?>
+                <div class="starrr" data-rating='<?php echo $_storelocation->getRating(); ?>' data-disabled='true'></div>
+            <?php endif; ?>
+        </div>
+        <?php if ($_storelocation->getHours1() || $_storelocation->getHours2() || $_storelocation->getHours3()) { ?>
+        <h3><?php echo $helper->__('Opening Hours'); ?></h3>
+        <div class="storelocation-box">
+            <div class="storelocation-hours1">
+                <?php echo $_storelocation->getHours1();?>
+            </div>
+            <div class="storelocation-hours2">
+                <?php echo $_storelocation->getHours2();?>
+            </div>
+            <div class="storelocation-hours3">
+                <?php echo $_storelocation->getHours3();?>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+    <div class="storelocation-right">
+        <div id="map" class="storelocation-map">
+
+        </div>
+    </div>
+    <?php if($_storelocation->getDescription()){ ?>
+        <div class="page-title storelocation-title" style="float:left;clear:both;width:100%;margin-top:30px;">
+            <h2><?php echo $helper->__('Store description') ?></h2>
+        </div>
+        <div class="storelocation-row">
+            <div class="storelocation-left">
+                <div class="storelocation-description">
+                    <?php echo $_storelocation->getDescription();?>
+                </div>
+            </div>
+            <div class="storelocation-right">
+                <div class="storelocation-image">
+                    <?php if ($_storelocation->getImage()) :?>
+                        <img src="<?php echo Mage::helper('plugincompany_storelocator/storelocation_image')->init($_storelocation, 'image')->resize(400);?>" alt="<?php echo $this->htmlEscape($_storelocation->getLocname());?>" />
+                    <?php endif;?>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    <?php if($attributes = $_storelocation->getCustomAttributes()){ ?>
+    <?php
+        $col1 = array_slice($attributes,0,round(count($attributes)/2));
+        $col2 = array_slice($attributes,round(count($attributes)/2));
+    ?>
+        <div class="page-title storelocation-title" style="float:left;clear:both;width:100%;margin-top:30px;">
+            <h2><?php echo $helper->__('Additional Details') ?></h2>
+        </div>
+        <div class="storelocation-row">
+            <div class="storelocation-left">
+                <div class="storelocation-description">
+                    <table class="store_attributes">
+                    <?php foreach($col1 as $label => $value){ ?>
+                        <tr>
+                            <td>
+                                <?php echo $label;?>
+                            </td>
+                            <td>
+                                <?php echo $value;?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </table>
+                </div>
+            </div>
+
+            <?php if(count($col2)){ ?>
+            <div class="storelocation-right">
+                <div class="storelocation-description">
+                    <table class="store_attributes">
+                        <?php foreach($col2 as $label => $value){ ?>
+                            <tr>
+                                <td>
+                                    <?php echo $label;?>
+                                </td>
+                                <td>
+                                    <?php echo $value;?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+</div>
+
+<?php if($_storelocation->getAllowComments()){ ?>
+<div class="page-title storelocation-title" style="">
+    <h2><?php echo $helper->__('Customer Comments'); ?></h2>
+</div>
+<?php }?>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.19&sensor=false&libraries=places<?php echo Mage::helper('plugincompany_storelocator')->getApiKeyQueryString(); ?>" type="text/javascript"></script>
+<script>
+    var leftHeight = ($('storelocationleft').getDimensions().height)-30;
+    if(leftHeight > 300) {
+        $('map').setStyle({'height':leftHeight + 'px'})
+    }
+    var map;
+    function initializeGMap() {
+        var latLng = new google.maps.LatLng(<?php echo $_storelocation->getLat() ?>, <?php echo $_storelocation->getLng() ?>);
+        var mapOptions = {
+            zoom: 18,
+            center: latLng
+        };
+        map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            title: '<?php echo $_storelocation->getLocname() ?>'
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initializeGMap);
+</script>

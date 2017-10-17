@@ -1,0 +1,1 @@
+!function($){jQuery(document).ready(function(){$(".fullscreen-before").css("background-image","url("+$("#category-img").html()+")"),$("#category-name").detach().prependTo($(".height-centered"))}),jQuery(window).load(function(){$(".fullscreen-before").height($(window).height())})}(jQuery);

@@ -1,0 +1,87 @@
+<div class="page-title">
+    <h1><?php echo $this->__('Checkout') ?></h1>
+</div>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
+<script type="text/javascript">countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
+<ul class="top-opc" id="checkoutTop">
+<?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+    <li id="top-opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
+        <span class="number"><?php echo $i ?></span>
+        <h2><?php echo $_stepInfo['label'] ?></h2>
+    </li>
+<?php endforeach ?>
+</ul>
+<div class="clear"></div>
+<div id="checkoutStepsWrapper">
+    <ol class="opc" id="checkoutSteps">
+    <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+    <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+        <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
+            <div class="step-title">
+                <span class="number"><?php echo $i ?></span>
+                <h2><?php echo $_stepInfo['label'] ?></h2>
+                <a href="#"><?php echo $this->__('Edit') ?></a>
+            </div>
+            <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item well well--block" style="display:none;">
+                <?php echo $this->getChildHtml($_stepId) ?>
+            </div>
+        </li>
+    <?php endforeach ?>
+    </ol>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+    function DirtyHackordion() {
+        Accordion.call(this)
+        var ___currentSection = this.currentSection;
+
+        Object.defineProperty(
+            this, 
+            "currentSection", 
+            {
+                get: function() {
+                    return ___currentSection;
+                },
+                set: function(val) {
+                    sections = $$(".top-opc .section");
+                    for (var i = sections.length - 1; i >= 0; i--) {
+                        sections[i].classList.remove("active");
+                    }
+                    
+                    $("top-"+val).addClassName("allow").addClassName("active");
+                    return (___currentSection = val);
+                }
+            }
+        );
+    }
+
+    DirtyHackordion.prototype = Object.create(Accordion.prototype);
+    DirtyHackordion.prototype.constructor = DirtyHackordion;
+
+    var accordion = new DirtyHackordion('checkoutSteps', '.step-title', true);
+    <?php if($this->getActiveStep()): ?>
+    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
+    <?php endif ?>
+    var checkout = new Checkout(accordion,{
+        progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
+        review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
+        saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
+        failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
+    );
+
+    // Dirty hack follow up
+    sections = $$(".top-opc .section");
+    for (var i = sections.length - 1; i >= 0; i--) {
+        sections[i].addEventListener("click", function(event) {
+            section = $(Event.element(event)).up('.section');
+            if(Element.hasClassName(section, 'allow')) {
+                accordion.openSection($(section.id.replace("top-", "")));
+            }
+            Event.stop(event);
+        });
+    }
+//]]>
+</script>

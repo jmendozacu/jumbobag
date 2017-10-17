@@ -1,0 +1,33 @@
+<?php
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+/**
+ * Store location list template
+ *
+ * @category    Plugincompany
+ * @package     Plugincompany_Storelocator
+ * @author      Milan Simek
+ */
+?>
+{{#location}}
+<li data-markerid="{{markerid}}">
+	<div class="list-label">{{marker}}</div>
+	<div class="list-details">
+		<div class="list-content">
+			<div class="loc-name">{{locname}}</div>
+			<div>{{{description}}}</div>
+		</div>
+	</div>
+</li>
+{{/location}}

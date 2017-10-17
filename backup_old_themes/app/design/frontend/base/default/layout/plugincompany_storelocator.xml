@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+-->
+<layout>
+    <storefinderenabled>
+            <reference name="top.links">
+                <action method="addLink" ifconfig="plugincompany_storelocator/storelist/show_in_toplinks" translate="label title" module="plugincompany_storelocator">
+                    <label>Store Locations</label>
+                    <url helper="plugincompany_storelocator/storelocation/getStorelocationsUrl"/>
+                    <title>Store Locations</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                </action>
+                <action method="addLink" ifconfig="plugincompany_storelocator/storefinder/show_in_toplinks" translate="label title" module="plugincompany_storelocator">
+                    <label>Store Finder</label>
+                    <url helper="plugincompany_storelocator/storelocation/getStoreFinderUrl"/>
+                    <title>Store Finder</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                </action>
+            </reference>
+            <reference name="footer_links">
+                <action method="addLink" ifconfig="plugincompany_storelocator/storelist/show_in_footer" translate="label title" module="plugincompany_storelocator">
+                    <label>Store Locations</label>
+                    <url helper="plugincompany_storelocator/storelocation/getStorelocationsUrl"/>
+                    <title>Store Locations</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                </action>
+                <action method="addLink" ifconfig="plugincompany_storelocator/storefinder/show_in_footer" translate="label title" module="plugincompany_storelocator">
+                    <label>Store Finder</label>
+                    <url helper="plugincompany_storelocator/storelocation/getStoreFinderUrl"/>
+                    <title>Store Finder</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>10</position>
+                </action>
+            </reference>
+    </storefinderenabled>
+    <customer_account_storefinderenabled>
+        <reference name="customer_account_navigation">
+            <action ifconfig="plugincompany_storelocator/storepage/allow_comment" method="addLink" translate="label" module="plugincompany_storelocator">
+                <name>storelocation_comments</name>
+                <path>plugincompany_storelocator/storelocation_customer_comment</path>
+                <label>Store locations Comments</label>
+            </action>
+        </reference>
+    </customer_account_storefinderenabled>
+    <plugincompany_storelocator_storelocation_index translate="label" module="plugincompany_storelocator">
+        <label>Store locations list</label>
+        <update handle="page_one_column" />
+        <update handle="pc_storelocation" />
+        <reference name="head">
+            <action method="addJs" ifconfig="plugincompany_storelocator/libraries/jquery">
+                <name>plugincompany/jquerynoconflict.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="plugincompany_storelocator/storelocation_list" name="storelocation_list" template="plugincompany_storelocator/storelocation/list.phtml" />
+        </reference>
+    </plugincompany_storelocator_storelocation_index>
+    <plugincompany_storelocator_storelocation_view translate="label" module="plugincompany_storelocator">
+        <label>Store location view page</label>
+        <update handle="page_one_column" />
+        <update handle="pc_storelocation" />
+        <reference name="content">
+            <block type="plugincompany_storelocator/storelocation_view" name="storelocation_view" template="plugincompany_storelocator/storelocation/view.phtml" />
+            <block type="plugincompany_storelocator/storelocation_comment_list" name="storelocation.comments_list" as="storelocation_comment_list" template="plugincompany_storelocator/storelocation/comment/list.phtml">
+                <block type="plugincompany_storelocator/storelocation_comment_form" name="comment_form" as="comment_form" template="plugincompany_storelocator/storelocation/comment/form.phtml" />
+            </block>
+        </reference>
+    </plugincompany_storelocator_storelocation_view>
+    <plugincompany_storelocator_storelocation_customer_comment_index translate="label" module="plugincompany_storelocator">
+        <label>My Store locations comments</label>
+        <update handle="customer_account"/>
+        <update handle="pc_storelocation" />
+        <reference name="my.account.wrapper">
+            <block type="plugincompany_storelocator/storelocation_customer_comment_list" name="customer_storelocation_comments" template="plugincompany_storelocator/storelocation/customer/comment/list.phtml"/>
+        </reference>
+    </plugincompany_storelocator_storelocation_customer_comment_index>
+    <plugincompany_storelocator_storelocation_customer_comment_view translate="label" module="plugincompany_storelocator">
+        <label>My Store locations comment view</label>
+        <update handle="customer_account"/>
+        <update handle="pc_storelocation" />
+        <reference name="my.account.wrapper">
+            <block type="plugincompany_storelocator/storelocation_customer_comment_view" name="customer_storelocation_comment" template="plugincompany_storelocator/storelocation/customer/comment/view.phtml"/>
+        </reference>
+    </plugincompany_storelocator_storelocation_customer_comment_view>
+    <plugincompany_storelocator_storelocation_locator translate="label" module="plugincompany_storelocator">
+        <label>Store locator</label>
+        <update handle="page_one_column" />
+        <update handle="pc_storelocation" />
+        <reference name="content">
+            <block type="plugincompany_storelocator/storelocation_storefinder" template="plugincompany_storelocator/storelocation/storelocator.phtml">
+            </block>
+        </reference>
+    </plugincompany_storelocator_storelocation_locator>
+    <plugincompany_storelocator_storelocation_locatorembed translate="label" module="plugincompany_storelocator">
+        <label>Store locator</label>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/empty.phtml</template>
+            </action>
+        </reference>
+        <update handle="pc_storelocation" />
+        <reference name="content">
+            <block type="plugincompany_storelocator/storelocation_storefinder" template="plugincompany_storelocator/storelocation/storelocator.phtml">
+            </block>
+        </reference>
+    </plugincompany_storelocator_storelocation_locatorembed>
+    <pc_storelocation>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/plugincompany/storelocator/css/style.css</stylesheet></action>
+            <action method="addJs">
+                <script>plugincompany/starrr/starrr.min.js</script>
+                <params><![CDATA[sorting="last"]]></params>
+            </action>
+        </reference>
+    </pc_storelocation>
+    <catalog_product_view translate="label">
+        <reference name="head">
+            <action method="addJs" ifconfig="plugincompany_storelocator/libraries/jquery">
+                <name>plugincompany/jquerynoconflict.js</name>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <block type="plugincompany_storelocator/storelocation_product_store_list" name="store.location"
+                   as="store_location" template="plugincompany_storelocator/storelocation/list.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>Store Locations</value>
+                </action>
+            </block>
+            <block type="plugincompany_storelocator/storelocation_product_store_locator" name="store.locator"
+                   as="store_locator" template="plugincompany_storelocator/storelocation/product/locator.phtml">
+                <action method="addToParentGroup">
+                    <group>detailed_info</group>
+                </action>
+                <action method="setTitle" translate="value">
+                    <value>Store Finder</value>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+</layout>

@@ -1,0 +1,101 @@
+
+#gallery{
+	float: left;
+	width: 100%;
+}
+#gallery-header{
+	height: auto;
+	width: 100%;
+	float: left;
+}
+#gallery-header-center{
+	height: auto;
+	width: 1015px;
+	margin-right: auto;
+	margin-left: auto; position: relative;
+}
+#gallery-header-center-left{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 32px;
+}
+#gallery-header-center-left-icon{
+	float: left;
+	height: 35px;
+	width: 35px;
+	background-color: rgba(63,141,191,1);
+	color: rgba(255,255,255,1);
+	text-align: center;
+	font-size: 20px;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
+	-o-transition: background 0.5s;
+	transition: background 0.5s;
+}
+#gallery-header-center-left-icon:hover {
+	background-color: rgba(63,141,191,0.5);
+	cursor: pointer;
+}
+#gallery-header-center-left-title{
+	float: left;
+	height: 35px;
+	font-size: 25px;
+	color: #3f8dbf;
+	margin-left: 20px;
+}
+#gallery-header-center-right{
+	margin: 40px 0 0;
+    line-height: 35px;
+    text-align: center;
+}
+.gallery-header-center-right-links {
+	    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+    display: inline-block;
+    max-width: 210px;
+    min-width: 141px;
+    margin: 0 15px 0px 15px;
+}
+.gallery-header-center-right-links:hover {
+	
+	color: #fff;
+	cursor: pointer;
+}
+.gallery-header-center-right-links:hover a{ color: #fff;  border-radius: 10px; }
+
+.gallery-header-center-right-links-current {
+	color: #FFFFFF;
+	
+}
+
+#gallery-content{
+	float: left;
+	width: 100%;
+}
+.gallery-content-center-normal {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.gallery-content-center-full {
+	float: none;
+    width: 1015px;
+    margin: 50px auto;
+}
+#gallery-content-center{float: none;
+    width: 1015px;
+    margin: 0px auto 0; padding-bottom: 10px;}
+
+#gallery-content-center li {
+	width: 223px;
+	margin: 0 15px 40px 15px;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	
+}
+#gallery-content-center li img{ width: 100%; }

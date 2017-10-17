@@ -1,0 +1,91 @@
+.catalogsearch-result-index .products-grid li.item,
+.catalog-category-view .products-grid li.item {
+    float: left;
+    width: 230px;
+    height: 275px;
+    padding: 0;
+    margin: 0 15px 30px;
+	box-shadow: initial;
+	-webkit-box-shadow: initial;
+	-moz-box-shadow: initial;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
+
+.catalogsearch-result-index .product-info-bottom-left,
+.catalog-category-view .product-info-bottom-left {
+    float: left;
+    max-width: 65%;
+}
+
+.catalogsearch-result-index .product-info-bottom-right,
+.catalog-category-view .product-info-bottom-right {
+    float: right;
+    text-align: right;
+    max-width: 35%;
+}
+
+.catalogsearch-result-index .new-label, 
+.catalogsearch-result-index .sale-label,
+.catalogsearch-result-index .featured-product-label,
+.catalog-category-view .new-label, 
+.catalog-category-view .sale-label,
+.catalog-category-view .featured-product-label {
+	display: none;
+}
+
+.catalogsearch-result-index .price-box .price,
+.catalog-category-view .price-box .price{
+	color:#1d4b99;
+	font-weight:400;
+	font-size:16px;
+}
+.catalogsearch-result-index .price-box .old-price,
+.catalog-category-view .price-box .old-price { 
+	color: red; 
+	font-size: 1em; 
+	text-decoration: line-through; 
+	font-weight: bolder;
+}
+
+.catalogsearch-result-index .price-box .special-price .price-label, 
+.catalogsearch-result-index .price-box .old-price .price-label,
+.catalog-category-view .price-box .special-price .price-label, 
+.catalog-category-view .price-box .old-price .price-label { 
+	display: none; 
+}
+
+.catalogsearch-result-index .price-box .old-price .price,
+.catalog-category-view .price-box .old-price .price { 
+	color:#1d4b99; 
+	text-decoration: none; 
+	font-size: 1em;
+}
+
+
+.catalogsearch-result-index .product-name,
+.catalog-category-view .product-name {
+	margin-top: 0;
+	margin-left: 0;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 14px;
+	color: #1d4b99;
+}
+
+.catalogsearch-result-index .collection-name,
+.catalog-category-view .collection-name {
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 12px;
+	color: #1d4b99;
+}
+
+.catalogsearch-result-index a,
+.catalog-category-view a {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: color 0 ease-in;
+    transition: none;
+}

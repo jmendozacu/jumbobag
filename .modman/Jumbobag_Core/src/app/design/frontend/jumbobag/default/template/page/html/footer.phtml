@@ -1,0 +1,263 @@
+<footer class="category-footer">
+
+  <div class="footer-newsletter">
+  <?php
+    echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe_home.phtml')->toHtml();
+    ?>
+  </div>
+
+  <div class="liens-footer row-bootstrap">
+    <div class="liens-footer-inner row">
+      <div class="social-links col-sm-3">
+        <div class="responsive-footer">
+          <ul class="social">
+            <li><a class="facebook" href="http://facebook.com/jumbobag" target="_blank"><img src="/skin/frontend/jumbobag/default/images/facebook-footer.png" alt="rejoignez nous sur facebook" /></a></li>
+            <li><a class="twitter" href="http://twitter.com/jumbo_bag" target="_blank"><img src="/skin/frontend/jumbobag/default/images/twitter-footer.png" alt="rejoignez nous sur twitter" /></a></li>
+            <li><a class="email" href="mailto:contact@jumbobag.fr"><img src="/skin/frontend/jumbobag/default/images/mail-footer.png" alt="contactez nous par mail" /></a></li>
+            <li><a class="google" href="https://plus.google.com/+JumbobagFr1" rel="publisher" target="_blank"><img src="/skin/frontend/jumbobag/default/images/google-footer.png" alt="rejoignez nous sur google plus" /></a></li>
+            <li><a class="youtube" href="https://www.youtube.com/channel/UCaKoRsdihPQdTs8Gv9q6iuQ" rel="publisher" target="_blank"><img src="/skin/frontend/jumbobag/default/images/youtube-footer.png" alt="rejoignez nous sur youtube" /></a></li>
+          </ul>
+          <div class="bank">
+            <ul>
+              <li class="payments">
+              <img src="/media/wysiwyg/1416523843_payment_method_paypal-128.png" alt="regler vos achats via paypal">
+              <img src="/media/wysiwyg/1416523842_payment_method_master_card-128.png" alt="regler vos achats via master card">
+              <img src="/media/wysiwyg/1416523839_payment_method_card_visa-128.png" alt="regler vos achats via visa">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="presses col-sm-3">
+        <div class="responsive-footer">
+          <div class="presse-medical footer_to_hide">
+            <h4 class="presse-title">Presse</h4>
+            <ul class="to_hide_reaction">
+              <li><a href="/on-parle-de-nous">On parle de nous</a></li>
+              <li><a href="/contact-presse">Contact de presse</a></li>
+            </ul>
+          </div>
+          <div class="presse-medical footer_to_hide">
+            <h4 class="medical-title">Medical</h4>
+            <ul class="to_hide_reaction">
+              <li><a href="/safebag">Safebag</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="informations col-sm-3 footer_to_hide">
+        <div class="responsive-footer">
+          <h4>Information</h4>
+          <ul class="to_hide_reaction">
+            <li><a href="/catalogue">Catalogue 2016-2017</a></li>
+            <li><a href="/manufacturing">Fabrication</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/shipping">Livraison</a></li>
+            <li><a href="/payment-mode">Modes de règlement</a></li>
+            <li><a href="/legal-notice">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/dataprotect">Protection des données</a></li>
+            <li><a href="/retractinfo">Droit de rétractation</a></li>
+            <li><a href="/concours">Règlement Jeu Concours</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact col-sm-3 footer_to_hide">
+        <div class="responsive-footer">
+          <h4>Contact</h4>
+          <div class="to_hide_reaction">
+            <p>Jumbo Bag</p>
+            <p>17 rue Jean Bart</p>
+            <p>31400 Toulouse France</p>
+            <br />
+            <p>+33(0)5 67 68 67 89</p>
+            <br />
+            <p><a href="mailto:contact@jumbobag.fr">contact@jumbobag.fr</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bank-mobile col-sm-4" style="display: none;">
+            <ul>
+              <li class="payments">
+              <img src="/media/wysiwyg/1416523843_payment_method_paypal-128.png" alt="regler vos achats via paypal">
+              <img src="/media/wysiwyg/1416523842_payment_method_master_card-128.png" alt="regler vos achats via master card">
+              <img src="/media/wysiwyg/1416523839_payment_method_card_visa-128.png" alt="regler vos achats via visa">
+              </li>
+            </ul>
+    </div>
+    <div class="copyright-wrapper">
+      <p>© COPYRIGHT 2017, JumboBag</p>
+    </div>
+  </div>
+</footer>
+
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$config = Mage::getStoreConfig('shoppersettings/social', Mage::app()->getStore()->getId());
+$appearance = Mage::getStoreConfig('shoppersettings/appearance', Mage::app()->getStore()->getId());
+$route = Mage::app()->getFrontController()->getRequest()->getRouteName();
+$action = Mage::app()->getFrontController()->getRequest()->getActionName();
+?>
+<!-- footer BOF -->
+
+<footer>
+  <div class="arguments-footer row-boostrap">
+    <div class="arguments-footer-inner row">
+      <div class="argument-footer col-sm-3 col-xs-6">
+        <div class="image-wrapper wow fadeIn">
+          <img src="/skin/frontend/jumbobag/default/images/box.svg" alt="Livraison gratuite à partir de 100€" />
+        </div>
+        <h3>Livraison gratuite</h3>
+        <p>à partir de 100€ dachats</p>
+      </div>
+      <div class="argument-footer col-sm-3 col-xs-6">
+        <div class="image-wrapper wow fadeIn" data-wow-delay="0.1s">
+          <img src="/skin/frontend/jumbobag/default/images/location.svg" alt="Venez en magasin" />
+        </div>
+        <h3>Venez en magasin</h3>
+        <p>Trouvez un revendeur prêt de chez vous</p>
+        <a href="/stores/store-finder.html"><span>revendeurs</span></a>
+      </div>
+      <div class="argument-footer col-sm-3 col-xs-6">
+        <div class="image-wrapper wow fadeIn" data-wow-delay="0.2s">
+          <img src="/skin/frontend/jumbobag/default/images/euro.svg" alt="Financement" />
+        </div>
+        <h3>Financement</h3>
+        <p>Option de paiement disponible</p>
+        <a href="/payment-mode"><span>en savoir plus</span></a>
+      </div>
+      <div class="argument-footer col-sm-3 col-xs-6">
+        <div class="image-wrapper wow fadeIn" data-wow-delay="0.3s">
+          <img src="/skin/frontend/jumbobag/default/images/bulles.svg" alt="Se faire aider pour un achat" />
+        </div>
+        <h3>Se faire aider pour un achat</h3>
+        <p>Une question ? Appelez-nous <br> 05 67 68 67 89 ou</p>
+        <a href="/"><span>chattez en ligne</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-newsletter">
+  <?php
+    echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/subscribe_home.phtml')->toHtml();
+    ?>
+  </div>
+
+  <div class="liens-footer row-bootstrap">
+    <div class="liens-footer-inner row">
+      <div class="social-links col-sm-3">
+        <div class="responsive-footer">
+          <ul class="social">
+            <li><a class="facebook" href="http://facebook.com/jumbobag" target="_blank"><img src="/skin/frontend/jumbobag/default/images/facebook-footer.png" alt="rejoignez nous sur facebook" /></a></li>
+            <li><a class="twitter" href="http://twitter.com/jumbo_bag" target="_blank"><img src="/skin/frontend/jumbobag/default/images/twitter-footer.png" alt="rejoignez nous sur twitter" /></a></li>
+            <li><a class="email" href="mailto:contact@jumbobag.fr"><img src="/skin/frontend/jumbobag/default/images/mail-footer.png" alt="contactez nous par mail" /></a></li>
+            <li><a class="google" href="https://plus.google.com/+JumbobagFr1" rel="publisher" target="_blank"><img src="/skin/frontend/jumbobag/default/images/google-footer.png" alt="rejoignez nous sur google plus" /></a></li>
+            <li><a class="youtube" href="https://www.youtube.com/channel/UCaKoRsdihPQdTs8Gv9q6iuQ" rel="publisher" target="_blank"><img src="/skin/frontend/jumbobag/default/images/youtube-footer.png" alt="rejoignez nous sur youtube" /></a></li>
+          </ul>
+          <div class="bank">
+            <ul>
+              <li class="payments">
+              <img src="/media/wysiwyg/1416523843_payment_method_paypal-128.png" alt="regler vos achats via paypal">
+              <img src="/media/wysiwyg/1416523842_payment_method_master_card-128.png" alt="regler vos achats via master card">
+              <img src="/media/wysiwyg/1416523839_payment_method_card_visa-128.png" alt="regler vos achats via visa">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="presses col-sm-3">
+        <div class="responsive-footer">
+          <div class="presse-medical footer_to_hide">
+            <h4 class="presse-title">Presse</h4>
+            <ul class="to_hide_reaction">
+              <li><a href="/on-parle-de-nous">On parle de nous</a></li>
+              <li><a href="/contact-presse">Contact de presse</a></li>
+            </ul>
+          </div>
+          <div class="presse-medical footer_to_hide">
+            <h4 class="medical-title">Medical</h4>
+            <ul class="to_hide_reaction">
+              <li><a href="/safebag">Safebag</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="informations col-sm-3 footer_to_hide">
+        <div class="responsive-footer">
+          <h4>Information</h4>
+          <ul class="to_hide_reaction">
+            <li><a href="/catalogue">Catalogue 2016-2017</a></li>
+            <li><a href="/manufacturing">Fabrication</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/shipping">Livraison</a></li>
+            <li><a href="/payment-mode">Modes de règlement</a></li>
+            <li><a href="/legal-notice">Mentions légales</a></li>
+            <li><a href="/cgv">CGV</a></li>
+            <li><a href="/dataprotect">Protection des données</a></li>
+            <li><a href="/retractinfo">Droit de rétractation</a></li>
+            <li><a href="/concours">Règlement Jeu Concours</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact col-sm-3 footer_to_hide">
+        <div class="responsive-footer">
+          <h4>Contact</h4>
+          <div class="to_hide_reaction">
+            <p>Jumbo Bag</p>
+            <p>17 rue Jean Bart</p>
+            <p>31400 Toulouse France</p>
+            <br />
+            <p>+33(0)5 67 68 67 89</p>
+            <br />
+            <p><a href="mailto:contact@jumbobag.fr">contact@jumbobag.fr</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bank-mobile col-sm-4" style="display: none;">
+            <ul>
+              <li class="payments">
+              <img src="/media/wysiwyg/1416523843_payment_method_paypal-128.png" alt="regler vos achats via paypal">
+              <img src="/media/wysiwyg/1416523842_payment_method_master_card-128.png" alt="regler vos achats via master card">
+              <img src="/media/wysiwyg/1416523839_payment_method_card_visa-128.png" alt="regler vos achats via visa">
+              </li>
+            </ul>
+    </div>
+    <div class="copyright-wrapper">
+      <p>© COPYRIGHT 2017, JumboBag</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- footer EOF -->

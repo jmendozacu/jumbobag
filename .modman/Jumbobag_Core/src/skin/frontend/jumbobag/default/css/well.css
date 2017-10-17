@@ -1,0 +1,60 @@
+.well {
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 10px 30px;
+	border-radius: 10px;
+	background-color: #f6f6f6;
+	font-family: lato;
+}
+
+.well--block { /* Force and reset some style for blocks */
+    border: none !important;
+    background-color: #f6f6f6 !important;
+    margin: auto !important;
+	margin-bottom: 10px !important;
+	padding: 10px 30px !important;
+	border-radius: 10px !important;
+}
+
+.well--block.well--gray {
+    background-color: #e9e8e8 !important;
+}
+
+.well--half {
+	width: 50%;
+}
+
+.well--gray {
+	background-color: #e9e8e8;
+}
+.well * {
+	box-sizing: border-box;
+}
+.well a {
+	color: #30409f;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.well__header {
+	text-align: center;
+	z-index: 0; /* z-index fixé à 10020 sur toutes les balise header WTF !!! */
+	box-shadow: none; /* box-shadow fixé sur toutes les balise header */
+}
+.well__header__title {
+	line-height: 80px;
+	line-height: 50px;
+    padding: 20px 0;
+}
+
+.well__body {
+	text-align: center;
+}
+.well__body p {
+	line-height: 20px;
+	margin: 20px 0;
+	color: #666666;
+	font-family: inherit;
+	font-size: 14px;
+	text-align: left;
+}

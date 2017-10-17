@@ -1,0 +1,44 @@
+/** Payment Method Service icons */
+#checkout-step-payment #co-payment-form .fieldset .sp-methods dd .logos .payment-method-bank-icon {
+    display: inline-block;
+}
+
+#checkout-step-payment #co-payment-form .fieldset .sp-methods dd .logos .payment-method-bank-icon.payment_method_monetico_cic {
+    width: 110px;
+    height: 50px;
+    content: url(../../images/blackbird/cic.jpg);
+    background: url(../../images/blackbird/cic.jpg) no-repeat;
+    background-size: cover;
+}
+
+#checkout-step-payment #co-payment-form .fieldset .sp-methods dd .logos .payment-method-bank-icon.payment_method_monetico_cm {
+    width: 250px;
+    height: 50px;
+    content: url(../../images/blackbird/credit-mutuel.jpg);
+    background: url(../../images/blackbird/credit-mutuel.jpg) no-repeat;
+    background-size: cover;
+}
+
+#checkout-step-payment #co-payment-form .fieldset .sp-methods dd .logos .payment-method-bank-icon.payment_method_monetico_cofidis {
+    width: 75px;
+    height: 50px;
+    content: url(../../images/blackbird/cofidis.png);
+    background: url(../../images/blackbird/cofidis.png) no-repeat;
+    background-size: cover;
+}
+
+#checkout-step-payment #co-payment-form .fieldset .sp-methods dd .logos .payment-method-bank-icon.payment_method_monetico_paypal {
+    width: 150px;
+    height: 50px;
+    content: url(../../images/blackbird/paypal.png);
+    background: url(../../images/blackbird/paypal.png) no-repeat;
+    background-size: cover;
+}
+
+
+/** IFrame sizing */
+iframe.sealed-form {
+    width: 622px;
+    height: 270px;
+    border: none;
+}

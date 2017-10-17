@@ -1,5 +1,6 @@
-# app/code
 src/app/code/local/Jumbobag/Core app/code/local/Jumbobag/Core
 
-# app/etc
 src/app/etc/modules/Jumbobag_Core.xml app/etc/modules/Jumbobag_Core.xml
+
+src/app/design/frontend/jumbobag app/design/frontend/jumbobag
+src/skin/frontend/jumbobag skin/frontend/jumbobag

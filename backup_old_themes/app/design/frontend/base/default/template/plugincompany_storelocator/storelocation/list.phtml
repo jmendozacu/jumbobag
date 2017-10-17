@@ -1,0 +1,187 @@
+<?php 
+/*
+ * Created by:  Milan Simek
+ * Company:     Plugin Company
+ *
+ * LICENSE: http://plugin.company/docs/magento-extensions/magento-extension-license-agreement
+ *
+ * YOU WILL ALSO FIND A PDF COPY OF THE LICENSE IN THE DOWNLOADED ZIP FILE
+ *
+ * FOR QUESTIONS AND SUPPORT
+ * PLEASE DON'T HESITATE TO CONTACT US AT:
+ *
+ * SUPPORT@PLUGIN.COMPANY
+ */
+/**
+ * Store location list template
+ *
+ * @category    Plugincompany
+ * @package     Plugincompany_Storelocator
+ * @author      Milan Simek
+ */
+?>
+
+<?php
+    $helper = Mage::helper('plugincompany_storelocator');
+?>
+
+<?php if(Mage::getStoreConfig('plugincompany_storelocator/libraries/fawesome')){?>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<?php } ?>
+
+<?php if($this->isRatingEnable()): ?>
+<?php $isSecure = Mage::app()->getStore()->isCurrentlySecure(); ?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js',$isSecure); ?>plugincompany/starrr/starrr.min.js"></script>
+<?php endif;?>
+
+<?php if(Mage::registry('current_product')){ ?>
+    <div id="storeLocationList">
+<?php }elseif($this->getRequest()->getParam('product_id')){ ?>
+    <div id="storeLocationWrap">
+<?php } ?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_storelocations = $this->getStorelocations(); ?>
+<div class="page-title storelocation-title">
+    <h1><?php echo $helper->__('Store locations') ?></h1>
+</div>
+<p><?php echo $helper->__('Use our <a href="%s">store finder</a> page to locate the store nearest to you',$this->getStoreFinderUrl()); ?></p>
+<?php if ($_storelocations->getSize() > 0) :?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="storelocation-list-container">
+    <?php foreach ($_storelocations as $_storelocation) : ?>
+        <div class="storelocation-list-item">
+            <a href="<?php echo $_storelocation->getStorelocationUrl()?>">
+                <h3><?php echo $_storelocation->getLocname();?></h3>
+            </a>
+            <div class="storelocation-list-left">
+                <div class="storelocation-box">
+                    <h4><?php echo $helper->__('Address Details'); ?></h4>
+
+                    <?php echo Mage::helper('plugincompany_storelocator/storelocation')->getFormattedAddress($_storelocation,true); ?>
+
+                </div>
+                <div class="storelocation-box">
+                    <?php if ($_storelocation->getPhone() || $_storelocation->getFax() || $_storelocation->getEmail()|| $_storelocation->getWeb()) { ?>
+                    <h4><?php echo $helper->__('Contact Details'); ?></h4>
+                    <?php } ?>
+                    <?php if ($_storelocation->getPhone()) { ?>
+                        <div class="storelocation-phone">
+                            <i class="fa fa-phone fa-fw"></i> <?php echo $_storelocation->getPhone();?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($_storelocation->getFax()) { ?>
+                        <div class="storelocation-fax">
+                            <i class="fa fa-fax fa-fw"></i> <?php echo $_storelocation->getFax();?>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($_storelocation->getEmail()) { ?>
+                        <div class="storelocation-email">
+                            <i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:<?php echo $_storelocation->getEmail();?>"><?php echo $_storelocation->getEmail();?></a>
+                        </div>
+                    <?php } ?>
+
+                    <?php if ($_storelocation->getWeb()) { ?>
+                        <div class="storelocation-web">
+                            <i class="fa fa-link fa-fw"></i> <a href="http://<?php echo $_storelocation->getWeb();?>" target="_blank"><?php echo $helper->__('Visit website'); ?></a>
+
+                        </div>
+                    <?php } ?>
+                    <?php if($this->isRatingEnable()): ?>
+                    <div class="starrr" data-rating='<?php echo $_storelocation->getAverageRating(); ?>' data-disabled='true'></div>
+                    <?php endif; ?>
+
+                </div>
+                <div class="storelocation-box">
+                    <?php if ($_storelocation->getHours1() || $_storelocation->getHours2() || $_storelocation->getHours3()) { ?>
+                        <h4><?php echo $helper->__('Opening Hours'); ?></h4>
+                        <div class="storelocation-hours1">
+                            <?php echo $_storelocation->getHours1();?>
+                        </div>
+                        <div class="storelocation-hours2">
+                            <?php echo $_storelocation->getHours2();?>
+                        </div>
+                        <div class="storelocation-hours3">
+                            <?php echo $_storelocation->getHours3();?>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="storelocation-box mapbox">
+                <a href="<?php echo $_storelocation->getStorelocationUrl()?>">
+                    <?php if (!$_storelocation->getUseImageNotMap()) { ?>
+                        <img class="storelocation-list-map" src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $_storelocation->getLat() ?>,<?php echo $_storelocation->getLng(); ?>&zoom=19&size=400x400&markers=color:red%7Clabel:C%7C<?php echo $_storelocation->getLat() ?>,<?php echo $_storelocation->getLng(); ?><?php echo Mage::helper('plugincompany_storelocator')->getApiKeyQueryString(); ?>" />
+                    <?php }elseif($_storelocation->getImage()){ ?>
+                        <img class="storelocation-list-map" src="<?php echo Mage::helper('plugincompany_storelocator/storelocation_image')->init($_storelocation, 'image')->resize(400);?>" alt="<?php echo $this->htmlEscape($_storelocation->getLocname());?>" />
+                    <?php } ?>
+
+                </a>
+            </div>
+        </div>
+    <?php endforeach;?>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php if(Mage::registry('current_product') || $this->getRequest()->getParam('product_id')){ ?>
+    </div>
+<?php } ?>
+<?php if($this->isRatingEnable()): ?>
+    <script type="text/javascript">
+    jQuery(function(){
+        jQuery('.starrr').each(function(){
+          jQuery(this).starrr({
+            rating: parseInt(jQuery(this).data('rating'), 10),
+            readOnly: jQuery(this).data('disabled')
+          });
+        });
+    });
+    </script>
+<?php endif; ?>
+
+    <?php
+    //product page list
+    if(Mage::registry('current_product') || $this->getRequest()->getParam('product_id')){
+        echo $this
+            ->getLayout()
+            ->createBlock('core/template')
+            ->setTemplate('plugincompany_storelocator/storelocation/product/store/list/js.phtml')
+            ->toHtml();
+    }
+    ?>
+
+<?php else : ?>
+    <?php echo $helper->__('There are no store locations at this moment');?>
+<?php endif;?>
+<div class="pc-clear"></div>
+<style type="text/css">
+    .pc-clear{
+      clear: both;  
+    }
+    .storelocation-list-item{
+        float: left;
+        width: 100%;
+        padding:20px;
+        border:1px solid #ccc;
+        margin-bottom:20px;
+    }
+    .storelocation-list-item .storelocation-box {
+        width: 25%;
+        float:left;
+    }
+    .storelocation-list-item h3 {
+        width:100%;
+        float:left;
+        font-weight:bold;
+        font-size:20px;
+    }
+    .storelocation-list-map {
+        width: 80%;
+        display: inline-block;
+    }
+    .storelocation-box {
+        margin-top:30px;
+        padding-left:5px;
+    }
+    .mapbox {text-align:center;margin-top:-24px;}
+</style>

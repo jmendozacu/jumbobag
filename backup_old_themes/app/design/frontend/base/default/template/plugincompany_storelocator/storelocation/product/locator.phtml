@@ -1,0 +1,21 @@
+<iframe
+    height='250'
+    frameborder='0'
+    style="width:100%;overflow:hidden;"
+    scrolling="no"
+    id="storeLocatorIframe"
+    src='<?php echo Mage::helper('plugincompany_storelocator/storelocation')->getProductPageStoreMapUrl() ?>'
+    ></iframe>
+
+<script type="text/javascript">
+    function resizeLocatorIframe(){
+        jQuery('#storeLocatorIframe').height(jQuery('#storeLocatorIframe').contents().find('#storeLocatorWrapper').height());
+    }
+    jQuery('#storeLocatorIframe').load(function(){
+        resizeLocatorIframe();
+        jQuery('#storeLocatorIframe').contents().find('head').append('<base target="_parent" />');
+        setInterval(function(){
+            resizeLocatorIframe();
+        },200)
+    })
+</script>
