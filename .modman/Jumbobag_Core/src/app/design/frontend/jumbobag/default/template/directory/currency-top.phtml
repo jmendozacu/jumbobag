@@ -49,9 +49,9 @@ foreach ($this->getCurrencies() as $_code => $_name){
 }
 ?>
 <div class="header-switch currency-switch">
-    <span>
+  
         <span class="current"><?php echo $this->htmlEscape($_current); ?></span>
-    </span>
+   
     <div class="header-dropdown">
         <ul><?php echo implode('', $items); ?></ul>
     </div>

@@ -46,13 +46,17 @@ foreach ($this->getStores() as $_lang) {
     }
     $stores[] = '<li'. $_selected .'><a style="background-image:url(\''. $this->getSkinUrl('images/flags/'.$_lang->getCode().'.png') .'\');" href="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</a></li>';
     $select_stores[] = '<option '.$_selected_option.' value="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</option>';
+	if ($_selected == ' class="selected"')
+	{
+		$imgflag = '<img src='.$this->getSkinUrl('images/flags/'.$_lang->getCode().'.png').'>';
+	}
 }
 
 ?>
 <div class="header-switch language-switch">
-    <span>
-        <span class="current" ><img src="<?php echo $this->getSkinUrl('images/flags/'.$_current->getCode().'.png')?>"></span>
-    </span>
+  
+        <span class="current"><?php echo $imgflag; ?></span>
+    
 	<div class="header-dropdown">
         <ul><?php echo implode('', $stores); ?></ul>
     </div>

@@ -25,11 +25,11 @@
  */
 ?>
 <div class="block block-subscribe col-sm-12">
-    <div class="block-title col-sm-6">
+    <div class="block-title wow fadeInLeft col-sm-6">
         <strong><span><?php echo $this->__('INSCRIVEZ VOUS ET RECEVEZ UN CADEAU DE BIENVENUE') ?></span></strong>
     </div>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
-        <div class="block-content col-sm-6">
+        <div class="block-content wow fadeInRight col-sm-6">
             <div class="form-subscribe-header">
 	            <?php $cms_block = Mage::getModel('cms/block')
 		            ->setStoreId( Mage::app()->getStore()->getId() )
@@ -40,9 +40,9 @@
 	            ?>
             </div>
             <div class="input-box">
-               <input type="text" name="email" id="newsletter" placeholder="E-MAIL" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
-               <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('>') ?></span></span></button>
-            </div>           
+               <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+                <button type="submit" title="<?php echo $this->__('E-mail') ?>" class="button"><span><span><?php echo $this->__('>') ?></span></span></button>
+            </div>
         </div>
     </form>
     <script type="text/javascript">

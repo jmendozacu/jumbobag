@@ -78,7 +78,7 @@
 <?php else: ?>
 <p class="product-image" style="width:<?php echo $imgX;?>px; height:<?php echo $imgY;?>px;">
     <?php
-        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imgX*2, $imgY*2).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" width="'.$imgX.'" height="'.$imgY.'" />';
+        $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($_product, 'image')->resize(500, 500).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'"/>';
         echo $_helper->productAttribute($_product, $_img, 'image');
     ?>
 </p>

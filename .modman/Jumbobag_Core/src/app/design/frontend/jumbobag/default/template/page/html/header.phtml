@@ -37,61 +37,62 @@ if ( $config['design']['below_logo'] ) {
 
 ?>
 
-<!-- NEW HEADER BOF -->
-<div class="wm-header">
-     <div class="wm-contener">
-         <div class="wm-main-header">
-            <?php if ( $config['design']['below_logo'] ) : ?>
-            
-                    <?php if ($this->getIsHomePage()):?>
-                    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><?php echo $this->getChildHtml('theme_logo', false) ?></a></h1>
-                    <?php else:?>
-                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><?php echo $this->getChildHtml('theme_logo', false) ?></a>
-                    <?php endif?>
-                    <?php echo $this->getChildHtml('currencyTop') ?>
-                    <?php echo $this->getChildHtml('store_language') ?>
-                    <div class="top-dropdowns">
-                        <?php echo $this->getChildHtml('cartTop') ?>
-                        <?php echo $this->getChildHtml('compareTop') ?>
-                        <?php echo $this->getChildHtml('topSearch'); ?>
+<!-- HEADER BOF -->
+<div class="header-container">
+    <div class="top-switch-bg">
+        <div class="row clearfix">
+            <div class="col-md-6 langues-et-currency">
+                <?php //echo $this->getChildHtml('store_language') ?>
+                <?php //echo $this->getChildHtml('currencyTop') ?>
+            </div>
+            <div class="col-md-6 toplinks-wrapper">
+                <?php //echo $this->getChildHtml('topLinks') ?>
+            </div>
+        </div>
+    </div>
+    <div class="header-wrapper <?php echo $hdr_style?>">
+        <header>
+			<?php if ( $config['design']['below_logo'] ) : ?>
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="col-md-2 logo-wrapper">
+                        <a href="/" class="logo"><img src="/skin/frontend/jumbobag/default/images/logo.svg" alt="Jumbobag"/></a>
+                    </div>
+	                <div class="top-dropdowns col-md-3">
+				        <?php echo $this->getChildHtml('cartTop') ?>
+				        <?php echo $this->getChildHtml('compareTop') ?>
+				        <?php echo $this->getChildHtml('topSearch'); ?>
                         <div class="clear"></div>
                     </div>
-
-                
-            <div class="row clearfix">
-                <div class="grid_12 <?php if ( $config['navigation']['use_wide_navigation'] ) { echo 'wide-navigation'; } ?>">
-                    <!-- NAVIGATION -->
-                    <?php
-                    if ( !$config['navigation']['use_wide_navigation'] && $config['navigation']['use_navigation'] ) {
-                        echo $this->getChildHtml('topShopperMenu');
-                    } else {
-                        echo $this->getChildHtml('topMenu', false);
-                    }
-                    ?>
-                    <!-- NAVIGATION EOF -->
-                    <?php echo $this->getChildHtml('topContainer'); ?>
                 </div>
             </div>
-            <?php else:?>
-            
-                <div class="wm-full-header <?php if ( $config['navigation']['use_wide_navigation'] ) { echo 'wide-navigation'; } ?>">
-                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><?php echo $this->getChildHtml('theme_logo', false) ?></a>
-                    <div class="wm-currency"><?php echo $this->getChildHtml('currencyTop') ?></div>
-
-                    <div class="wm-language"><?php echo $this->getChildHtml('store_language') ?></div>
-                    
+	        <div class="row clearfix">
+                <div class="col-sm-12 <?php if ( $config['navigation']['use_wide_navigation'] ) { echo 'wide-navigation'; } ?>">
+                    <!-- NAVIGATION -->
+	                <?php
+		                echo $this->getChildHtml('topShopperMenu');
+	                ?>
+                    <!-- NAVIGATION EOF -->
+			        <?php echo $this->getChildHtml('topContainer'); ?>
+                </div>
+            </div>
+			<?php else:?>
+            <div class="row clearfix">
+                
+                    <div class="logo-wrapper col-md-3 col-sm-3">
+                        <a href="/" class="logo"><img src="/skin/frontend/jumbobag/default/images/logo.svg" alt="Jumbobag"/></a>
+						<?php echo $this->getChildHtml('store_language') ?>
+                <?php echo $this->getChildHtml('currencyTop') ?>
+                    </div>
                     <!-- NAVIGATION -->
                     <?php
-                        if ( !$config['navigation']['use_wide_navigation'] && $config['navigation']['use_navigation'] ) {
-                            echo $this->getChildHtml('topShopperMenu');
-                        } else {
-                            echo $this->getChildHtml('topMenu', false);
-                        }
+                        echo $this->getChildHtml('topShopperMenu');
                     ?>
                     <!-- NAVIGATION EOF -->
-                    <div class="top-dropdowns">
+                    <div class="top-dropdowns col-md-3 col-sm-3">
                         <?php echo $this->getChildHtml('cartTop') ?>
-                        <div class="wm-myaccount">
+                        <?php echo $this->getChildHtml('compareTop') ?>
+						<div class="wm-myaccount">
                         <?php 
                             if(!Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
                                 <a href="<?php echo $this->getUrl('') ?>customer/account/login"></a>
@@ -100,25 +101,15 @@ if ( $config['design']['below_logo'] ) {
                             <?php }
                         ?>                            
                         </div>
-                        <?php echo $this->getChildHtml('compareTop') ?>
                         <?php echo $this->getChildHtml('topSearch'); ?>
                         <div class="clear"></div>
                     </div>
                     <?php echo $this->getChildHtml('topContainer'); ?>
-                    
-                </div>
-            
-            <?php endif?>
-         </div>
-     </div>
+                
+            </div>
+	        <?php endif?>
+        </header>
+    </div>
 </div>
-<script>
-
-jQuery('.nav-top-title').click(function()
-{
-  jQuery('#queldoreiNav').toggle();
-});
-</script>
-<!-- HEADER BOF -->
-
-<?php //echo $this->getChildHtml('slideshow'); ?>
+<!-- HEADER EOF -->
+<?php echo $this->getChildHtml('slideshow'); ?>

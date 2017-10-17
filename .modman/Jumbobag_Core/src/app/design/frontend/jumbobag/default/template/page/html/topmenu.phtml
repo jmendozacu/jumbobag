@@ -34,7 +34,7 @@
 <?php $_menu = $this->getHtml('level-top') ?>
 <?php if($_menu): ?>
 <?php $config = Mage::getStoreConfig('shoppersettings', Mage::app()->getStore()->getId()); ?>
-<div class="nav-container">
+<div class="nav-container col-sm-7">
     <div class="nav-top-title"><div class="icon"><span></span><span></span><span></span></div><a href="#"><?php echo $this->__('Navigation'); ?></a></div>
     <ul id="nav">
         <?php if ($config['navigation']['home']): ?>

@@ -13,4 +13,4 @@ $installer->endSetup();
     Mage::logException($e);
 }
 
-Mage::log('-- End Jumbobag_Core data upgrade 1.0.0 --');
+Mage::log('-- End Jumbobag_Core data upgrade 1.0.1 --');

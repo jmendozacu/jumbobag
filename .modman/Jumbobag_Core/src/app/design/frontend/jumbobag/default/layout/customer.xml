@@ -91,11 +91,7 @@ Layout for customer login page
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="content">
-            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml">
-                <block type="amazonpayments/login_button" name="amazon_sign_in" template="creativestyle/amazonpayments/login/button/account_login.phtml">
-                    <action method="setIdSuffix"><value>div</value></action>
-                </block>
-            </block>
+            <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml" />
         </reference>
     </customer_account_login>
 
@@ -134,10 +130,6 @@ New customer registration
             <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
                 <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
                     <label>Form Fields Before</label>
-                </block>
-                <block type="jumbobag_customer/widget_name" name="customer_register.widget_name" template="customer/widget/formName.phtml"></block>
-                <block type="amazonpayments/login_button" name="amazon_sign_in" template="creativestyle/amazonpayments/login/button/account_login.phtml">
-                    <action method="setIdSuffix"><value>div</value></action>
                 </block>
             </block>
         </reference>
@@ -238,13 +230,15 @@ Customer account pages, rendered for all tabs in dashboard
                 <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
                 <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
             </block>
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+            </block>
+            <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
             <remove name="catalog.compare.sidebar"/>
             <remove name="tags_popular"/>
-            <remove name="right.reports.product.viewed" />
-            <remove name="shopper_slideshow_wrapper" />
-            <remove name="shopper_custom_wrapper" />
-            <remove name="left.poll" />
-            <remove name="sale.reorder.sidebar" />
+
         </reference>
     </customer_account>
 

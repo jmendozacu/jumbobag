@@ -52,19 +52,12 @@ if ( strpos($path, 'http') !== 0 ) {
 <ul class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
 	<?php if (Mage::getStoreConfig('shoppersettings/header/top_custom_link')): ?>
         <li><a href="<?php echo $path ?>" title="<?php echo $title ?>"><?php echo $anchor ?></a></li>
-		<li class="separator">&nbsp;</li>
     <?php endif; ?>
     <?php foreach($_links as $_link): ?>
         <?php if ($_link instanceof Mage_Core_Block_Abstract):?>
             <?php echo $link_content = $_link->toHtml() ?>
-			<?php if(!$_link->getIsLast() && !empty($link_content)): ?>
-            <li class="separator">&nbsp;</li>
-			<?php endif; ?>
         <?php else: ?>
             <li <?php echo $_link->getLiParams() ?>><?php echo $_link->getBeforeText() ?><a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getLabel() ?></a><?php echo $_link->getAfterText() ?></li>
-			<?php if(!$_link->getIsLast()): ?>
-            <li class="separator">&nbsp;</li>
-			<?php endif; ?>
         <?php endif;?>
     <?php endforeach; ?>
 </ul>
