@@ -118,6 +118,11 @@ package :deploy do
 	end
 end
 
+desc "pull", "rsync from prod server in case someone modified something there"
+task :pull do
+  exec("rsync -avzP --exclude=media --exclude=var/session --exclude=var/cache --exclude=var/log occitech-jbag:jumbobag/ htdocs/")
+end
+
 private
 
 require "uri"
