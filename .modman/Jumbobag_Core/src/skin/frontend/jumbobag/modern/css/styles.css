@@ -4776,13 +4776,13 @@ footer .liens-footer .copyright-wrapper p {
     float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique .uv:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_resistance.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_resistance.png);
     position: relative;
     top: 32px;
     right: 0px; margin-right: 20px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique .imper:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_impermeable.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_impermeable.png);
     position: relative;
     top: 32px;
     right: 0; margin-right: 20px;
@@ -4791,7 +4791,7 @@ footer .liens-footer .copyright-wrapper p {
     float: right; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique .abrasion:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_abrasion.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_abrasion.png);
     position: relative;
     top: 32px;
     right: 0; margin-right: 20px;
@@ -4820,14 +4820,14 @@ footer .liens-footer .copyright-wrapper p {
     float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus .infla:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_non_inflammable.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_non_inflammable.png);
     position: relative;
     top: 32px;
     right: 0;
     margin-right: 20px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus .marine:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_util_marine.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_util_marine.png);
     position: relative;
     top: 32px;
     right: 0; margin-right: 20px;
@@ -4841,7 +4841,7 @@ footer .liens-footer .copyright-wrapper p {
     text-atransform: uppercase;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before {
-    content: url(/skin/frontend/new_jumbobag/default/images/picto_wheelmark.png);
+    content: url(/skin/frontend/jumbobag/default/images/picto_wheelmark.png);
     display: block;
     position: relative;
     bottom: 20px;
@@ -5141,11 +5141,11 @@ footer .liens-footer .copyright-wrapper p {
     height: 10px;
     margin: 5px 7px;
     display: inline-block;
-    background-image: url(/skin/frontend/new_jumbobag/default/images/pagination_diapo.png);
+    background-image: url(/skin/frontend/jumbobag/default/images/pagination_diapo.png);
     background-image: no-repeat;
 }
 .diaporama-produit .owl-controls .owl-pagination .active {
-    background-image: url(/skin/frontend/new_jumbobag/default/images/pagination_diapo_active.png);
+    background-image: url(/skin/frontend/jumbobag/default/images/pagination_diapo_active.png);
     background-image: no-repeat;
 }
 .diaporama-produit .owl-buttons .owl-prev {
@@ -5158,7 +5158,7 @@ footer .liens-footer .copyright-wrapper p {
     -o-transform: translate(-50%, -50%);
     width: 13px;
     height: 26px;
-    background-image: url(/skin/frontend/new_jumbobag/default/images/arrow_left.png);
+    background-image: url(/skin/frontend/jumbobag/default/images/arrow_left.png);
     background-image: no-repeat;
     color: transparent;
     float: left;
@@ -5173,7 +5173,7 @@ footer .liens-footer .copyright-wrapper p {
     -o-transform: translate(50%, -50%);
     width: 13px;
     height: 26px;
-    background-image: url(/skin/frontend/new_jumbobag/default/images/arrow_right.png);
+    background-image: url(/skin/frontend/jumbobag/default/images/arrow_right.png);
     background-image: no-repeat;
     color: transparent;
     float: right;
@@ -5494,15 +5494,15 @@ footer{
 }
 
 .diaporama-produit .owl-theme .owl-nav .owl-prev{  font-size: 0;
-    background:url('/skin/frontend/new_jumbobag/default/images/owl-left.png') no-repeat 50% 50% transparent;
+    background:url('/skin/frontend/jumbobag/default/images/owl-left.png') no-repeat 50% 50% transparent;
     position: relative;    float: left;    left: 50px; width: 16px; height: 20px;}
 .diaporama-produit .owl-theme .owl-nav .owl-next{  font-size: 0;
-    background:url('/skin/frontend/new_jumbobag/default/images/owl-right.png') no-repeat 50% 50% transparent;
+    background:url('/skin/frontend/jumbobag/default/images/owl-right.png') no-repeat 50% 50% transparent;
     position: relative;    float: right;    right: 50px; width: 16px; height: 20px; }
 .diaporama-produit .owl-theme .owl-nav .owl-prev:hover{
-    background:url('/skin/frontend/new_jumbobag/default/images/owl-left.png') no-repeat 50% 50% transparent; }
+    background:url('/skin/frontend/jumbobag/default/images/owl-left.png') no-repeat 50% 50% transparent; }
 .diaporama-produit .owl-theme .owl-nav .owl-next:hover{
-    background:url('/skin/frontend/new_jumbobag/default/images/owl-right.png') no-repeat 50% 50% transparent; }
+    background:url('/skin/frontend/jumbobag/default/images/owl-right.png') no-repeat 50% 50% transparent; }
 .owl-dots {
     position: absolute;
     width: 100%;
@@ -5742,8 +5742,8 @@ footer{
 
     .catalog-product-view .entretien-wrapper .bouton-commander button{ margin-bottom: 108px; }
 
-    .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/tablet-boy-image.jpg')!important; }
-    .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/tablet-girl-image.jpg')!important; }
+    .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/jumbobag/default/images/tablet-boy-image.jpg')!important; }
+    .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/jumbobag/default/images/tablet-girl-image.jpg')!important; }
     .product-pouf-poire-scuba-xtrem-scuba .fullscreen-before{    background-position: 50% 0!important;background-size: 126% auto!important;height: 768px!important;}
     .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before{    background-position: 50% 0!important;background-size: 111% auto!important;height: 768px!important;}
 
@@ -5757,14 +5757,14 @@ footer{
     .product-pouf-poire-scuba-xtrem-scuba.catalog-product-view #amazingslider-1 {  height: 500px!important;}
     .product-pouf-poire-scuba-xtrem-scuba.catalog-product-view .presentation-produit .texte h2 {  margin-top: 0;}
     .product-pouf-poire-scuba-xtrem-scuba.catalog-product-view .presentation-produit-wrapper .texte.col-sm-5{ margin-top: 70px; }
-    .product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/presentation-tablet-scuba-image.jpg')!important;
+    .product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/jumbobag/default/images/presentation-tablet-scuba-image.jpg')!important;
         min-height: 600px;}
 
     .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline.catalog-product-view .presentation-produit.row .presentation-produit-content
     {width: 100%;}
 
-    .product-pouf-poire-scuba-xtrem-sunbrella1 .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/presentation-tablet-sunbrella-image.jpg')!important; }
-    .product-pouf-poire-scuba-xtrem-sunbrella1 .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/entretien-tablet-sunbrella-image.jpg')!important; }
+    .product-pouf-poire-scuba-xtrem-sunbrella1 .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/jumbobag/default/images/presentation-tablet-sunbrella-image.jpg')!important; }
+    .product-pouf-poire-scuba-xtrem-sunbrella1 .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/jumbobag/default/images/entretien-tablet-sunbrella-image.jpg')!important; }
     .product-pouf-poire-scuba-xtrem-sunbrella1.catalog-product-view .presentation-produit-wrapper .texte.col-sm-5 {  margin-top: 0; width: 45%;  margin-bottom: 114px;}
     .product-pouf-poire-scuba-xtrem-sunbrella1.catalog-product-view .presentation-produit.row {  min-height: 600px;}
     .product-pouf-poire-scuba-xtrem-sunbrella1.catalog-product-view .entretien-wrapper .texte.col-sm-5 { margin-top: 33px;
@@ -5774,8 +5774,8 @@ footer{
     .product-pouf-poire-scuba-xtrem-sunbrella1.catalog-product-view #amazingslider-1 {  height: 500px!important;}
 
 
-    .product-pouf-poire-scuba-xtrem-swimbrella .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/presentation-tablet-swimbrella-image.jpg')!important; }
-    .product-pouf-poire-scuba-xtrem-swimbrella .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/new_jumbobag/default/images/entretien-tablet-swimbrella-image.jpg')!important; }
+    .product-pouf-poire-scuba-xtrem-swimbrella .presentation-produit-wrapper .presentation-produit.row{ background-image: url('/skin/frontend/jumbobag/default/images/presentation-tablet-swimbrella-image.jpg')!important; }
+    .product-pouf-poire-scuba-xtrem-swimbrella .entretien-wrapper .entretien.row{ background-image: url('/skin/frontend/jumbobag/default/images/entretien-tablet-swimbrella-image.jpg')!important; }
     .product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view .presentation-produit-wrapper .texte.col-sm-5{ margin-top: 0; }
     .product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view #amazingslider-1 {  height: 500px!important;}
     .product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view .presentation-produit.row {  min-height: 636px;}
@@ -5833,7 +5833,7 @@ footer{
     .toplinks-wrapper .links li:nth-child(2) {   background-image: none;}
     .toplinks-wrapper .links li:nth-child(1) {   margin-right: 0;}
     .col-md-6.langues-et-currency {  width: 50%;   float: left;}
-    .header-switch span.current {  background-image: url(/skin/frontend/new_jumbobag/default/images/caret-mob.png)!important;}
+    .header-switch span.current {  background-image: url(/skin/frontend/jumbobag/default/images/caret-mob.png)!important;}
     .top-switch-bg .header-switch span, .header-container .top-switch-bg .links li a {  color: #b4b4b4 !important;}
     .header-dropdown {   z-index: 9;}
 
@@ -5846,7 +5846,7 @@ footer{
     .presentation-produit-wrapper .presentation-produit.row {height: 600px;
         background-position: bottom center;}
     .recemment-vus .col-md-4 { width: 33.33333333%!important;}
-    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/new_jumbobag/default/images/swimbrella-tablet-banner.png')!important;
+    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/jumbobag/default/images/swimbrella-tablet-banner.png')!important;
         background-position: 0 -50!important;background-size: 100% 768px!important; height: 768px!important;
     }
 
@@ -5923,7 +5923,7 @@ footer{
     .toplinks-wrapper .links li:nth-child(1){ margin-right: 0; }
     .toplinks-wrapper .links li:nth-child(2){ background-image: none; }
     .header-container .top-switch-bg {   background-color: #f4f4f4 !important;   float: left;   height: auto;   width: 100%;}
-    .header-switch span.current{background-image: url('/skin/frontend/new_jumbobag/default/images/caret-mob.png')!important;}
+    .header-switch span.current{background-image: url('/skin/frontend/jumbobag/default/images/caret-mob.png')!important;}
     .header-dropdown{ z-index: 9; }
     .top-dropdowns .search-top-container .search-form {
         background: #fff none repeat scroll 0 0;
@@ -5985,7 +5985,7 @@ footer{
 
     .recemment-vus .col-md-4 {margin: 0 auto 30px; float: none;}
 
-    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/new_jumbobag/default/images/swimbrella-tablet-banner.png')!important;
+    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/jumbobag/default/images/swimbrella-tablet-banner.png')!important;
         background-position: 0 -50!important;background-size: 100% 768px!important; height: 768px!important; }
 
     .product-pouf-coussin-geant-jumbobag-xtrem-cruiseline.catalog-product-view .entretien{background-color: #fff;}
@@ -5996,7 +5996,7 @@ footer{
 
 
 @media (max-width:767px) {
-    .product-pouf-poire-scuba-xtrem-sunbrella1 .fullscreen-before{background-image: url('/skin/frontend/new_jumbobag/default/images/sunbrella-tablet-banner.jpg')!important;
+    .product-pouf-poire-scuba-xtrem-sunbrella1 .fullscreen-before{background-image: url('/skin/frontend/jumbobag/default/images/sunbrella-tablet-banner.jpg')!important;
         background-size: 767px 753px!important; background-position: top center!important; height:753px!important}
 }
 
@@ -6064,14 +6064,14 @@ footer{
 }
 
 @media (max-width:540px) {
-    .product-pouf-poire-scuba-xtrem-sunbrella1 .fullscreen-before{background-image: url('/skin/frontend/new_jumbobag/default/images/sunbrella-mobile-banner.jpg')!important;
+    .product-pouf-poire-scuba-xtrem-sunbrella1 .fullscreen-before{background-image: url('/skin/frontend/jumbobag/default/images/sunbrella-mobile-banner.jpg')!important;
         background-size: 540px 560px!important; background-position: top left!important; height:510px!important}
-    .product-pouf-poire-scuba-xtrem-scuba .fullscreen-before{background-image: url('/skin/frontend/new_jumbobag/default/images/scuba-mobile-banner.jpg')!important;
+    .product-pouf-poire-scuba-xtrem-scuba .fullscreen-before{background-image: url('/skin/frontend/jumbobag/default/images/scuba-mobile-banner.jpg')!important;
         background-size: 100% 470px!important; background-position: 0px 0px!important; height: 420px!important;}
 
     .product-pouf-poire-scuba-xtrem-scuba .fullscreen-before .en-savoir-plus { bottom: 15px;}
     .product-pouf-poire-scuba-xtrem-scuba .height-centered{ top: 60%!important; }
-    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/new_jumbobag/default/images/swimbrella-tablet-banner.png')!important;
+    .product-pouf-poire-scuba-xtrem-swimbrella .fullscreen-before {background-image: url('/skin/frontend/jumbobag/default/images/swimbrella-tablet-banner.png')!important;
         background-position: 0 -50!important;background-size: 100% 470px!important; height: 470px!important; }
     .product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view .height-centered h1,
     .product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view .height-centered h2{ font-size: 40px!important ; }
