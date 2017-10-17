@@ -1927,7 +1927,6 @@ body.non-responsive {
 }
 
 @media (max-width: 959px)  {
-.cart-top a span {   display: none !important;}
 p.cartqty { left: 55px !important;   top: 8px !important;}
 }
 
@@ -1936,7 +1935,7 @@ p.cartqty {
     left: 45px !important;
 }
 .wm-myaccount {
-    margin: 0 10px !important;
+    margin: 0 16px !important;
 }
 .header-wrapper header .top-dropdowns {
     left: -10px;
@@ -2165,9 +2164,6 @@ p.cartqty {
   white-space: nowrap;
   display: inline-block;
   padding-right: 12px;
-  background: url("../images/caret.png") no-repeat;
-  background-size: 10px 8px !important;
-  background-position: right center;
   font-weight: 700;
   width: 105px;
 }

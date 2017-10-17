@@ -406,6 +406,7 @@
 	background-color: #f6f6f6;
 	border: 15px solid transparent;
 	margin-top: 10px;
+	position: relative;
 }
 
 .checkout-onepage-index #agreements_and_totals .agree  {
@@ -417,17 +418,26 @@
   color: #30409f;
   font-weight: 600;
   margin-left: 2px;
-} 
+}
 
-
-.checkout-onepage-index #agreements_and_totals .grandtotal-label, 
+.checkout-onepage-index #agreements_and_totals .grandtotal-label,
 .checkout-onepage-index #agreements_and_totals .grandtotal-figure {
   position: relative;
   font-size: 14px;
 }
 
+.checkout-onepage-index #agreements_and_totals .grandtotal-label {
+	height: 25px;
+}
+
 .checkout-onepage-index #agreements_and_totals .grandtotal-figure {
 	height: 30px;
+	display: inline-block;
+	position: relative;
+	margin-top: -25px;
+	width: 134%;
+	right: 14px;
+	top: -6px;
 }
 
 .checkout-onepage-index #agreements_and_totals .grandtotal-label td, 
@@ -484,9 +494,11 @@
 		float: none !important;
 		margin: 5px 10px;
 	}
-}
 
-@media only screen and (max-width: 959px) {
+	.checkout-onepage-index #agreements_and_totals .grandtotal-figure td {
+		right: -6px;
+	}
+
 	.checkout-cart-index .col1-layout .col-main {
 		width: initial;
 		margin:0;
@@ -679,6 +691,11 @@
     text-align: center;
     margin-top: 10px;
   }
+
+  .checkout-onepage-index #agreements_and_totals .grandtotal-figure td {
+    right: 18px;
+  }
+
 }
 
 @media only screen and (max-width: 459px) {
@@ -715,5 +732,9 @@
 
 	.checkout-onepage-index #checkout-step-login .block.well--block:nth-child(2) {
 		background: white !important;
+	}
+
+	.checkout-onepage-index #agreements_and_totals .grandtotal-figure td {
+		right: 8px;
 	}
 }
