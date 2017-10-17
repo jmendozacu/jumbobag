@@ -7,7 +7,7 @@ MAGERUN = "docker-compose run --rm web n98-magerun"
 COMPOSER = "docker-compose run --rm composer --ignore-platform-reqs"
 
 desc "mysql:console", "Lance la console mysql"
-shell_task "mysql:console", "docker-compose run --rm db bash -c 'mysql -hdb -uroot -proot jumbobag'"
+shell_task "mysql:console", "docker-compose up -d db && docker exec -i $(docker-compose ps -q db | sed -n 1p) /bin/bash -c 'mysql -uroot -proot jumbobag'"
 
 desc "docker:run", "Lance docker-compose up"
 shell_task "docker:run", "docker-compose up -d"
