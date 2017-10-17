@@ -114,7 +114,7 @@ package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
 		# exec remplace le process actuel
-		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=media/ --exclude=var/cache/  --exclude=var/log/  --exclude=var/sessions/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
+		exec("rsync -avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=/var/cache/  --exclude=/var/log/ --exclude=/var/session/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
 	end
 
   desc "prod", "deploy (almost) to prod"
