@@ -6211,34 +6211,44 @@ footer{
     display: none !important;
 }
 
-/** notice-coolie */
+/** fancybox */
+.fancybox-skin .fancybox-close {
+    top: 0;
+    right: 0;
+}
+
+/** notice-cookie */
 #notice-cookie-block {
     position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 3px;
+    bottom: 0;
+    left: 0;
+    right: 92px;
+    padding: 14px;
     background-color: #fff;
+    z-index: 999999999;
 }
+
+@media (-webkit-min-device-pixel-ratio: 2) and (max-device-width: 667px),
+(-webkit-min-device-pixel-ratio: 3) and (max-device-width: 736px),
+only screen and (max-width: 648px) {
+    #notice-cookie-block {
+        right: 0;
+    }
+}
+
 #notice-cookie-block .notice-text {
     display: inline-block;
-    width: 80%;
+    width: 100%;
     margin-right: -4px;
 }
 #notice-cookie-block .actions {
-    display: inline-block;
-    width: 20%;
-    margin-right: -4px;
     text-align: right;
+    float: right;
 }
 #notice-cookie-block .actions .button,
 #notice-cookie-block .actions .button span {
     height: 25px;
     line-height: 25px;
     text-transform: capitalize;
-}
-
-/** fancybox */
-.fancybox-skin .fancybox-close {
-    top: 0;
-    right: 0;
+    margin: 0;
 }
