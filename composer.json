@@ -20,8 +20,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "bragento/magento-composer-installer": "~1",
-        "magento/core": "1.9.3.4",
         "colinmollenhour/modman": "1.12"
     },
     "require-dev": {

@@ -7,7 +7,7 @@ MAGERUN = "docker-compose run --rm web n98-magerun"
 COMPOSER = "docker-compose run --rm composer --ignore-platform-reqs"
 
 desc "mysql:console", "Lance la console mysql"
-shell_task "mysql:console", "docker-compose run --rm db bash -c 'mysql -hdb -uroot -proot jumbobag'"
+shell_task "mysql:console", "docker-compose up -d db && docker exec -i $(docker-compose ps -q db | sed -n 1p) /bin/bash -c 'mysql -uroot -proot jumbobag'"
 
 desc "docker:run", "Lance docker-compose up"
 shell_task "docker:run", "docker-compose up -d"
@@ -119,19 +119,26 @@ package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
 		# exec remplace le process actuel
-		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=media/ --exclude=var/cache/  --exclude=var/log/  --exclude=var/sessions/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
+		exec("rsync -avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=/var/cache/  --exclude=/var/log/ --exclude=/var/session/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
 	end
 
+  deploy_flags = "-avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml"
+  
   desc "prod", "deploy (almost) to prod"
   task :prod do
-		exec("rsync --dry-run -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/ | less")
+		exec("rsync --dry-run #{deploy_flags} htdocs/ occitech-jbag:jumbobag/") 
   end
 
   desc "prodprod", "deploy (really) to prod"
   task :prodprod do
-		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/")
+		exec("rsync #{deploy_flags} htdocs/ occitech-jbag:jumbobag/") 
   end
 
+end
+
+desc "pull", "rsync from prod server in case someone modified something there"
+task :pull do
+  exec("rsync -avzP --exclude=/media --exclude=/var/session --exclude=/var/cache --exclude=/var/log --exclude=/var/report occitech-jbag:jumbobag/ htdocs/")
 end
 
 private
