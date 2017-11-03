@@ -118,22 +118,21 @@ end
 package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
-		# exec remplace le process actuel
-		exec("rsync -avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=/var/cache/  --exclude=/var/log/ --exclude=/var/session/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
+	# exec remplace le process actuel
+	exec("rsync -avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=/var/cache/  --exclude=/var/log/ --exclude=/var/session/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
 	end
 
-  deploy_flags = "-avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml"
-  
-  desc "prod", "deploy (almost) to prod"
-  task :prod do
-		exec("rsync --dry-run #{deploy_flags} htdocs/ occitech-jbag:jumbobag/") 
-  end
+	deploy_flags = "-avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml --exclude=/var/backups --exclude=/var/report --exclude=/var/mailchimp --exclude=/var/resource_config.json"
 
-  desc "prodprod", "deploy (really) to prod"
-  task :prodprod do
+	desc "prod", "deploy (almost) to prod"
+	task :prod do
+		exec("rsync --dry-run #{deploy_flags} htdocs/ occitech-jbag:jumbobag/ | less") 
+	end
+
+	desc "prodprod", "deploy (really) to prod"
+	task :prodprod do
 		exec("rsync #{deploy_flags} htdocs/ occitech-jbag:jumbobag/") 
-  end
-
+	end
 end
 
 desc "pull", "rsync from prod server in case someone modified something there"
