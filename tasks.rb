@@ -52,6 +52,14 @@ package :mage do
 
 	desc "flush_alerts", "Vide alerte de prix magento"
 	shell_task "flush_alerts", %{#{MAGERUN} db:query "TRUNCATE product_alert_price; TRUNCATE product_alert_stock;"}
+
+	desc "disable_smtp", "Disable SMTP"
+	shell_task "disable_smtp", %{
+		#{MAGERUN} config:delete --all system/smtp/disable
+		#{MAGERUN} config:delete --all smtppro/general/option
+		#{MAGERUN} config:set system/smtp/disable 1
+		#{MAGERUN} config:set smtppro/general/option disabled
+	}
 end
 
 desc "install URL_LOCAL", "Installe le projet sur URL_LOCAL"
@@ -108,6 +116,9 @@ task :install do |url|
 	
 	info("Invoking mage:demo_notice")
 	invoke "mage:demo_notice", []
+
+	info("Invoking mage:disable_smtp")
+	invoke "mage:disable_smtp", []
 end
 
 package :deploy do
