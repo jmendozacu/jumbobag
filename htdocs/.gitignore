@@ -1,0 +1,13 @@
+app/code/local/Inchoo/PHP7
+app/etc/modules/Inchoo_PHP7.xml
+app/code/local/Mage/Connect/Packager.php
+app/code/local/Mage/Core/Model/File/Uploader.php
+app/code/local/Mage/Core/Model/Resource/Session.php
+app/code/local/Mage/Sales/Model/Config/Ordered.php
+shell/inchoo_php7_test.php
+app/etc/modules/Jumbobag_Core.xml
+app/design/frontend/jumbobag
+skin/frontend/jumbobag
+app/code/local/AW/Followupemail/Block/Adminhtml/Linktracking/Grid.php
+app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-3.0.2-3.1.php
+app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-2.0.5-3.0.php
