@@ -13,49 +13,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-@font-face {
-  font-family: 'Lato-Black';
-  src: url('../fonts/Lato-Black.eot');
-  src: url('../fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Black.woff') format('woff'), url('../fonts/Lato-Black.ttf') format('truetype'), url('../fonts/Lato-Black.svg#Lato-Black') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Bold';
-  src: url('../fonts/Lato-Bold.eot');
-  src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Bold.woff') format('woff'), url('../fonts/Lato-Bold.ttf') format('truetype'), url('../fonts/Lato-Bold.svg#Lato-Bold') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Heavy';
-  src: url('../fonts/Lato-Heavy.eot');
-  src: url('../fonts/Lato-Heavy.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Heavy.woff') format('woff'), url('../fonts/Lato-Heavy.ttf') format('truetype'), url('../fonts/Lato-Heavy.svg#Lato-Heavy') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Regular';
-  src: url('../fonts/Lato-Regular.eot');
-  src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Regular.woff') format('woff'), url('../fonts/Lato-Regular.ttf') format('truetype'), url('../fonts/Lato-Regular.svg#Lato-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: lato;
-  src: url('../fonts/Lato-Regular.eot');
-  src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Regular.woff') format('woff'), url('../fonts/Lato-Regular.ttf') format('truetype'), url('../fonts/Lato-Regular.svg#Lato-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Lato-Thin';
-  src: url('../fonts/Lato-Thin.eot');
-  src: url('../fonts/Lato-Thin.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Thin.woff') format('woff'), url('../fonts/Lato-Thin.ttf') format('truetype'), url('../fonts/Lato-Thin.svg#Lato-Thin') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 *{margin:0;padding:0;}
 body{background:#fff;font:12px/1.35 Arial, Helvetica, sans-serif;color:#000;text-align:center;}
 img{border:0;vertical-align:top;}
@@ -970,11 +927,11 @@ tr.summary-details-excluded{font-style:italic;}
 .wm-full-header .top-dropdowns .cart-top-container{margin: 0px 0px 0 15px;    padding-bottom: 14px;   padding-right: 95px;}
 .wm-full-header .nav-container #queldoreiNav{ width: auto;  margin: 0;}
 .wm-language .header-dropdown, .wm-currency .header-dropdown{ z-index: 999;     top: 45px;}
-.wm-currency .header-switch span.current {   color: #fff;   font-size: 12px;  font-family: 'Lato-Regular', sans-serif;}
+.wm-currency .header-switch span.current {   color: #fff;   font-size: 12px;  font-family: 'Lato', sans-serif;}
 
 .header-switch span.current{float: left;}
 .wm-full-header #queldoreiNav>li{ margin: 0 30px 0 0;box-shadow: none; }
-.wm-full-header #queldoreiNav>li>a{ color: #fff; opacity: 0.8;font-family: 'Lato-Black', sans-serif; }
+.wm-full-header #queldoreiNav>li>a{ color: #fff; opacity: 0.8;font-family: 'Lato', sans-serif; font-weight: 900;}
 .wm-full-header #queldoreiNav>li:hover, .wm-full-header #queldoreiNav>li.over, .wm-full-header #queldoreiNav>li.active{ box-shadow: none;}
 .wm-full-header #queldoreiNav li.level0:hover a, .wm-full-header #queldoreiNav li.level0.active a{opacity: 1; color: #fff;}
 .wm-full-header #queldoreiNav li.level0 ul a, .wm-full-header #queldoreiNav li.level0.active ul a{ padding-bottom: 0; }
@@ -987,7 +944,7 @@ tr.summary-details-excluded{font-style:italic;}
 .wm-full-header .cart-top > a, .wm-full-header .cart-top-title a span.icon{background-size: 34px 34px;}
 .wm-full-header .search-top:hover {   background-color: transparent;}
 .wm-full-header .cart-top > a:hover {   background-color: transparent; }
-.wm-full-header .cart-top > a span{ color: #fff; font-size: 14px;padding-right: 15px; font-family: 'Lato-Regular', sans-serif; background: transparent url('../images/arrow_switch.png') 100% 50% no-repeat;}
+.wm-full-header .cart-top > a span{ color: #fff; font-size: 14px;padding-right: 15px; font-family: 'Lato', sans-serif; background: transparent url('../images/arrow_switch.png') 100% 50% no-repeat;}
 .wm-myaccount{ width: 34px; height: 34px; float: right; background: transparent url('../images/icon_myaccout.png') 50% 50% no-repeat; margin:2px 0px 0px 15px; }
 .wm-myaccount a {  float: left;   width: 100%;   height: 100%;}
 .wm-full-header .mobile-summary{display: none;}
@@ -1010,7 +967,8 @@ tr.summary-details-excluded{font-style:italic;}
     padding: 0px 15px;
     text-transform: uppercase;
     font-size: 14px;
-    font-family: 'Lato-Black', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
     line-height: 24px;
     left: -10px;
     top: 10px;
@@ -1023,7 +981,8 @@ tr.summary-details-excluded{font-style:italic;}
     padding: 0px 15px;
     text-transform: uppercase;
     font-size: 14px;
-    font-family: 'Lato-Black', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
     line-height: 24px;
     left: -10px;
     top: 10px;
@@ -1038,7 +997,8 @@ tr.summary-details-excluded{font-style:italic;}
     margin: 0;
     line-height: normal;
     text-transform: uppercase;
-    font-family: 'Lato-Heavy', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 700;
 }
 .catalog-category-view .products-grid .collection-name {
     color: #30409f;
@@ -1047,10 +1007,12 @@ tr.summary-details-excluded{font-style:italic;}
     margin: 0;
     line-height: normal;
     text-transform: uppercase;
-    font-family: 'Lato-Thin', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
 }
 .catalog-category-view .products-grid .price-box .price {
-    font-family: 'lato-Bold', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
     font-size: 16px;
     padding-bottom: 21px;
     margin-bottom: 5px;
@@ -1071,7 +1033,8 @@ tr.summary-details-excluded{font-style:italic;}
     height: 24px;
     width: auto;
     right: inherit;
-    font-family: 'Lato-Black', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
     font-size: 14px;
     color: #fff;
     line-height: 24px;
@@ -1099,7 +1062,7 @@ tr.summary-details-excluded{font-style:italic;}
     cursor: pointer;
     text-align: center;
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #30409f;
 }
 .catalog-category-view .wrapper-en-savoir-plus p .fa.fa-plus-circle {
@@ -1208,7 +1171,8 @@ footer {
 .block-subscribe .block-title span {
     font-size: 16px;
     letter-spacing: 1px;
-    font-family: 'Lato-Heavy', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 700;
 }
 .footer-newsletter .block-content.col-sm-6 {
     padding: 0 0px;
@@ -1241,8 +1205,8 @@ footer {
     -moz-border-radius: 2px;
         color: #666;
     font-size: 16px;
-    font-family: 'Lato-thin', sans-serif;
-
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
 }
 .block-subscribe button.button {
     overflow: visible;
@@ -1279,7 +1243,8 @@ footer {
     padding: 0;
     font-size: 30px; line-height: normal;
     font-weight: 100px;
-    font-family: "Lato-thin", sans-serif;
+    font-family: "Lato", sans-serif;
+	font-weight: 100;
 }
 footer .liens-footer {
     background-color: #322c29;
@@ -1322,8 +1287,9 @@ footer .liens-footer .social li:not(:last-child) {
 }
 footer .liens-footer a, footer .liens-footer p {
     font-size: 12px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: white;
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
     text-align: left;
 }
 
@@ -1352,7 +1318,8 @@ footer .liens-footer .presses .responsive-footer {
 }
 footer .liens-footer h4 {
     font-size: 14px;
-    font-family: 'Lato-Bold', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
     color: white;
     text-transform: uppercase;
     font-weight: normal !important;
@@ -1367,8 +1334,9 @@ footer .liens-footer .copyright-wrapper {
 }
 footer .liens-footer .copyright-wrapper p {
     font-size: 12px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #999999;
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: #999999;
     text-align: center;
 }
 
@@ -1395,7 +1363,7 @@ footer .liens-footer .copyright-wrapper p {
   width: 96%;
   margin-left:auto;
   margin-right:auto;
-  font-family:"Lato-Regular",sans-serif;
+  font-family:"Lato",sans-serif;
 
 }
 
@@ -1409,7 +1377,8 @@ footer .liens-footer .copyright-wrapper p {
 
 .cms-home-new #intro h1
 {
-  font-family:"Lato-Thin", sans-serif;
+  font-family:"Lato", sans-serif;
+  font-weight: 100;
   font-size:40px;
   text-transform:uppercase;
   color:#31419f;
@@ -1448,14 +1417,16 @@ footer .liens-footer .copyright-wrapper p {
 
 .cms-home-new #paralax .container div strong
 {
-  font-family: "Lato black", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
   font-size:60px;
   display:block;
 }
 
 .cms-home-new #paralax p
 {
-  font-family: "Lato Black", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
   font-size:21px;
   text-align:center;
   clear:both;
@@ -1562,7 +1533,8 @@ footer .liens-footer .copyright-wrapper p {
 
 .cms-home-new #gammes article .product-text h2
 {
-  font-family: "Lato-Thin", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
   color:#31419f;
   text-transform:uppercase;
   font-size:34px;
@@ -1582,7 +1554,8 @@ footer .liens-footer .copyright-wrapper p {
 {
   text-align:center;
   font-size:40px;
-  font-family: "Lato-Thin",sans-serif;
+  font-family: "Lato",sans-serif;
+  font-weight: 100;
   color:#31419f;
   text-transform:uppercase;
 }
@@ -1714,18 +1687,19 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 }
 footer .arguments-footer .argument-footer h3 {
   font-size: 23px;
-  font-family: 'Lato-Thin', sans-serif;
+  font-weight: 100;
+  font-family: 'Lato', sans-serif;
   color: #666666;
   margin-bottom: 10px;
 }
 footer .arguments-footer .argument-footer p {
   font-size: 16px;
-  font-family: 'Lato-Regular', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #666666;
 }
 footer .arguments-footer .argument-footer a {
   font-size: 16px;
-  font-family: 'Lato-Regular', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #30409f;
   padding-right: 15px;
   background-image: url("../images/picot-bleu.png");
@@ -1738,10 +1712,10 @@ footer .liens-footer {
 }
 footer .liens-footer h4 {
   font-size: 14px;
-  font-family: 'Lato-Bold', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700 !important;
   color: white;
   text-transform: uppercase;
-  font-weight: normal !important;
   margin-bottom: 10px;
   letter-spacing: 3px;
   text-align: left;
@@ -1750,7 +1724,8 @@ footer .liens-footer h4 {
 footer .liens-footer a,
 footer .liens-footer p {
   font-size: 12px;
-  font-family: 'Lato-Thin', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
   color: white;
   text-align: left;
 }
@@ -1785,7 +1760,8 @@ footer .liens-footer .copyright-wrapper {
 }
 footer .liens-footer .copyright-wrapper p {
   font-size: 12px;
-  font-family: 'Lato-Thin', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
   color: #999999;
 }
 
@@ -1855,15 +1831,17 @@ footer .liens-footer .copyright-wrapper p {
     overflow: hidden;
 }
 .insta #instafeed h2 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	font-size: 30px;
     margin-top: 80px;
     text-align: center;
     text-transform: uppercase;
 }
 .insta #instafeed p {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	font-size: 16px;
     margin-top: 20px;
     margin-bottom: 50px;
     text-align: center;
@@ -1907,7 +1885,7 @@ footer .liens-footer .copyright-wrapper p {
  .faq-sidebar ul li {
     font-size: 16px;
     line-height: 32px;
-    font-family: lato;
+    font-family: "Lato";
     font-weight: 300;
 }
  .faq-sidebar ul li a {
@@ -1915,7 +1893,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .faq-main-text h1 {
     font-size: 30px;
-    font-family: lato;
+    font-family: "Lato";
 	text-align: center;
 	color: #3141a0;
 	font-weight:300;
@@ -1923,7 +1901,7 @@ footer .liens-footer .copyright-wrapper p {
 }
  .faq-main-text span {
     font-size: 16px;
-    font-family: lato;
+    font-family: "Lato";
     text-align: left;
     color: #959595;
     display: block;
@@ -1967,7 +1945,7 @@ footer .liens-footer .copyright-wrapper p {
     background-repeat: no-repeat;
     cursor:pointer;
 	font-size: 17px !important;
-    font-family: 'Lato-Regular' !important;
+    font-family: 'Lato' !important;
 }
  .middleItem .titleItem.catopen h1 {
     background-image: url(https://www.jumbobag.fr/skin/frontend/jumbobag/default/images/pluse_ac.png);
@@ -1976,7 +1954,7 @@ footer .liens-footer .copyright-wrapper p {
     background-repeat: no-repeat;
     cursor:pointer;
 	font-size: 17px !important;
-    font-family: 'Lato-Regular' !important;
+    font-family: 'Lato' !important;
 }
  .titleDesc {
     display: none ;
@@ -1988,29 +1966,29 @@ footer .liens-footer .copyright-wrapper p {
 .manufacturing h1 {
     font-size: 20px !important;
 	margin: 0 0 32px 0 !important;
-    font-family: lato;
+    font-family: "Lato";
     color: #666666;
 }
 .manufacturing p, .manufacturing ul li {
     font-size: 16px;
-    font-family: lato;
+    font-family: "Lato";
     color: #666666;
 }
 .faq-all-links .faq p span strong, .faq-all-links .faq h1 span strong {
     font-size: 20px;
     font-weight: normal;
-    font-family: lato;
+    font-family: "Lato";
     color: #666;
 }
 .faq p span {
     font-size: 16px !important;
     display: block;
-        font-family: lato !important;
+	font-family: "Lato" !important;
 }
 .faq p span strong span, .faq h1, .faq h1 span, .faq h2 {
     font-size: 20px !important;
     color: #666666;
-	font-family: lato !important;
+	font-family: "Lato" !important;
 }
 h2.p2 span strong {
     font-size: 20px;
@@ -2024,7 +2002,8 @@ h2.p2 span strong {
 /*---------stj 21 june-------------*/
 #product_addtocart_form .product-name h1 {
     font-size: 31px;
-    font-family: 'Lato-Black';
+	font-family: 'Lato';
+	font-weight: 900;
     color: #30409f;
 }
 #product_addtocart_form .product-name {
@@ -2032,7 +2011,7 @@ h2.p2 span strong {
 }
 #product_addtocart_form span.price {
     font-size: 30px;
-    font-family: lato;
+    font-family: "Lato";
     font-weight: 300;
 }
 #product_addtocart_form p.availability.in-stock {
@@ -2047,7 +2026,7 @@ h2.p2 span strong {
     color: #30409f;
     font-weight: 800;
     font-size: 14px;
-    font-family: lato;
+    font-family: "Lato";
 }
 #product_addtocart_form .more-views {
     display: none;
@@ -2055,7 +2034,7 @@ h2.p2 span strong {
 #product_addtocart_form .product-options dt label {
     font-weight: 800;
     float: left;
-    font-family: lato;
+    font-family: "Lato";
     font-size: 14px;
     padding: 8px 10px 0 0;
     color: #30409f;
@@ -2080,7 +2059,7 @@ h2.p2 span strong {
 }
 .long-description .std p {
     font-size: 16px;
-    font-family: lato;
+    font-family: "Lato";
 }
 
 /* Custom CSS */

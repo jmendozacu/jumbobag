@@ -1,6 +1,6 @@
 .form {
 	display: block; /* forcé à inline par defaut */
-	font-family: lato;
+	font-family: "Lato";
 }
 .form * {
 	box-sizing: border-box;

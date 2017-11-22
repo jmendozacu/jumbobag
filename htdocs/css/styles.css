@@ -24,14 +24,16 @@
 
 #paralax div strong
 {
-  font-family: "Lato black", sans-serif;
-  font-size:60px;
+  font-family: "Lato", sans-serif;
+	font-weight: 900;
+	font-size:60px;
 }
 
 #paralax p
 {
-  font-family: "Lato Black", sans-serif;
-  font-size:21px;
+  font-family: "Lato", sans-serif;
+	font-weight: 900;
+	font-size:21px;
   text-align:center;
 }
 
@@ -63,7 +65,8 @@
 
 #gammes article .product-text h2
 {
-  font-family: "Lato Light", sans-serif;
-  color:#31419f;
+  font-family: "Lato", sans-serif;
+	font-weight: 300;
+	color:#31419f;
   text-transform:uppercase;
 }
