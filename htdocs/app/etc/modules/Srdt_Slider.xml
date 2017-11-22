@@ -1,9 +1,0 @@
-<config>
-    <modules>
-        <Srdt_Slider>
-            <codePool>local</codePool>
-            <active>true</active>
-        </Srdt_Slider>
-    </modules>
-</config>
-
