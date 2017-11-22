@@ -375,4 +375,20 @@
         <remove name="checkout.progress.wrapper"></remove>
     </checkout_onepage_index>
 
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/instafeed.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/produit.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/wow.min.js</name>
+            </action>
+        </reference>
+    </cms_index_index>
 </layout>

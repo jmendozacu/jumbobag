@@ -178,7 +178,7 @@ body.non-responsive{min-width:1200px;}
 .header-dropdown ul{}
 .header-dropdown ul li{}
 .header-dropdown ul li a{display:block;line-height:28px;min-width:110px;margin:0;padding:0 9px;color:#8c8c8c;}
-.header-dropdown ul li a:hover{background:#f5f4f4;text-decoration:none;}
+.header-dropdown ul li a:hover{background-color:#f5f4f4;text-decoration:none;}
 .header-dropdown ul li a.selected{color:#322c29}
 .language-switch{margin-left:-10px;}
 .language-switch .header-dropdown ul li a{background-repeat:no-repeat;background-position:10px 50%;padding:0 9px 0 35px;}

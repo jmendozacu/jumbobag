@@ -58,7 +58,7 @@ foreach ($this->getCurrencies() as $_code => $_name){
 </div>
 <div class="currency-select">
     <span><?php echo $this->__('Currency:') ?></span>
-    <select name="currency_switch" onchange="window.location=this.value"><?php echo implode('', $select_currency); ?></select>
+    <select name="currency_switch" aria-label="<?php echo $this->__('Currency:') ?>" onchange="window.location=this.value"><?php echo implode('', $select_currency); ?></select>
 </div>
 <?php endif; ?>
 <!-- Currency EOF -->

@@ -36,8 +36,8 @@ $config_slideshow = Mage::getStoreConfig('shopperslideshow', Mage::app()->getSto
 <meta property="og:image" content="http://www.jumbobag.fr/skin/frontend/jumbobag/default/images/logo-jumbobag-og.png" />
 <meta property="og:title" content="<?php echo $this->getTitle() ?>" />
 <meta property="og:description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
-
-
+<meta property="og:type" content="product" />
+<meta property="og:url" content="<?php echo Mage::getBaseUrl(); ?>" />
 
 <title><?php echo $this->getTitle() ?></title>
 <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
@@ -62,8 +62,8 @@ $config_slideshow = Mage::getStoreConfig('shopperslideshow', Mage::app()->getSto
 <![endif]-->
 <?php echo $this->getCssJsHtml() ?>
 <?php if (Mage::helper('shopperslideshow/data')->isSlideshowEnabled() && $config_slideshow['config']['slider'] == 'revolution') : ?>
-    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.plugins.min.js'; ?>"></script>
-    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.revolution.min.js'; ?>"></script>
+    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.plugins.min.js'; ?>" async defer></script>
+    <script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') . 'queldorei/jquery.themepunch.revolution.min.js'; ?>" async  defer></script>
 <?php endif; ?>
 <?php if ($config['enable_font']) :?>
     <link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:300,400,700' rel='stylesheet' type='text/css'>

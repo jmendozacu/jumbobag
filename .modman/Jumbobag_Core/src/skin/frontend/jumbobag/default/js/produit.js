@@ -3,8 +3,8 @@
     $(".fullscreen-before").css("background-image", 'url(' + $("#product-img").html() + ')');
     $("#product-name-and-price").detach().prependTo($(".height-centered"));
 
-    $(".presentation-produit").css("background-image", 'url(' + $("#fond-pres-produit img").attr("src") + ')');
-    $(".entretien").css("background-image", 'url(' + $("#fond-entretien img").attr("src") + ')');
+    $(".presentation-produit").css("background-image", 'url(' + $("#fond-pres-produit").find("img").attr("src") + ')');
+    $(".entretien").css("background-image", 'url(' + $("#fond-entretien").find("img").attr("src") + ')');
 
     $(".fullscreen-before .en-savoir-plus").click(function() {
       $("html, body").animate({ scrollTop: $('#page_start').offset().top }, 500);
@@ -26,13 +26,13 @@
       $('.fullscreen-before').css("background-position", newvalueX+"px     "+newvalueY+"px");
     });
 
-    $("#product-options-wrapper label.required").html('Couleurs :');
+    $("#product-options-wrapper").find("label.required").html('Couleurs :');
 
     //Gestion du changement d'image
-    $(".swatches-container .swatch-img").click(function() {
+    $(".swatches-container").find(".swatch-img").click(function() {
       var title = $(this).attr("title");
 
-      $("#shopper_gallery_carousel li").each(function() {
+      $("#shopper_gallery_carousel").find("li").each(function() {
         if($(this).attr("data-label") === title) {
           $(".product-images .product-image").html($(this).html());
         }
@@ -51,21 +51,21 @@
     $('.tissu p').click(function() {
       $('.content_tissu').slideToggle(1000); 
       $('.tissu p').toggleClass('close_icon',1000);       
-      $('.tissu p .fa').toggleClass('fa-times-circle');
-      $('.tissu p .fa').toggleClass('fa-plus-circle isOut'); 
-      $(".tissu p .fa").fadeIn("slow");
-      var isOut = $('.tissu p .fa').hasClass('isOut'); 
-      $('.tissu p .fa').animate({marginTop: isOut ? '2%' : '0'}, 800);  
+      $('.tissu p').find('.fa').toggleClass('fa-times-circle');
+      $('.tissu p').find('.fa').toggleClass('fa-plus-circle isOut'); 
+      $(".tissu p").find('.fa').fadeIn("slow");
+      var isOut = $('.tissu p').find('.fa').hasClass('isOut'); 
+      $('.tissu p').find('.fa').animate({marginTop: isOut ? '2%' : '0'}, 800);  
       
     });
 
     $('.remplissage p').click(function() {     
       $('.content_remplissage').slideToggle(1000); 
       $('.remplissage p').toggleClass('close_icon',1000);       
-      $('.remplissage p .fa').toggleClass('fa-times-circle');
-      $('.remplissage p .fa').toggleClass('fa-plus-circle isOutin'); 
-      var isOutin = $('.remplissage p .fa').hasClass('isOutin') 
-      $('.remplissage p .fa').animate({marginTop: isOutin ? '2%' : '0'}, 800);
+      $('.remplissage p').find('.fa').toggleClass('fa-times-circle');
+      $('.remplissage p').find('.fa').toggleClass('fa-plus-circle isOutin'); 
+      var isOutin = $('.remplissage p').find('.fa').hasClass('isOutin') 
+      $('.remplissage p').find('.fa').animate({marginTop: isOutin ? '2%' : '0'}, 800);
     });
 
     $('.image-wrapper').hover(function() {
