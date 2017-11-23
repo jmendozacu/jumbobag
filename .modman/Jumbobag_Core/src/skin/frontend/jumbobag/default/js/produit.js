@@ -93,7 +93,7 @@
     userFeed.run();
 
     if($(window).width() < 768) {
-      $(".footer_to_hide .responsive-footer h4").click(function() {
+      $(".footer_to_hide").find(".responsive-footer h4").click(function() {
         $(this).parent().find('.responsive-footer .to_hide_reaction').slideToggle();
       });
     }
@@ -106,16 +106,16 @@
 
   jQuery(window).load(function() {
     $(".fullscreen-before").height($(window).height()); 
-    $(".height-centered .bouton-commander button").text('Commander maintenant');
+    $(".height-centered").find(".bouton-commander button").text('Commander maintenant');
     var dh = $(window).width()/2;
     var dhsub = dh+150;
     var sl_h = dh+200;  
 
     if($(window).width() > 1199) { 
 
-      $(".product-pouf-poire-scuba-xtrem-scuba .presentation-produit-wrapper .presentation-produit.row").css("min-height", dh); 
-      $(".product-pouf-poire-scuba-xtrem-sunbrella1 .presentation-produit-wrapper .presentation-produit.row").css("min-height", dhsub);
-      $(".product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view .entretien.row").css("min-height", dhsub);  
+      $(".product-pouf-poire-scuba-xtrem-scuba").find(".presentation-produit-wrapper .presentation-produit.row").css("min-height", dh); 
+      $(".product-pouf-poire-scuba-xtrem-sunbrella1").find(".presentation-produit-wrapper .presentation-produit.row").css("min-height", dhsub);
+      $(".product-pouf-poire-scuba-xtrem-swimbrella.catalog-product-view").find(".entretien.row").css("min-height", dhsub);  
 
     }   
 
