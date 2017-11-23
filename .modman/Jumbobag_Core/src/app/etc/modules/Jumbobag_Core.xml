@@ -6,6 +6,7 @@
             <codePool>local</codePool>
             <depends>
                 <Aoe_QuoteCleaner />
+                <Sygnoos_Popupbuilder />
             </depends>
         </Jumbobag_Core>
     </modules>

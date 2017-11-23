@@ -51,7 +51,6 @@ class Jumbobag_Core_Block_PopupWidget extends Sygnoos_Popupbuilder_Block_PopupWi
 
 	public function renderAllScripts()
 	{
-
 		$content = '';
 		if (self::$oneLoad) {
 
@@ -65,7 +64,7 @@ class Jumbobag_Core_Block_PopupWidget extends Sygnoos_Popupbuilder_Block_PopupWi
 		$skinImgUrl = $this->getSkinUrl('images/PopupBuilder/', array('_area' => 'adminhtml'));
 
 		$content .= "<script src='$skinUrlJs/jquery-1.12.0.min.js' defer></script>";
-		$content .= "<script src='$skinUrlJs/jsg.js' defer></script>";
+		$content .= "<script src='$skinUrlJs/jsg.js'></script>";
 		$content .= "<script type='text/javascript'>SG_POPUP_DATA = [];SG_POPUPS_QUEUE = [];SG_APP_POPUP_URL='" . $this->getSkinUrl('css/PopupBuilder', array('_area' => 'adminhtml')) . "';SG_APP_POPUP_IMAGE_URL='" . $this->getSkinUrl('media/PopupBuilder/', array('_area' => 'adminhtml')) . "';</script>";
 		$content .= "<link rel='stylesheet' type='text/css' href='$skinUrlCss/sgcolorbox/colorbox1.css'>";
 		$content .= "<link rel='stylesheet' type='text/css' href='$skinUrlCss/sgcolorbox/colorbox2.css'>";

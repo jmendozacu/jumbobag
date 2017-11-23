@@ -18,11 +18,16 @@
 			</jumbobag_core_setup>
 		</resources>
 		<blocks>
-				<Sygnoos_Popupbuilder>
+        <blocks>
+	      	<jumbobag_core>
+	        	<class>Jumbobag_Core_Block</class>
+					</jumbobag_core>
+				</blocks>
+				<popupbuilder>
 						<rewrite>
-								<PopupWidget>JumboBag_Core_Block_PopupWidget</PopupWidget>
+								<PopupWidget>Jumbobag_Core_Block_PopupWidget</PopupWidget>
 						</rewrite>
-				</Sygnoos_Popupbuilder>
+				</popupbuilder>
 		</blocks>
 	</global>
 </config>
