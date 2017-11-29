@@ -1767,7 +1767,7 @@ tr.summary-details-excluded {
 .product-view .image-technique-wrapper .image-technique .texte_gauche p {
     color: white;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .product-view .image-technique-wrapper .image-technique .texte_droite {
     text-align: left;
@@ -1785,7 +1785,7 @@ tr.summary-details-excluded {
 .product-view .image-technique-wrapper .image-technique .texte_droite p {
     color: white;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .product-collateral .box-collateral {
     margin: 0 0 15px;
@@ -4252,7 +4252,7 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 footer .arguments-footer .argument-footer h3 {
     font-size: 23px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #666666;
     margin-bottom: 10px;
 }
@@ -4293,7 +4293,7 @@ footer .liens-footer a,
 footer .liens-footer p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: white;
     text-align: left;
 }
@@ -4333,7 +4333,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #999999;
 }
 .fullscreen-before {
@@ -4401,7 +4401,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-category-view .height-centered h1 {
     font-size: 82px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: white;
     line-height: 0.9em;
     text-align: right;
@@ -4483,7 +4483,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-product-view .height-centered h1 {
     font-size: 82px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: white;
     line-height: 1.0em;
     text-align: right;
@@ -4501,7 +4501,7 @@ footer .liens-footer .copyright-wrapper p {
 
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: white;
 }
 @media (min-width: 768px) {
@@ -4557,7 +4557,7 @@ footer .liens-footer .copyright-wrapper p {
     font-size: 40px;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #30409f;
 }
 @media (max-width: 767px) {
@@ -4632,7 +4632,7 @@ footer .liens-footer .copyright-wrapper p {
     font-size: 40px;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #30409f;
 }
 @media (max-width: 767px) {
@@ -4741,7 +4741,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique h3 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 24px; float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique .uv {
@@ -4786,7 +4786,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 24px; float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus .infla {
@@ -4824,7 +4824,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark p {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 16px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage {
@@ -4858,7 +4858,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage .container .btn_plus a {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
@@ -4899,12 +4899,12 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .informations-produit .product-infos h2 .thin-part {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .catalog-product-view .informations-produit .product-infos .price-box span.price {
     font-size: 30px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #30409f;
     text-transform: uppercase;
 }
@@ -5019,7 +5019,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus h2 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 30px;
     margin-top: 80px;
     margin-bottom: 46px;
@@ -5053,7 +5053,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus .product .image-wrapper:hover .btn-wrapper a {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
@@ -5097,7 +5097,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h4 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 16px;
     color: #30409f;
     text-transform: uppercase;
@@ -5178,7 +5178,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed h2 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 30px;
     margin-top: 80px;
     text-align: center;
@@ -5186,7 +5186,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed p {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 16px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -5503,11 +5503,11 @@ footer{
 
 .block-subscribe input.input-text{ padding-right: 15%;}
 
-.catalog-product-view .height-centered h1 .bold-part sup {   font-family: 'Lato', sans-serif; font-weight: 100;  font-size: 52px;}
-.catalog-product-view .informations-produit .product-infos h2 sup { font-family: 'Lato', sans-serif; font-weight: 100; }
+.catalog-product-view .height-centered h1 .bold-part sup {   font-family: 'Lato', sans-serif; font-weight: 200;  font-size: 52px;}
+.catalog-product-view .informations-produit .product-infos h2 sup { font-family: 'Lato', sans-serif; font-weight: 200; }
 .catalog-product-view .height-centered h1 .bold-part b { font-size: 50px; float: right; width: 100%; line-height: 50px;
     font-family: 'Lato', sans-serif; font-weight: 700;}
-.catalog-product-view .height-centered h1 .bold-part b sup {   font-family: 'Lato', sans-serif;  font-weight: 100; font-size: 30px;}
+.catalog-product-view .height-centered h1 .bold-part b sup {   font-family: 'Lato', sans-serif;  font-weight: 200; font-size: 30px;}
 
 .product-view .image-technique-wrapper .image-technique .texte_gauche{ padding-top: 30px; }
 
@@ -5587,7 +5587,7 @@ footer{
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique.tissus_sunbrella p.close_icon span{ float: left; }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus.tissus_sunbrella_second p.close_icon span{ float: left;text-align: left; }
 
-.old-price .price-label {  white-space: nowrap;   font-size: 30px;   color: #30409f;   font-family: 'Lato', sans-serif; font-weight: 100;}
+.old-price .price-label {  white-space: nowrap;   font-size: 30px;   color: #30409f;   font-family: 'Lato', sans-serif; font-weight: 200;}
 .catalog-product-view .informations-produit .product-infos .price-box .old-price span.price{ font-size: 16px; margin-left: 10px;}
 
 .catalog-product-view .height-centered h2 .price-box .old-price .price-label{ font-size: 82px;
@@ -5595,10 +5595,10 @@ footer{
 .catalog-product-view .height-centered h2 .availability{ display: none; }
 
 .catalog-product-view .height-centered h2 .price-box .old-price .price{ color: #fff; font-size: 30px;
-    position: absolute; left: 0; bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 100; }
+    position: absolute; left: 0; bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 200; }
 .catalog-product-view .height-centered h2 .price-box .old-price{ position: relative;}
 
-.catalog-product-view .height-centered h2 .price-box .regular-price .price{font-size: 82px; font-family: 'Lato', sans-serif; font-weight: 100;
+.catalog-product-view .height-centered h2 .price-box .regular-price .price{font-size: 82px; font-family: 'Lato', sans-serif; font-weight: 200;
     color: #fff; margin-bottom: 15px;}
 
 
@@ -5818,7 +5818,7 @@ footer{
     .toplinks-wrapper .links li:nth-child(2) {   background-image: none;}
     .toplinks-wrapper .links li:nth-child(1) {   margin-right: 0;}
     .col-md-6.langues-et-currency {  width: 50%;   float: left;}
-    .header-switch span.current {  background-image: url(/skin/frontend/jumbobag/default/images/caret-mob.png)!important;}
+    .header-switch span.current {  background-image: url(/skin/frontend/jumbobag/default/images/caret-mob.png)!important; font-weight: normal; }
     .top-switch-bg .header-switch span, .header-container .top-switch-bg .links li a {  color: #b4b4b4 !important;}
     .header-dropdown {   z-index: 9;}
 

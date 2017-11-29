@@ -935,7 +935,7 @@ tr.summary-details-excluded{font-style:italic;}
 .wm-full-header #queldoreiNav>li:hover, .wm-full-header #queldoreiNav>li.over, .wm-full-header #queldoreiNav>li.active{ box-shadow: none;}
 .wm-full-header #queldoreiNav li.level0:hover a, .wm-full-header #queldoreiNav li.level0.active a{opacity: 1; color: #fff;}
 .wm-full-header #queldoreiNav li.level0 ul a, .wm-full-header #queldoreiNav li.level0.active ul a{ padding-bottom: 0; }
-.wm-full-header #queldoreiNav>li>a>span{  font-weight: normal;letter-spacing: normal; padding: 0;  border-top: 0px solid transparent; line-height: normal; }
+.wm-full-header #queldoreiNav>li>a>span{  font-weight: 800;letter-spacing: normal; padding: 0;  border-top: 0px solid transparent; line-height: normal; }
 .wm-full-header #queldoreiNav>li:hover>a>span, .wm-full-header #queldoreiNav>li.over>a>span, .wm-full-header #queldoreiNav>li.active>a>span {
     background: transparent; border:0;
 }
@@ -1008,7 +1008,7 @@ tr.summary-details-excluded{font-style:italic;}
     line-height: normal;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .catalog-category-view .products-grid .price-box .price {
 	font-family: 'Lato', sans-serif;
@@ -1206,7 +1206,7 @@ footer {
         color: #666;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .block-subscribe button.button {
     overflow: visible;
@@ -1242,9 +1242,8 @@ footer {
 .block-subscribe .input-box .button span span {
     padding: 0;
     font-size: 30px; line-height: normal;
-    font-weight: 100px;
     font-family: "Lato", sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 footer .liens-footer {
     background-color: #322c29;
@@ -1288,7 +1287,7 @@ footer .liens-footer .social li:not(:last-child) {
 footer .liens-footer a, footer .liens-footer p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: white;
     text-align: left;
 }
@@ -1335,7 +1334,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	color: #999999;
     text-align: center;
 }
@@ -1378,7 +1377,7 @@ footer .liens-footer .copyright-wrapper p {
 .cms-home-new #intro h1
 {
   font-family:"Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   font-size:40px;
   text-transform:uppercase;
   color:#31419f;
@@ -1534,7 +1533,7 @@ footer .liens-footer .copyright-wrapper p {
 .cms-home-new .gammes article .product-text h2
 {
   font-family: "Lato", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   color:#31419f;
   text-transform:uppercase;
   font-size:34px;
@@ -1555,7 +1554,7 @@ footer .liens-footer .copyright-wrapper p {
   text-align:center;
   font-size:40px;
   font-family: "Lato",sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   color:#31419f;
   text-transform:uppercase;
 }
@@ -1687,7 +1686,7 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 }
 footer .arguments-footer .argument-footer h3 {
   font-size: 23px;
-  font-weight: 100;
+  font-weight: 200;
   font-family: 'Lato', sans-serif;
   color: #666666;
   margin-bottom: 10px;
@@ -1725,7 +1724,7 @@ footer .liens-footer a,
 footer .liens-footer p {
   font-size: 12px;
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   color: white;
   text-align: left;
 }
@@ -1761,7 +1760,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
   font-size: 12px;
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   color: #999999;
 }
 
@@ -1832,7 +1831,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed h2 {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 30px;
     margin-top: 80px;
     text-align: center;
@@ -1840,7 +1839,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed p {
     font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 16px;
     margin-top: 20px;
     margin-bottom: 50px;

@@ -1966,7 +1966,7 @@ p.cartqty {
   position: relative;
   z-index: 2;
   font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .header-switch span.current {
   display: inline-block;
@@ -1976,6 +1976,7 @@ p.cartqty {
   background: url("../images/caret.png") no-repeat;
   background-size: 10px 8px !important;
   background-position: right center;
+	font-weight: normal;
 }
 .header-dropdown {
   background: #fff;
@@ -2043,7 +2044,7 @@ p.cartqty {
 .links li a {
   color: white !important;
   font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .links li a:hover {
   color: white !important;
@@ -3989,12 +3990,12 @@ div.alert button:hover {
 .category-description-texte p {
   margin: 22px 0 0;
   font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .category-description-texte strong {
   color: #fff;
   font-family: 'Lato', sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 .category-description img {
   max-width: 100%;
@@ -5738,9 +5739,8 @@ div.alert button:hover {
 .block-subscribe .input-box .button span span {
   padding: 8px 12px;
   font-size: 30px;
-  font-weight: 100px;
   font-family: "Lato", sans-serif;
-	font-weight: 100;
+	font-weight: 200;
 }
 button .button span span {
   padding: 0px;
