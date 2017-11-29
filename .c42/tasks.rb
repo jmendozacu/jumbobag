@@ -63,8 +63,8 @@ desc "install URL_LOCAL", "Installe le projet sur URL_LOCAL"
 task :install do
 	url = "jumbobag.test"
 
-	sql_cat_cmd = "cat tmp/dump.sql" if File.exists?(".c42/tmp/dump.sql")
-	sql_cat_cmd = "zcat tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
+  sql_cat_cmd = "cat .c42/tmp/dump.sql" if File.exists?(".c42/tmp/dump.sql")
+	sql_cat_cmd = "zcat .c42/tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
 	fatal("Could not find .c42/tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
 
 	unless File.exists?(".c42/docker-compose.yml") && File.exists?("docker-compose.yml")
