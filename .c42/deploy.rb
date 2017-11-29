@@ -75,3 +75,7 @@ namespace :jumbobag do
 	
 	after "deploy", "jumbobag:restart_process"
 end  
+
+after "deploy" do
+	run "echo #{latest_revision} > #{File.join(latest_release, app_path, 'rev.txt')}"
+end
