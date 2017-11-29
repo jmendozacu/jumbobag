@@ -1,6 +1,3 @@
-Dir.chdir(File.dirname(__FILE__))
-source_root(File.dirname(__FILE__))
-
 SHELL = "/bin/bash"
 MAGENTO_DIR = "/var/www/htdocs"
 MAGERUN = "docker-compose run --rm web n98-magerun"
@@ -63,35 +60,35 @@ package :mage do
 end
 
 desc "install URL_LOCAL", "Installe le projet sur URL_LOCAL"
-task :install do |url|
-	url = check_url(url)
-	fatal("L'URL n'a pas au bon format") unless url
+task :install do
+	url = "jumbobag.test"
 
-	sql_cat_cmd = "cat tmp/dump.sql" if File.exists?("tmp/dump.sql")
-	sql_cat_cmd = "zcat tmp/dump.sql.gz" if File.exists?("tmp/dump.sql.gz")
-	fatal("Could not find tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
+	sql_cat_cmd = "cat tmp/dump.sql" if File.exists?(".c42/tmp/dump.sql")
+	sql_cat_cmd = "zcat tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
+	fatal("Could not find .c42/tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
 
-	unless File.exists?("docker-compose.yml")
+	unless File.exists?(".c42/docker-compose.yml") && File.exists?("docker-compose.yml")
 		info("copying docker-compose.yml")
-		copy_file("docker-compose.yml.dist", "docker-compose.yml")
+		copy_file("docker-compose.yml.dist", ".c42/docker-compose.yml")
+		create_link("docker-compose.yml", ".c42/docker-compose.yml")
 		if yes?("Do you want to edit docker-compose.yml? [y/N]")
 			system(%{"${EDITOR:-vim}" docker-compose.yml })
 		end
 	end
 
-	unless File.exists?("docker/entrypoint.sh")
+	unless File.exists?(".c42/docker/entrypoint.sh")
 		info("copying docker-compose.yml")
-		copy_file("docker/entrypoint.sh.dist", "docker/entrypoint.sh")
-		if yes?("Do you want to edit docker/entrypoint.sh? [y/N]")
-			system(%{"${EDITOR:-vim}" docker/entrypoint.sh })
+		copy_file("docker/entrypoint.sh.dist", ".c42/docker/entrypoint.sh")
+		if yes?("Do you want to edit .c42/docker/entrypoint.sh? [y/N]")
+			system(%{"${EDITOR:-vim}" .c42/docker/entrypoint.sh })
 		end
 	end
 
 	info("Chmoding docker/entrypoint.sh")
-	chmod("docker/entrypoint.sh", 0755)
+	chmod(".c42/docker/entrypoint.sh", 0755)
 
-	# info("Invoking composer install")
-	# invoke "composer", ["install"]
+	info("Invoking composer install")
+	invoke "composer", ["install"]
 	
 	info("Invoking docker:run")
 	invoke "docker:run", []
@@ -124,8 +121,8 @@ end
 package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
-		# exec remplace le process actuel
-		exec("rsync -avzPL --delete-after --exclude .htaccess --exclude .htpasswd --exclude=/media --exclude=/var/cache/  --exclude=/var/log/ --exclude=/var/session/ --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag_dev/")
+	  # exec remplace le process actuel
+	  exec("bundle exec cap preprod deploy")
 	end
 
   desc "prod", "deploy (almost) to prod"

@@ -144,6 +144,21 @@
     RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
     RewriteRule .* - [L,R=405]
 
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+
+        ############################################
+        # X-Content-Type-Options: nosniff disable content-type sniffing on some browsers.
+        Header set X-Content-Type-Options: nosniff
+
+        ############################################
+        # This header forces to enables the Cross-site scripting (XSS) filter in browsers (if disabled)
+        BrowserMatch \bMSIE\s8 ie8
+        Header set X-XSS-Protection: "1; mode=block" env=!ie8
+
+    </IfModule>
+</IfModule>
+
 ############################################
 ## redirect for mobile user agents
 
@@ -208,327 +223,27 @@
 
     #FileETag none
 
+###########################################
+## Deny access to cron.php
+    <Files cron.php>
 
+############################################
+## uncomment next lines to enable cron access with base HTTP authorization
+## http://httpd.apache.org/docs/2.2/howto/auth.html
+##
+## Warning: .htpasswd file should be placed somewhere not accessible from the web.
+## This is so that folks cannot download the password file.
+## For example, if your documents are served out of /usr/local/apache/htdocs
+## you might want to put the password file(s) in /usr/local/apache/.
 
+        #AuthName "Cron auth"
+        #AuthUserFile ../.htpasswd
+        #AuthType basic
+        #Require valid-user
 
+############################################
 
+        Order allow,deny
+        Deny from all
 
-
-
-
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/the-original-jumbo-bag.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/coussin-confort-softy.html http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-cruiseline.html http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/fauteuil-design-blues.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/garniture-polystyrene.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-soul.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/the-original-printed-bags.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/fauteuil-design-lazy.html http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/pouf-repose-pieds-cube-53.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /gallery http://www.jumbobag.fr/social
-RedirectPermanent  /pouf-coussin-geant-jumbobag-printed-bag-space.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-jumbo-bag/pouf-coussin-geant-jumbobag-original.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /housse-pouf-original-jumbobag-noir.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /contact http://www.jumbobag.fr/contact-presse
-RedirectPermanent  /pouf-coussin-geant-jumbobag-printed-bag-leopard.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /recharge-billes-polystyrene-pouf-fauteuil-coussin-geant-120-litres.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /housse-pouf-original-jumbobag-vert-anis.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/softy.html http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/mini-bag-1/pouf-mini-bag.html http://www.jumbobag.fr/mini-swimming-bag.html
-RedirectPermanent  /environment http://www.jumbobag.fr/
-RedirectPermanent  /products/blues/blues-28530.html/ http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/calendar/calendar-jumbobag-2013.html http://www.jumbobag.fr/
-RedirectPermanent  /blog-jumbobag/category/non-classe/ http://blog.jumbobag.fr/
-RedirectPermanent  /products/soul/soul-31532.html/ http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/bowly-1.html http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/mini-bag/pouf-mini-bag.html http://www.jumbobag.fr/mini-swimming-bag.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=9 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=30 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/accessoires.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/scuba-xxl/scuba-xxl-28653.html/ http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?manufacturer=81 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /housse-coussin-geant-jumbobag-printed-dot.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /pouf-coussin-geant-jumbobag-original.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /housse-pouf-original-jumbobag-chocolat.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=15 http://www.jumbobag.fr/original.html
-RedirectPermanent  /housse-pouf-original-jumbobag-rouge.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /pouf-coussin-geant-jumbobag-printed-bag-vangogh.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /housse-pouf-original-jumbobag-bleu.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/softy/pouf-mini-coussin-softy-jumbobag.html http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /housse-pouf-original-jumbobag-anthracite.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /pouf-coussin-geant-jumbo-bag-printed.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /coussin-geant-pouf-jumbo-bag.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/swing/swing-28810.html http://www.jumbobag.fr/mini-swimming-bag.html
-RedirectPermanent  /on-parle-de-nous/test_news/ http://www.jumbobag.fr/on-parle-de-nous
-RedirectPermanent  /on-parle-de-nous/test_news1/ http://www.jumbobag.fr/on-parle-de-nous
-RedirectPermanent  /products/bowly/bowly.html http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=15 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=30 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=9 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=10&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=15 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?limit=9 http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=5&mode=list http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=5&mode=list&p=2 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=15 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=30 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=9 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=5&mode=grid http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=30 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?limit=30 http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?limit=30 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=9 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=9 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=10&mode=grid http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?limit=15 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?limit=15 http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=30 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?limit=9 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/scuba-xxl/pouf-poire-scuba-xxl.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/fauteuil-design-blues.html?limit=30 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-design-soul.html?limit=15 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=9&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=15&mode=grid http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=30&manufacturer=81 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /housse-pouf-original-jumbobag.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-cruiseline.html?limit=30 http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=15&manufacturer=81&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?manufacturer=81 http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /pouf-fauteuil-design-footstool-blues.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-design-soul.html?limit=30 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?manufacturer=81 http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-cruiseline.html?limit=30&mode=grid http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?manufacturer=81&p=1 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=9&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?limit=9 http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?limit=15&mode=list http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=30&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=30&manufacturer=81 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?limit=10&mode=grid http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/soul/pouf-design-interieur-soul.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=9&manufacturer=81 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/lazy/pouf-fauteuil-design-lazy-footstool.html http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=9&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=10&mode=list&p=3 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?limit=9&p=1 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=15 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-flottant-swimmingbag-xtrem-sunbrella.html?limit=15 http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original-printed.html?limit=15&manufacturer=81&mode=grid http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?limit=15 http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=9 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?limit=30 http://www.jumbobag.fr/scuba-xxl.html
-
-#RedirectPermanent  /customer%2Faccount%2Flogin&___store=it&___from_store=default http://www.jumbobag.fr/customer/account/login
-#RedirectPermanent  /customer%2Faccount%2Flogin&___store=en&___from_store=default http://www.jumbobag.fr/customer/account/login
-#RedirectPermanent  /customer%2Faccount%2Flogin&___store=default&___from_store=default http://www.jumbobag.fr/customer/account/login
-#RedirectPermanent  /customer%2Faccount%2Flogin&___store=de&___from_store=default http://www.jumbobag.fr/customer/account/login
-
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?limit=9 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?limit=9&p=2 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=9&mode=grid&p=10 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=9&mode=list&p=3 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?manufacturer=81&mode=list http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/cube/cube.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=5&mode=grid http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=9&p=1 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?limit=15&mode=list http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant.html?manufacturer=81&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?limit=30&mode=grid http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=15&manufacturer=81 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=9&manufacturer=81 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/the-original-printed-bags.html?manufacturer=81 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=25&mode=grid http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=25&mode=grid http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?limit=30&mode=grid http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=15&manufacturer=81 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=30&manufacturer=81&p=1 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=5&mode=grid http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=jduvmydlno&mode=grid http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=9&mode=list&p=2 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?limit=5&mode=list&p=5 http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=15 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-flottant-swimmingbag-xtrem-sunbrella.html?limit=30&mode=list http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=15&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=5&manufacturer=81&mode=list&p=4 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=5&manufacturer=81&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /reglement http://www.jumbobag.fr/payment-mode
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=30 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=5&mode=grid http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=25&manufacturer=81&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=9&p=3 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original-printed.html?limit=30&manufacturer=81&mode=list&p=3 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=15&p=3 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?limit=30&mode=list http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-cruiseline.html?limit=20&mode=grid http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=hacfbuvy&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=9&manufacturer=81&mode=grid http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?limit=30&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=30&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=15&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=9&manufacturer=81&mode=grid&p=2 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/fauteuil-design-blues.html?limit=15 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=9&manufacturer=81 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/chilly-bean/chilly-bean-28742.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?limit=9&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=30 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?limit=15 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/safebag.html?limit=15&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=20&mode=grid http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-cruiseline.html?limit=9 http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/blues/blues-28530.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=15&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?limit=30&manufacturer=81 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /pouf-design-cube-noir.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/the-original-printed-bags.html?limit=30&mode=list&p=3 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /housse-pouf-original-jumbobag-aubergine.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /on-parle-de-nous/test_news-2/ http://www.jumbobag.fr/on-parle-de-nous
-RedirectPermanent  /scuba-xxl-28653.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/accessoires/recharge-billes.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/scuba-xxl-28653.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /pouf-design-cube-anthracite.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/pouf-repose-pieds-cube.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /pouf-design-cube-rouge.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/jumbo-bag-printed-00000.html http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-jumbo-bag.html/ http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/lazy-1.html http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /montana-xl-28461-70-chocolat.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/rocky-xl/pouf-rocky-xl.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/cosy-xl-1/cozy-xl-29181.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/blues-29160.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /cube-sable.html http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/pouf-poire-scuba-xtrem-sunbrella.html http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/swing/swing-29153.html http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?limit=30 http://www.jumbobag.fr/chilly-bean.html
-
-#RedirectPermanent  /clickheat/click.php http://www.jumbobag.fr/
-
-RedirectPermanent  /products/the-original-printed-bags.html?limit=9&mode=grid http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?limit=9&manufacturer=81 http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /jumbobag-original-anthracite.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/lazy/lazy.html http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?limit=zskahkmtenodfah&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/soldes-destockage/pouf-rocky-xl.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/recharge-billes-polystyrene-pouf-fauteuil-coussin-geant.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/swing-28810.html http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/chilly-bean-29152.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /recharge-billes-polystyrene-120l.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/soul-31532.html http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/cosy-xl-1/cozy-xl-29841.html http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/swing/swing-28810.html/ http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /the-swimming-bag-bleu.html http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/safebag.html http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=15 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/pouf-design-soul.html?limit=9 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=20&manufacturer=81&mode=list http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?p=3 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/garniture-polystyrene.html?limit=9 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?p=2 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/coussin-confort-softy.html?limit=9 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/coussin-confort-softy.html?manufacturer=81 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/garniture-polystyrene.html?manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?manufacturer=81&mode=list http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?manufacturer=81&p=4 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/fauteuil-design-blues.html?manufacturer=81 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?limit=9&manufacturer=81&mode=grid http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?dir=asc&limit=9&order=price http://www.jumbobag.fr/original.html
-
-RedirectPermanent  /products/the-original-jumbo-bag.html?color=10&limit=15 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/fauteuil-design-blues.html?color=61 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=10 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?color=14&limit=15&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?color=3 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=72 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=71 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-poire-scuba-xxl.html?color=8 http://www.jumbobag.fr/scuba-xxl.html
-RedirectPermanent  /products/pouf-design-bowly.html?color=12 http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/pouf-design-soul.html?color=46 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?color=13 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant/housse-jumbobag-original.html?color=29&limit=15&mode=list http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=68 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?color=12 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?dir=asc&order=name http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?dir=desc&order=position http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/pouf-repose-pieds-cube.html?color=5&limit=9 http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=69 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/fauteuil-design-lazy.html?color=23 http://www.jumbobag.fr/lazy-swimming-bag.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=23 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=9 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=62 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=41 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=19 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=28 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=9 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=42 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=75 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=66 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=25 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?dir=asc&order=name http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?dir=asc&order=price http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?dir=desc&order=position http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=25&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/pouf-flottant-swimming-bag.html?color=19&limit=9 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=8&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=22&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=7&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=40&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/the-original-printed-bags.html?color=65&manufacturer=81 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=10&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=77&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?color=11 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=77 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=50&manufacturer=81 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/pouf-repose-pieds-cube.html?dir=asc&limit=30&order=position http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?color=25&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?dir=asc&order=price http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /review/product/list/id/134/ http://www.jumbobag.fr/
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?mode=list http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=4 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/pouf-repose-pieds-cube.html?color=25&limit=9 http://www.jumbobag.fr/cube.html
-RedirectPermanent  /products/pouf-design-bowly.html?mode=list http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=70 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?color=19 http://www.jumbobag.fr/swimming-bag.html
-RedirectPermanent  /products/pouf-design-bowly.html?dir=asc&order=name http://www.jumbobag.fr/bowly.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?color=7&limit=15 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=65 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/housse-coussin-geant.html?color=67 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/garniture-polystyrene.html?dir=asc&order=position http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/the-original-printed-bags.html?color=76&limit=15 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-printed-bags.html?color=78&limit=15 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-printed-bags.html?color=66&limit=15 http://www.jumbobag.fr/original-printed.html
-RedirectPermanent  /products/the-original-jumbo-bag.html?color=7&manufacturer=81 http://www.jumbobag.fr/original.html
-RedirectPermanent  /products/pouf-design-soul.html?dir=asc&order=name http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-design-soul.html?color=5 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/pouf-design-chilly-bean.html?color=16 http://www.jumbobag.fr/chilly-bean.html
-RedirectPermanent  /products/catalogue-complet-pouf-jumbo-bag.html?color=76 http://www.jumbobag.fr/products.html
-RedirectPermanent  /products/collection-jumbobag-xtrem/coussin-geant-jumbobag-xtrem-sunbrella.html?dir=asc&order=position http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/collection-jumbobag-xtrem.html?dir=asc&order=position http://www.jumbobag.fr/products/pouf/demo-collection-xtrem.html
-RedirectPermanent  /products/housse-coussin-geant/housse-swimming-bag.html?color=3 http://www.jumbobag.fr/swimming-bag.html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </Files>
