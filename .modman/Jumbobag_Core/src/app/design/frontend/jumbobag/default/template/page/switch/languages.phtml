@@ -32,6 +32,14 @@
  */
 ?>
 
+<?php
+    echo "<style>";
+    foreach ($this->getStores() as $_lang) {
+        echo ".flag-".$_lang->getCode()." { background-image:url('". $this->getSkinUrl('images/flags/'.$_lang->getCode().'.png') ."'); }";
+    }
+    echo "</style>"
+?>
+
 <!-- LANGUAGES BOF -->
 <?php if(count($this->getStores())>1): ?>
 <?php
@@ -44,7 +52,7 @@ foreach ($this->getStores() as $_lang) {
         $_selected = ' class="selected"';
         $_selected_option = ' selected="selected"';
     }
-    $stores[] = '<li'. $_selected .'><a style="background-image:url(\''. $this->getSkinUrl('images/flags/'.$_lang->getCode().'.png') .'\');" href="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</a></li>';
+    $stores[] = '<li'. $_selected .'><a class="flag-'.$_lang->getCode().'" href="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</a></li>';
     $select_stores[] = '<option '.$_selected_option.' value="'. $_lang->getCurrentUrl() .'">'. $this->htmlEscape($_lang->getName()) .'</option>';
 	if ($_selected == ' class="selected"')
 	{
@@ -63,7 +71,7 @@ foreach ($this->getStores() as $_lang) {
 </div>
 <div class="language-select">
     <span><?php echo $this->__('Your Language:') ?></span>
-	<select name="language_switch" onchange="window.location=this.value"><?php echo implode('', $select_stores); ?></select>
+	<select name="language_switch" aria-label="<?php echo $this->__('Your Language:') ?>" onchange="window.location=this.value"><?php echo implode('', $select_stores); ?></select>
 </div>
 <?php endif; ?>
 <!-- LANGUAGES EOF -->

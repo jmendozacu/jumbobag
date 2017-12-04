@@ -1752,7 +1752,7 @@ tr.summary-details-excluded {
 .product-view .image-technique-wrapper .image-technique .texte_gauche {
     text-align: right;
     padding-top: 60px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 @media (max-width: 767px) {
     .product-view .image-technique-wrapper .image-technique .texte_gauche {
@@ -1766,12 +1766,13 @@ tr.summary-details-excluded {
 }
 .product-view .image-technique-wrapper .image-technique .texte_gauche p {
     color: white;
-    font-family: 'Lato-Thin', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
 }
 .product-view .image-technique-wrapper .image-technique .texte_droite {
     text-align: left;
     padding-top: 30px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 @media (max-width: 767px) {
     .product-view .image-technique-wrapper .image-technique .texte_droite {
@@ -1783,7 +1784,8 @@ tr.summary-details-excluded {
 }
 .product-view .image-technique-wrapper .image-technique .texte_droite p {
     color: white;
-    font-family: 'Lato-Thin', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
 }
 .product-collateral .box-collateral {
     margin: 0 0 15px;
@@ -4177,54 +4179,13 @@ tr.summary-details-excluded {
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'Lato-Black';
-    src: url('../fonts/Lato-Black.eot');
-    src: url('../fonts/Lato-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Black.woff') format('woff'), url('../fonts/Lato-Black.ttf') format('truetype'), url('../fonts/Lato-Black.svg#Lato-Black') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Lato-Bold';
-    src: url('../fonts/Lato-Bold.eot');
-    src: url('../fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Bold.woff') format('woff'), url('../fonts/Lato-Bold.ttf') format('truetype'), url('../fonts/Lato-Bold.svg#Lato-Bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Lato-Heavy';
-    src: url('../fonts/Lato-Heavy.eot');
-    src: url('../fonts/Lato-Heavy.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Heavy.woff') format('woff'), url('../fonts/Lato-Heavy.ttf') format('truetype'), url('../fonts/Lato-Heavy.svg#Lato-Heavy') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Lato-Regular';
-    src: url('../fonts/Lato-Regular.eot');
-    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Regular.woff') format('woff'), url('../fonts/Lato-Regular.ttf') format('truetype'), url('../fonts/Lato-Regular.svg#Lato-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: lato;
-    src: url('../fonts/Lato-Regular.eot');
-    src: url('../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Regular.woff') format('woff'), url('../fonts/Lato-Regular.ttf') format('truetype'), url('../fonts/Lato-Regular.svg#Lato-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Lato-Thin';
-    src: url('../fonts/Lato-Thin.eot');
-    src: url('../fonts/Lato-Thin.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato-Thin.woff') format('woff'), url('../fonts/Lato-Thin.ttf') format('truetype'), url('../fonts/Lato-Thin.svg#Lato-Thin') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+
 #toTop {
     display: none !important;
 }
 p {
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #666666;
     line-height: 1.5em;
 }
@@ -4290,18 +4251,19 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 }
 footer .arguments-footer .argument-footer h3 {
     font-size: 23px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #666666;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: #666666;
     margin-bottom: 10px;
 }
 footer .arguments-footer .argument-footer p {
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #666666;
 }
 footer .arguments-footer .argument-footer a {
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #30409f;
     padding-right: 15px;
     background-image: url("../images/picot-bleu.png");
@@ -4314,10 +4276,10 @@ footer .liens-footer {
 }
 footer .liens-footer h4 {
     font-size: 14px;
-    font-family: 'Lato-Bold', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
-    text-transform: uppercase;
-    font-weight: normal !important;
+	text-transform: uppercase;
+	font-weight: 700 !important;
     margin-bottom: 10px;
     letter-spacing: 3px;
     text-align: left;
@@ -4330,8 +4292,9 @@ footer .liens-footer h4 {
 footer .liens-footer a,
 footer .liens-footer p {
     font-size: 12px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: white;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: white;
     text-align: left;
 }
 footer .liens-footer ul {
@@ -4369,8 +4332,9 @@ footer .liens-footer .copyright-wrapper {
 }
 footer .liens-footer .copyright-wrapper p {
     font-size: 12px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #999999;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: #999999;
 }
 .fullscreen-before {
     background-repeat: no-repeat;
@@ -4401,7 +4365,7 @@ footer .liens-footer .copyright-wrapper p {
     margin-left: -55px;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
 }
 @media (max-width: 767px) {
@@ -4436,8 +4400,9 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-category-view .height-centered h1 {
     font-size: 82px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: white;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: white;
     line-height: 0.9em;
     text-align: right;
     text-transform: uppercase;
@@ -4450,14 +4415,15 @@ footer .liens-footer .copyright-wrapper p {
     }
 }
 .catalog-category-view .height-centered h1 .bold-part {
-    font-family: 'Lato-Black', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 900;
 }
 .catalog-category-view .height-centered h2 {
     margin: 0;
     margin-bottom: 15px;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
     letter-spacing: 1px!important;
 }
@@ -4474,7 +4440,7 @@ footer .liens-footer .copyright-wrapper p {
     -o-transition: all 0.3s linear;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #ffffff;
 }
 .catalog-category-view .height-centered button:hover {
@@ -4494,7 +4460,7 @@ footer .liens-footer .copyright-wrapper p {
     -o-transition: all 0.3s linear;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
     border: 1px solid #30409f;
 }
@@ -4516,15 +4482,17 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .height-centered h1 {
     font-size: 82px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: white;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: white;
     line-height: 1.0em;
     text-align: right;
     text-transform: uppercase;
     margin: 0;
 }
 .catalog-product-view .height-centered h1 .bold-part {
-    font-family: 'Lato-Black', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
 }
 .catalog-product-view .height-centered h2 {
     margin: 0;
@@ -4532,8 +4500,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-bottom: 15px;
 
     text-transform: uppercase;
-    font-family: 'Lato-Thin', sans-serif;
-    color: white;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: white;
 }
 @media (min-width: 768px) {
     .catalog-product-view .presentation-produit-wrapper {
@@ -4587,8 +4556,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-bottom: 15px;
     font-size: 40px;
     text-transform: uppercase;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #30409f;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: #30409f;
 }
 @media (max-width: 767px) {
     .catalog-product-view .presentation-produit .texte h2 {
@@ -4661,8 +4631,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-bottom: 15px;
     font-size: 40px;
     text-transform: uppercase;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #30409f;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: #30409f;
 }
 @media (max-width: 767px) {
     .catalog-product-view .entretien .texte h2 {
@@ -4715,7 +4686,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-product-view .entretien .texte .arguments .argument h3 {
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #666666;
     margin-top: 117px;
 }
@@ -4747,7 +4718,7 @@ footer .liens-footer .copyright-wrapper p {
     cursor: pointer;
     text-align: center;
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #30409f;
 }
 .catalog-product-view .wrapper-en-savoir-plus .bouton p img {
@@ -4769,8 +4740,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-top: 80px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique h3 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 24px; float: left; width: 100%; text-align: left;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 24px; float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique .uv {
     float: left; width: 100%; text-align: left;
@@ -4806,15 +4778,16 @@ footer .liens-footer .copyright-wrapper p {
     left: 0px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique p .cycles {
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     float: right;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus {
     margin-top: 20px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 24px; float: left; width: 100%; text-align: left;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 24px; float: left; width: 100%; text-align: left;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus .infla {
     float: left; width: 100%; text-align: left;
@@ -4836,7 +4809,7 @@ footer .liens-footer .copyright-wrapper p {
     margin-top: 140px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3 {
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 28px;
     text-atransform: uppercase;
 }
@@ -4850,8 +4823,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-bottom: 30px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark p {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 16px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage {
     display: none;
@@ -4873,7 +4847,7 @@ footer .liens-footer .copyright-wrapper p {
     bottom: 110px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage .container .titre_remplissage h3 {
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 24px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage .container .contenu_remplissage {
@@ -4883,8 +4857,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-top: 80px;
 }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_remplissage .container .btn_plus a {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
@@ -4916,24 +4891,27 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .informations-produit .product-infos h2 {
     font-size: 31px;
-    font-family: 'Lato-Heavy', sans-serif;
-    color: #30409f;
+    font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	color: #30409f;
     text-transform: uppercase;
     margin: 0;
 }
 .catalog-product-view .informations-produit .product-infos h2 .thin-part {
-    font-family: 'Lato-Thin', sans-serif;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
 }
 .catalog-product-view .informations-produit .product-infos .price-box span.price {
     font-size: 30px;
-    font-family: 'Lato-Thin', sans-serif;
-    color: #30409f;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	color: #30409f;
     text-transform: uppercase;
 }
 .catalog-product-view .informations-produit .product-infos .availability {
     margin: 0;
     font-size: 14px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #30409f;
 }
 .catalog-product-view .informations-produit .product-infos .availability span {
@@ -4957,7 +4935,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .informations-produit .product-infos #product-options-wrapper label.required {
     font-size: 16px;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #30409f;
     text-transform: uppercase;
     font-weight: normal !important;
@@ -5006,7 +4984,7 @@ footer .liens-footer .copyright-wrapper p {
     -o-transition: all 0.3s linear;
     font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
 }
 .catalog-product-view .informations-produit .product-infos .product-options-bottom .btn-cart span {
@@ -5019,7 +4997,7 @@ footer .liens-footer .copyright-wrapper p {
     font-size: 14px;
     line-height: 35px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: normal !important;
     color: white;
     padding-left: 50px;
@@ -5030,7 +5008,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-product-view .informations-produit .product-infos .lien-housse a {
     font-size: 12px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: normal !important;
     color: #30409f;
     text-decoration: underline;
@@ -5040,8 +5018,9 @@ footer .liens-footer .copyright-wrapper p {
     margin-bottom:50px !important;
 }
 .product-essential .produits-recemment-vus h2 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 30px;
     margin-top: 80px;
     margin-bottom: 46px;
     text-align: center;
@@ -5073,8 +5052,9 @@ footer .liens-footer .copyright-wrapper p {
 
 }
 .product-essential .produits-recemment-vus .product .image-wrapper:hover .btn-wrapper a {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
     color: #fff;
@@ -5102,20 +5082,23 @@ footer .liens-footer .copyright-wrapper p {
     left: 10%;
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h3 {
-    font-family: 'Lato-Heavy', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
     color: #30409f;
     text-transform: uppercase;
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h3 span {
-    font-family: 'Lato-Heavy', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 16px;
     color: #30409f;
     float: right;
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h4 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 16px;
     color: #30409f;
     text-transform: uppercase;
 }
@@ -5194,15 +5177,17 @@ footer .liens-footer .copyright-wrapper p {
     overflow: hidden;
 }
 .insta #instafeed h2 {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 30px;
     margin-top: 80px;
     text-align: center;
     text-transform: uppercase;
 }
 .insta #instafeed p {
-    font-family: 'Lato-Thin', sans-serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+	font-weight: 200;
+	font-size: 16px;
     margin-top: 20px;
     margin-bottom: 50px;
     text-align: center;
@@ -5518,11 +5503,11 @@ footer{
 
 .block-subscribe input.input-text{ padding-right: 15%;}
 
-.catalog-product-view .height-centered h1 .bold-part sup {   font-family: 'Lato-Thin', sans-serif;   font-size: 52px;}
-.catalog-product-view .informations-produit .product-infos h2 sup { font-family: 'Lato-Thin', sans-serif;}
+.catalog-product-view .height-centered h1 .bold-part sup {   font-family: 'Lato', sans-serif; font-weight: 200;  font-size: 52px;}
+.catalog-product-view .informations-produit .product-infos h2 sup { font-family: 'Lato', sans-serif; font-weight: 200; }
 .catalog-product-view .height-centered h1 .bold-part b { font-size: 50px; float: right; width: 100%; line-height: 50px;
-    font-family: 'Lato-heavy', sans-serif;}
-.catalog-product-view .height-centered h1 .bold-part b sup {   font-family: 'Lato-Thin', sans-serif;   font-size: 30px;}
+    font-family: 'Lato', sans-serif; font-weight: 700;}
+.catalog-product-view .height-centered h1 .bold-part b sup {   font-family: 'Lato', sans-serif;  font-weight: 200; font-size: 30px;}
 
 .product-view .image-technique-wrapper .image-technique .texte_gauche{ padding-top: 30px; }
 
@@ -5602,7 +5587,7 @@ footer{
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus_acrylique.tissus_sunbrella p.close_icon span{ float: left; }
 .catalog-product-view .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus.tissus_sunbrella_second p.close_icon span{ float: left;text-align: left; }
 
-.old-price .price-label {  white-space: nowrap;   font-size: 30px;   color: #30409f;   font-family: 'Lato-Thin', sans-serif;}
+.old-price .price-label {  white-space: nowrap;   font-size: 30px;   color: #30409f;   font-family: 'Lato', sans-serif; font-weight: 200;}
 .catalog-product-view .informations-produit .product-infos .price-box .old-price span.price{ font-size: 16px; margin-left: 10px;}
 
 .catalog-product-view .height-centered h2 .price-box .old-price .price-label{ font-size: 82px;
@@ -5610,10 +5595,10 @@ footer{
 .catalog-product-view .height-centered h2 .availability{ display: none; }
 
 .catalog-product-view .height-centered h2 .price-box .old-price .price{ color: #fff; font-size: 30px;
-    position: absolute; left: 0; bottom: 10px; font-family: 'Lato-Thin', sans-serif; }
+    position: absolute; left: 0; bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 200; }
 .catalog-product-view .height-centered h2 .price-box .old-price{ position: relative;}
 
-.catalog-product-view .height-centered h2 .price-box .regular-price .price{font-size: 82px; font-family: 'Lato-Thin', sans-serif;
+.catalog-product-view .height-centered h2 .price-box .regular-price .price{font-size: 82px; font-family: 'Lato', sans-serif; font-weight: 200;
     color: #fff; margin-bottom: 15px;}
 
 
@@ -5833,7 +5818,7 @@ footer{
     .toplinks-wrapper .links li:nth-child(2) {   background-image: none;}
     .toplinks-wrapper .links li:nth-child(1) {   margin-right: 0;}
     .col-md-6.langues-et-currency {  width: 50%;   float: left;}
-    .header-switch span.current {  background-image: url(/skin/frontend/jumbobag/default/images/caret-mob.png)!important;}
+    .header-switch span.current {  background-image: url(/skin/frontend/jumbobag/default/images/caret-mob.png)!important; font-weight: normal; }
     .top-switch-bg .header-switch span, .header-container .top-switch-bg .links li a {  color: #b4b4b4 !important;}
     .header-dropdown {   z-index: 9;}
 

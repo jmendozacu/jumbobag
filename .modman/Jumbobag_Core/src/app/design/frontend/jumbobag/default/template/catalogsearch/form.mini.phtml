@@ -34,8 +34,8 @@ if (isset($config['design']['search_field']) && $config['design']['search_field'
         <form id="search_mini_form" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get">
             <div class="form-search">
                 <input id="search" type="text" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>"
-                       value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" class="input-text"/>
-                <button type="submit" title="<?php echo $this->__('Search') ?>"></button>
+                       value="<?php echo $this->helper('catalogsearch')->getEscapedQueryText() ?>" class="input-text" aria-label="<?php echo $this->__('Search') ?>"/>
+                <button type="submit" title="<?php echo $this->__('Search') ?>"><?php echo $this->__('Search') ?></button>
             </div>
             <div id="search_autocomplete" class="search-autocomplete"></div>
             <script type="text/javascript">

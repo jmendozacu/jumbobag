@@ -494,7 +494,7 @@
 
 						if (videopreload=="auto") opt.mediapreload = true;
 						//if (_.videoposter!=undefined) apptxt = apptxt + 'poster="'+_nc.data('videoposter')+'">';
-						if (videowebm!=undefined && _R.get_browser().toLowerCase()=="firefox") apptxt = apptxt + '<source src="'+videowebm+'" type="video/webm" />';
+						if (videowebm!=undefined) apptxt = apptxt + '<source src="'+videowebm+'" type="video/webm" />';
 						if (videomp!=undefined) apptxt = apptxt + '<source src="'+videomp+'" type="video/mp4" />';
 						if (videoogv!=undefined) apptxt = apptxt + '<source src="'+videoogv+'" type="video/ogg" />';
 						apptxt = apptxt + '</'+tag+'>';

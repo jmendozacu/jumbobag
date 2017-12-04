@@ -37,7 +37,8 @@
 	display: none;
 }
 .product-original .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-original .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -85,7 +86,7 @@
 .product-original-printed .presentation-produit-content .texte .arguments .argument h3 {
 	font-size: 14px;
     text-transform: uppercase;
-    font-family: 'Lato-Regular', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #666666;
     margin-top: 117px;
 }
@@ -133,7 +134,8 @@
 	display: none;
 }
 .product-original-printed .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
 	display: none;
@@ -216,7 +218,8 @@ margin-top: 200px!important;
 	display: none !important;
 }
 .product-cube .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-cube .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -332,7 +335,8 @@ margin-top: 200px!important;
 	display: none;
 }
 .product-mini-swimming-bag .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-mini-swimming-bag .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -368,9 +372,10 @@ margin-top: 200px!important;
 	text-align: center;
 }
 .product-mini-swimming-bag .version-mini{
-	font-family: 'lato-heavy';
+	font-family: 'Lato';
     line-height: 10px;
     font-size: 17px;
+	font-weight: 700;
 }
 .product-mini-swimming-bag .presentation-produit .texte h2{
 	line-height: 20px;
@@ -454,7 +459,8 @@ margin-top: 200px!important;
 	display: none;
 }
 .product-swimming-bag .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-swimming-bag .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -490,9 +496,10 @@ margin-top: 200px!important;
 	text-align: center;
 }
 .product-swimming-bag .version-mini{
-	font-family: 'lato-heavy';
+	font-family: 'Lato';
     line-height: 10px;
-    font-size: 17px;
+	font-size: 17px;
+	font-weight: 700;
 }
 .product-swimming-bag .presentation-produit .texte h2{
 	line-height: 20px;
@@ -627,7 +634,8 @@ margin-top: 200px!important;
 	display: none;
 }
 .product-scuba-xxl .informations-produit .product-infos h2 .panier-product-title{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-scuba-xxl .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -726,7 +734,8 @@ margin-top: 200px!important;
 	display: none;
 }
 .product-bowly .informations-produit .product-infos h2 .panier-product-title{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-bowly .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -823,7 +832,8 @@ margin-top: 200px!important;
 	display: none;
 }
 .product-chilly-bean .informations-produit .product-infos h2 .panier-product-title{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-chilly-bean .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -955,7 +965,8 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	display: none;
 }
 .product-lazy-swimming-bag .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-lazy-swimming-bag .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -991,9 +1002,10 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	text-align: center;
 }
 .product-lazy-swimming-bag .version-mini{
-	font-family: 'lato-heavy';
+	font-family: 'Lato';
     line-height: 10px;
     font-size: 17px;
+	font-weight: 700;
 }
 .product-lazy-swimming-bag .presentation-produit .texte h2{
 	line-height: 20px;
@@ -1077,7 +1089,8 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	display: none;
 }
 .product-donut-swimming-bag .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 .product-donut-swimming-bag .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -1113,9 +1126,10 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	text-align: center;
 }
 .product-donut-swimming-bag .version-mini{
-	font-family: 'lato-heavy';
+	font-family: 'Lato';
     line-height: 10px;
-    font-size: 17px;
+	font-size: 17px;
+	font-weight: 700;
 }
 .product-donut-swimming-bag .presentation-produit .texte h2{
 	line-height: 20px;
@@ -1198,7 +1212,8 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	display: none;
 }
 .product-cube-xtrem .informations-produit .product-infos h2 .thin-part{
-	 font-family: 'Lato-heavy', sans-serif;
+	 font-family: 'Lato', sans-serif;
+	 font-weight: 700;
 }
 /*.product-cube-xtrem .informations-produit .product-images{
 	margin-top: -50px!important;
@@ -1236,9 +1251,10 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	min-height: 500px;
 }
 .product-cube-xtrem .version-mini{
-	font-family: 'lato-heavy';
+	font-family: 'Lato';
     line-height: 10px;
     font-size: 17px;
+	font-weight: 700;
 }
 .product-cube-xtrem .presentation-produit .texte h2{
 	line-height: 20px;

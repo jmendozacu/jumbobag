@@ -38,17 +38,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="<?php echo $this->getLang(); ?>"> <!--<![endif]-->
 <head>
     <?php echo $this->getChildHtml('head') ?>
-
 </head>
-
-
-<script src="/skin/frontend/jumbobag/default/js/instafeed.min.js"></script>
-<script src="/skin/frontend/jumbobag/default/js/produit.js"></script>
-<script src="/skin/frontend/jumbobag/default/js/wow.min.js"></script>
-
-<script>
-    new WOW().init();
-</script>
 <style type="text/css">
     body{margin: 0;}
     .ani-image-con{max-width: 536px; position: relative; height:395px;}
@@ -204,8 +194,8 @@
                     <section id="paralax">
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-countdown-section')->toHtml(); ?>
                     </section>
-                    <section id="gammes" class="container gammes-mobile">
-                        <article id="original">
+                    <section class="gammes container gammes-mobile">
+                        <article class="original">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/original.png" alt="Original" />
                             </div>
@@ -216,7 +206,7 @@
                                 <a href="/original.html">Voir la collection</a>
                             </div>
                         </article>
-                        <article id="printed">
+                        <article class="printed">
                             <div class="product-text col-md-4">
                                 <h2>La collection d'imprimés</h2>
                                 <p>The Original Jumbobag Printed est LE <strong>pouf design</strong> et <strong>tendance</strong> qu’il vous faut. Il se fondra facilement dans votre <strong>décoration intérieure</strong> grâce à une palette de plus de
@@ -227,7 +217,7 @@
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/printed.png" alt="Imprimés" />
                             </div>
                         </article>
-                        <article id="flottant">
+                        <article class="flottant">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/flottant.png" alt="Flottant" />
                             </div>
@@ -238,7 +228,7 @@
                                 <a href="/products/pouf/demo-poufs-flottants.html">Voir la collection</a>
                             </div>
                         </article>
-                        <article id="x-trem">
+                        <article class="x-trem">
                             <div class="product-text col-md-4">
                                 <h2>La collection X-Trem</h2>
                                 <p>Jumbo bag présente sa collection X-trem ! Entièrement <strong>fabriquée en France</strong> les poufs de cette collection ont été conçus pour une <strong>utilisation intensive</strong>.  En tissus <strong>Sunbrella®</strong>
@@ -250,8 +240,8 @@
                             </div>
                         </article>
                     </section>
-                    <section id="gammes" class="container gammes-mobile-view">
-                        <article id="original">
+                    <section class="gammes container gammes-mobile-view">
+                        <article class="original">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/original.png" alt="Original" />
                             </div>
@@ -262,7 +252,7 @@
                                 <a href="/original.html">Voir la collection</a>
                             </div>
                         </article>
-                        <article id="printed">
+                        <article class="printed">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/printed.png" alt="Imprimés" />
                             </div>
@@ -274,7 +264,7 @@
                             </div>
 
                         </article>
-                        <article id="flottant">
+                        <article class="flottant">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/flottant.png" alt="Flottant" />
                             </div>
@@ -285,7 +275,7 @@
                                 <a href="/products/pouf/demo-poufs-flottants.html">Voir la collection</a>
                             </div>
                         </article>
-                        <article id="x-trem">
+                        <article class="x-trem">
                             <div class="product-image col-md-4">
                                 <img src="<?php echo Mage::getDesign()->getSkinUrl(); ?>images/xtrem.png" alt="x-trem" />
                             </div>
@@ -298,14 +288,11 @@
 
                         </article>
                     </section>
-                    <section id="gammes" class="container">
+                    <section class="gammes container">
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('original-jumbobag')->toHtml(); ?>
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-collection')->toHtml(); ?>
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-les-poufs')->toHtml(); ?>
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-la-collection')->toHtml(); ?>
-
-
-
                     </section>
 
                     <section id="instagram" class="container">
@@ -317,10 +304,7 @@
                         </div>
                     </section>
                     <section id="parle-de-nous">
-
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-on-parle')->toHtml(); ?>
-
-
                     </section>
                 </div>
             </div>
@@ -330,5 +314,8 @@
     </div>
 </div>
 <?php echo $this->getAbsoluteFooter() ?>
+<script>
+    new WOW().init();
+</script>
 </body>
 </html>
