@@ -44,6 +44,9 @@ package :mage do
 	desc "cache:disable", "Vide cache magento"
 	shell_task "cache:disable", "#{MAGERUN} cache:disable"
 
+	desc "symlinks", "Active les symlinks dans tout magento"
+    shell_task "symlinks", "#{MAGERUN} dev:symlinks --global --on"
+
 	desc "demo_notice", "Demo notice"
 	shell_task "demo_notice", "#{MAGERUN} design:demo-notice --global"
 
@@ -110,6 +113,9 @@ task :install do
 	
 	info("Invoking mage:cache:disable")
 	invoke "mage:cache:disable", []
+
+	info("Enabling symlinks")
+    invoke "mage:symlinks", []
 	
 	info("Invoking mage:demo_notice")
 	invoke "mage:demo_notice", []
