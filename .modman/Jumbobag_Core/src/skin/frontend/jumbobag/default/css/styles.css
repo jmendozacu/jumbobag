@@ -1017,10 +1017,8 @@ tr.summary-details-excluded{font-style:italic;}
     font-size: 16px;
     padding-bottom: 21px;
     margin-bottom: 5px;
-    float: right;
 }
 .catalog-category-view .products-grid .price-label{ display: none; }
-.catalog-category-view .products-grid .old-price .price{color: #30409f; right: 0; padding-bottom: 0px; position: absolute; bottom: 0;}
 
 .catalog-category-view .products-grid li.item{    background: transparent; box-shadow: none;   border: 0px solid transparent; width: 227px; margin: 0 35px 40px 0;}
 .catalog-category-view .main.row {    width: 100%;}
