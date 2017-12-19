@@ -2962,8 +2962,8 @@ p.cartqty {
   position: relative;
 }
 #queldoreiNav ul li.active > a {
-  background: #322c29 !important;
-  color: #fff !important;
+  background: white !important;
+  color: #31419f !important;
 }
 #queldoreiNav ul li.over > a,
 #queldoreiNav ul li a:hover {
