@@ -678,20 +678,6 @@ jQuery(function($){
 
     //mobile navigation
 	if ( Shopper.responsive ) {
-	    $('.nav-container li.parent > a').prepend('<em>+</em>');
-	    $('.nav-container li.parent > a em').click(function(){
-	        if ( $(this).text() == '+') {
-	            $(this).parent().parent().addClass('over');
-	            $(this).parent().next().show();
-	            $(this).text('-');
-	        } else {
-	            $(this).parent().parent().removeClass('over');
-	            $(this).parent().next().hide();
-	            $(this).text('+');
-	        }
-	        $(".header-wrapper").height($("header").height());
-	        return false;
-	    });
 	    $('.nav-container .nav-top-title').click(function(){
 	        $(this).toggleClass('over').next().toggle();
 	        $(".header-wrapper").height($("header").height());
