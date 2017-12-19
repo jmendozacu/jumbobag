@@ -7,406 +7,669 @@
 ?>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl(); ?>js/jquery-2.0.2.min.js"></script>
 <script type="text/javascript">
-  jQuery.noConflict();
+    jQuery.noConflict();
 </script>
 
 <script type="text/javascript" src="<?php echo $this->getSkinUrl(); ?>js/jquery.isotope.min.js"></script>
 <script type="text/javascript">
     jQuery(window).load(function () {
+        var $ = jQuery;
+        var $grid = $('.products-grid');
+        var $filters = $('[data-categoryid]');
 
-var size = 1;
-var button = 1;
-var button_class = "gallery-header-center-right-links-current";
-var normal_size_class = "gallery-content-center-normal";
-var full_size_class = "gallery-content-center-full";
-var $container = jQuery('#gallery-content-center');
-var wm;
-$container.isotope({itemSelector : 'li'});
+        $filters.on('click', function () {
+            var categoryId = $(this).data('categoryid');
+            categoryId = parseInt(categoryId, 10);
+            filterProducts(categoryId)
+        });
 
+        var filterProducts = function (categoryId) {
+            $grid.isotope({
+               filter: function (index, product) {
+                   return isInCategory(product, categoryId);
+               }
+            });
+        };
 
-function check_button(){
-    jQuery('.gallery-header-center-right-links').removeClass(button_class);
-    if(button==1){
-        jQuery("#filter-all").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('All Galleries');
+        var isInCategory = function (product, categoryId) {
+            var categoryIds = product.dataset.categoryids
+                .split(',')
+                .map(function (catId) {
+                    return parseInt(catId, 10);
+                })
+            ;
+            return categoryIds.indexOf(categoryId) !== -1;
         }
-    if(button==2){
-        jQuery("#filter-2").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-2 Gallery');
-        }
-    if(button==3){
-        jQuery("#filter-3").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-3 Gallery');
-        }
-    if(button==4){
-        jQuery("#filter-4").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-4 Gallery');
-        }
-    if(button==5){
-        jQuery("#filter-5").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-5 Gallery');
-        }
-    if(button==6){
-        jQuery("#filter-6").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-6 Gallery');
-        }
-    if(button==7){
-        jQuery("#filter-7").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-7 Gallery');
-        }
-    if(button==8){
-        jQuery("#filter-8").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-8 Gallery');
-        }
-    if(button==9){
-        jQuery("#filter-9").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-9 Gallery');
-        }
-    if(button==10){
-        jQuery("#filter-10").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-10 Gallery');
-        }
-    if(button==11){
-        jQuery("#filter-11").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-11 Gallery');
-        }
-    if(button==12){
-        jQuery("#filter-12").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-12 Gallery');
-        }
-    if(button==13){
-        jQuery("#filter-13").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-13 Gallery');
-        }
-    if(button==14){
-        jQuery("#filter-14").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-14 Gallery');
-        }
-    if(button==15){
-        jQuery("#filter-15").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-15 Gallery');
-        }
-    if(button==16){
-        jQuery("#filter-16").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-16 Gallery');
-        }
-    if(button==17){
-        jQuery("#filter-17").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-17 Gallery');
-        }
-    if(button==18){
-        jQuery("#filter-18").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-18 Gallery');
-        }
-    if(button==19){
-        jQuery("#filter-19").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-19 Gallery');
-        }
-    if(button==20){
-        jQuery("#filter-20").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-20 Gallery');
-        }
-    if(button==21){
-        jQuery("#filter-21").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-21 Gallery');
-        }
-    if(button==22){
-        jQuery("#filter-22").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-22 Gallery');
-        }
-    if(button==23){
-        jQuery("#filter-23").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-23 Gallery');
-        }
-    if(button==24){
-        jQuery("#filter-24").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-24 Gallery');
-        }
-    if(button==25){
-        jQuery("#filter-25").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-25 Gallery');
-        }
-    if(button==26){
-        jQuery("#filter-26").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-26 Gallery');
-        }
-    if(button==27){
-        jQuery("#filter-27").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-27 Gallery');
-        }
-    if(button==28){
-        jQuery("#filter-28").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-28 Gallery');
-        }
-    if(button==29){
-        jQuery("#filter-29").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-29 Gallery');
-        }
-    if(button==30){
-        jQuery("#filter-30").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-30 Gallery');
-        }
-    if(button==31){
-        jQuery("#filter-31").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter31 Gallery');
-        }
-    if(button==32){
-        jQuery("#filter-32").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-32 Gallery');
-        }
-    if(button==33){
-        jQuery("#filter-33").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-33 Gallery');
-        }
-    if(button==34){
-        jQuery("#filter-34").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-34 Gallery');
-        }
-    if(button==35){
-        jQuery("#filter-35").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-35 Gallery');
-        }
-    if(button==36){
-        jQuery("#filter-36").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-36 Gallery');
-        }
-    if(button==37){
-        jQuery("#filter-37").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-37 Gallery');
-        }
-    if(button==38){
-        jQuery("#filter-38").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-38 Gallery');
-        }
-    if(button==39){
-        jQuery("#filter-39").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-39 Gallery');
-        }
-    if(button==40){
-        jQuery("#filter-40").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-40 Gallery');
-        }
-    if(button==41){
-        jQuery("#filter-41").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-41 Gallery');
-        }
-    if(button==42){
-        jQuery("#filter-42").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-42 Gallery');
-        }
-    if(button==43){
-        jQuery("#filter-43").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-43 Gallery');
-        }
-    if(button==44){
-        jQuery("#filter-44").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-44 Gallery');
-        }
-    if(button==45){
-        jQuery("#filter-45").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-45 Gallery');
-        }
-    if(button==46){
-        jQuery("#filter-46").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-46 Gallery');
-        }
-    if(button==47){
-        jQuery("#filter-47").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-47 Gallery');
-        }
-    if(button==48){
-        jQuery("#filter-48").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-48 Gallery');
-        }
-    if(button==49){
-        jQuery("#filter-49").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-49 Gallery');
-        }
-    if(button==50){
-        jQuery("#filter-50").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-50 Gallery');
-        }
-    if(button==51){
-        jQuery("#filter-51").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-51 Gallery');
-        }
-    if(button==52){
-        jQuery("#filter-52").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-52 Gallery');
-        }
-    if(button==53){
-        jQuery("#filter-53").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-53 Gallery');
-        }
-    if(button==54){
-        jQuery("#filter-54").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-54 Gallery');
-        }
-    if(button==55){
-        jQuery("#filter-55").addClass(button_class);
-        jQuery("#gallery-header-center-left-title").html('filter-55 Gallery');
-        }
-}
 
-function check_size(){
-    jQuery("#gallery-content-center").removeClass(normal_size_class).removeClass(full_size_class);
-    if(size==0){
-        jQuery("#gallery-content-center").addClass(normal_size_class);
-        jQuery("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23a;"></span>');
-        }
-    if(size==1){
-        jQuery("#gallery-content-center").addClass(full_size_class);
-        jQuery("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23b;"></span>');
-        }
-    $container.isotope({itemSelector : 'li'});
-}
+        /*var size = 1;
+        var button = 1;
+        var button_class = "gallery-header-center-right-links-current";
+        var normal_size_class = "gallery-content-center-normal";
+        var full_size_class = "gallery-content-center-full";
+        var $container = jQuery('#gallery-content-center');
+        var wm;
+        $container.isotope({itemSelector: 'li'});
 
 
+        function check_button() {
+            jQuery('.gallery-header-center-right-links').removeClass(button_class);
+            if (button == 1) {
+                jQuery("#filter-all").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('All Galleries');
+            }
+            if (button == 2) {
+                jQuery("#filter-2").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-2 Gallery');
+            }
+            if (button == 3) {
+                jQuery("#filter-3").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-3 Gallery');
+            }
+            if (button == 4) {
+                jQuery("#filter-4").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-4 Gallery');
+            }
+            if (button == 5) {
+                jQuery("#filter-5").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-5 Gallery');
+            }
+            if (button == 6) {
+                jQuery("#filter-6").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-6 Gallery');
+            }
+            if (button == 7) {
+                jQuery("#filter-7").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-7 Gallery');
+            }
+            if (button == 8) {
+                jQuery("#filter-8").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-8 Gallery');
+            }
+            if (button == 9) {
+                jQuery("#filter-9").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-9 Gallery');
+            }
+            if (button == 10) {
+                jQuery("#filter-10").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-10 Gallery');
+            }
+            if (button == 11) {
+                jQuery("#filter-11").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-11 Gallery');
+            }
+            if (button == 12) {
+                jQuery("#filter-12").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-12 Gallery');
+            }
+            if (button == 13) {
+                jQuery("#filter-13").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-13 Gallery');
+            }
+            if (button == 14) {
+                jQuery("#filter-14").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-14 Gallery');
+            }
+            if (button == 15) {
+                jQuery("#filter-15").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-15 Gallery');
+            }
+            if (button == 16) {
+                jQuery("#filter-16").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-16 Gallery');
+            }
+            if (button == 17) {
+                jQuery("#filter-17").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-17 Gallery');
+            }
+            if (button == 18) {
+                jQuery("#filter-18").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-18 Gallery');
+            }
+            if (button == 19) {
+                jQuery("#filter-19").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-19 Gallery');
+            }
+            if (button == 20) {
+                jQuery("#filter-20").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-20 Gallery');
+            }
+            if (button == 21) {
+                jQuery("#filter-21").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-21 Gallery');
+            }
+            if (button == 22) {
+                jQuery("#filter-22").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-22 Gallery');
+            }
+            if (button == 23) {
+                jQuery("#filter-23").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-23 Gallery');
+            }
+            if (button == 24) {
+                jQuery("#filter-24").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-24 Gallery');
+            }
+            if (button == 25) {
+                jQuery("#filter-25").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-25 Gallery');
+            }
+            if (button == 26) {
+                jQuery("#filter-26").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-26 Gallery');
+            }
+            if (button == 27) {
+                jQuery("#filter-27").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-27 Gallery');
+            }
+            if (button == 28) {
+                jQuery("#filter-28").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-28 Gallery');
+            }
+            if (button == 29) {
+                jQuery("#filter-29").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-29 Gallery');
+            }
+            if (button == 30) {
+                jQuery("#filter-30").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-30 Gallery');
+            }
+            if (button == 31) {
+                jQuery("#filter-31").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter31 Gallery');
+            }
+            if (button == 32) {
+                jQuery("#filter-32").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-32 Gallery');
+            }
+            if (button == 33) {
+                jQuery("#filter-33").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-33 Gallery');
+            }
+            if (button == 34) {
+                jQuery("#filter-34").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-34 Gallery');
+            }
+            if (button == 35) {
+                jQuery("#filter-35").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-35 Gallery');
+            }
+            if (button == 36) {
+                jQuery("#filter-36").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-36 Gallery');
+            }
+            if (button == 37) {
+                jQuery("#filter-37").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-37 Gallery');
+            }
+            if (button == 38) {
+                jQuery("#filter-38").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-38 Gallery');
+            }
+            if (button == 39) {
+                jQuery("#filter-39").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-39 Gallery');
+            }
+            if (button == 40) {
+                jQuery("#filter-40").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-40 Gallery');
+            }
+            if (button == 41) {
+                jQuery("#filter-41").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-41 Gallery');
+            }
+            if (button == 42) {
+                jQuery("#filter-42").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-42 Gallery');
+            }
+            if (button == 43) {
+                jQuery("#filter-43").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-43 Gallery');
+            }
+            if (button == 44) {
+                jQuery("#filter-44").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-44 Gallery');
+            }
+            if (button == 45) {
+                jQuery("#filter-45").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-45 Gallery');
+            }
+            if (button == 46) {
+                jQuery("#filter-46").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-46 Gallery');
+            }
+            if (button == 47) {
+                jQuery("#filter-47").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-47 Gallery');
+            }
+            if (button == 48) {
+                jQuery("#filter-48").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-48 Gallery');
+            }
+            if (button == 49) {
+                jQuery("#filter-49").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-49 Gallery');
+            }
+            if (button == 50) {
+                jQuery("#filter-50").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-50 Gallery');
+            }
+            if (button == 51) {
+                jQuery("#filter-51").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-51 Gallery');
+            }
+            if (button == 52) {
+                jQuery("#filter-52").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-52 Gallery');
+            }
+            if (button == 53) {
+                jQuery("#filter-53").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-53 Gallery');
+            }
+            if (button == 54) {
+                jQuery("#filter-54").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-54 Gallery');
+            }
+            if (button == 55) {
+                jQuery("#filter-55").addClass(button_class);
+                jQuery("#gallery-header-center-left-title").html('filter-55 Gallery');
+            }
+        }
+
+        function check_size() {
+            jQuery("#gallery-content-center").removeClass(normal_size_class).removeClass(full_size_class);
+            if (size == 0) {
+                jQuery("#gallery-content-center").addClass(normal_size_class);
+                jQuery("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23a;"></span>');
+            }
+            if (size == 1) {
+                jQuery("#gallery-content-center").addClass(full_size_class);
+                jQuery("#gallery-header-center-left-icon").html('<span class="iconb" data-icon="&#xe23b;"></span>');
+            }
+            $container.isotope({itemSelector: 'li'});
+        }
 
 
-jQuery("#filter-all").click(function() { $container.isotope({ filter: '.all' }); button = 1; check_button(); });
-jQuery("#filter-2").click(function() {  $container.isotope({ filter: '.filter-2' }); button = 2; check_button();  });
-jQuery("#filter-3").click(function() {  $container.isotope({ filter: '.filter-3' }); button = 3; check_button();  });
-jQuery("#filter-4").click(function() {  $container.isotope({ filter: '.filter-4' }); button = 4; check_button();  });
-jQuery("#filter-5").click(function() {  $container.isotope({ filter: '.filter-5' }); button = 5; check_button();  });
-jQuery("#filter-6").click(function() {  $container.isotope({ filter: '.filter-6' }); button = 6; check_button();  });
-jQuery("#filter-7").click(function() {  $container.isotope({ filter: '.filter-7' }); button = 7; check_button();  });
-jQuery("#filter-8").click(function() {  $container.isotope({ filter: '.filter-8' }); button = 8; check_button();  });
-jQuery("#filter-9").click(function() {  $container.isotope({ filter: '.filter-9' }); button = 9; check_button();  });
-jQuery("#filter-10").click(function() {  $container.isotope({ filter: '.filter-10' }); button = 10; check_button();  });
-jQuery("#filter-11").click(function() {  $container.isotope({ filter: '.filter-11' }); button = 11; check_button();  });
-jQuery("#filter-12").click(function() {  $container.isotope({ filter: '.filter-12' }); button = 12; check_button();  });
-jQuery("#filter-13").click(function() {  $container.isotope({ filter: '.filter-13' }); button = 13; check_button();  });
-jQuery("#filter-14").click(function() {  $container.isotope({ filter: '.filter-14' }); button = 14; check_button();  });
-jQuery("#filter-15").click(function() {  $container.isotope({ filter: '.filter-15' }); button = 15; check_button();  });
-jQuery("#filter-16").click(function() {  $container.isotope({ filter: '.filter-16' }); button = 16; check_button();  });
-jQuery("#filter-17").click(function() {  $container.isotope({ filter: '.filter-17' }); button = 17; check_button();  });
-jQuery("#filter-18").click(function() {  $container.isotope({ filter: '.filter-18' }); button = 18; check_button();  });
-jQuery("#filter-19").click(function() {  $container.isotope({ filter: '.filter-19' }); button = 19; check_button();  });
-jQuery("#filter-20").click(function() {  $container.isotope({ filter: '.filter-20' }); button = 20; check_button();  });
-jQuery("#filter-21").click(function() {  $container.isotope({ filter: '.filter-21' }); button = 21; check_button();  });
-jQuery("#filter-22").click(function() {  $container.isotope({ filter: '.filter-22' }); button = 22; check_button();  });
-jQuery("#filter-23").click(function() {  $container.isotope({ filter: '.filter-23' }); button = 23; check_button();  });
-jQuery("#filter-24").click(function() {  $container.isotope({ filter: '.filter-24' }); button = 24; check_button();  });
-jQuery("#filter-25").click(function() {  $container.isotope({ filter: '.filter-25' }); button = 25; check_button();  });
-jQuery("#filter-26").click(function() {  $container.isotope({ filter: '.filter-26' }); button = 26; check_button();  });
-jQuery("#filter-27").click(function() {  $container.isotope({ filter: '.filter-27' }); button = 27; check_button();  });
-jQuery("#filter-28").click(function() {  $container.isotope({ filter: '.filter-28' }); button = 28; check_button();  });
-jQuery("#filter-29").click(function() {  $container.isotope({ filter: '.filter-29' }); button = 29; check_button();  });
-jQuery("#filter-30").click(function() {  $container.isotope({ filter: '.filter-30' }); button = 30; check_button();  });
-jQuery("#filter-31").click(function() {  $container.isotope({ filter: '.filter-31' }); button = 31; check_button();  });
-jQuery("#filter-32").click(function() {  $container.isotope({ filter: '.filter-32' }); button = 32; check_button();  });
-jQuery("#filter-33").click(function() {  $container.isotope({ filter: '.filter-33' }); button = 33; check_button();  });
-jQuery("#filter-34").click(function() {  $container.isotope({ filter: '.filter-34' }); button = 34; check_button();  });
-jQuery("#filter-35").click(function() {  $container.isotope({ filter: '.filter-35' }); button = 35; check_button();  });
-jQuery("#filter-36").click(function() {  $container.isotope({ filter: '.filter-36' }); button = 36; check_button();  });
-jQuery("#filter-37").click(function() {  $container.isotope({ filter: '.filter-37' }); button = 37; check_button();  });
-jQuery("#filter-38").click(function() {  $container.isotope({ filter: '.filter-38' }); button = 38; check_button();  });
-jQuery("#filter-39").click(function() {  $container.isotope({ filter: '.filter-39' }); button = 39; check_button();  });
-jQuery("#filter-40").click(function() {  $container.isotope({ filter: '.filter-40' }); button = 40; check_button();  });
-jQuery("#filter-41").click(function() {  $container.isotope({ filter: '.filter-41' }); button = 41; check_button();  });
-jQuery("#filter-42").click(function() {  $container.isotope({ filter: '.filter-42' }); button = 42; check_button();  });
-jQuery("#filter-43").click(function() {  $container.isotope({ filter: '.filter-43' }); button = 43; check_button();  });
-jQuery("#filter-44").click(function() {  $container.isotope({ filter: '.filter-44' }); button = 44; check_button();  });
-jQuery("#filter-45").click(function() {  $container.isotope({ filter: '.filter-45' }); button = 45; check_button();  });
-jQuery("#filter-46").click(function() {  $container.isotope({ filter: '.filter-46' }); button = 46; check_button();  });
-jQuery("#filter-47").click(function() {  $container.isotope({ filter: '.filter-47' }); button = 47; check_button();  });
-jQuery("#filter-48").click(function() {  $container.isotope({ filter: '.filter-48' }); button = 48; check_button();  });
-jQuery("#filter-49").click(function() {  $container.isotope({ filter: '.filter-49' }); button = 49; check_button();  });
-jQuery("#filter-50").click(function() {  $container.isotope({ filter: '.filter-50' }); button = 50; check_button();  });
-jQuery("#filter-51").click(function() {  $container.isotope({ filter: '.filter-51' }); button = 51; check_button();  });
-jQuery("#filter-52").click(function() {  $container.isotope({ filter: '.filter-52' }); button = 52; check_button();  });
-jQuery("#filter-53").click(function() {  $container.isotope({ filter: '.filter-53' }); button = 53; check_button();  });
-jQuery("#filter-54").click(function() {  $container.isotope({ filter: '.filter-54' }); button = 54; check_button();  });
-jQuery("#filter-55").click(function() {  $container.isotope({ filter: '.filter-55' }); button = 55; check_button();  });
-jQuery("#gallery-header-center-left-icon").click(function() { if(size==0){size=1;}else if(size==1){size=0;} check_size(); });
+        jQuery("#filter-all").click(function () {
+            $container.isotope({filter: '.all'});
+            button = 1;
+            check_button();
+        });
+        jQuery("#filter-2").click(function () {
+            $container.isotope({filter: '.filter-2'});
+            button = 2;
+            check_button();
+        });
+        jQuery("#filter-3").click(function () {
+            $container.isotope({filter: '.filter-3'});
+            button = 3;
+            check_button();
+        });
+        jQuery("#filter-4").click(function () {
+            $container.isotope({filter: '.filter-4'});
+            button = 4;
+            check_button();
+        });
+        jQuery("#filter-5").click(function () {
+            $container.isotope({filter: '.filter-5'});
+            button = 5;
+            check_button();
+        });
+        jQuery("#filter-6").click(function () {
+            $container.isotope({filter: '.filter-6'});
+            button = 6;
+            check_button();
+        });
+        jQuery("#filter-7").click(function () {
+            $container.isotope({filter: '.filter-7'});
+            button = 7;
+            check_button();
+        });
+        jQuery("#filter-8").click(function () {
+            $container.isotope({filter: '.filter-8'});
+            button = 8;
+            check_button();
+        });
+        jQuery("#filter-9").click(function () {
+            $container.isotope({filter: '.filter-9'});
+            button = 9;
+            check_button();
+        });
+        jQuery("#filter-10").click(function () {
+            $container.isotope({filter: '.filter-10'});
+            button = 10;
+            check_button();
+        });
+        jQuery("#filter-11").click(function () {
+            $container.isotope({filter: '.filter-11'});
+            button = 11;
+            check_button();
+        });
+        jQuery("#filter-12").click(function () {
+            $container.isotope({filter: '.filter-12'});
+            button = 12;
+            check_button();
+        });
+        jQuery("#filter-13").click(function () {
+            $container.isotope({filter: '.filter-13'});
+            button = 13;
+            check_button();
+        });
+        jQuery("#filter-14").click(function () {
+            $container.isotope({filter: '.filter-14'});
+            button = 14;
+            check_button();
+        });
+        jQuery("#filter-15").click(function () {
+            $container.isotope({filter: '.filter-15'});
+            button = 15;
+            check_button();
+        });
+        jQuery("#filter-16").click(function () {
+            $container.isotope({filter: '.filter-16'});
+            button = 16;
+            check_button();
+        });
+        jQuery("#filter-17").click(function () {
+            $container.isotope({filter: '.filter-17'});
+            button = 17;
+            check_button();
+        });
+        jQuery("#filter-18").click(function () {
+            $container.isotope({filter: '.filter-18'});
+            button = 18;
+            check_button();
+        });
+        jQuery("#filter-19").click(function () {
+            $container.isotope({filter: '.filter-19'});
+            button = 19;
+            check_button();
+        });
+        jQuery("#filter-20").click(function () {
+            $container.isotope({filter: '.filter-20'});
+            button = 20;
+            check_button();
+        });
+        jQuery("#filter-21").click(function () {
+            $container.isotope({filter: '.filter-21'});
+            button = 21;
+            check_button();
+        });
+        jQuery("#filter-22").click(function () {
+            $container.isotope({filter: '.filter-22'});
+            button = 22;
+            check_button();
+        });
+        jQuery("#filter-23").click(function () {
+            $container.isotope({filter: '.filter-23'});
+            button = 23;
+            check_button();
+        });
+        jQuery("#filter-24").click(function () {
+            $container.isotope({filter: '.filter-24'});
+            button = 24;
+            check_button();
+        });
+        jQuery("#filter-25").click(function () {
+            $container.isotope({filter: '.filter-25'});
+            button = 25;
+            check_button();
+        });
+        jQuery("#filter-26").click(function () {
+            $container.isotope({filter: '.filter-26'});
+            button = 26;
+            check_button();
+        });
+        jQuery("#filter-27").click(function () {
+            $container.isotope({filter: '.filter-27'});
+            button = 27;
+            check_button();
+        });
+        jQuery("#filter-28").click(function () {
+            $container.isotope({filter: '.filter-28'});
+            button = 28;
+            check_button();
+        });
+        jQuery("#filter-29").click(function () {
+            $container.isotope({filter: '.filter-29'});
+            button = 29;
+            check_button();
+        });
+        jQuery("#filter-30").click(function () {
+            $container.isotope({filter: '.filter-30'});
+            button = 30;
+            check_button();
+        });
+        jQuery("#filter-31").click(function () {
+            $container.isotope({filter: '.filter-31'});
+            button = 31;
+            check_button();
+        });
+        jQuery("#filter-32").click(function () {
+            $container.isotope({filter: '.filter-32'});
+            button = 32;
+            check_button();
+        });
+        jQuery("#filter-33").click(function () {
+            $container.isotope({filter: '.filter-33'});
+            button = 33;
+            check_button();
+        });
+        jQuery("#filter-34").click(function () {
+            $container.isotope({filter: '.filter-34'});
+            button = 34;
+            check_button();
+        });
+        jQuery("#filter-35").click(function () {
+            $container.isotope({filter: '.filter-35'});
+            button = 35;
+            check_button();
+        });
+        jQuery("#filter-36").click(function () {
+            $container.isotope({filter: '.filter-36'});
+            button = 36;
+            check_button();
+        });
+        jQuery("#filter-37").click(function () {
+            $container.isotope({filter: '.filter-37'});
+            button = 37;
+            check_button();
+        });
+        jQuery("#filter-38").click(function () {
+            $container.isotope({filter: '.filter-38'});
+            button = 38;
+            check_button();
+        });
+        jQuery("#filter-39").click(function () {
+            $container.isotope({filter: '.filter-39'});
+            button = 39;
+            check_button();
+        });
+        jQuery("#filter-40").click(function () {
+            $container.isotope({filter: '.filter-40'});
+            button = 40;
+            check_button();
+        });
+        jQuery("#filter-41").click(function () {
+            $container.isotope({filter: '.filter-41'});
+            button = 41;
+            check_button();
+        });
+        jQuery("#filter-42").click(function () {
+            $container.isotope({filter: '.filter-42'});
+            button = 42;
+            check_button();
+        });
+        jQuery("#filter-43").click(function () {
+            $container.isotope({filter: '.filter-43'});
+            button = 43;
+            check_button();
+        });
+        jQuery("#filter-44").click(function () {
+            $container.isotope({filter: '.filter-44'});
+            button = 44;
+            check_button();
+        });
+        jQuery("#filter-45").click(function () {
+            $container.isotope({filter: '.filter-45'});
+            button = 45;
+            check_button();
+        });
+        jQuery("#filter-46").click(function () {
+            $container.isotope({filter: '.filter-46'});
+            button = 46;
+            check_button();
+        });
+        jQuery("#filter-47").click(function () {
+            $container.isotope({filter: '.filter-47'});
+            button = 47;
+            check_button();
+        });
+        jQuery("#filter-48").click(function () {
+            $container.isotope({filter: '.filter-48'});
+            button = 48;
+            check_button();
+        });
+        jQuery("#filter-49").click(function () {
+            $container.isotope({filter: '.filter-49'});
+            button = 49;
+            check_button();
+        });
+        jQuery("#filter-50").click(function () {
+            $container.isotope({filter: '.filter-50'});
+            button = 50;
+            check_button();
+        });
+        jQuery("#filter-51").click(function () {
+            $container.isotope({filter: '.filter-51'});
+            button = 51;
+            check_button();
+        });
+        jQuery("#filter-52").click(function () {
+            $container.isotope({filter: '.filter-52'});
+            button = 52;
+            check_button();
+        });
+        jQuery("#filter-53").click(function () {
+            $container.isotope({filter: '.filter-53'});
+            button = 53;
+            check_button();
+        });
+        jQuery("#filter-54").click(function () {
+            $container.isotope({filter: '.filter-54'});
+            button = 54;
+            check_button();
+        });
+        jQuery("#filter-55").click(function () {
+            $container.isotope({filter: '.filter-55'});
+            button = 55;
+            check_button();
+        });
+        jQuery("#gallery-header-center-left-icon").click(function () {
+            if (size == 0) {
+                size = 1;
+            } else if (size == 1) {
+                size = 0;
+            }
+            check_size();
+        });
 
 
-check_button();
-check_size();
-});
+        check_button();
+        check_size();*/
+    });
 
 
 </script>
 
 <style type="text/css">
-    .showDiv{ display:block;}
-    .hideDiv{display: none;}
+    .showDiv {
+        display: block;
+    }
+
+    .hideDiv {
+        display: none;
+    }
 </style>
 
 <?php
-    $_productCollection=$this->getLoadedProductCollection();
-    $_helper = $this->helper('catalog/output');
-    $helper = $this->helper('shoppersettings/image');
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$helper = $this->helper('shoppersettings/image');
 
-    $listX = 230;
-    $listY = 230;
+$listX = 230;
+$listY = 230;
 ?>
-<?php if(!$_productCollection->count()): ?>
-<?php
-$empty_category_block = Mage::getModel('cms/block')
-	->setStoreId( Mage::app()->getStore()->getId() )
-	->load('shopper_empty_category');
- if($empty_category_block->getIsActive()){
-     echo $this->getLayout()->createBlock('cms/block')->setBlockId('shopper_empty_category')->toHtml();
- } else { ?>
-<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
-<?php } ?>
+<?php if (!$_productCollection->count()): ?>
+    <?php
+    $empty_category_block = Mage::getModel('cms/block')
+        ->setStoreId(Mage::app()->getStore()->getId())
+        ->load('shopper_empty_category');
+    if ($empty_category_block->getIsActive()) {
+        echo $this->getLayout()->createBlock('cms/block')->setBlockId('shopper_empty_category')->toHtml();
+    } else { ?>
+        <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php } ?>
 <?php else: ?>
 
 <div id="gallery">
-<div id="gallery-header">
-<div id="gallery-header-center">
-<?php $_helper = Mage::helper('catalog/category') ?>
-<?php $_categories = $_helper->getStoreCategories() ?>
-<?php $currentCategory = Mage::registry('current_category') ?>
-<?php if (count($_categories) > 0): ?>
+    <div id="gallery-header">
+        <div id="gallery-header-center">
+            <?php $_helper = Mage::helper('catalog/category') ?>
+            <?php $_categories = $_helper->getStoreCategories() ?>
+            <?php $currentCategory = Mage::registry('current_category') ?>
+            <?php if (count($_categories) > 0): ?>
 
-        <?php foreach ($_categories as $_category): ?>
+                <?php foreach ($_categories as $_category): ?>
 
 
-                <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
-                <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
-                    <?php $_subcategories = $_category->getChildrenCategories() ?>
-                    <?php if (count($_subcategories) > 0): ?>
-                        <div id="gallery-header-center-right">
-                                <div class="gallery-header-center-right-links gallery-header-center-right-links-current topsubmenu group-1" id="filter-all">
+                    <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
+                        <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                        <?php $_subcategories = $_category->getChildrenCategories() ?>
+                        <?php if (count($_subcategories) > 0): ?>
+                            <div id="gallery-header-center-right">
+                                <div
+                                    class="gallery-header-center-right-links gallery-header-center-right-links-current topsubmenu group-1"
+                                    id="filter-all">
 
-                                <a class="sub_category_url-<?php echo $_category->getId() ?>" >Tout les produits</a>
+                                    <a data-categoryid="<?= $_category->getId() ?>">Tout les produits</a>
 
                                 </div>
                                 <?php foreach ($_subcategories as $_subcategory): ?>
-                                <div class="gallery-header-center-right-links topsubmenu group-<?php echo $_subcategory->getId() ?>" data-group="<?php echo $_subcategory->getId() ?>" id="filter-<?php echo $_subcategory->getId() ?>">
+                                    <div
+                                        class="gallery-header-center-right-links topsubmenu group-<?php echo $_subcategory->getId() ?>"
+                                        data-group="<?php echo $_subcategory->getId() ?>"
+                                        id="filter-<?php echo $_subcategory->getId() ?>">
 
-                                    <a class="sub_category_url-<?php echo $_subcategory->getId() ?>">
-                                    <?php echo $_subcategory->getName() ?>
-                                    </a>
-                                </div>
+                                        <a class="sub_category_url-<?php echo $_subcategory->getId() ?>"
+                                           data-categoryid="<?= $_subcategory->getId() ?>">
+                                            <?php echo $_subcategory->getName() ?>
+                                        </a>
+                                    </div>
                                 <?php endforeach; ?>
-                        </div>
+                            </div>
 
+                        <?php endif; ?>
                     <?php endif; ?>
-                <?php endif; ?>
 
-        <?php endforeach; ?>
+                <?php endforeach; ?>
 
-<?php endif; ?>
+            <?php endif; ?>
 
-</div>
-<div class="wrapper-en-savoir-plus tissu wrapper-filters-catalog">
-          <div class="bouton">
-            <p>Filtres<br /><i class="fa fa-plus-circle" aria-hidden="true"></i></p>
-          </div>
-          <div class="inner-en-savoir-plus">
-          <?php if (count($_categories) > 0): ?>
+        </div>
+        <div class="wrapper-en-savoir-plus tissu wrapper-filters-catalog">
+            <div class="bouton">
+                <p>Filtres<br/><i class="fa fa-plus-circle" aria-hidden="true"></i></p>
+            </div>
+            <div class="inner-en-savoir-plus">
+                <?php if (count($_categories) > 0): ?>
 
-        <?php foreach ($_categories as $_category): ?>
+                    <?php foreach ($_categories as $_category): ?>
 
 
-                <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
-                <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
-                    <?php $_subcategories = $_category->getChildrenCategories() ?>
-                    <?php if (count($_subcategories) > 0): ?>
+                        <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
+                            <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                            <?php $_subcategories = $_category->getChildrenCategories() ?>
+                            <?php if (count($_subcategories) > 0): ?>
 
 
                                 <?php foreach ($_subcategories as $_subcategory): ?>
@@ -414,142 +677,160 @@ $empty_category_block = Mage::getModel('cms/block')
 
                                     <?php $_sub_subcategories = $_subcategory->getChildrenCategories() ?>
                                     <?php if (count($_sub_subcategories) > 0): ?>
-                                    <div class="submenufilter group-<?php echo $_subcategory->getId() ?>" data-group="<?php echo $_subcategory->getId() ?>">
-                                    <div id="gallery-header-center-right">
-                                            <?php /*?><div class="gallery-header-center-right-links gallery-header-center-right-links-current " id="filter-all"><a class="sub_category_url-<?php echo $_subcategory->getId() ?>">Afficher tout</a></div><?php */?>
-                                            <?php foreach ($_sub_subcategories as $_sub_subcategory): ?>
-                                            <div class="gallery-header-center-right-links " id="filter-<?php echo $_sub_subcategory->getId() ?>">
+                                        <div class="submenufilter group-<?php echo $_subcategory->getId() ?>"
+                                             data-group="<?php echo $_subcategory->getId() ?>">
+                                            <div id="gallery-header-center-right">
+                                                <?php /*?><div class="gallery-header-center-right-links gallery-header-center-right-links-current " id="filter-all"><a class="sub_category_url-<?php echo $_subcategory->getId() ?>">Afficher tout</a></div><?php */ ?>
+                                                <?php foreach ($_sub_subcategories as $_sub_subcategory): ?>
+                                                    <div class="gallery-header-center-right-links "
+                                                         id="filter-<?php echo $_sub_subcategory->getId() ?>">
 
-                                                  <a class="sub_category_url-<?php echo $_sub_subcategory->getId() ?>">
-                                                    <?php echo $_sub_subcategory->getName() ?>
-                                                  </a>
+                                                        <a class="sub_category_url-<?php echo $_sub_subcategory->getId() ?>"
+                                                           data-categoryid="<?= $_sub_subcategory->getId() ?>">
+                                                            <?php echo $_sub_subcategory->getName() ?>
+                                                        </a>
 
+                                                    </div>
+                                                <?php endforeach; ?>
                                             </div>
-                                            <?php endforeach; ?>
-                                    </div>
-                                    </div>
+                                        </div>
                                     <?php endif; ?>
 
                                 <?php endforeach; ?>
 
 
-                    <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                    <?php endforeach; ?>
+
                 <?php endif; ?>
-
-        <?php endforeach; ?>
-
-<?php endif; ?>
-          </div>
-          <script type="text/javascript">
-    jQuery('.gallery-header-center-right-links.topsubmenu').click(function () {
-        jQuery('.submenufilter.active' ).removeClass('active');
-
-
-        var newDisplay = 'none';
-        jQuery('.submenufilter').css('display',newDisplay);
-        var newDisplayview = 'block';
-        jQuery('.submenufilter.active').css('display',newDisplayview);
-    jQuery('.submenufilter.group-' + jQuery(this).data('group')).addClass('active');
-    jQuery('.fa' ).removeClass('fa-times-circle isOutin');
-    jQuery('.fa' ).addClass('fa-plus-circle');
-    jQuery('.inner-en-savoir-plus' ).load();
-    var h = jQuery('.submenufilter.active' ).height();
-
-
-    if(h!=null){
-         jQuery(".wrapper-en-savoir-plus.tissu").addClass('showDiv');
-        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('hideDiv');
-    }else{
-        jQuery(".wrapper-en-savoir-plus.tissu").addClass('hideDiv');
-        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('showDiv');
-    }
-
-});
-
-</script>
+            </div>
             <script type="text/javascript">
-                jQuery('.fa-plus-circle').click(function(){
-                     var display = jQuery('.submenufilter.active').css('display');
-                    var newDisplay = (display=='block')?'none':'block';
-                    jQuery('.submenufilter.active').css('display',newDisplay);
+                jQuery('.gallery-header-center-right-links.topsubmenu').click(function () {
+                    jQuery('.submenufilter.active').removeClass('active');
+
+
+                    var newDisplay = 'none';
+                    jQuery('.submenufilter').css('display', newDisplay);
+                    var newDisplayview = 'block';
+                    jQuery('.submenufilter.active').css('display', newDisplayview);
+                    jQuery('.submenufilter.group-' + jQuery(this).data('group')).addClass('active');
+                    jQuery('.fa').removeClass('fa-times-circle isOutin');
+                    jQuery('.fa').addClass('fa-plus-circle');
+                    jQuery('.inner-en-savoir-plus').load();
+                    var h = jQuery('.submenufilter.active').height();
+
+
+                    if (h != null) {
+                        jQuery(".wrapper-en-savoir-plus.tissu").addClass('showDiv');
+                        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('hideDiv');
+                    } else {
+                        jQuery(".wrapper-en-savoir-plus.tissu").addClass('hideDiv');
+                        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('showDiv');
+                    }
+
                 });
-                jQuery('.fa').click(function() {
-                     jQuery(this).toggleClass('fa-plus-circle fa-times-circle');
-                     jQuery(this).toggleClass(' isOutin');
-                     jQuery(this).parent().toggleClass('close_icon');
+
+            </script>
+            <script type="text/javascript">
+                jQuery('.fa-plus-circle').click(function () {
+                    var display = jQuery('.submenufilter.active').css('display');
+                    var newDisplay = (display == 'block') ? 'none' : 'block';
+                    jQuery('.submenufilter.active').css('display', newDisplay);
+                });
+                jQuery('.fa').click(function () {
+                    jQuery(this).toggleClass('fa-plus-circle fa-times-circle');
+                    jQuery(this).toggleClass(' isOutin');
+                    jQuery(this).parent().toggleClass('close_icon');
 
                 });
             </script>
-</div>
-</div>
+        </div>
+    </div>
 
-<div id="gallery-content">
+    <div id="gallery-content">
 
-<div id="gallery-content-center">
-<?php
-    $_collectionSize = $_productCollection->count();
+        <div id="gallery-content-center">
+            <?php
+            $_collectionSize = $_productCollection->count();
 
-    $pageLayout = $this->getLayout()->getBlock('root')->getTemplate();
-    if ( strpos($pageLayout, '2columns') ) {
-        $grid_class = 'two_columns_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_2col');
-    } else {
-        $grid_class = 'one_column_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_1col');
-    }
-    $imgX = 230;
-    $imgY = 230;
-    ?>
-    <ul class="products-grid <?php echo $grid_class; ?>">
-    <?php $i=0; foreach ($_productCollection as $_product): ?>
-        <li class="item all <?= Mage::helper('jumbobag_catalog')->getProductClassFilter($_product); ?>" itemscope itemtype="http://schema.org/Product">
-            <div class="regular abcdef">
-                <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image" itemprop="url">
-                    <?php $stockItem = $_product->getStockItem(); ?>
-                    <?php if (!$stockItem->getIsInStock()): ?>
-                         <div class="out-of-stock-label">Épuisé</div>
-                    <?php endif; ?>
-                    <div class="featured-product-label"><?php echo $_product->getData('featured_product') ?></div>
-                    <?php echo $this->helper('shoppersettings')->getLabel($_product);  ?>
-                    <?php // Display Discount percents start ?>
-                        <?php $_finalPrice = $_product->getPrice();
-                        $_price = $_product->getFinalPrice();
+            $pageLayout = $this->getLayout()->getBlock('root')->getTemplate();
+            if (strpos($pageLayout, '2columns')) {
+                $grid_class = 'two_columns_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_2col');
+            } else {
+                $grid_class = 'one_column_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_1col');
+            }
+            $imgX = 230;
+            $imgY = 230;
+            ?>
+            <ul class="products-grid <?php echo $grid_class; ?>">
+                <?php $i = 0;
+                foreach ($_productCollection as $_product): ?>
+                    <li class="item all" itemscope itemtype="http://schema.org/Product"
+                        data-categoryids="<?= Mage::helper('jumbobag_catalog')->getDataCategotyIds($_product); ?>">
+                        <div class="regular abcdef">
+                            <a href="<?php echo $_product->getProductUrl() ?>"
+                               title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"
+                               itemprop="url">
+                                <?php $stockItem = $_product->getStockItem(); ?>
+                                <?php if (!$stockItem->getIsInStock()): ?>
+                                    <div class="out-of-stock-label">Épuisé</div>
+                                <?php endif; ?>
+                                <div
+                                    class="featured-product-label"><?php echo $_product->getData('featured_product') ?></div>
+                                <?php echo $this->helper('shoppersettings')->getLabel($_product); ?>
+                                <?php // Display Discount percents start ?>
+                                <?php $_finalPrice = $_product->getPrice();
+                                $_price = $_product->getFinalPrice();
 
-                        if($_price < $_finalPrice): ?>
-                        <?php $_savingPercent = 100 - round(($_price / $_finalPrice)*100); ?>
+                                if ($_price < $_finalPrice): ?>
+                                    <?php $_savingPercent = 100 - round(($_price / $_finalPrice) * 100); ?>
                                     <div class="sale-label sale-top-right"><?php echo $_savingPercent; ?>%</div>
-                        <?php endif; ?>
-                    <?php // Display Discount percent end ?>
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX, $imgY) ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX*2, $imgY*2) ?>" width="<?php echo $imgX; ?>" height="<?php echo $imgY; ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" itemprop="image" />
-                </a>
-                <div class="product-info">
-                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
-                    <div class="product-info-bottom-left">
-                       <a class="product-name" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>" itemprop="name"><?php echo $_product->getName() ?></a>
-                       <div class="collection-name"><?php echo $_product->getData('collection_name') ?></div>
-                    </div>
-					
-                    <div class="product-info-bottom-right <?php $productprice =  $this->getPriceHtml($_product, true);
-					if (strpos($productprice, 'minimal-price-link') !== false) { echo 'category-price';} ?>">
-                       <?php echo $this->getPriceHtml($_product, true) ?>
-                    </div>
-                </div>
-            </div>
+                                <?php endif; ?>
+                                <?php // Display Discount percent end ?>
+                                <img
+                                    src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX, $imgY) ?>"
+                                    data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX * 2, $imgY * 2) ?>"
+                                    width="<?php echo $imgX; ?>" height="<?php echo $imgY; ?>"
+                                    alt="<?php echo $this->htmlEscape($_product->getName()) ?>" itemprop="image"/>
+                            </a>
+                            <div class="product-info">
+                                <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                                <div class="product-info-bottom-left">
+                                    <a class="product-name" href="<?php echo $_product->getProductUrl() ?>"
+                                       title="<?php echo $_productNameStripped; ?>"
+                                       itemprop="name"><?php echo $_product->getName() ?></a>
+                                    <div
+                                        class="collection-name"><?php echo $_product->getData('collection_name') ?></div>
+                                </div>
 
-        </li>
-        <?php endforeach ?>
+                                <div
+                                    class="product-info-bottom-right <?php $productprice = $this->getPriceHtml($_product, true);
+                                    if (strpos($productprice, 'minimal-price-link') !== false) {
+                                        echo 'category-price';
+                                    } ?>">
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                </div>
+                            </div>
+                        </div>
 
-    </ul>
+                    </li>
+                <?php endforeach ?>
+
+            </ul>
 
 
-</div>
-<?php echo $this->getToolbarHtml() ?>
-</div>
+        </div>
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
 </div>
 
 <div class="category-products ">
-    <?php /*?><?php echo $this->getToolbarHtml() ?><?php */?>
+    <?php /*?><?php echo $this->getToolbarHtml() ?><?php */ ?>
     <?php // List mode ?>
 
-    <?php if($this->getMode()!='grid'): ?>
+    <?php if ($this->getMode() != 'grid'): ?>
         <?php /*?>
     <?php $_iterator = 0; ?>
     <ol class="products-list" id="products-list">
@@ -607,11 +888,11 @@ $empty_category_block = Mage::getModel('cms/block')
         </li>
     <?php endforeach; ?>
     </ol>
-    <?php */?>
+    <?php */ ?>
     <?php else: ?>
 
-    <?php // Grid Mode ?>
-    <?php /*?>
+        <?php // Grid Mode ?>
+        <?php /*?>
     <?php
     $_collectionSize = $_productCollection->count();
 
@@ -724,13 +1005,13 @@ $empty_category_block = Mage::getModel('cms/block')
 
         </li>
         <?php endforeach ?>
-    </ul><?php */?>
+    </ul><?php */ ?>
     <?php endif; ?>
 
     <?php /*?><div class="toolbar-bottom">
         <?php echo $this->getToolbarHtml() ?>
     </div>
-</div><?php */?>
+</div><?php */ ?>
 
 
-<?php endif; ?>
+    <?php endif; ?>
