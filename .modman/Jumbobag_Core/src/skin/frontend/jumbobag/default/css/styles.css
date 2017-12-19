@@ -1540,6 +1540,13 @@ footer .liens-footer .copyright-wrapper p {
   font-size:34px;
 }
 
+.cms-home-new .gammes article .product-text p {
+	margin: 10px 0;
+}
+.cms-home-new .gammes article .product-image {
+	margin: 20px 10px;
+}
+
 .cms-home-new .breadcrumbs
 {
   display:none;
