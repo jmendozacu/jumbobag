@@ -5893,16 +5893,6 @@ footer{
 		margin: 0;
 		line-height: 40px;
 	}
-	/*.nav-container #queldoreiNav li > a {
-		color: white !important;
-	}
-	.nav-container #queldoreiNav li.active {
-		background-color: white;
-	}
-	.nav-container #queldoreiNav li.active > a {
-		background-color: transparent;
-		color: #31419f !important;
-	}*/
     header .logo-wrapper a.logo{ margin: 20px 0 10px; }
     .langues-et-currency .language-select, .langues-et-currency .currency-select{ display: none; }
     .header-switch.language-switch, .header-switch.currency-switch{ display: block; width: 100%; }
