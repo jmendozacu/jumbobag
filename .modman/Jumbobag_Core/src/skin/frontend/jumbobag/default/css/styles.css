@@ -930,12 +930,28 @@ tr.summary-details-excluded{font-style:italic;}
 .wm-currency .header-switch span.current {   color: #fff;   font-size: 12px;  font-family: 'Lato', sans-serif;}
 
 .header-switch span.current{float: left;}
-.wm-full-header #queldoreiNav>li{ margin: 0 30px 0 0;box-shadow: none; }
+.wm-full-header #queldoreiNav>li{
+	box-shadow: none;
+	width: 175px;
+	background-color: #31419f;
+	margin: 0;
+	line-height: 40px;
+}
+.wm-full-header #queldoreiNav>li.active>a {
+	background-color: transparent;
+}
 .wm-full-header #queldoreiNav>li>a{ color: #fff; opacity: 0.8;font-family: 'Lato', sans-serif; font-weight: 900;}
 .wm-full-header #queldoreiNav>li:hover, .wm-full-header #queldoreiNav>li.over, .wm-full-header #queldoreiNav>li.active{ box-shadow: none;}
 .wm-full-header #queldoreiNav li.level0:hover a, .wm-full-header #queldoreiNav li.level0.active a{opacity: 1; color: #fff;}
 .wm-full-header #queldoreiNav li.level0 ul a, .wm-full-header #queldoreiNav li.level0.active ul a{ padding-bottom: 0; }
-.wm-full-header #queldoreiNav>li>a>span{  font-weight: 800;letter-spacing: normal; padding: 0;  border-top: 0px solid transparent; line-height: normal; }
+.wm-full-header #queldoreiNav>li>a>span{
+	font-weight: 800;
+	letter-spacing: normal;
+	padding: 0px 10px;
+	border-top: 0px solid transparent;
+	line-height: inherit;
+}
+
 .wm-full-header #queldoreiNav>li:hover>a>span, .wm-full-header #queldoreiNav>li.over>a>span, .wm-full-header #queldoreiNav>li.active>a>span {
     background: transparent; border:0;
 }
@@ -2159,8 +2175,13 @@ h2.p2 span strong {
      .wm-full-header .nav-container .nav-top-title{ font-size: 0; padding: 0; width: auto;    background-color: transparent; }
      .wm-full-header .nav-container .nav-top-title div.icon{    margin: 9px 0px 0 0; width: 30px;}
      .wm-full-header .nav-container .nav-top-title div.icon span { background-color: #fff; height: 5px;   margin: 0 0 3px;   border-radius: 10px;}
-    .wm-full-header .nav-container #queldoreiNav {margin: 10px auto 10px!important;  position: absolute;  right: 0;
-    background: #31419f;   padding: 10px;}
+    .wm-full-header .nav-container #queldoreiNav {
+		margin-top: 8px !important;
+		position: absolute;
+		top: 45px;
+		right: 131px;
+		width: 100% !important;
+	}
     .wm-full-header .summary.mobile-summary{display: block;}
     .wm-full-header .summary{display: none;}
     .wm-full-header .top-dropdowns .cart-top-container {   margin: 0px 0px 0 15px; padding-right:35px;}
