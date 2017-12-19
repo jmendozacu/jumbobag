@@ -913,6 +913,7 @@ tr.summary-details-excluded{font-style:italic;}
 
 /*----------New Header----------------*/
 
+
 .wm-header{ float: left; width: 100%; background-color: #31419f; }
 .wm-contener{ margin: 0 auto; width: 1015px; display: table; }
 .wm-main-header{ float: left; width: 100%; }
@@ -930,30 +931,14 @@ tr.summary-details-excluded{font-style:italic;}
 .wm-currency .header-switch span.current {   color: #fff;   font-size: 12px;  font-family: 'Lato', sans-serif;}
 
 .header-switch span.current{float: left;}
-.wm-full-header #queldoreiNav>li{
-	box-shadow: none;
-	width: 175px;
-	background-color: #31419f;
-	margin: 0;
-	line-height: 40px;
-}
-.wm-full-header #queldoreiNav>li.active>a {
-	background-color: transparent;
-}
+.wm-full-header #queldoreiNav>li{ margin: 0 30px 0 0;box-shadow: none; }
 .wm-full-header #queldoreiNav>li>a{ color: #fff; opacity: 0.8;font-family: 'Lato', sans-serif; font-weight: 900;}
 .wm-full-header #queldoreiNav>li:hover, .wm-full-header #queldoreiNav>li.over, .wm-full-header #queldoreiNav>li.active{ box-shadow: none;}
 .wm-full-header #queldoreiNav li.level0:hover a, .wm-full-header #queldoreiNav li.level0.active a{opacity: 1; color: #fff;}
 .wm-full-header #queldoreiNav li.level0 ul a, .wm-full-header #queldoreiNav li.level0.active ul a{ padding-bottom: 0; }
-.wm-full-header #queldoreiNav>li>a>span{
-	font-weight: 800;
-	letter-spacing: normal;
-	padding: 0px 10px;
-	border-top: 0px solid transparent;
-	line-height: inherit;
-}
-
+.wm-full-header #queldoreiNav>li>a>span{  font-weight: 800;letter-spacing: normal; padding: 0;  border-top: 0px solid transparent; line-height: normal; }
 .wm-full-header #queldoreiNav>li:hover>a>span, .wm-full-header #queldoreiNav>li.over>a>span, .wm-full-header #queldoreiNav>li.active>a>span {
-    background: transparent; border:0;
+	background: transparent; border:0;
 }
 .wm-full-header .search-top, .wm-full-header .cart-top-title a span.icon, .wm-full-header .cart-top > a{ background-color: transparent; }
 .wm-full-header .search-top, .wm-full-header .search-top-container .search-form .search-top-title span.icon,
@@ -2170,6 +2155,7 @@ h2.p2 span strong {
 
 
 @media (max-width: 959px) {
+
      .wm-full-header .nav-container {  float: right;   margin: 14px 0 14px 2%;}
      .wm-full-header  .nav-container .nav-top-title:hover{ background-color: transparent; }
      .wm-full-header .nav-container .nav-top-title{ font-size: 0; padding: 0; width: auto;    background-color: transparent; }
@@ -2181,6 +2167,20 @@ h2.p2 span strong {
 		top: 45px;
 		right: 131px;
 		width: 100% !important;
+	}
+	.wm-full-header #queldoreiNav>li{
+		box-shadow: none;
+		width: 175px;
+		background-color: #31419f;
+		margin: 0;
+		line-height: 40px;
+	}
+	.wm-full-header #queldoreiNav>li>a>span{
+		font-weight: 800;
+		letter-spacing: normal;
+		padding: 0px 10px;
+		border-top: 0px solid transparent;
+		line-height: inherit;
 	}
     .wm-full-header .summary.mobile-summary{display: block;}
     .wm-full-header .summary{display: none;}
