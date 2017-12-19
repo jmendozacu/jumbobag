@@ -17,17 +17,17 @@
 				</connection>
 			</jumbobag_core_setup>
 		</resources>
-		<blocks>
-        <blocks>
-	      	<jumbobag_core>
-	        	<class>Jumbobag_Core_Block</class>
-					</jumbobag_core>
-				</blocks>
-				<popupbuilder>
-						<rewrite>
-								<PopupWidget>Jumbobag_Core_Block_PopupWidget</PopupWidget>
-						</rewrite>
-				</popupbuilder>
-		</blocks>
-	</global>
+    <blocks>
+      <blocks>
+        <jumbobag_core>
+          <class>Jumbobag_Core_Block</class>
+        </jumbobag_core>
+      </blocks>
+      <popupbuilder>
+        <rewrite>
+          <PopupWidget>Jumbobag_Core_Block_PopupWidget</PopupWidget>
+        </rewrite>
+      </popupbuilder>
+    </blocks>
+  </global>
 </config>
