@@ -500,8 +500,7 @@ $empty_category_block = Mage::getModel('cms/block')
     ?>
     <ul class="products-grid <?php echo $grid_class; ?>">
     <?php $i=0; foreach ($_productCollection as $_product): ?>
-        <li class="item all <?php echo $_product->getData('filter_value_1') ?> <?php echo $_product->getData('filter_value_2') ?>" itemscope itemtype="http://schema.org/Product">
-
+        <li class="item all <?= Mage::helper('jumbobag_catalog')->getProductClassFilter($_product); ?>" itemscope itemtype="http://schema.org/Product">
             <div class="regular abcdef">
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image" itemprop="url">
                     <?php $stockItem = $_product->getStockItem(); ?>

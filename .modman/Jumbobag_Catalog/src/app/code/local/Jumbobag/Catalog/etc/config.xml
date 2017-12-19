@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jumbobag_Catalog>
+            <version>0.1.0</version>
+        </Jumbobag_Catalog>
+    </modules>
+    <global>
+        <helpers>
+            <jumbobag_catalog>
+                <class>Jumbobag_Catalog_Helper</class>
+            </jumbobag_catalog>
+        </helpers>
+    </global>
+</config>

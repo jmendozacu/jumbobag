@@ -2,5 +2,13 @@ src/app/code/local/Jumbobag/Core app/code/local/Jumbobag/Core
 
 src/app/etc/modules/Jumbobag_Core.xml app/etc/modules/Jumbobag_Core.xml
 
-src/app/design/frontend/jumbobag app/design/frontend/jumbobag
+src/app/design/frontend/jumbobag/default/etc/* app/design/frontend/jumbobag/default/etc/
+src/app/design/frontend/jumbobag/default/layout/* app/design/frontend/jumbobag/default/layout/
+src/app/design/frontend/jumbobag/default/locale/* app/design/frontend/jumbobag/default/locale/
+src/app/design/frontend/jumbobag/default/template/* app/design/frontend/jumbobag/default/template/
+
+src/app/design/frontend/jumbobag/modern/etc/* app/design/frontend/jumbobag/modern/etc/
+src/app/design/frontend/jumbobag/modern/layout/* app/design/frontend/jumbobag/modern/layout/
+src/app/design/frontend/jumbobag/modern/template/* app/design/frontend/jumbobag/modern/template/
+
 src/skin/frontend/jumbobag skin/frontend/jumbobag
