@@ -1828,9 +1828,6 @@ footer .liens-footer .copyright-wrapper p {
     opacity: 1 !important;
     visibility: visible !important;
 }
-#instagram {
-  display: none;
-}
 .insta {
     margin-bottom: 80px;
 }
@@ -1838,12 +1835,13 @@ footer .liens-footer .copyright-wrapper p {
     overflow: hidden;
 }
 .insta #instafeed h2 {
-    font-family: 'Lato', sans-serif;
+	font-family: "Lato", sans-serif;
 	font-weight: 200;
-	font-size: 30px;
+	color: #31419f;
+	text-transform: uppercase;
+	font-size: 34px;
     margin-top: 80px;
     text-align: center;
-    text-transform: uppercase;
 }
 .insta #instafeed p {
     font-family: 'Lato', sans-serif;
