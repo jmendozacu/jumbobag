@@ -4488,7 +4488,8 @@ footer .liens-footer .copyright-wrapper p {
     line-height: 1.0em;
     text-align: right;
     text-transform: uppercase;
-    margin: 0;
+	margin: 0;
+	margin-bottom: 20px;	
 }
 .catalog-product-view .height-centered h1 .bold-part {
 	font-family: 'Lato', sans-serif;
@@ -5595,7 +5596,7 @@ footer{
 .catalog-product-view .height-centered h2 .availability{ display: none; }
 
 .catalog-product-view .height-centered h2 .price-box .old-price .price{ color: #fff; font-size: 30px;
-    position: absolute; left: 0; bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 200; }
+    position: absolute; left: 0; bottom: 10px; font-family: 'Lato', sans-serif; font-weight: 300; }
 .catalog-product-view .height-centered h2 .price-box .old-price{ position: relative;}
 
 .catalog-product-view .height-centered h2 .price-box .regular-price .price{font-size: 82px; font-family: 'Lato', sans-serif; font-weight: 200;

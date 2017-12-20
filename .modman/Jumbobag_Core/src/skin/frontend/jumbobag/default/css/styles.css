@@ -469,13 +469,16 @@ tr.summary-details-excluded{font-style:italic;}
 .old-price{}
 .old-price .price-label{white-space:nowrap;}
 .old-price .price{font-weight:bold;text-decoration:line-through;}
-.special-price{}
+.minimal-price+.special-price { display: none; }
+.minimal-price-link+.special-price { display: none; }
+.minimal-price+.regular-price { display: none; }
+.minimal-price-link+.regular-price { display: none; }
 .special-price .price-label{font-weight:bold;white-space:nowrap;}
 .special-price .price{font-weight:bold;}
 .minimal-price{}
 .minimal-price .price-label{font-weight:bold;white-space:nowrap;}
 .minimal-price-link{display:block;}
-.minimal-price-link .label{}
+.minimal-price-link .label {display: block; }
 .minimal-price-link .price{font-weight:normal;}
 .price-excluding-tax{display:block;}
 .price-excluding-tax .label{white-space:nowrap;}
@@ -2071,13 +2074,9 @@ h2.p2 span strong {
 /* Custom CSS */
 
 .catalog-category-view .products-grid .price-box .minimal-price-link .label {
-  display: none !important;
+    display: block;
+	margin: 2px 0;
 }
-.category-price .price-box .special-price {
-  display: none;
-}
-/* Custom CSS */
-
 
 /*------@media @media @media -----*/
 /*------@media @media @media -----*/
@@ -2324,8 +2323,6 @@ h2.p2 span strong {
 
 
 .catalog-category-view .price-box .minimal-price-link {display: block;}
-/* .catalog-category-view .products-grid .price-box .minimal-price-link .price {padding: 0;}
- */.catalog-category-view .products-grid .price-box .minimal-price-link .label {float: left; padding-right: 10px;}
 
 /** notice-cookie */
 #notice-cookie-block {
