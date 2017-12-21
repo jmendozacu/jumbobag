@@ -40,6 +40,7 @@ $_attrCode = $_attr->getAttributeCode();
 $_id = $_attribute->getAttributeId();
 
 $_swatchArray = $_config->attributes->$_id;
+$_productChildIds = [];
 ?>
 <dt class="swatch-attr">
     <label id="<?php echo $_attrCode ?>_label" class="required">
@@ -66,17 +67,27 @@ $_swatchArray = $_config->attributes->$_id;
                 } elseif (strlen($_option->label) > 3) {
                     $_liClass .= ' wide-swatch';
                 }
+                $_productChildId = current($_option->products);
+                if ($_productChildId) {
+                    $_productChildIds[] = $_productChildId;
+                }
                 ?>
-                <li class="option-<?php echo $_optionCode; ?><?php echo $_liClass; ?>" id="option<?php echo $_option->id; ?>">
-                    <a href="javascript:void(0)" name="<?php echo $_optionCode; ?>" id="swatch<?php echo $_option->id; ?>" class="<?php echo $_aClass ?>" title="<?php echo $_option->label; ?>"
+                <li class="option-<?php echo $_optionCode; ?><?php echo $_liClass; ?>"
+                    id="option<?php echo $_option->id; ?>"
+                    data-productid="<?= current($_option->products) ?>">
+                    <a href="javascript:void(0)" name="<?php echo $_optionCode; ?>"
+                       id="swatch<?php echo $_option->id; ?>" class="<?php echo $_aClass ?>"
+                       title="<?php echo $_option->label; ?>"
                        style="height: <?php echo $_swatchOuterHeight ?>px; <?php if (!$_hasImage): ?>min-<?php endif; ?>width: <?php echo $_swatchOuterWidth ?>px;">
-                <span class="swatch-label" style="height: <?php echo $_swatchInnerHeight ?>px; <?php if (!$_hasImage): ?>min-<?php endif; ?>width: <?php echo $_swatchInnerWidth ?>px; line-height: <?php echo $_swatchInnerHeight ?>px;">
-                <?php if ($_hasImage): ?>
-                    <img src="<?php echo $_swatchUrl; ?>" alt="<?php echo $_option->label; ?>" width="<?php echo $_swatchInnerWidth ?>" height="<?php echo $_swatchInnerHeight ?>" />
-                <?php else: ?>
-                    <?php echo $_option->label; ?>
-                <?php endif; ?>
-                 </span>
+                        <span class="swatch-label"
+                              style="height: <?php echo $_swatchInnerHeight ?>px; <?php if (!$_hasImage): ?>min-<?php endif; ?>width: <?php echo $_swatchInnerWidth ?>px; line-height: <?php echo $_swatchInnerHeight ?>px;">
+                            <?php if ($_hasImage): ?>
+                                <img src="<?php echo $_swatchUrl; ?>" alt="<?php echo $_option->label; ?>"
+                                     width="<?php echo $_swatchInnerWidth ?>" height="<?php echo $_swatchInnerHeight ?>"/>
+                            <?php else: ?>
+                                <?php echo $_option->label; ?>
+                            <?php endif; ?>
+                        </span>
                         <span class="x">X</span>
                     </a>
                 </li>
@@ -84,3 +95,11 @@ $_swatchArray = $_config->attributes->$_id;
         </ul>
     </div>
 </dd>
+
+<?php
+$dataProductSwatches = Mage::helper('jumbobag_catalog')->getDataProductSwatches($_productChildIds);
+?>
+
+<script>
+    var dataProductSwatches = <?= json_encode($dataProductSwatches) ?>;
+</script>
