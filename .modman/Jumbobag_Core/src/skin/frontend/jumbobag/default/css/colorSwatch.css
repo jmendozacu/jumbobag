@@ -16,3 +16,9 @@
 .product-gallery-item-img {
 	max-height: 100px;
 }
+
+@media only screen and (max-width:768px) {
+	.product-gallery {
+		display: none;
+	}
+}
