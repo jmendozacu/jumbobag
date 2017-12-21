@@ -2,7 +2,9 @@
     var $product;
     var $swatch;
     var $name;
+    var $coverContainer;
     var $cover;
+    var currentProductData = null
 
     var init = (function () {
         $product = $('#informations-produit');
@@ -11,7 +13,8 @@
         }
         $swatch = $product.find('#configurable_swatch_color');
         $name = $product.find('.panier-product-title');
-        $cover = $product.find('.product-image img');
+        $coverContainer = $product.find('.product-image');
+        $cover = $product.find('.product-image-img');
         listenEvents();
     });
 
@@ -19,23 +22,24 @@
         $swatch
             .on('click', '.swatch-link', changeProduct)
         ;
+        $coverContainer
+            .on('click', '.product-image-link', startCarousel)
+        ;
     });
 
     var changeProduct = (function () {
         var productId = $(this).data('productid');
-        var productData = getProductData(productId)
-
-        if (!productData) {
+        currentProductData = getProductData(productId);
+        if (!currentProductData) {
             return;
         }
-        
-        updateName(productData.name);
-        updateCover(productData.cover);
-        updateCarousel(productData.gallery);
+
+        updateName(currentProductData.name);
+        updateCover(currentProductData.cover);
     });
 
     var getProductData = (function (productId) {
-        return dataProductSwatches[productId] || false
+        return dataProductSwatches[productId] || null
     });
 
     var updateName = (function (name) {
@@ -46,8 +50,15 @@
         $cover.attr('src', cover);
     });
 
-    var updateCarousel = (function (gallery) {
-        // console.log($productCarousel);
+    var startCarousel = (function () {
+        if (!currentProductData) {
+            return false;
+        }
+        
+        $.fancybox.open(currentProductData.gallery, {
+            padding : 0
+        });
+        return false;
     });
 
     window.addEventListener('load', init, true);

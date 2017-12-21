@@ -22,7 +22,10 @@ class Jumbobag_Catalog_Helper_Data extends Mage_Core_Helper_Abstract {
             $cover = (string)  Mage::helper('catalog/image')->init($product, 'thumbnail')->resize(500, 500);
             $_gallery = $product->getMediaGalleryImages()->getItems();
             $gallery = array_reduce($_gallery, function ($carry, $item) {
-                $carry[] = $item->getUrl();
+                $carry[] = [
+                    'title' => $item->getLabel(),
+                    'href' => $item->getUrl(),
+                ];
                 return $carry;
             }, []);
 
