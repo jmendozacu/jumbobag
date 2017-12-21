@@ -32,7 +32,6 @@
         $coverContainer
             .on('click', '.product-image-link', startCarousel)
         ;
-        ;
     });
 
     var initCarousel = (function () {
