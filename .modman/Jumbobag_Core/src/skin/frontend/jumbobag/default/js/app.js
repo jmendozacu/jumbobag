@@ -662,6 +662,7 @@ var MenuManager = {
 // ==============================================
 
 // Use $j(document).ready() because Magento executes Prototype inline
+var $j = jQuery;
 $j(document).ready(function () {
 
     // ==============================================
