@@ -16,6 +16,7 @@
         $coverContainer = $product.find('.product-image');
         $cover = $product.find('.product-image-img');
         listenEvents();
+        selectFirstItem();
     });
 
     var listenEvents = (function () {
@@ -25,6 +26,10 @@
         $coverContainer
             .on('click', '.product-image-link', startCarousel)
         ;
+    });
+
+    var selectFirstItem = (function () {
+        $swatch.find('.swatch-link').first().trigger('click');
     });
 
     var changeProduct = (function () {
