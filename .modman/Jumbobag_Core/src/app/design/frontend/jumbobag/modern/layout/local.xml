@@ -35,6 +35,7 @@
             <action method="addCss"><stylesheet>css/captions.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/font-awesome-4.7.0/css/font-awesome.min.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/style-r.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/colorSwatch.css</stylesheet></action>
 
             <action method="addItem"><type>skin_js</type><name>js/instafeed.min.js</name></action>
             <action method="addItem"><type>skin_js</type><name>js/produit.js</name></action>

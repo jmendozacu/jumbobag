@@ -1,0 +1,10 @@
+.configurable-swatch-list > li {
+	position: relative;
+	bottom: 0; /* if not declare initial bottom, transition not working */
+	margin: 0 10px 10px 0;
+	transition: all 0.2s;
+}
+.configurable-swatch-list > li.selected,
+.configurable-swatch-list > li:hover{
+	bottom: 8px;
+}
