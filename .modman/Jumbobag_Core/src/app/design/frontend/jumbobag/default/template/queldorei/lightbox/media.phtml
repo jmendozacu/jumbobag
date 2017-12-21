@@ -43,23 +43,4 @@
 
 <?php endif; ?>
 
-<?php if (count($this->getGalleryImages()) > 0): ?>
-<div class="more-views">
-    <ul id="shopper_gallery_carousel" class="jcarousel-skin-tango clearfix">
-    <?php foreach ($this->getGalleryImages() as $_image): ?>
-    	<?php //Skip, if no image
-        	if ($_image->getFile() == NULL)
-			continue; ?>
-        <li data-label="<?php echo $this->escapeHtml($_image->getLabel()) ?>" >
-            <a href='<?php echo $this->helper('catalog/image')->init($product, 'image', $_image->getFile()); ?>' class='lighbox-zoom-gallery' rel='lighbox-zoom-gallery' title='<?php echo $this->escapeHtml($_image->getLabel()) ?>' >
-            <img src="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail', $_image->getFile())->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail', $_image->getFile())->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
-            </a>
-        </li>
-    <?php endforeach; ?>
-    </ul>
-    <div class="jcarousel-controls">
-        <a href="#" class="jcarousel-prev-horizontal" id="shopper_gallery_prev"></a>
-        <a href="#" class="jcarousel-next-horizontal" id="shopper_gallery_next"></a>
-    </div>
-</div>
-<?php endif; ?>
+<ul id="product-gallery" class="product-gallery clearfix"></ul>

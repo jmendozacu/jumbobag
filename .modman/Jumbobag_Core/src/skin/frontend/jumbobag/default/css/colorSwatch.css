@@ -8,3 +8,11 @@
 .configurable-swatch-list > li:hover{
 	bottom: 8px;
 }
+
+.product-gallery-item {
+	float: left;
+	margin: 10px 5px;
+}
+.product-gallery-item-img {
+	max-height: 100px;
+}
