@@ -302,7 +302,6 @@ Product.ConfigurableSwatches.prototype = {
         // Swatch Events
         if (opt._f.isSwatch) {
             opt._e.a.observe('click', function(event) {
-                Event.stop(event);
                 this._F.currentAction = "click";
                 // set new last option
                 attr._e._last.selectedOption = attr._e.selectedOption;
