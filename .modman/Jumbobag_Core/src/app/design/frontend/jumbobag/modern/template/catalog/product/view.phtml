@@ -69,7 +69,7 @@ if (!$_category = Mage::registry('current_category')) {
     }
 }
 if ( !empty($_category) ) {
-    echo '<div id="product-name-and-price" class="wow fadeInRight"><h1><span class="title-product-h1">'.$_category->getName().'</span><br /><span class="bold-part">'.$_product->getName().'</span></h1><h2 class="banner-price">'.$this->getChildHtml('product_type_data').'</h2></div>';
+    echo '<div id="product-name-and-price" class="wow fadeInRight"><h1><span class="title-product-h1">'.$_category->getName().'</span><br /><span class="bold-part">'.$_product->getName().'</span></h1></div>';
 }
 echo $this->getChildHtml('alert_urls');
 echo $this->getChildHtml('extrahint');
