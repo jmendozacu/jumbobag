@@ -6460,9 +6460,12 @@ only screen and (max-width: 648px) {
 	display: none;
 }
 
-.recemment-vus .minimal-price-link,
-.recemment-vus .price-box .old-price {
-	text-align: right;
+.recemment-vus .minimal-price-link, 
+.recemment-vus .price-box .old-price, 
+.recemment-vus .price-box .regular-price, 
+.recemment-vus .price-box .special-price {
+    text-align: right;
+    display: block;
 }
 
 .recemment-vus .minimal-price-link span.label {
