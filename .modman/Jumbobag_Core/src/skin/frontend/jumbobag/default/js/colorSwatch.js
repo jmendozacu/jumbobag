@@ -41,7 +41,7 @@
     });
 
     var selectFirstItem = (function () {
-        $swatch.find('.swatch-link').first().trigger('click');
+        $swatch.find('.swatch-label').first().trigger('click');
     });
 
     var changeProduct = (function () {

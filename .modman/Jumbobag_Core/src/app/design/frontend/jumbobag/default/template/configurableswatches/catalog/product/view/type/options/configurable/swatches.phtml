@@ -67,17 +67,14 @@ $_productChildIds = [];
                 } elseif (strlen($_option->label) > 3) {
                     $_liClass .= ' wide-swatch';
                 }
-                $_productChildId = current($_option->products);
-                if ($_productChildId) {
-                    $_productChildIds[] = $_productChildId;
-                }
+                $_productChildIds[] = $_option->productId;
                 ?>
                 <li class="option-<?php echo $_optionCode; ?><?php echo $_liClass; ?>"
                     id="option<?php echo $_option->id; ?>">
                     <a href="javascript:void(0)" name="<?php echo $_optionCode; ?>"
                        id="swatch<?php echo $_option->id; ?>" class="<?php echo $_aClass ?>"
                        title="<?php echo $_option->label; ?>"
-                       data-productid="<?= current($_option->products) ?>"
+                       data-productid="<?= $_option->productId ?>"
                        style="height: <?php echo $_swatchOuterHeight ?>px; <?php if (!$_hasImage): ?>min-<?php endif; ?>width: <?php echo $_swatchOuterWidth ?>px;">
                         <span class="swatch-label"
                               style="height: <?php echo $_swatchInnerHeight ?>px; <?php if (!$_hasImage): ?>min-<?php endif; ?>width: <?php echo $_swatchInnerWidth ?>px; line-height: <?php echo $_swatchInnerHeight ?>px;">
