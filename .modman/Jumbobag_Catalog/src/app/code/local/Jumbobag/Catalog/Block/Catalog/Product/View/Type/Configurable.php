@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: flavien
- * Date: 22/12/17
- * Time: 16:20
- */
+
 class Jumbobag_Catalog_Block_Catalog_Product_View_Type_Configurable extends Mage_Catalog_Block_Product_View_Type_Configurable {
 
     /**
      * Composes configuration for js
+     * add option productId
      *
      * @return string
      */
