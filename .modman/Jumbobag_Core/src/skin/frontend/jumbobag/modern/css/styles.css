@@ -5054,7 +5054,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus .product .image-wrapper:hover .btn-wrapper a {
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 14px;
     text-transform: uppercase;
     text-decoration: none;
@@ -5094,7 +5094,6 @@ footer .liens-footer .copyright-wrapper p {
 	font-weight: 700;
 	font-size: 16px;
     color: #30409f;
-    float: right;
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h4 {
     font-family: 'Lato', sans-serif;
@@ -6443,6 +6442,37 @@ only screen and (max-width: 648px) {
 .product-view .product-image-thumbs img {
 	max-width: 100%;
 	max-height: 100%;
+}
+
+.recemment-vus h3 {
+    letter-spacing: 0 !important;
+}
+
+.recemment-vus .titles-wrapper .special-price {
+	display: none;
+}
+
+.recemment-vus .titles-wrapper .special-price:last-child {
+	display: block;
+}
+
+.recemment-vus .titles-wrapper h4 {
+	display: none;
+}
+
+.recemment-vus .minimal-price-link,
+.recemment-vus .price-box .old-price {
+	text-align: right;
+}
+
+.recemment-vus .minimal-price-link span.label {
+	float: none;
+	text-transform: initial;
+}
+
+
+.recemment-vus .product .btn-wrapper a {
+	color: white;
 }
 
 body.fixbandesbleues .presentation-produit-wrapper, 
