@@ -1834,14 +1834,15 @@ footer .liens-footer .copyright-wrapper p {
 .insta .row {
     overflow: hidden;
 }
+
 .insta #instafeed h2 {
 	font-family: "Lato", sans-serif;
 	font-weight: 200;
 	color: #31419f;
 	text-transform: uppercase;
 	font-size: 34px;
-    margin-top: 80px;
-    text-align: center;
+	margin-top: 80px;
+	text-align: center;
 }
 .insta #instafeed p {
     font-family: 'Lato', sans-serif;
