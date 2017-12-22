@@ -27,8 +27,8 @@
 <?php if ($product->getImage() != 'no_selection' && $product->getImage()): ?>
 
 	<p class="product-image">
-        <a href="<?php echo $this->helper('catalog/image')->init($product, 'image'); ?>" rel="lighbox-zoom-gallery" >
-            <img src="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
+        <a class="product-image-link" href="<?php echo $this->helper('catalog/image')->init($product, 'image'); ?>" rel="lighbox-zoom-gallery" >
+            <img class="product-image-img" src="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
         </a>
     </p>
 
@@ -36,77 +36,11 @@
 
     <p class="product-image">
         <?php
-            $_img = '<img src="'.$this->helper('catalog/image')->init($product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($product, 'image')->resize(500, 500).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+            $_img = '<img class="product-image-img" src="'.$this->helper('catalog/image')->init($product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($product, 'image')->resize(500, 500).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
             echo $outputHelper->productAttribute($product, $_img, 'image');
         ?>
     </p>
 
 <?php endif; ?>
 
-<?php if (count($this->getGalleryImages()) > 0): ?>
-<div class="more-views">
-    <ul id="shopper_gallery_carousel" class="jcarousel-skin-tango clearfix">
-    <?php foreach ($this->getGalleryImages() as $_image): ?>
-    	<?php //Skip, if no image
-        	if ($_image->getFile() == NULL)
-			continue; ?>
-        <li data-label="<?php echo $this->escapeHtml($_image->getLabel()) ?>" >
-            <a href='<?php echo $this->helper('catalog/image')->init($product, 'image', $_image->getFile()); ?>' class='lighbox-zoom-gallery' rel='lighbox-zoom-gallery' title='<?php echo $this->escapeHtml($_image->getLabel()) ?>' >
-            <img src="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail', $_image->getFile())->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'thumbnail', $_image->getFile())->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>"/>
-            </a>
-        </li>
-    <?php endforeach; ?>
-    </ul>
-    <div class="jcarousel-controls">
-        <a href="#" class="jcarousel-prev-horizontal" id="shopper_gallery_prev"></a>
-        <a href="#" class="jcarousel-next-horizontal" id="shopper_gallery_next"></a>
-    </div>
-</div>
-<?php endif; ?>
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-
-        jQuery('a[rel="lighbox-zoom-gallery"]').fancybox({
-            titleShow:false,
-            hideOnContentClick:true
-        });
-
-        myCarousel = null; // This will be the carousel object
-
-        function mycarousel_initCallback(carousel, state) {
-            if (state == 'init') {
-                myCarousel = carousel;
-            }
-            jQuery('#shopper_gallery_next').bind('click', function() {
-                carousel.next();
-                return false;
-            });
-            jQuery('#shopper_gallery_prev').bind('click', function() {
-                carousel.prev();
-                return false;
-            });
-
-            jQuery('.product-view .product-img-box .more-views .jcarousel-skin-tango .jcarousel-container-horizontal').width(<?php echo ($thumbX+8)*3;?>);
-            jQuery('.product-view .product-img-box .more-views .jcarousel-skin-tango .jcarousel-clip-horizontal').width(<?php echo ($thumbX+8)*3;?>);
-            jQuery('.product-view .product-img-box .more-views .jcarousel-skin-tango .jcarousel-item').width(<?php echo $thumbX;?>);
-            jQuery('#shopper_gallery_prev, #shopper_gallery_next').css({marginTop:-<?php echo ($thumbY)/2+17;?>});
-
-        };
-
-        jQuery('#shopper_gallery_carousel').jcarousel({
-            scroll: 1,
-            initCallback: mycarousel_initCallback,
-            buttonNextHTML: null,
-            buttonPrevHTML: null
-        });
-
-        jQuery(window).resize(function(){
-            var n = jQuery('#shopper_gallery_carousel > li').length;
-            var w = jQuery('#shopper_gallery_carousel > li').outerWidth(true);
-            jQuery('#shopper_gallery_carousel').width(n*w);
-            if ( myCarousel ) myCarousel.scroll(0);
-	        jQuery('#shopper_gallery_prev, #shopper_gallery_next').css({marginTop:-($('.lighbox-zoom-gallery img').height()/2+17)});
-        });
-
-    });
-</script>
+<ul id="product-gallery" class="product-gallery clearfix"></ul>
