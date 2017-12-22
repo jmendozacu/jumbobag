@@ -1,4 +1,4 @@
-/**
+s/**
  * Magento
  *
  * NOTICE OF LICENSE
@@ -6443,4 +6443,9 @@ only screen and (max-width: 648px) {
 .product-view .product-image-thumbs img {
 	max-width: 100%;
 	max-height: 100%;
+}
+
+body.fixbandesbleues .presentation-produit-wrapper, 
+body.fixbandesbleues .entretien-wrapper {
+	background:transparent !important;
 }

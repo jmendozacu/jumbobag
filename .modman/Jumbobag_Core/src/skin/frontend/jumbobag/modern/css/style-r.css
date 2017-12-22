@@ -1,14 +1,5 @@
 
 /*-----------------------------original*/
-
-.product-original .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-original .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-original .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -122,14 +113,6 @@
 .product-original-printed .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .wheelmark h3:before{
 	display: none;
 }
-.product-original-printed .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-original-printed .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-original-printed .informations-produit .product-infos h2 .thin-part{
 	display: none;
 }
@@ -181,15 +164,6 @@ margin-top: 200px!important;
 
 }
 /*-----------------------------cube*/
-
-.product-cube .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-cube .entretien-wrapper {
-	background:transparent !important;
-
-}
 .product-cube .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -298,15 +272,6 @@ margin-top: 200px!important;
 }
 
 /*-----------------------------mini swimming bag*/
-
-.product-mini-swimming-bag .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-mini-swimming-bag .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-mini-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -423,14 +388,6 @@ margin-top: 200px!important;
 }
 /*-----------------------------swimming bag*/
 
-.product-swimming-bag .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-swimming-bag .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -597,15 +554,6 @@ margin-top: 200px!important;
     margin-top: 120px;
    }
 /*-----------------------------scuba xxl*/
-
-.product-scuba-xxl .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-scuba-xxl .entretien-wrapper {
-	background:transparent !important;
-
-}
 .product-scuba-xxl .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -697,15 +645,6 @@ margin-top: 200px!important;
 }
 
 /*-----------------------------bowly*/
-
-.product-bowly .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-bowly .entretien-wrapper {
-	background:transparent !important;
-
-}
 .product-bowly .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -795,15 +734,6 @@ margin-top: 200px!important;
 }
 }
 /*-----------------------------chilly bean*/
-
-.product-chilly-bean .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-chilly-bean .entretien-wrapper {
-	background:transparent !important;
-
-}
 .product-chilly-bean .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -928,15 +858,6 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 	text-decoration: line-through red;
 }
 /*-----------------------------Lazy swimming bag*/
-
-.product-lazy-swimming-bag .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-lazy-swimming-bag .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-lazy-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -1052,15 +973,6 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 }
 }
 /*-----------------------------Donut swimming bag*/
-
-.product-donut-swimming-bag .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-donut-swimming-bag .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-donut-swimming-bag .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important
 	;
@@ -1176,15 +1088,6 @@ footer .arguments-footer .argument-footer:hover .image-wrapper{
 }
 }
 /*-----------------------------cube-xtrem--------------------------------*/
-
-.product-cube-xtrem .presentation-produit-wrapper{
-	background:transparent !important;
-
-}
-.product-cube-xtrem .entretien-wrapper{
-	background:transparent !important;
-
-}
 .product-cube-xtrem .wrapper-en-savoir-plus .inner-en-savoir-plus .content_tissu .container .plus_tissus h3{
 	float: none!important;
 }

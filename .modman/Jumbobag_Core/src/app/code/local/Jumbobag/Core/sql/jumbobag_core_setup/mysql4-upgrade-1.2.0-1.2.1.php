@@ -1,5 +1,5 @@
 <?php
-Mage::log('-- Start Jumbobag_Core upgrade 1.2.0 --');
+Mage::log('-- Start Jumbobag_Core upgrade 1.2.1 --');
 
 try {
     /* @var $installer Mage_Core_Model_Resource_Setup */
@@ -16,4 +16,4 @@ try {
     Mage::logException($e);
 }
 
-Mage::log('-- End Jumbobag_Core data upgrade 1.2.0 --');
+Mage::log('-- End Jumbobag_Core data upgrade 1.2.1 --');
