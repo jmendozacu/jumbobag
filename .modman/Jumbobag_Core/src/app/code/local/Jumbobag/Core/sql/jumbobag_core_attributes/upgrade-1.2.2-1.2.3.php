@@ -40,7 +40,7 @@ foreach ($keys as $key) {
         Mage::getSingleton('catalog/product_action')
             ->updateAttributes(
                 [$product->getId()],
-                ["fixbandebleu" => 1],
+                ["fixbandesbleues" => 1],
                 Mage_Core_Model_App::ADMIN_STORE_ID
             );
     }

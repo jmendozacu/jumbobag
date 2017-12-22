@@ -3,8 +3,8 @@ Mage::log('-- Start Jumbobag_Core upgrade 1.2.2 --');
 $installer = $this;
 $installer->startSetup();
 
-$installer->removeAttribute('catalog_product', 'fixbandebleu');
-$installer->addAttribute('catalog_product', 'fixbandebleu', array(
+$installer->removeAttribute('catalog_product', 'fixbandesbleues');
+$installer->addAttribute('catalog_product', 'fixbandesbleues', array(
         'group'                     => 'General',
         'input'                     => 'select',
         'type'                      => 'int',
