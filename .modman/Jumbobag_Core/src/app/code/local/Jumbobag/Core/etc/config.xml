@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Jumbobag_Core>
-			<version>1.2.1</version>
+			<version>1.2.3</version>
 		</Jumbobag_Core>
 	</modules>
 	<global>
@@ -16,7 +16,21 @@
 					<use>core_setup</use>
 				</connection>
 			</jumbobag_core_setup>
+			<jumbobag_core_attributes>
+				<setup>
+					<module>Jumbobag_Core</module>
+					<class>Mage_Eav_Model_Entity_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</jumbobag_core_attributes>
 		</resources>
+		<helpers>
+			<jumbobag_core>
+				<class>Jumbobag_Core_Helper</class>
+			</jumbobag_core>
+		</helpers>
 		<blocks>
 			<jumbobag_core>
 				<class>Jumbobag_Core_Block</class>

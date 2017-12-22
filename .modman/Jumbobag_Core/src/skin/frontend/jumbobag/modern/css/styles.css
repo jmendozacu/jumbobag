@@ -6474,3 +6474,8 @@ only screen and (max-width: 648px) {
 .recemment-vus .product .btn-wrapper a {
 	color: white;
 }
+
+body.fixbandesbleues .presentation-produit-wrapper, 
+body.fixbandesbleues .entretien-wrapper {
+	background:transparent !important;
+}
