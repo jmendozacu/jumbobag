@@ -11,5 +11,12 @@
                 <class>Jumbobag_Catalog_Helper</class>
             </jumbobag_catalog>
         </helpers>
+        <blocks>
+            <catalog>
+                <rewrite>
+                    <product_view_type_configurable>Jumbobag_Catalog_Block_Catalog_Product_View_Type_Configurable</product_view_type_configurable>
+                </rewrite>
+            </catalog>
+        </blocks>
     </global>
 </config>
