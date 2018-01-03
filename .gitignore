@@ -11,3 +11,5 @@ docker/entrypoint.sh
 /htdocs/sitemaps_de.xml
 /htdocs/sitemaps_en.xml
 /htdocs/sitemaps_it.xml
+
+.idea
