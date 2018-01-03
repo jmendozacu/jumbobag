@@ -1,7 +1,8 @@
 /vendor/
 /node_modules/
 docker-compose.yml
-docker/entrypoint.sh
+.c42/docker-compose.yml
+.c42/docker/entrypoint.sh
 
 /htdocs/.htaccess
 /htdocs/var/
@@ -12,4 +13,4 @@ docker/entrypoint.sh
 /htdocs/sitemaps_en.xml
 /htdocs/sitemaps_it.xml
 
-.idea
+.idea/

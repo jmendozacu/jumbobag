@@ -1,5 +1,14 @@
-<!--@subject Confirmation of subscription to the newsletter @-->
+<!--@subject Newsletter subscription success @-->
 
-Confirmation of your newsletter subscription has been registered!<br /><br />
-Thank you<br /><br />
-The JumboBag Team<br /><br />
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="action-content">
+            <h4>You have been successfully subscribed to the newsletter.</h4>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer"}}
