@@ -69,7 +69,7 @@ if (!$_category = Mage::registry('current_category')) {
     }
 }
 if ( !empty($_category) ) {
-    echo '<div id="product-name-and-price" class="wow fadeInRight"><h1><span class="title-product-h1">'.$_category->getName().'</span><br /><span class="bold-part">'.$_product->getName().'</span></h1><h2 class="banner-price">'.$this->getChildHtml('product_type_data').'</h2></div>';
+    echo '<div id="product-name-and-price" class="wow fadeInRight"><h1><span class="title-product-h1">'.$_category->getName().'</span><br /><span class="bold-part">'.$_product->getName().'</span></h1></div>';
 }
 echo $this->getChildHtml('alert_urls');
 echo $this->getChildHtml('extrahint');
@@ -199,142 +199,7 @@ echo $this->getChildHtml('extrahint');
                     <?php echo $_product->getData('new_texte_remplissage'); ?>
                 </div>
             </div>
-            <div class="diaporama-produit">
-                <!-- Insert to your webpage where you want to display the slider -->
-                <div id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:100%;margin:0 auto;">
-                    <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
-                        <ul class="amazingslider-slides" style="display:none;">
-                            <li><?php if( $image_diapo_1 = $_product->getData('new_image_diapo_1'))
-                                {
-                                    if(strcmp($image_diapo_1, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_1').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <li><?php  if ($image_diapo_2 = $_product->getData('new_image_diapo_2'))
-                                {
-                                    if(strcmp($image_diapo_2, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_2').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }?>
-                            </li>
-                            <li><?php  if($image_diapo_3 = $_product->getData('new_image_diapo_3'))
-                                {
-                                    if(strcmp($image_diapo_3, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_3').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <li><?php  if($image_diapo_4 = $_product->getData('new_image_diapo_4'))
-                                {
-                                    if(strcmp($image_diapo_4, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_4').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <li><?php  if($image_diapo_5 = $_product->getData('new_image_diapo_5'))
-                                {
-                                    if(strcmp($image_diapo_5, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_5').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <li><?php   if($image_diapo_6 = $_product->getData('new_image_diapo_6'))
-                                {
 
-                                    if(strcmp($image_diapo_6, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_6').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }		?>
-                            </li>
-                            <li><?php    if($image_diapo_7 = $_product->getData('new_image_diapo_7'))
-                                {
-                                    if(strcmp($image_diapo_7, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_7').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <li><?php  if($image_diapo_8 = $_product->getData('new_image_diapo_8'))
-                                {
-                                    if(strcmp($image_diapo_8, "no_selection") != 0)
-                                    {
-                                        echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_8').'" alt="'.$_product->getName().'" />';
-                                    }
-                                }
-                                ?>
-                            </li>
-                            <?php  if($_product->getData('video_slider_code'))
-                            { ?>
-                                <li><img src="images/Rv3v7ZfYp-g.png" /><?php echo $_product->getData('video_slider_code');  ?></li>
-                            <?php }
-                            if($_product->getData('video_slider_code1'))
-                            {
-                                ?>
-                                <li><img src="images/Rv3v7ZfYp-g.png" /><?php echo $_product->getData('video_slider_code1'); ?></li>
-                            <?php }
-                            if($_product->getData('video_slider_code2'))
-                            {
-                                ?>
-                                <li><img src="images/Rv3v7ZfYp-g.png" /><?php echo $_product->getData('video_slider_code2'); ?></li>
-                            <?php }
-                            if($_product->getData('video_slider_code3'))
-                            {
-                                ?>
-                                <li><img src="images/Rv3v7ZfYp-g.png" /><?php echo $_product->getData('video_slider_code3'); ?></li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-
-                    </div>
-                </div>
-                <!-- End of body section HTML codes -->
-
-
-                <!-- <div class="owl-carousel owl-theme">
-            <div class="item">
-              <?php  $image_diapo_1 = $_product->getData('new_image_diapo_1');
-
-                if(strcmp($image_diapo_1, "no_selection") != 0) {
-                    echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_1').'" alt="'.$_product->getName().'" />';
-                }
-                ?>
-            </div>
-            <div class="item">
-              <?php  $image_diapo_2 = $_product->getData('new_image_diapo_2');
-
-                if(strcmp($image_diapo_2, "no_selection") != 0) {
-                    echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_2').'" alt="'.$_product->getName().'" />';
-                } ?>
-
-            </div>
-            <div class="item">
-              <?php   $image_diapo_3 = $_product->getData('new_image_diapo_3');
-                if(strcmp($image_diapo_3, "no_selection") != 0) {
-                    echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_diapo_3').'" alt="'.$_product->getName().'" />';
-                }
-                ?>
-            </div>
-
-            <div id="playerid" class="item"><?php echo $_product->getData('video_slider_code'); ?></div>
-          </div>
-           <!-->
-
-
-
-            </div>
             <div id="informations-produit" class="informations-produit row">
                 <div class="product-main-block">
                     <div class="product-infos col-sm-12 product-infos-mobile" style="display: none;">

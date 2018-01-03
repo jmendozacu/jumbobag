@@ -1,5 +1,5 @@
 web:
-  build: ./docker/Magento
+  build: .c42/docker/Magento
   ports:
     - 80
   links:
@@ -7,7 +7,7 @@ web:
     - mail
   volumes:
     - .:/var/www
-    - ./docker/entrypoint.sh:/docker-entrypoint.sh
+    - .c42/docker/entrypoint.sh:/docker-entrypoint.sh
   entrypoint: /docker-entrypoint.sh
   command: apache2 -DFOREGROUND
   environment:
@@ -37,11 +37,11 @@ phpmyadmin:
     VIRTUAL_HOST: pma.jumbobag.test
 
 composer:
-  build: ./docker/composer
+  build: .c42/docker/composer
   links:
     - db
   volumes:
     - $HOME/.composer:/composer
-    - ./docker/php_additional.ini:/usr/local/etc/php/conf.d/php_additional.ini
+    - .c42/docker/php_additional.ini:/usr/local/etc/php/conf.d/php_additional.ini
     - .:/var/www
   working_dir: /var/www

@@ -80,9 +80,9 @@
 
     var userFeed = new Instafeed({
         get: 'user',
-        userId: '623597756',
-        clientId: '02b47e1b98ce4f04adc271ffbd26611d',
-        accessToken: '623597756.02b47e1.3dbf3cb6dc3f4dccbc5b1b5ae8c74a72',
+        userId: '288979969',
+        clientId: '63d7bf6ca0984ef582595bca832fd64e',
+        accessToken: '288979969.63d7bf6.eaf8bbb470d24c58ab5248aa3eb93c61',
         resolution: 'standard_resolution',
         template: '<div class="col-xs-3"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a></div>',
         sortBy: 'most-recent',

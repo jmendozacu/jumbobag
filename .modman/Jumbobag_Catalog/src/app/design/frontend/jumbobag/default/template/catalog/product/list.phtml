@@ -1,0 +1,264 @@
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl(); ?>js/jquery-2.0.2.min.js"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+</script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl(); ?>js/jquery.isotope.min.js"></script>
+<script type="text/javascript">
+    jQuery(window).load(function () {
+        var $ = jQuery;
+        var $container = $('#gallery-content-center');
+        var $filters = $('[data-categoryid]');
+
+        $filters.on('click', function () {
+            var $filter = $(this);
+            var categoryId = $filter.data('categoryid');
+            categoryId = parseInt(categoryId, 10);
+            selectFilter($filter);
+            filterProducts(categoryId);
+        });
+
+        var filterProducts = function (categoryId) {
+            $container.isotope({
+                itemSelector: 'li',
+                filter: function (index, product) {
+                    return isInCategory(product, categoryId);
+                }
+            });
+        };
+
+        var isInCategory = function (product, categoryId) {
+            var categoryIds = product.dataset.categoryids
+                .split(',')
+                .map(function (catId) {
+                    return parseInt(catId, 10);
+                })
+            ;
+            return categoryIds.indexOf(categoryId) !== -1;
+        };
+
+        var selectFilter = function ($filter) {
+            $filters.closest('.gallery-header-center-right-links').removeClass('gallery-header-center-right-links-current');
+            $filter.addClass('gallery-header-center-right-links-current');
+        };
+    });
+</script>
+
+<style type="text/css">
+    .showDiv {
+        display: block;
+    }
+
+    .hideDiv {
+        display: none;
+    }
+</style>
+
+<?php
+$_productCollection = $this->getLoadedProductCollection();
+$_helper = $this->helper('catalog/output');
+$helper = $this->helper('shoppersettings/image');
+
+$listX = 230;
+$listY = 230;
+?>
+<?php if (!$_productCollection->count()): ?>
+    <?php
+    $empty_category_block = Mage::getModel('cms/block')
+        ->setStoreId(Mage::app()->getStore()->getId())
+        ->load('shopper_empty_category');
+    if ($empty_category_block->getIsActive()) {
+        echo $this->getLayout()->createBlock('cms/block')->setBlockId('shopper_empty_category')->toHtml();
+    } else { ?>
+        <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php } ?>
+<?php else: ?>
+
+<div id="gallery">
+    <div id="gallery-header">
+        <div id="gallery-header-center">
+            <?php $_helper = Mage::helper('catalog/category') ?>
+            <?php $_categories = $_helper->getStoreCategories() ?>
+            <?php $currentCategory = Mage::registry('current_category') ?>
+            <?php if (count($_categories) > 0): ?>
+                <?php foreach ($_categories as $_category): ?>
+                    <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
+                        <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                        <?php $_subcategories = $_category->getChildrenCategories() ?>
+                        <?php if (count($_subcategories) > 0): ?>
+                            <div id="gallery-header-center-right">
+                                <div
+                                    class="gallery-header-center-right-links gallery-header-center-right-links-current topsubmenu group-1"
+                                    id="filter-all">
+                                    <a data-categoryid="<?= $_category->getId() ?>">Tout les produits</a>
+                                </div>
+                                <?php foreach ($_subcategories as $_subcategory): ?>
+                                    <div
+                                        class="gallery-header-center-right-links topsubmenu group-<?php echo $_subcategory->getId() ?>"
+                                        data-group="<?php echo $_subcategory->getId() ?>"
+                                        id="filter-<?php echo $_subcategory->getId() ?>">
+                                        <a class="sub_category_url-<?php echo $_subcategory->getId() ?>"
+                                           data-categoryid="<?= $_subcategory->getId() ?>">
+                                            <?php echo $_subcategory->getName() ?>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+        </div>
+        <div class="wrapper-en-savoir-plus tissu wrapper-filters-catalog">
+            <div class="bouton">
+                <p>Filtres<br/><i class="fa fa-plus-circle" aria-hidden="true"></i></p>
+            </div>
+            <div class="inner-en-savoir-plus">
+                <?php if (count($_categories) > 0): ?>
+                    <?php foreach ($_categories as $_category): ?>
+                        <?php if ($currentCategory && $currentCategory->getId() == $_category->getId()): ?>
+                            <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                            <?php $_subcategories = $_category->getChildrenCategories() ?>
+                            <?php if (count($_subcategories) > 0): ?>
+                                <?php foreach ($_subcategories as $_subcategory): ?>
+                                    <?php $_sub_subcategories = $_subcategory->getChildrenCategories() ?>
+                                    <?php if (count($_sub_subcategories) > 0): ?>
+                                        <div class="submenufilter group-<?php echo $_subcategory->getId() ?>"
+                                             data-group="<?php echo $_subcategory->getId() ?>">
+                                            <div id="gallery-header-center-right">
+                                                <?php foreach ($_sub_subcategories as $_sub_subcategory): ?>
+                                                    <div class="gallery-header-center-right-links "
+                                                         id="filter-<?php echo $_sub_subcategory->getId() ?>">
+                                                        <a class="sub_category_url-<?php echo $_sub_subcategory->getId() ?>"
+                                                           data-categoryid="<?= $_sub_subcategory->getId() ?>">
+                                                            <?php echo $_sub_subcategory->getName() ?>
+                                                        </a>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <script type="text/javascript">
+                jQuery('.gallery-header-center-right-links.topsubmenu').click(function () {
+                    jQuery('.submenufilter.active').removeClass('active');
+                    var newDisplay = 'none';
+                    jQuery('.submenufilter').css('display', newDisplay);
+                    var newDisplayview = 'block';
+                    jQuery('.submenufilter.active').css('display', newDisplayview);
+                    jQuery('.submenufilter.group-' + jQuery(this).data('group')).addClass('active');
+                    jQuery('.fa').removeClass('fa-times-circle isOutin');
+                    jQuery('.fa').addClass('fa-plus-circle');
+                    jQuery('.inner-en-savoir-plus').load();
+                    var h = jQuery('.submenufilter.active').height();
+
+                    if (h != null) {
+                        jQuery(".wrapper-en-savoir-plus.tissu").addClass('showDiv');
+                        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('hideDiv');
+                    } else {
+                        jQuery(".wrapper-en-savoir-plus.tissu").addClass('hideDiv');
+                        jQuery(".wrapper-en-savoir-plus.tissu").removeClass('showDiv');
+                    }
+                });
+            </script>
+            <script type="text/javascript">
+                jQuery('.fa-plus-circle').click(function () {
+                    var display = jQuery('.submenufilter.active').css('display');
+                    var newDisplay = (display == 'block') ? 'none' : 'block';
+                    jQuery('.submenufilter.active').css('display', newDisplay);
+                });
+                jQuery('.fa').click(function () {
+                    jQuery(this).toggleClass('fa-plus-circle fa-times-circle');
+                    jQuery(this).toggleClass(' isOutin');
+                    jQuery(this).parent().toggleClass('close_icon');
+
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="gallery-content">
+        <div id="gallery-content-center">
+            <?php
+            $_collectionSize = $_productCollection->count();
+
+            $pageLayout = $this->getLayout()->getBlock('root')->getTemplate();
+            if (strpos($pageLayout, '2columns')) {
+                $grid_class = 'two_columns_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_2col');
+            } else {
+                $grid_class = 'one_column_' . Mage::getStoreConfig('shoppersettings/catalog/grid_columns_1col');
+            }
+            $imgX = 230;
+            $imgY = 230;
+            ?>
+            <ul class="products-grid <?php echo $grid_class; ?>">
+                <?php $i = 0;
+                foreach ($_productCollection as $_product): ?>
+                    <li class="item all" itemscope itemtype="http://schema.org/Product"
+                        data-categoryids="<?= Mage::helper('jumbobag_catalog')->getDataCategotyIds($_product); ?>">
+                        <div class="regular abcdef">
+                            <a href="<?php echo $_product->getProductUrl() ?>"
+                               title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image"
+                               itemprop="url">
+                                <?php $stockItem = $_product->getStockItem(); ?>
+                                <?php if (!$stockItem->getIsInStock()): ?>
+                                    <div class="out-of-stock-label">Épuisé</div>
+                                <?php endif; ?>
+                                <div
+                                    class="featured-product-label"><?php echo $_product->getData('featured_product') ?></div>
+                                <?php echo $this->helper('shoppersettings')->getLabel($_product); ?>
+                                <?php // Display Discount percents start ?>
+                                <?php $_finalPrice = $_product->getPrice();
+                                $_price = $_product->getFinalPrice();
+
+                                if ($_price < $_finalPrice): ?>
+                                    <?php $_savingPercent = 100 - round(($_price / $_finalPrice) * 100); ?>
+                                    <div class="sale-label sale-top-right"><?php echo $_savingPercent; ?>%</div>
+                                <?php endif; ?>
+                                <?php // Display Discount percent end ?>
+                                <img
+                                    src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX, $imgY) ?>"
+                                    data-srcX2="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgX * 2, $imgY * 2) ?>"
+                                    width="<?php echo $imgX; ?>" height="<?php echo $imgY; ?>"
+                                    alt="<?php echo $this->htmlEscape($_product->getName()) ?>" itemprop="image"/>
+                            </a>
+                            <div class="product-info">
+                                <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                                <div class="product-info-bottom-left">
+                                    <a class="product-name" href="<?php echo $_product->getProductUrl() ?>"
+                                       title="<?php echo $_productNameStripped; ?>"
+                                       itemprop="name"><?php echo $_product->getName() ?></a>
+                                    <div
+                                        class="collection-name"><?php echo $_product->getData('collection_name') ?></div>
+                                </div>
+
+                                <div
+                                    class="product-info-bottom-right <?php $productprice = $this->getPriceHtml($_product, true);
+                                    if (strpos($productprice, 'minimal-price-link') !== false) {
+                                        echo 'category-price';
+                                    } ?>">
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+        <?php echo $this->getToolbarHtml() ?>
+    </div>
+</div>
+<?php endif; ?>
