@@ -124,28 +124,26 @@ task :install do
 	invoke "mage:disable_smtp", []
 end
 
+desc "pull", "rsync from prod server in case someone modified something there"
+task :pull do
+  exec("rsync -avzP --exclude=media --exclude=var/session --exclude=var/cache --exclude=var/log occitech-jbag:jumbobag/ htdocs/")
+end
+
 package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
 	  # exec remplace le process actuel
-	  exec("bundle exec cap preprod deploy")
 	end
 
-  desc "prod", "deploy (almost) to prod"
-  task :prod do
-		exec("rsync --dry-run -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/ | less")
-  end
-
-  desc "prodprod", "deploy (really) to prod"
-  task :prodprod do
-		exec("rsync -avzP --delete-after --exclude .htaccess --exclude .htpasswd --exclude=media --exclude=var/cache  --exclude=var/log  --exclude=var/session --exclude=app/etc/local.xml htdocs/ occitech-jbag:jumbobag/")
-  end
-
+	desc "prod", "deploy (really) to prod"
+	task :prod do
+	  exec("bundle exec cap production deploy")
+	end
 end
 
 desc "pull", "rsync from prod server in case someone modified something there"
 task :pull do
-  exec("rsync -avzP --exclude=media --exclude=var/session --exclude=var/cache --exclude=var/log occitech-jbag:jumbobag/ htdocs/")
+  exec("rsync -avzP --exclude=/media --exclude=/var/session --exclude=/var/cache --exclude=/var/log --exclude=/var/report occitech-jbag:jumbobag/ htdocs/")
 end
 
 private
