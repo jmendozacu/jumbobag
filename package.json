@@ -9,4 +9,7 @@
   "author": "commit42",
   "private": true,
   "homepage": "",
+  "dependencies": {
+    "prettier": "^1.10.2"
+  }
 }
