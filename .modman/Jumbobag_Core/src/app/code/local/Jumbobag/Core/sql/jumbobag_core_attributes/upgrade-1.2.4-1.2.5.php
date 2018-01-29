@@ -51,7 +51,7 @@ foreach ($mapping as $key => $attrVal) {
     }
 
     foreach ($products as $product) {
-        $optId = $attribute->getSource()->getOptionId(str_replace("-", " ", $attrVal));
+        $optId = $attribute->getSource()->getOptionId($attrVal);
         $instlog("Setting $attributeCode = $optId ($attrVal) for product with ID: ".$product->getId());
         Mage::getSingleton('catalog/product_action')
             ->updateAttributes(
