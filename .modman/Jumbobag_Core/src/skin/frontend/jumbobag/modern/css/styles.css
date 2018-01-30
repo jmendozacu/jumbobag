@@ -4532,42 +4532,6 @@ footer .liens-footer .copyright-wrapper p {
 @media (min-width: 768px) {
 	.catalog-product-view .presentation-produit-wrapper {
 		background: #ffffff;
-		background: -moz-linear-gradient(
-			left,
-			#ffffff 0%,
-			#ffffff 50%,
-			#30419f 50%,
-			#30419f 100%
-		);
-		background: -webkit-gradient(
-			left top,
-			right top,
-			color-stop(0%, #ffffff),
-			color-stop(50%, #ffffff),
-			color-stop(50%, #30419f),
-			color-stop(100%, #30419f)
-		);
-		background: -webkit-linear-gradient(
-			left,
-			#ffffff 0%,
-			#ffffff 50%,
-			#30419f 50%,
-			#30419f 100%
-		);
-		background: -o-linear-gradient(
-			left,
-			#ffffff 0%,
-			#ffffff 50%,
-			#30419f 50%,
-			#30419f 100%
-		);
-		background: -ms-linear-gradient(
-			left,
-			#ffffff 0%,
-			#ffffff 50%,
-			#30419f 50%,
-			#30419f 100%
-		);
 		background: linear-gradient(
 			to right,
 			#ffffff 0%,
@@ -4649,42 +4613,6 @@ footer .liens-footer .copyright-wrapper p {
 @media (min-width: 768px) {
 	.catalog-product-view .entretien-wrapper {
 		background: #30419f;
-		background: -moz-linear-gradient(
-			left,
-			#30419f 0%,
-			#30419f 50%,
-			#ffffff 50%,
-			#ffffff 100%
-		);
-		background: -webkit-gradient(
-			left top,
-			right top,
-			color-stop(0%, #30419f),
-			color-stop(50%, #30419f),
-			color-stop(50%, #ffffff),
-			color-stop(100%, #ffffff)
-		);
-		background: -webkit-linear-gradient(
-			left,
-			#30419f 0%,
-			#30419f 50%,
-			#ffffff 50%,
-			#ffffff 100%
-		);
-		background: -o-linear-gradient(
-			left,
-			#30419f 0%,
-			#30419f 50%,
-			#ffffff 50%,
-			#ffffff 100%
-		);
-		background: -ms-linear-gradient(
-			left,
-			#30419f 0%,
-			#30419f 50%,
-			#ffffff 50%,
-			#ffffff 100%
-		);
 		background: linear-gradient(
 			to right,
 			#30419f 0%,
