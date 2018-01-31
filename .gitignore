@@ -14,3 +14,4 @@ docker-compose.yml
 /htdocs/sitemaps_it.xml
 
 .idea/
+.vscode
