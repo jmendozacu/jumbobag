@@ -133,6 +133,7 @@ package :deploy do
 	desc "preprod", "deploy to preprod"
 	task :preprod do
 	  # exec remplace le process actuel
+	  exec("bundle exec cap preprod deploy")
 	end
 
 	desc "prod", "deploy (really) to prod"
