@@ -23,6 +23,7 @@
         listenEvents();
         initCarousel();
         selectFirstItem();
+        window.viewer3DOptions.ready();
     });
 
     var listenEvents = (function () {

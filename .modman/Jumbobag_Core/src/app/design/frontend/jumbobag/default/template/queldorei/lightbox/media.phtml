@@ -78,5 +78,16 @@ if ($product->getData('innersense_id')) {
         }
 
         window.viewer3DOptions.bypassListeners = true;
+
+        window.viewer3DOptions.ready = function () {
+            window.viewer3DOptions.init();
+            if (Innersense.isSupported && window.viewer3D) {
+                var swatches = document.querySelectorAll('.swatch-link')
+                for (var i = 0; i < swatches.length; i++) {
+                    swatches[i].addEventListener('click', window.viewer3DOptions.handleOptionsUpdated)
+                }
+                window.viewer3DOptions.handleOptionsUpdated()
+            }
+        }
     </script>
 <?php } ?>
