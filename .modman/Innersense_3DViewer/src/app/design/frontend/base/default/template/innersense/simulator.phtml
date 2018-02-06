@@ -60,7 +60,6 @@
             var options = []
             for (var j = 0; j < elements.length; ++j) {
                 var element = elements[j]
-                console.log(element)
 
                 var entry = window.viewer3DOptions.getEntryFromElement(element)
                 var name = entry.name
@@ -113,7 +112,7 @@
         }
     }
 
-    jQuery(document).on('ready', function() {
+    window.viewer3DOptions.init = function init() {
         if (!Innersense.isSupported) {
             var viewerContainer = document.querySelectorAll('.with-3d-viewer')
             for (var i = 0; i < viewerContainer.length; ++i) {
@@ -145,11 +144,15 @@
                     inputs[i].addEventListener('change', window.viewer3DOptions.handleOptionsUpdated)
                 }
 
-                var swatches = document.querySelectorAll('.swatch, .swatch-link')
+                var swatches = document.querySelectorAll('.swatch')
                 for (var i = 0; i < swatches.length; i++) {
                     swatches[i].addEventListener('click', window.viewer3DOptions.handleOptionsUpdated)
                 }
             }
         }
-    })
+    }
+
+    if (!window.viewer3DOptions.ready) {
+        jQuery(document).on('ready', window.viewer3DOptions.init);
+    }
 </script>
