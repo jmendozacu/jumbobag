@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:5.6.31-apache
 MAINTAINER occitech <contact@occitech.fr>
 
 ENV N98_MAGERUN_VERSION 1.98.0
