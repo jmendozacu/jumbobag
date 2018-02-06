@@ -49,5 +49,34 @@
 <?php
 if ($product->getData('innersense_id')) {
     echo $this->getChildHtml('innersense_3dviewer');
-}
-?>
+    ?>
+    <script type="text/javascript">
+        if (!window.viewer3DOptions) {
+            window.viewer3DOptions = {}
+        }
+
+        window.viewer3DOptions.getEntryFromElement = function (element) {
+            var match = element.name.match(/super_attribute\[(\d+)\]/)
+            var name = match ? match[1] : null
+            var value = element.value;
+
+            if (['radio', 'checkbox'].indexOf(element.type) > -1 && !element.checked) {
+                value = null
+            }
+
+            return {
+                name: name,
+                value: value
+            }
+        }
+
+        window.viewer3DOptions.getPrice = function () {
+            var priceBoxSelector = '.special-price > .price, .regular-price > .price'
+            var price = document.querySelector(priceBoxSelector).innerHTML
+            // Only keep numbers and commas
+            return price.replace(/[^0-9$.,]/g, '');
+        }
+
+        window.viewer3DOptions.bypassListeners = true;
+    </script>
+<?php } ?>
