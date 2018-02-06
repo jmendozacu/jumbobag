@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Innersense_3DViewer>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends></depends>
+        </Innersense_3DViewer>
+    </modules>
+</config>

@@ -44,3 +44,10 @@
 <?php endif; ?>
 
 <ul id="product-gallery" class="product-gallery clearfix"></ul>
+
+
+<?php
+if ($product->getData('innersense_id')) {
+    echo $this->getChildHtml('innersense_3dviewer');
+}
+?>

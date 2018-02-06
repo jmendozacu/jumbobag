@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <viewer3d  translate="title" module="innersense_3dviewer">
+                                        <title>Innersense 3D Viewer</title>
+                                    </viewer3d>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -242,6 +242,7 @@
                 <action method="setItemLimit"><type>upsell</type><limit>44</limit></action>
             </block>
             <block type="catalog/product_list_related" name="content.product.related" as="content_related" template="catalog/product/list/related_content.phtml"/>
+            <remove name="innersense_3dviewer" />
         </reference>
 
         <reference name="product.info.additional">
