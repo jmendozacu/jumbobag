@@ -6,3 +6,5 @@ src/skin/frontend/base/default/css/innersense		skin/frontend/base/default/css/in
 
 src/app/design/frontend/base/default/layout/innersense	  app/design/frontend/base/default/layout/innersense
 src/app/design/frontend/base/default/template/innersense  app/design/frontend/base/default/template/innersense
+
+src/innersense.php innersense.php
