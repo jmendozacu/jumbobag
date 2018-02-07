@@ -24,14 +24,24 @@
 	}
 ?>
 
-<?php if ($product->getImage() != 'no_selection' && $product->getImage()): ?>
-
+<?php if ($product->getInnersenseId()): ?>
+    <div class="product-image product-image-3dviewer-container">
+        <a class="product-image-3dviewer-link" href="#3dviewer">
+            <?php
+                $_img = '<img class="product-image-img" src="'.$this->helper('catalog/image')->init($product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($product, 'image')->resize(500, 500).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+                echo $outputHelper->productAttribute($product, $_img, 'image');
+            ?>
+        </a>
+        <div class="product-image-link product-image-3dviewer">
+            <?php echo $this->getChildHtml('innersense_3dviewer'); ?>
+        </div>
+    </div>
+<?php elseif ($product->getImage() != 'no_selection' && $product->getImage()): ?>
 	<p class="product-image">
         <a class="product-image-link" href="<?php echo $this->helper('catalog/image')->init($product, 'image'); ?>" rel="lighbox-zoom-gallery" >
             <img class="product-image-img" src="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
         </a>
     </p>
-
 <?php else: ?>
 
     <p class="product-image">
@@ -45,15 +55,11 @@
 
 <ul id="product-gallery" class="product-gallery clearfix"></ul>
 
-
-<?php
-if ($product->getData('innersense_id')) {
-    echo $this->getChildHtml('innersense_3dviewer');
-    ?>
+<?php if ($product->getData('innersense_id')): ?>
     <script type="text/javascript">
         if (!window.viewer3DOptions) {
             window.viewer3DOptions = {}
-        }
+        };
 
         window.viewer3DOptions.getEntryFromElement = function (element) {
             var match = element.name.match(/super_attribute\[(\d+)\]/)
@@ -68,14 +74,14 @@ if ($product->getData('innersense_id')) {
                 name: name,
                 value: value
             }
-        }
+        };
 
         window.viewer3DOptions.getPrice = function () {
             var priceBoxSelector = '.special-price > .price, .regular-price > .price'
             var price = document.querySelector(priceBoxSelector).innerHTML
             // Only keep numbers and commas
             return price.replace(/[^0-9$.,]/g, '');
-        }
+        };
 
         window.viewer3DOptions.bypassListeners = true;
 
@@ -88,6 +94,14 @@ if ($product->getData('innersense_id')) {
                 }
                 window.viewer3DOptions.handleOptionsUpdated()
             }
-        }
+        };
+
+        jQuery(document).on('ready', function () {
+            var play3dButton = document.querySelector('.product-image-3dviewer-link')
+            play3dButton.addEventListener('click', function() {
+                play3dButton.classList.add('product-image-3dviewer-link--hidden');
+                window.viewer3DOptions.ready();
+            })
+        });
     </script>
-<?php } ?>
+<?php endif; ?>

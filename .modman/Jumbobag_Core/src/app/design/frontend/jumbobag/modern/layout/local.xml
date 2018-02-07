@@ -58,6 +58,9 @@
             <action method="addCss">
                 <stylesheet>css/colorSwatch.css</stylesheet>
             </action>
+            <action method="addCss">
+                <stylesheet>css/product3dViewer.css</stylesheet>
+            </action>
             <action method="addItem">
                 <type>skin_js</type>
                 <name>js/instafeed.min.js</name>
