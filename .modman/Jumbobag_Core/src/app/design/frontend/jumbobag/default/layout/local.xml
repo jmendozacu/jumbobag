@@ -46,6 +46,7 @@
             <action method="addCss"><stylesheet>css/catalogsearch.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/account.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/colorSwatch.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/product3dViewer.css</stylesheet></action>
 
             <action ifconfig="shoppersettings/design/override_css" method="addItem"><type>skin_css</type><name>css/override.css</name></action>
 
@@ -242,6 +243,7 @@
                 <action method="setItemLimit"><type>upsell</type><limit>44</limit></action>
             </block>
             <block type="catalog/product_list_related" name="content.product.related" as="content_related" template="catalog/product/list/related_content.phtml"/>
+            <remove name="innersense_3dviewer" />
         </reference>
 
         <reference name="product.info.additional">

@@ -1,0 +1,53 @@
+.viewer-3d {
+    overflow: hidden;
+}
+.viewer-3d .not-supported {
+    padding: 1em;
+    text-align: center;
+}
+.with-3d-viewer .not-supported {
+    display: none;
+}
+.viewer-3d__viewer {
+    border: none;
+    width: 100%;
+    height: 50vh;
+}
+.with-3d-viewer.unsupported .viewer-3d__viewer, .with-3d-viewer.unsupported .viewer-3d {
+    height: auto;
+}
+
+@media (min-width: 1024px) {
+    .viewer-3d {
+        height: 100vh;
+    }
+    .viewer-3d__viewer {
+        height: 100vh;
+    }
+}
+
+/* Debugger */
+.viewer-3d__debugger {
+    display: none;
+    background-color: red;
+    color: white;
+    padding: 1em;
+}
+.viewer-3d__toggle-debugger {
+    color: red;
+    background: none;
+    border: 1px solid red;
+    float: right;
+}
+.viewer-3d__debugger__status {
+    font-size: 2rem;
+}
+.viewer-3d__debugger__status::before {
+    content: 'Status: ';
+}
+.viewer-3d__debugger__action {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    margin-right: 0.5em;
+}

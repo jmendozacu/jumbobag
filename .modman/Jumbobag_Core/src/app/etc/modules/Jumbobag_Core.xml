@@ -7,6 +7,8 @@
             <depends>
                 <Aoe_QuoteCleaner />
                 <Sygnoos_Popupbuilder />
+                <Queldorei_ShopperSettings />
+                <Innersense_3DViewer />
             </depends>
         </Jumbobag_Core>
     </modules>
