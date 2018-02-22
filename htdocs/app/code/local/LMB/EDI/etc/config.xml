@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <LMB_EDI>
+            <version>1.0</version>
+        </LMB_EDI>
+    </modules>
+    <global>
+        <models>
+            <edi>
+                <class>LMB_EDI_Model</class>
+            </edi>
+        </models>
+        <resources>
+            <EDI_setup>
+                <setup>
+                    <module>LMB_EDI</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </EDI_setup>
+        </resources>
+        <events>
+            <!-- Un bloc par nom d'évenement magento à intercepter -->
+            <sales_order_place_after> <!-- sales_order_save_after OU sales_order_place_after OU checkout_type_onepage_save_order_after ? -->
+                <observers>
+                    <!-- Nom unique arbitraire... -->
+                    <new_order_observer>
+                        <!-- edi/ dépend de <models><edi> ci-dessus -->
+                        <class>edi/observer</class>
+                        <method>newOrder</method>
+                    </new_order_observer>
+                </observers>
+            </sales_order_place_after>
+
+            <sales_order_invoice_pay>
+                <observers>
+                    <new_payment_observer>
+                        <class>edi/observer</class>
+                        <method>newPayment</method>
+                    </new_payment_observer>
+                </observers>
+            </sales_order_invoice_pay>
+
+			<fianet_rnp_payment_success>
+				<observers>
+                    <new_payment_fianet_observer>
+                        <class>edi/observer</class>
+                        <method>newPaymentFianet</method>
+                    </new_payment_fianet_observer>
+                </observers>
+			</fianet_rnp_payment_success>
+			
+            <!-- Pas d'envoi natif d'article dans le sens Magento vers LMB
+			<catalog_product_save_after>
+				<observers>
+					<new_product_observer>
+						<class>edi/observer</class>
+						<method>saveProduct</method>
+					</new_product_observer>
+				</observers>
+			</catalog_product_save_after>
+			-->
+			
+            <!-- Nom d'évent à trouver...
+            <sales_order_save_after>
+                <observers>
+                    <update_account>
+                        <class>edi/observer</class>
+                        <method>userUpdateAccount</method>
+                    </update_account>
+                </observers>
+            </sales_order_save_after>
+            -->
+        </events>
+    </global>
+
+    <!-- Configuration de la zone publique du module -->
+    <frontend>
+        <secure_url>
+            <edi>/lmbedi/</edi>
+        </secure_url>
+        <routers>
+            <edi>
+                <use>standard</use>
+                <args>
+                    <module>LMB_EDI</module>
+                    <!-- URL : /lmbedi/<controller>/<action> -->
+                    <frontName>lmbedi</frontName>
+                </args>
+            </edi>
+        </routers>
+        <!--<layout>
+            <updates>
+                <edi>
+                    <file>edi.xml</file>
+                </edi>
+            </updates>
+        </layout>-->
+    </frontend>
+</config>

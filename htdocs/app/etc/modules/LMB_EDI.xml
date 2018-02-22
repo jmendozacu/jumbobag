@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <LMB_EDI>
+            <active>true</active>
+            <codePool>local</codePool>
+        </LMB_EDI>
+    </modules>
+</config>

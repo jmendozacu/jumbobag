@@ -1,0 +1,158 @@
+<?php
+    /**
+     * @var Innersense_3DViewer_Block_Simulator $this
+     */
+    if (!$this->isEnabled()) {
+        return;
+    }
+    $viewerId = uniqid('innersense-3d-viewer-');
+?>
+<div class="viewer-3d" id="<?php echo $viewerId ?>">
+    <div class="not-supported" style="display: none;">
+        <strong><?php echo $this->__('Your browser is not able to display the 3D Viewer.'); ?></strong>
+        <br />
+        <?php echo $this->__('Please upgrade your browser in order to display the viewer.'); ?>
+    </div>
+    <div class="supported" style="display: none;"></div>
+</div>
+<script type="text/javascript">
+    if (!window.viewer3DOptions) {
+        window.viewer3DOptions = {
+            bypassListeners: true
+        }
+    }
+    if (!window.viewer3DOptions.getEntryFromElement) {
+        window.viewer3DOptions.getEntryFromElement = function (element) {
+            var match = element.name.match(/options\[(\d+)\]/)
+            var name = match ? match[1] : null
+            var value = element.value;
+
+            if (['radio', 'checkbox'].indexOf(element.type) > -1 && !element.checked) {
+                value = null
+            }
+
+            return {
+                name: name,
+                value: value
+            }
+        }
+    }
+
+    if (!window.viewer3DOptions.getFormElements) {
+        window.viewer3DOptions.getFormElements = function () {
+            var addToCartFormSelector = 'product-options'
+            var containers = document.getElementsByClassName(addToCartFormSelector)
+            var elements = []
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i]
+                var subElements = container.querySelectorAll('input, select, textarea')
+                for (var j = 0; j < subElements.length; j++) {
+                    elements.push(subElements[j])
+                }
+            }
+            return elements
+        }
+    }
+
+    if (!window.viewer3DOptions.getFormValues) {
+        window.viewer3DOptions.getFormValues = function () {
+            var elements = window.viewer3DOptions.getFormElements()
+            var options = []
+            for (var j = 0; j < elements.length; ++j) {
+                var element = elements[j]
+
+                var entry = window.viewer3DOptions.getEntryFromElement(element)
+                var name = entry.name
+                var value = entry.value;
+
+                if (name && value) {
+                    options.push({
+                        id: name,
+                        value: value
+                    })
+                }
+            }
+
+            return options
+        }
+    }
+
+    if (!window.viewer3DOptions.getPrice) {
+        window.viewer3DOptions.getPrice = function () {
+            var priceBoxSelector = '.regular-price > .price'
+            var price = document.querySelector(priceBoxSelector).innerHTML
+            // Only keep numbers and commas
+            return price.replace(/[^0-9$.,]/g, '');
+        }
+    }
+
+    if (!window.viewer3DOptions.handleOptionsUpdated) {
+        window.viewer3DOptions.handleOptionsUpdated = function () {
+            console.log('UPDATE')
+            var selectedOptions = window.viewer3DOptions.getFormValues()
+            selectedOptions
+                .filter(function (option) {
+                    return option.value !== ''
+                })
+                .reduce(function (options, option) {
+                    for(var i in options) {
+                        if (options[i].id === option.id) {
+                            return options
+                        }
+                    }
+                    options.push(option)
+                    return options
+                }, [])
+                .forEach(function (option) {
+                    console.log(option)
+                    viewer3D.selectOption(option.id, option.value)
+                });
+
+            viewer3D.changePrice(window.viewer3DOptions.getPrice())
+        }
+    }
+
+    window.viewer3DOptions.init = function init() {
+        if (!Innersense.isSupported) {
+            var viewerContainer = document.querySelectorAll('.with-3d-viewer')
+            for (var i = 0; i < viewerContainer.length; ++i) {
+                viewerContainer[i].classList.add('unsupported')
+            }
+
+            var notSupportedContainer = document.querySelectorAll('#<?php echo $viewerId; ?> .not-supported, .with-3d-viewer .not-supported')
+            for (var i = 0; i < notSupportedContainer.length; ++i) {
+                notSupportedContainer[i].style.display = 'block'
+            }
+
+            var supportedContainer = document.querySelectorAll('#<?php echo $viewerId; ?> .supported, .with-3d-viewer .supported')
+            for (var i = 0; i < supportedContainer.length; ++i) {
+                supportedContainer[i].style.display = 'none'
+            }
+        } else if (!window.viewer3D) {
+            window.viewer3D = Innersense.Viewer3D(<?php echo json_encode(array(
+                'autoload' => false,
+                'viewerId' => $viewerId,
+                'viewerUrl' => $this->getViewerUrl(),
+                'debug' => $this->isDebugModeEnabled(),
+                'initializeOnLoad' => true
+            )); ?>)
+
+            window.viewer3D.initialize()
+            if (window.viewer3DOptions.bypassListeners) {
+                var inputs = document.querySelectorAll('.product-custom-option')
+                for (var i = 0; i < inputs.length; ++i) {
+                    inputs[i].addEventListener('change', window.viewer3DOptions.handleOptionsUpdated)
+                }
+
+                var swatches = document.querySelectorAll('.swatch')
+                for (var i = 0; i < swatches.length; i++) {
+                    swatches[i].addEventListener('click', window.viewer3DOptions.handleOptionsUpdated)
+                }
+            }
+        }
+    }
+
+    if (!window.viewer3DOptions.ready) {
+        jQuery(document).on('ready', window.viewer3DOptions.init);
+    }
+</script>

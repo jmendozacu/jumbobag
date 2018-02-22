@@ -16,6 +16,9 @@ task :preprod do
 		
 	set :http_auth_users, [["demo", "demo2017"]]
 	after "deploy:finalize_update", "httpAuth:protect"
+	after "jumbobag:finalize_update" do
+		run "rm -rf #{latest_release}/htdocs/app/etc/modules/LMB_EDI.xml #{latest_release}/htdocs/app/code/local/LMB"
+	end
 end
 
 task :production do

@@ -24,14 +24,24 @@
 	}
 ?>
 
-<?php if ($product->getImage() != 'no_selection' && $product->getImage()): ?>
-
+<?php if ($product->getInnersenseId()): ?>
+    <div class="product-image product-image-3dviewer-container">
+        <a class="product-image-3dviewer-link" href="#3dviewer">
+            <?php
+                $_img = '<img class="product-image-img" src="'.$this->helper('catalog/image')->init($product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($product, 'image')->resize(500, 500).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+                echo $outputHelper->productAttribute($product, $_img, 'image');
+            ?>
+        </a>
+        <div class="product-image-link product-image-3dviewer">
+            <?php echo $this->getChildHtml('innersense_3dviewer'); ?>
+        </div>
+    </div>
+<?php elseif ($product->getImage() != 'no_selection' && $product->getImage()): ?>
 	<p class="product-image">
         <a class="product-image-link" href="<?php echo $this->helper('catalog/image')->init($product, 'image'); ?>" rel="lighbox-zoom-gallery" >
             <img class="product-image-img" src="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(500, 500); ?>" data-srcX2="<?php echo $this->helper('catalog/image')->init($product, 'image')->resize(1000, 1000); ?>" alt="<?php echo $this->escapeHtml($this->getImageLabel());?>" title="<?php echo $this->escapeHtml($this->getImageLabel());?>" />
         </a>
     </p>
-
 <?php else: ?>
 
     <p class="product-image">
@@ -44,3 +54,56 @@
 <?php endif; ?>
 
 <ul id="product-gallery" class="product-gallery clearfix"></ul>
+
+<?php if ($product->getData('innersense_id')): ?>
+    <script type="text/javascript">
+        if (!window.viewer3DOptions) {
+            window.viewer3DOptions = {}
+        }
+
+        window.viewer3DOptions.getEntryFromElement = function (element) {
+            var match = element.name.match(/super_attribute\[(\d+)\]/)
+            var name = match ? match[1] : null
+            var value = element.value;
+
+            if (['radio', 'checkbox'].indexOf(element.type) > -1 && !element.checked) {
+                value = null
+            }
+
+            return {
+                name: name,
+                value: value
+            }
+        };
+
+        window.viewer3DOptions.getPrice = function () {
+            var priceBoxSelector = '.special-price > .price, .regular-price > .price'
+            var price = document.querySelector(priceBoxSelector).innerHTML
+            // Only keep numbers and commas
+            return price.replace(/[^0-9$.,]/g, '');
+        };
+
+        window.viewer3DOptions.bypassListeners = true;
+
+        window.viewer3DOptions.ready = function () {
+            window.viewer3DOptions.init();
+            if (Innersense.isSupported && window.viewer3D) {
+                var swatches = document.querySelectorAll('.swatch-link')
+                for (var i = 0; i < swatches.length; i++) {
+                    swatches[i].addEventListener('click', window.viewer3DOptions.handleOptionsUpdated)
+                }
+                window.viewer3DOptions.handleOptionsUpdated()
+            }
+        };
+
+        jQuery(document).on('ready', function () {
+            var play3dButton = document.querySelector('.product-image-3dviewer-link')
+            play3dButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                play3dButton.classList.add('product-image-3dviewer-link--hidden');
+                window.viewer3DOptions.ready();
+            }, false)
+        });
+    </script>
+<?php endif; ?>
