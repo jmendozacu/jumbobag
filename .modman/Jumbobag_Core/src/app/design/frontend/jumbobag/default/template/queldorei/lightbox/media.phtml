@@ -59,7 +59,7 @@
     <script type="text/javascript">
         if (!window.viewer3DOptions) {
             window.viewer3DOptions = {}
-        };
+        }
 
         window.viewer3DOptions.getEntryFromElement = function (element) {
             var match = element.name.match(/super_attribute\[(\d+)\]/)
@@ -98,10 +98,12 @@
 
         jQuery(document).on('ready', function () {
             var play3dButton = document.querySelector('.product-image-3dviewer-link')
-            play3dButton.addEventListener('click', function() {
+            play3dButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
                 play3dButton.classList.add('product-image-3dviewer-link--hidden');
                 window.viewer3DOptions.ready();
-            })
+            }, false)
         });
     </script>
 <?php endif; ?>
