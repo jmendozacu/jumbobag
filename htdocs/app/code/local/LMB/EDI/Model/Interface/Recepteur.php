@@ -1143,16 +1143,23 @@ class LMB_EDI_Model_Interface_Recepteur {
             );
             
             if ($position == 1) {
+                $img_attrs = LMB_EDI_Model_Config::GET_PARAM('image_attributes');
+                if (!empty($img_attrs)) {
+                    $img_attrs = explode(";", $img_attrs);
+                }
+                
+                if (empty($img_attrs) || !is_array($img_attrs)) {
+                    $img_attrs = array('image', 'small_image', 'thumbnail');
+                }
+                
+                $attrData = array();
+                foreach($img_attrs as $img_attr) {
+                    $attrData[$img_attr] = $image->getFile();
+                }
+                
                 // L'image de position 1 devient l'image par défaut
                 Mage::getSingleton('catalog/product_action')
-                        ->updateAttributes(array($product->getId()), 
-                            array(
-                                'image' => $image->getFile(),
-                                'small_image' => $image->getFile(),
-                                'thumbnail' => $image->getFile(),
-                                'video_preview' => $image->getFile(),
-                            ), 
-                            0);
+                        ->updateAttributes(array($product->getId()), $attrData, 0);
             }
         }
         
@@ -1195,8 +1202,16 @@ class LMB_EDI_Model_Interface_Recepteur {
             LMB_EDI_Model_EDI::traceDebug("image", "ID=" . $path_image);
             $types = array();
             if ($image['ordre'] == 1) {
-                $types = array('image', 'small_image', 'thumbnail');
+                $types = LMB_EDI_Model_Config::GET_PARAM('image_attributes');
+                if (!empty($types)) {
+                    $types = explode(";", $types);
+                }
+                
+                if (empty($types) || !is_array($types)) {
+                    $types = array('image', 'small_image', 'thumbnail');
+                }
             }
+            
             $data = array('label' => "Image de " . $product->getSku(),
                 'position' => $image['ordre'],
                 'types' => $types,
