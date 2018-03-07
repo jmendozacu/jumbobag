@@ -88,7 +88,6 @@
 
     if (!window.viewer3DOptions.handleOptionsUpdated) {
         window.viewer3DOptions.handleOptionsUpdated = function () {
-            console.log('UPDATE')
             var selectedOptions = window.viewer3DOptions.getFormValues()
             selectedOptions
                 .filter(function (option) {
@@ -104,7 +103,6 @@
                     return options
                 }, [])
                 .forEach(function (option) {
-                    console.log(option)
                     viewer3D.selectOption(option.id, option.value)
                 });
 
@@ -134,7 +132,8 @@
                 'viewerId' => $viewerId,
                 'viewerUrl' => $this->getViewerUrl(),
                 'debug' => $this->isDebugModeEnabled(),
-                'initializeOnLoad' => true
+                'initializeOnLoad' => true,
+                'initOptions' => $this->getInitOptions()
             )); ?>)
 
             window.viewer3D.initialize()

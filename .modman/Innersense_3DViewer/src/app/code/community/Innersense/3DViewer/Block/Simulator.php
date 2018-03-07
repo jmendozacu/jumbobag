@@ -26,6 +26,18 @@ class Innersense_3DViewer_Block_Simulator extends Mage_Core_Block_Template
         return $this->viewerHelper()->getViewerUrlFor($this->getProduct());
     }
 
+    public function getInitOptions()
+    {
+        try {
+            $initOptionsConfig = $this->viewerHelper()->getInitOptions();
+            $initOptions = json_decode($initOptionsConfig, true);
+        } catch (\Exception $e) {
+            $initOptions = null;
+        }
+
+        return $initOptions;
+    }
+
     public function isDebugModeEnabled()
     {
         return $this->viewerHelper()->isDebugModeEnabled();
