@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jumbobag_Ecotax>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Jumbobag_Ecotax>
+    </modules>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jumbobag_Ecotax>
+            <version>0.1.0</version>
+        </Jumbobag_Ecotax>
+    </modules>
+</config>
