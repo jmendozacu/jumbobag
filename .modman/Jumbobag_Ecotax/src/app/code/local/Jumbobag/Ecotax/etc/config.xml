@@ -13,5 +13,19 @@
                 </setup>
             </jumbobag_ecotax_setup>
         </resources>
+        <blocks>
+            <jumbobag_ecotax>
+                <class>Jumbobag_Ecotax_Block</class>
+            </jumbobag_ecotax>
+        </blocks>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <jumbobag_ecotax>
+                    <file>jumbobag/ecotax.xml</file>
+                </jumbobag_ecotax>
+            </updates>
+        </layout>
+    </frontend>
 </config>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <PRODUCT_TYPE_configurable>
+        <reference name="product.info.configurable">
+            <block name="product.info.configurable.product_ecotax"
+                   as="product_ecotax"
+                   type="jumbobag_ecotax/product"
+                   template="jumbobag/ecotax/product.phtml" />
+        </reference>
+        <reference name="product.info">
+            <block name="product.info.product_ecotax"
+                   as="product_ecotax"
+                   type="jumbobag_ecotax/product"
+                   template="jumbobag/ecotax/product.phtml" />
+        </reference>
+    </PRODUCT_TYPE_configurable>
+</layout>

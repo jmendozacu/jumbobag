@@ -1,3 +1,4 @@
 src/app/code/local/Jumbobag/Ecotax app/code/local/Jumbobag/Ecotax
 src/app/etc/modules/Jumbobag_Ecotax.xml app/etc/modules/Jumbobag_Ecotax.xml
-
+src/app/design/frontend/jumbobag/default/layout/jumbobag/ecotax.xml app/design/frontend/jumbobag/default/layout/jumbobag/ecotax.xml
+src/app/design/frontend/jumbobag/default/template/jumbobag/ecotax app/design/frontend/jumbobag/default/template/jumbobag/ecotax
