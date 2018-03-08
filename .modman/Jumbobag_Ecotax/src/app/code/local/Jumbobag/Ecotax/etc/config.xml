@@ -5,4 +5,13 @@
             <version>0.1.0</version>
         </Jumbobag_Ecotax>
     </modules>
+    <global>
+        <resources>
+            <jumbobag_ecotax_setup>
+                <setup>
+                    <module>Jumbobag_Ecotax</module>
+                </setup>
+            </jumbobag_ecotax_setup>
+        </resources>
+    </global>
 </config>
