@@ -25,6 +25,38 @@
             </block>
         </reference>
     </sales_order_print>
+
+    <sales_order_invoice translate="label">
+        <reference name="invoice_items">
+            <block type="jumbobag_ecotax/sales_order_invoice_totals" name="invoice_totals" template="sales/order/totals.phtml">
+                <action method="setLabelProperties">
+                    <value>colspan="4" class="a-right"</value>
+                </action>
+                <action method="setValueProperties">
+                    <value>class="last a-right"</value>
+                </action>
+                <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml"/>
+            </block>
+        </reference>
+    </sales_order_invoice>
+    <sales_order_printinvoice translate="label">
+        <reference name="sales.order.print.invoice">
+            <block type="jumbobag_ecotax/sales_order_invoice_totals" name="invoice_totals" template="sales/order/totals.phtml">
+                <action method="setLabelProperties">
+                    <value>colspan="4" class="a-right"</value>
+                </action>
+                <action method="setValueProperties">
+                    <value>class="last a-right"</value>
+                </action>
+                <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml">
+                    <action method="setIsPlaneMode">
+                        <value>1</value>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </sales_order_printinvoice>
+
     <PRODUCT_TYPE_configurable>
         <reference name="product.info.configurable">
             <block name="product.info.configurable.product_ecotax"

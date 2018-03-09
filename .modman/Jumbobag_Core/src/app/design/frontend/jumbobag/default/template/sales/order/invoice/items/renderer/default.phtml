@@ -191,6 +191,10 @@
                     <?php endif; ?>
             </span>
                 <?php endif; ?>
+
+        <?php if ($_item->getEcotax() > 0): ?>
+            <div class="ecotaxe">dont <?php echo Mage::helper('core')->formatPrice($_item->getEcotax()); ?> d'éco-part.</div>
+        <?php endif; ?>
     </td>
     <td class="a-center"><?php echo $_item->getQty() * 1 ?> </td>
     <td class="a-right">
