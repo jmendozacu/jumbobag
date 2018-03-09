@@ -14,11 +14,9 @@ class Jumbobag_Ecotax_Model_Observer
 
 
         if (!empty($ecotax)) {
+            $item->setEcotax($ecotax);
             if ($item->getParentItem()) {
-                $item->setEcotax(0);
                 $item->getParentItem()->setEcotax($ecotax);
-            } else {
-                $item->setEcotax($ecotax);
             }
         }
 

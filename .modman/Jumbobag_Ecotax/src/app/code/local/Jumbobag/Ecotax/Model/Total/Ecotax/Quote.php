@@ -12,6 +12,8 @@ class Jumbobag_Ecotax_Model_Total_Ecotax_Quote extends Mage_Sales_Model_Quote_Ad
         return Mage::helper('jumbobag_ecotax')->__('dont éco-participation');
     }
 
+
+
     public function fetch(Mage_Sales_Model_Quote_Address $address)
     {
         if ($address->getAddressType() == 'billing') {
@@ -19,15 +21,11 @@ class Jumbobag_Ecotax_Model_Total_Ecotax_Quote extends Mage_Sales_Model_Quote_Ad
         }
 
         $ecotaxTotal = 0;
-        $items = $address->getQuote()->getAllItems();
+        $items = $address->getQuote()->getAllVisibleItems();
         foreach ($items as $item) {
             /**
              * @var $item Mage_Sales_Model_Quote_Item
              */
-            if ($item->isDeleted()) {
-                continue;
-            }
-
             $ecotax = $item->getEcotax();
             $qty = $item->getQty();
             $ecotaxTotal += $ecotax * $qty;
