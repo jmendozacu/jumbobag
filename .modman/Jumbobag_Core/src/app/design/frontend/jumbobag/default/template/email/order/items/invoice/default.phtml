@@ -120,5 +120,9 @@
                 <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
+
+        <?php if ($_item->getEcotax() > 0): ?>
+            <div class="ecotaxe">dont <?php echo Mage::helper('core')->formatPrice($_item->getEcotax() * $_item->getQty()); ?> d'éco-part.</div>
+        <?php endif; ?>
     </td>
 </tr>
