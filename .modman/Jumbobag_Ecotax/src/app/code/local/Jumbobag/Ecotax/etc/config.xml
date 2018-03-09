@@ -13,6 +13,27 @@
                 </setup>
             </jumbobag_ecotax_setup>
         </resources>
+        <models>
+            <jumbobag_ecotax>
+                <class>Jumbobag_Ecotax_Model</class>
+            </jumbobag_ecotax>
+        </models>
+        <helpers>
+            <jumbobag_ecotax>
+                <class>Jumbobag_Ecotax_Helper</class>
+            </jumbobag_ecotax>
+        </helpers>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <jumbobag_ecotax_checkout_cart_product_add_after>
+                        <type>model</type>
+                        <class>Jumbobag_Ecotax_Model_Observer</class>
+                        <method>checkoutCartProductAddAfter</method>
+                    </jumbobag_ecotax_checkout_cart_product_add_after>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
         <blocks>
             <jumbobag_ecotax>
                 <class>Jumbobag_Ecotax_Block</class>
