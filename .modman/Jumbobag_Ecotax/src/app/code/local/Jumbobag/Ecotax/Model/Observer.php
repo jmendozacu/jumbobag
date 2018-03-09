@@ -11,9 +11,15 @@ class Jumbobag_Ecotax_Model_Observer
         $productId = $item->getProductId();
         $product = Mage::getModel('catalog/product')->load($productId);
         $ecotax = Mage::helper('jumbobag_ecotax')->getEcotax($product);
+
+
         if (!empty($ecotax)) {
-            $item->setEcotax($ecotax);
-            $item->save();
+            if ($item->getParentItem()) {
+                $item->setEcotax(0);
+                $item->getParentItem()->setEcotax($ecotax);
+            } else {
+                $item->setEcotax($ecotax);
+            }
         }
 
         return $this;

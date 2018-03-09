@@ -39,6 +39,16 @@
                 <class>Jumbobag_Ecotax_Block</class>
             </jumbobag_ecotax>
         </blocks>
+        <sales>
+            <quote>
+                <totals>
+                    <jumbobag_ecotax>
+                        <class>jumbobag_ecotax/total_ecotax_quote</class>
+                        <before>subtotal</before>
+                    </jumbobag_ecotax>
+                </totals>
+            </quote>
+        </sales>
     </global>
     <frontend>
         <layout>
