@@ -4,6 +4,10 @@
         <Jumbobag_Ecotax>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Fooman_EmailAttachments/>
+                <Mage_Sales/>
+            </depends>
         </Jumbobag_Ecotax>
     </modules>
 </config>

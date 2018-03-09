@@ -17,6 +17,16 @@
             <jumbobag_ecotax>
                 <class>Jumbobag_Ecotax_Model</class>
             </jumbobag_ecotax>
+            <sales>
+                <rewrite>
+                    <order_pdf_invoice>Jumbobag_Ecotax_Model_Sales_Order_Pdf_Invoice</order_pdf_invoice>
+                </rewrite>
+            </sales>
+            <emailattachments>
+                <rewrite>
+                    <order_pdf_order>Jumbobag_Ecotax_Model_EmailAttachments_Order_Pdf_Order</order_pdf_order>
+                </rewrite>
+            </emailattachments>
         </models>
         <helpers>
             <jumbobag_ecotax>
@@ -49,14 +59,35 @@
                 </totals>
             </quote>
         </sales>
+        <pdf>
+            <totals>
+                <jumbobag_ecotax>
+                    <title>dont éco-participation</title>
+                    <sort_order>200</sort_order>
+                    <model>jumbobag_ecotax/sales_pdf_ecotax</model>
+                </jumbobag_ecotax>
+            </totals>
+            <order>
+                <default>jumbobag_ecotax/sales_order_pdf_items_invoice_default</default>
+                <grouped>sales/order_pdf_items_invoice_grouped</grouped>
+            </order>
+            <invoice>
+                <default>jumbobag_ecotax/sales_order_pdf_items_invoice_default</default>
+                <grouped>sales/order_pdf_items_invoice_grouped</grouped>
+            </invoice>
+        </pdf>
         <fieldsets>
             <sales_convert_quote_item>
                 <ecotax>
                     <to_order_item>*</to_order_item>
+                </ecotax>
+            </sales_convert_quote_item>
+            <sales_convert_order_item>
+                <ecotax>
                     <to_quote_item>*</to_quote_item>
                     <to_invoice_item>*</to_invoice_item>
                 </ecotax>
-            </sales_convert_quote_item>
+            </sales_convert_order_item>
         </fieldsets>
     </global>
     <frontend>

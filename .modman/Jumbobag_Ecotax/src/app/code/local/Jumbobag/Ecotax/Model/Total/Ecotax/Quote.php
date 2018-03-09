@@ -20,18 +20,7 @@ class Jumbobag_Ecotax_Model_Total_Ecotax_Quote extends Mage_Sales_Model_Quote_Ad
             return;
         }
 
-        $ecotaxTotal = 0;
-        $items = $address->getQuote()->getAllVisibleItems();
-        foreach ($items as $item) {
-            /**
-             * @var $item Mage_Sales_Model_Quote_Item
-             */
-            $ecotax = $item->getEcotax();
-            $qty = $item->getQty();
-            $ecotaxTotal += $ecotax * $qty;
-        }
-
-        Mage::log("total" . $ecotaxTotal);
+        $ecotaxTotal = $this->getEcotaxTotal($address->getQuote()->getAllVisibleItems());
 
         if ($ecotaxTotal > 0) {
             $address->addTotal(array(
@@ -42,5 +31,19 @@ class Jumbobag_Ecotax_Model_Total_Ecotax_Quote extends Mage_Sales_Model_Quote_Ad
         }
 
         return $this;
+    }
+
+    public function getEcotaxTotal($items)
+    {
+        $ecotaxTotal = 0;
+        foreach ($items as $item) {
+            /**
+             * @var $item Mage_Sales_Model_Quote_Item
+             */
+            $ecotax = $item->getEcotax();
+            $qty = $item->getQty();
+            $ecotaxTotal += $ecotax * $qty;
+        }
+        return $ecotaxTotal;
     }
 }
