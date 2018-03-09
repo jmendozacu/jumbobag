@@ -49,6 +49,15 @@
                 </totals>
             </quote>
         </sales>
+        <fieldsets>
+            <sales_convert_quote_item>
+                <ecotax>
+                    <to_order_item>*</to_order_item>
+                    <to_quote_item>*</to_quote_item>
+                    <to_invoice_item>*</to_invoice_item>
+                </ecotax>
+            </sales_convert_quote_item>
+        </fieldsets>
     </global>
     <frontend>
         <layout>

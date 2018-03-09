@@ -12,6 +12,11 @@ try {
         'ecotax',
         'DECIMAL( 12, 4 ) NOT NULL DEFAULT 0'
     );
+    $installer->getConnection()->addColumn(
+        $this->getTable('sales_flat_order_item'),
+        'ecotax',
+        'DECIMAL( 12, 4 ) NOT NULL DEFAULT 0'
+    );
 
     $installer->endSetup();
 } catch (Exception $e) {
