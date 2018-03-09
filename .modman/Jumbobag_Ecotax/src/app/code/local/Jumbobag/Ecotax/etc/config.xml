@@ -48,6 +48,14 @@
                     </jumbobag_ecotax>
                 </totals>
             </quote>
+            <order_invoice>
+                <totals>
+                    <jumbobag_ecotax>
+                        <class>jumbobag_ecotax/total_ecotax_invoice</class>
+                        <before>subtotal</before>
+                    </jumbobag_ecotax>
+                </totals>
+            </order_invoice>
         </sales>
         <fieldsets>
             <sales_convert_quote_item>
