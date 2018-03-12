@@ -213,7 +213,7 @@ echo $this->getChildHtml('extrahint');
                         <h2><span class="panier-product-title"><?php echo $_product->getName().' </span><span class="thin-part">'.$_category->getName().'</span>' ?></h2>
                         <div class="product-type-data">
                             <?php echo $this->getPriceHtml($_product, false, '_clone') ?>
-
+                            <?php echo $this->getChildHtml('product_ecotax') ?>
                         </div>
                         <?php $_product = $this->getProduct() ?>
                         <?php if ($this->displayProductStockStatus()): ?>
