@@ -51,9 +51,24 @@ class Jumbobag_CustomerGroup_Model_Sync_Customer_Customerv2 extends Lengow_Sync_
             $this);
 
         // set group
-        $this->setGroupId($config->get('orders/customer_group'));
+        $this->setGroupId(
+            $this->getGroupFromMarketplace($config, $array['marketplace'])
+        );
 
         $this->save();
         return $this;
+    }
+
+    /**
+     * @param $config Lengow_Sync_Model_Config
+     * @param $marketplace string
+     */
+    private function getGroupFromMarketplace($config, $marketplace)
+    {
+        $customerGroupId = $config->get("orders/customer_group_" . $marketplace);
+        if (empty($customerGroupId)) {
+            $customerGroupId = $config->get("orders/customer_group");
+        }
+        return $customerGroupId;
     }
 }
