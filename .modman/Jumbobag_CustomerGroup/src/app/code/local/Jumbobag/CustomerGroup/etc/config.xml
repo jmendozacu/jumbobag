@@ -17,6 +17,7 @@
             <lensync>
                 <rewrite>
                     <customer_customer>Jumbobag_CustomerGroup_Model_Sync_Customer_Customer</customer_customer>
+                    <customer_customerv2>Jumbobag_CustomerGroup_Model_Sync_Customer_Customerv2</customer_customerv2>
                 </rewrite>
             </lensync>
         </models>
