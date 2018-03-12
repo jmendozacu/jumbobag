@@ -11,10 +11,9 @@
  */
 class Lengow_Sync_ApiController extends Mage_Core_Controller_Front_Action
 {
-
     public function indexAction()
     {
-        echo 'Please specify an action';
+        $this->getResponse()->setBody('Please specify an action');
     }
 
     public function checkAction()
@@ -26,9 +25,12 @@ class Lengow_Sync_ApiController extends Mage_Core_Controller_Front_Action
                 'magento_version' => Mage::getVersion(),
                 'lengow_version' => $_helper_api->getVersion()
             );
-            echo Mage::helper('core')->jsonEncode($return);
+            $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($return));
         } else {
-            echo 'Unauthorised ip : ' . $_SERVER['REMOTE_ADDR'];
+            $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
+            $this->getResponse()->setBody(
+                Mage::helper('lenexport')->__('Unauthorised IP : %s', $_SERVER['REMOTE_ADDR'])
+            );
         }
     }
 }

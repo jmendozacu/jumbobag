@@ -240,6 +240,8 @@ class Lengow_Sync_Adminhtml_Lengow_OrderController extends Mage_Adminhtml_Contro
      *  Clean group id
      *
      * @param string $data
+     *
+     * @return string
      */
     private function _cleanGroup($data)
     {
