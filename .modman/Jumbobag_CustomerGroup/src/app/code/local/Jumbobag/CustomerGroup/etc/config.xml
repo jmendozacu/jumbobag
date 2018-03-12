@@ -21,4 +21,15 @@
             </lensync>
         </models>
     </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Jumbobag_CustomerGroup>
+                    <files>
+                        <default>Jumbobag_CustomerGroup.csv</default>
+                    </files>
+                </Jumbobag_CustomerGroup>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>

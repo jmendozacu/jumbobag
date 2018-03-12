@@ -55,8 +55,24 @@ class Jumbobag_CustomerGroup_Model_Sync_Customer_Customer extends Lengow_Sync_Mo
         Mage::helper('core')->copyFieldset('lengow_convert_address', 'to_customer', $array['billing_address'], $this);
 
         // set group
-        $this->setGroupId($config->get('orders/customer_group'));
+        $this->setGroupId(
+            $this->getGroupFromMarketplace($config, $order_data->marketplace)
+        );
 
         $this->save();
-        return $this;    }
+        return $this;
+    }
+
+    /**
+     * @param $config Lengow_Sync_Model_Config
+     * @param $marketplace string
+     */
+    private function getGroupFromMarketplace($config, $marketplace)
+    {
+        $customerGroupId = $config->get("orders/customer_group_" . $marketplace);
+        if (empty($customerGroupId)) {
+            $customerGroupId = $config->get("orders/customer_group");
+        }
+        return $customerGroupId;
+    }
 }
