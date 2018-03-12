@@ -281,7 +281,9 @@ class Lengow_Export_Model_Catalog_Product extends Mage_Catalog_Model_Product
     public function getCategories($product_instance, $parent_instance, $id_store, &$categoryCache = array())
     {
         $id_root_category = Mage::app()->getStore($id_store)->getRootCategoryId();
-        if ($product_instance->getVisibility() == Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE && isset($parent_instance)) {
+        if ($product_instance->getVisibility() == Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE
+            && isset($parent_instance)
+        ) {
             $categories = $parent_instance->getCategoryCollection()
                 ->addPathsFilter('1/' . $id_root_category . '/')
                 ->exportToArray();
@@ -290,11 +292,6 @@ class Lengow_Export_Model_Catalog_Product extends Mage_Catalog_Model_Product
                 ->addPathsFilter('1/' . $id_root_category . '/')
                 ->exportToArray();
         }
-        if (isset($categoryCache[key($categories)])) {
-            return $categoryCache[key($categories)];
-        }
-
-
         $max_level = $this->_config_model->get('data/levelcategory');
         $current_level = 0;
         $category_buffer = false;
@@ -305,6 +302,12 @@ class Lengow_Export_Model_Catalog_Product extends Mage_Catalog_Model_Product
             }
             if ($current_level > $max_level) {
                 break;
+            }
+        }
+        // use category cache if category already exists
+        if (isset($category) && $category['entity_id'] != '') {
+            if (isset($categoryCache[$category['entity_id']])) {
+                return $categoryCache[$category['entity_id']];
             }
         }
         if (isset($category) && $category['path'] != '') {

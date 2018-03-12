@@ -11,7 +11,6 @@
  */
 class Lengow_Sync_Adminhtml_Lengow_DebugController extends Mage_Adminhtml_Controller_Action
 {
-
     //can access page without secret key
     public function preDispatch()
     {
@@ -34,5 +33,10 @@ class Lengow_Sync_Adminhtml_Lengow_DebugController extends Mage_Adminhtml_Contro
         $this->loadLayout();
         $this->getResponse()->setBody($this->getLayout()->createBlock('lensync/adminhtml_cron_grid')->toHtml());
         return $this;
+    }
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('lengow/debug');
     }
 }

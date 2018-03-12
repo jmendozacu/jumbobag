@@ -49,7 +49,6 @@ class Lengow_Sync_Model_Import extends Varien_Object
      * @var array states lengow to import
      */
     public static $STATES_LENGOW = array(
-        'accepted',
         'waiting_shipment',
         'shipped',
         'closed',
@@ -74,7 +73,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
      *
      * @param array $args
      *
-     * @return Lengow_Sync_Model_Import
+     * @return Lengow_Sync_Model_Import|false
      */
     public function __construct($args)
     {
@@ -83,7 +82,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
             Mage::app()->setCurrentStore('admin');
         }
         if (!is_array($args)) {
-            return;
+            return false;
         }
         foreach ($args as $key => $value) {
             $this->{'_'.$key} = $value;
@@ -97,7 +96,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
     /**
      * Execute import process
      *
-     * @return array
+     * @return array|false
      */
     public function exec()
     {
@@ -124,6 +123,8 @@ class Lengow_Sync_Model_Import extends Varien_Object
      * Retrieve Lengow orders
      *
      * @return array list of orders to be imported
+     *
+     * @throws Exception
      */
     protected function getLengowOrders()
     {
@@ -168,7 +169,8 @@ class Lengow_Sync_Model_Import extends Varien_Object
                     $orders[] = $order;
                 }
                 $page++;
-            } while ($results->next != null);
+                $finish = is_null($results->next) ? true : false;
+            } while ($finish != true);
         } else {
             throw new Exception('Account ID, Token access or Secret are not valid');
         }
@@ -217,7 +219,10 @@ class Lengow_Sync_Model_Import extends Varien_Object
             foreach ($order_data->packages as $package) {
                 // check whether the package contains a shipping address
                 if (!isset($package->delivery->id)) {
-                    $this->_helper->log('create order fail: Lengow error: no delivery address in the order', $id_lengow_order);
+                    $this->_helper->log(
+                        'create order fail: Lengow error: no delivery address in the order',
+                        $id_lengow_order
+                    );
                     continue;
                 }
                 $delivery_address_id = (int)$package->delivery->id;
@@ -288,7 +293,6 @@ class Lengow_Sync_Model_Import extends Varien_Object
                             $order_data->shipping = 0;
                             $this->_helper->log('rewrite amount without shipping cost', $id_lengow_order);
                         }
-
                         // get total amount and shipping
                         $total_amount = 0;
                         foreach ($package->cart as $product) {
@@ -302,7 +306,9 @@ class Lengow_Sync_Model_Import extends Varien_Object
                             }
                             $total_amount += (float)$product->amount;
                         }
-                        $order_amount = (float)$total_amount + (float)$order_data->processing_fee + (float)$order_data->shipping;
+                        $order_amount = (float)$total_amount
+                            + (float)$order_data->processing_fee
+                            + (float)$order_data->shipping;
                         // create quote and order
                         try {
                             $quote = $this->_createQuote(
@@ -356,8 +362,8 @@ class Lengow_Sync_Model_Import extends Varien_Object
                                     foreach ($order_ids as $order_id) {
                                         $magento_ids[] = $order_id['entity_id'];
                                     }
-                                    $result = $this->_connector->patch(
-                                        '/v3.0/orders',
+                                    $this->_connector->patch(
+                                        '/v3.0/orders/moi/',
                                         array(
                                             'account_id'           => $this->_idAccount,
                                             'marketplace_order_id' => $id_lengow_order,
@@ -365,20 +371,6 @@ class Lengow_Sync_Model_Import extends Varien_Object
                                             'merchant_order_id'    => $magento_ids
                                         )
                                     );
-                                    if (is_null($result)
-                                        || (isset($result['detail']) && $result['detail'] == "Pas trouvé.")
-                                        || isset($result['error'])
-                                    ) {
-                                        $this->_helper->log(
-                                            'WARNING ! Order could NOT be synchronised with Lengow webservice (Order '.$order->getIncrementId().')',
-                                            $id_lengow_order
-                                        );
-                                    } else {
-                                        $this->_helper->log(
-                                            'order successfully synchronised with Lengow webservice (Order '.$order->getIncrementId().')',
-                                            $id_lengow_order
-                                        );
-                                    }
                                 }
                             }
                             $count_orders_added++;
@@ -474,7 +466,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
      * @param Lengow_Sync_Model_Marketplace $marketplace
      * @param float $order_amount
      *
-     * @return
+     * @return Lengow_Sync_Model_Quote
      */
     protected function _createQuote(
         $id_lengow_order,
@@ -487,7 +479,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
         $quote = Mage::getModel('lensync/quote')
             ->setIsMultiShipping(false)
             ->setStore($this->_config->getStore())
-            ->setIsSuperMode(true); // set quote to supermode
+            ->setIsSuperMode(true); // set quote to Super Mode
         // import customer addresses into quote
         // Set billing Address
         $customer_billing_address = Mage::getModel('customer/address')
@@ -543,7 +535,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
             ->setShippingMethod($shipping_method);
         // collect totals
         $quote->collectTotals();
-        // Re-ajuste cents for item quote
+        // Fix cents for item quote
         // Conversion Tax Include > Tax Exclude > Tax Include maybe make 0.01 amount error
         if (!$priceIncludeTax) {
             if ($quote->getGrandTotal() != $order_amount) {
@@ -564,12 +556,21 @@ class Lengow_Sync_Model_Import extends Varien_Object
                 }
             }
         }
+        // get payment informations
+        $paymentInfo = '';
+        if (count($order_data->payments) > 0) {
+            $payment = $order_data->payments[0];
+            $paymentInfo.= ' - '.(string)$payment->type;
+            if (isset($payment->payment_terms->external_transaction_id)) {
+                $paymentInfo.= ' - '.(string)$payment->payment_terms->external_transaction_id;
+            }
+        }
         // set payment method lengow
         $quote->getPayment()
             ->importData(
                 array(
                     'method'      => 'lengow',
-                    'marketplace' => (string)$order_data->marketplace.' - '.(string)(count($order_data->payments) > 0 ? $order_data->payments[0]->type : null),
+                    'marketplace' => (string)$order_data->marketplace.$paymentInfo,
                 )
             );
         $quote->save();
@@ -587,7 +588,9 @@ class Lengow_Sync_Model_Import extends Varien_Object
      * @param float $order_amount
      * @param boolean $invoice
      *
-     * @return
+     * @return Mage_Sales_Model_Order
+     *
+     * @throws Exception
      */
     protected function makeOrder(
         $id_lengow_order,
@@ -640,7 +643,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
                 $order->setUpdatedAt($date);
             }
             $order->save();
-            // Re-ajuste cents for total and shipping cost
+            // Fix cents for total and shipping cost
             // Conversion Tax Include > Tax Exclude > Tax Include maybe make 0.01 amount error
             $priceIncludeTax = Mage::helper('tax')->priceIncludesTax($quote->getStore());
             $shippingIncludeTax = Mage::helper('tax')->shippingPriceIncludesTax($quote->getStore());
@@ -739,7 +742,7 @@ class Lengow_Sync_Model_Import extends Varien_Object
     /**
      * Check if order status is valid and is available for import
      *
-     * @param string $order_state order state
+     * @param string $lengow_status Lengow order status
      *
      * @return boolean
      */
