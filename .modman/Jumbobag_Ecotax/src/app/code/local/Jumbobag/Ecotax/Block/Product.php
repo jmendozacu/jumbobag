@@ -19,7 +19,7 @@ class Jumbobag_Ecotax_Block_Product extends Mage_Core_Block_Template
     {
         $product = Mage::registry('current_product');
         if (!$product) {
-            Mage::log('3DViewer was loaded in a context without any product', Zend_Log::ERR);
+            Mage::log('Ecotax was loaded in a context without any product', Zend_Log::ERR);
             $product = new Mage_Catalog_Model_Product();
         }
         return $product;

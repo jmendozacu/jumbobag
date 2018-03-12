@@ -1,4 +1,5 @@
 <?php
+
 class Jumbobag_Ecotax_Helper_Data extends Mage_Core_Helper_Abstract
 {
     /**
@@ -19,6 +20,6 @@ class Jumbobag_Ecotax_Helper_Data extends Mage_Core_Helper_Abstract
             }
         }
 
-        return floatval($ecotax);
+        return (float)$ecotax;
     }
 }
