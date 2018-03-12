@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jumbobag_CustomerGroup>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Lengow_Sync/>
+            </depends>
+        </Jumbobag_CustomerGroup>
+    </modules>
+</config>
