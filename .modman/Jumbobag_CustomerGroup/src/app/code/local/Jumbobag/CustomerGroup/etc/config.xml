@@ -6,6 +6,13 @@
         </Jumbobag_CustomerGroup>
     </modules>
     <global>
+        <resources>
+            <jumbobag_customer_group_setup>
+                <setup>
+                    <module>Jumbobag_CustomerGroup</module>
+                </setup>
+            </jumbobag_customer_group_setup>
+        </resources>
         <models>
             <lensync>
                 <rewrite>
