@@ -2557,3 +2557,17 @@ h2.p2 span strong {
 	max-width: 100%;
 	max-height: 100%;
 }
+
+.product-view .ecotax {
+    margin: 0 0 0.1rem 0;
+}
+
+#product_addtocart_form .ecotax span.price {
+    font-size: 1em;
+    font-family: inherit;
+}
+
+tr .ecotaxe {
+    font-size: 0.8em;
+    text-align: left;
+}
