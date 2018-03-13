@@ -1,3 +1,8 @@
 src/app/code/local/AW/Followupemail/Block/Adminhtml/Linktracking/Grid.php                   app/code/local/AW/Followupemail/Block/Adminhtml/Linktracking/Grid.php
 src/app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-3.0.2-3.1.php    app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-3.0.2-3.1.php
 src/app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-2.0.5-3.0.php    app/code/local/AW/Followupemail/sql/followupemail_setup/mysql4-upgrade-2.0.5-3.0.php
+
+src/app/code/local/Slimpay/Gateway/hapiclient/Exception/HttpException.php app/code/local/Slimpay/Gateway/hapiclient/Exception/HttpException.php
+src/app/code/local/Slimpay/Gateway/hapiclient/Hal/HalResource.php app/code/local/Slimpay/Gateway/hapiclient/Hal/HalResource.php
+src/app/code/local/Slimpay/Gateway/hapiclient/Http/Follow.php app/code/local/Slimpay/Gateway/hapiclient/Http/Follow.php
+src/app/code/local/Slimpay/Gateway/hapiclient/Http/HapiClient.php app/code/local/Slimpay/Gateway/hapiclient/Http/HapiClient.php
