@@ -11,7 +11,6 @@
  */
 class Lengow_Sync_Model_Importv2 extends Varien_Object
 {
-
     /**
      * @var Mage_Sales_Model_Quote
      */
@@ -59,6 +58,10 @@ class Lengow_Sync_Model_Importv2 extends Varien_Object
 
     /**
      * Constructor
+     *
+     * @param array $args
+     *
+     * @return Lengow_Sync_Model_Importv2|false
      */
     public function __construct($args)
     {
@@ -67,7 +70,7 @@ class Lengow_Sync_Model_Importv2 extends Varien_Object
             Mage::app()->setCurrentStore('admin');
         }
         if (!is_array($args)) {
-            return;
+            return false;
         }
         foreach ($args as $key => $value) {
             $this->{'_'.$key} = $value;
@@ -109,14 +112,14 @@ class Lengow_Sync_Model_Importv2 extends Varien_Object
     /**
      * Retrieve Lengow orders
      *
-     * @return SimpleXmlElement list of orders to be imported
+     * @return SimpleXmlElement|false
      */
     protected function getLengowOrders()
     {
         $this->_connector = Mage::getSingleton('lensync/connectorv2');
         $this->_connector->init((integer)$this->_idCustomer, $this->_apiToken);
         if ($this->_connector->error) {
-            return $connector;
+            return false;
         }
         return $this->_connector->api(
             'commands',

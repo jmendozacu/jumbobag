@@ -159,7 +159,6 @@
                     <value label="Mondial Relay">MONDIALRELAY</value>
                     <value label="Mory Ducros">MORYDUCROS</value>
                     <value label="MRCI">MRCI</value>
-                    <value label="MRW">MRW</value>
                     <value label="Other">OTHER</value>
                     <value label="Parcelforce">PARCELFORCE</value>
                     <value label="Posten Âland">POSTENALAND</value>
@@ -232,7 +231,6 @@
                 <accepted_values>
                     <value default="true">Colissimo</value>
                     <value>So Colissimo</value>
-                    <value>Geodis</value>
                     <value>CHRONOPOST</value>
                     <value>DPD</value>
                     <value>Mondial Relay</value>
@@ -2623,7 +2621,7 @@
                 <name>carrier_name</name>
             </param>
             <param usedby="shipped">
-                <type>carrier</type>
+                <type>carrier_code</type>
                 <name>carrier_code</name>
                 <accepted_values>
                     <value label="Colissimo" default="true">colissimo</value>
@@ -2631,17 +2629,8 @@
                     <value label="UPS">ups</value>
                     <value label="GLS">gls</value>
                     <value label="Gefco">gefco</value>
-                    <value label="DPD France">dpd</value>
+                    <value label="DPD">dpd</value>
                     <value label="DHL France">dhl</value>
-                    <value label="TNT">tnt</value>
-                    <value label="DPD Allemagne">dpd_ger</value>
-                    <value label="Colis privé">colisprive</value>
-                    <value label="La Poste">laposte</value>
-                    <value label="FEDEX">fedex</value>
-                    <value label="Coliposte">coliposte</value>
-                    <value label="Cchezvous">cchezvous</value>
-                    <value label="Calberson Super10count">calberson_super10</value>
-                    <value label="Kuehne Nagel">kuehne nagel</value>
                 </accepted_values>
             </param>
             <param usedby="shipped">
@@ -2725,7 +2714,6 @@
                     <value label="Relais Colis">T4</value>
                     <value label="Chronopost">T5</value>
                     <value label="GLS">T6</value>
-                    <value label="GLS bis - New website">T7</value>
                 </accepted_values>
             </param>
             <param usedby="shipped">
@@ -4721,7 +4709,7 @@
             </param>
             <param usedby="shipped">
                 <type>carrier</type>
-                <name>carrier_code</name>
+                <name>carrier_name</name>
                 <accepted_values>
                     <value label="COL" default="true">Colissimo</value>
                     <value label="CHR">Chronopost</value>
@@ -5576,9 +5564,6 @@
                 <lengow>new</lengow>
             </state>
             <state name="SHIPPED">
-                <lengow>shipped</lengow>
-            </state>
-            <state name="DONE">
                 <lengow>shipped</lengow>
             </state>
             <state name="CANCELED">

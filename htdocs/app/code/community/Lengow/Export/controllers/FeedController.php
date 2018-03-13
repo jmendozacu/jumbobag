@@ -11,7 +11,6 @@
  */
 class Lengow_Export_FeedController extends Mage_Core_Controller_Front_Action
 {
-
     /**
      * Exports products for each store
      */
@@ -35,11 +34,9 @@ class Lengow_Export_FeedController extends Mage_Core_Controller_Front_Action
 
             // get store
             $storeCode = $this->getRequest()->getParam('code', null);
-            if ($storeCode) //if store code is in URL
-            {
+            if ($storeCode) {
                 $id_store = (int)Mage::getModel('core/store')->load($storeCode, 'code')->getId();
-            } else // if store id is in URL
-            {
+            } else  {
                 $id_store = (integer)$this->getRequest()->getParam('store', Mage::app()->getStore()->getId());
             }
 
@@ -82,7 +79,9 @@ class Lengow_Export_FeedController extends Mage_Core_Controller_Front_Action
                 if ($currency = $this->getRequest()->getParam('currency', null)) {
                     $generate->setCurrentCurrencyCode($currency);
                 }
-                Mage::helper('lensync/data')->log('Start manual export in store ' . Mage::app()->getStore($id_store)->getName() . '(' . $id_store . ')');
+                Mage::helper('lensync/data')->log(
+                    'Start manual export in store ' . Mage::app()->getStore($id_store)->getName() . '(' . $id_store . ')'
+                );
 
                 try {
                     if (Mage::getStoreConfig('lenexport/performances/optimizeexport')) {
@@ -104,23 +103,41 @@ class Lengow_Export_FeedController extends Mage_Core_Controller_Front_Action
                             )
                         );
                     } else {
-                        $generate->exec($id_store, $mode, $format, $types, $status, $export_child, $out_of_stock,
-                            $selected_products, $stream, $limit, $offset, $ids_product);
+                        $generate->exec(
+                            $id_store,
+                            $mode,
+                            $format,
+                            $types,
+                            $status,
+                            $export_child,
+                            $out_of_stock,
+                            $selected_products,
+                            $stream,
+                            $limit,
+                            $offset,
+                            $ids_product
+                        );
                     }
                 } catch (Exception $e) {
-                    Mage::helper('lensync/data')->log('Stop manual export - Store ' . Mage::app()->getStore($id_store)->getName() . '(' . $id_store . ') - Error: ' . $e->getMessage());
-                    echo 'Error: ' . $e->getMessage();
-                    flush();
+                    $errorMessage = 'Stop manual export - Store ' . Mage::app()->getStore($id_store)->getName()
+                        . '(' . $id_store . ') - Error: ' . $e->getMessage();
+                    Mage::helper('lensync/data')->log($errorMessage);
+                    $this->getResponse()->setHeader('HTTP/1.1', '500 Internal Server Error');
+                    $this->getResponse()->setBody($errorMessage);
                 }
             } else {
-                Mage::helper('lensync/data')->log('Stop manual export - Store ' . Mage::app()->getStore($id_store)->getName() . '(' . $id_store . ') is disabled');
-                header('Content-Type: text/html; charset=utf-8');
-                echo 'Stop manual export - Store ' . Mage::app()->getStore($id_store)->getName() . '(' . $id_store . ') is disabled';
-                flush();
+                $errorMessage = 'Stop manual export - Store ' . Mage::app()->getStore($id_store)->getName()
+                    . '(' . $id_store . ') is disabled';
+                Mage::helper('lensync/data')->log($errorMessage);
+                $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
+                $this->getResponse()->setBody($errorMessage);
             }
             Mage::helper('lensync/data')->log('## End manual export ##');
         } else {
-            echo Mage::helper('lenexport')->__('Unauthorised IP : %s', $_SERVER['REMOTE_ADDR']);
+            $this->getResponse()->setHeader('HTTP/1.1', '403 Forbidden');
+            $this->getResponse()->setBody(
+                Mage::helper('lenexport')->__('Unauthorised IP : %s', $_SERVER['REMOTE_ADDR'])
+            );
         }
     }
 }
