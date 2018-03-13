@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <lensync translate="label" module="lensync">
+            <groups>
+                <orders translate="label" module="lensync">
+                    <fields>
+                        <customer_group_amazon>
+                            <label>Customer group Amazon</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>lensync/system_config_source_customer_group</source_model>
+                        </customer_group_amazon>
+                        <customer_group_cdiscount>
+                            <label>Customer group CDiscount</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>62</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>lensync/system_config_source_customer_group</source_model>
+                        </customer_group_cdiscount>
+                        <customer_group_laredoute>
+                            <label>Customer group LaRedoute</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>63</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>lensync/system_config_source_customer_group</source_model>
+                        </customer_group_laredoute>
+                        <customer_group_fnac>
+                            <label>Customer group Fnac</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>64</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>lensync/system_config_source_customer_group</source_model>
+                        </customer_group_fnac>
+                    </fields>
+                </orders>
+            </groups>
+        </lensync>
+    </sections>
+</config>

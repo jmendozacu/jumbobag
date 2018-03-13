@@ -219,9 +219,9 @@ class Lengow_Sync_Model_Marketplacev2
                             case 'tracking':
                                 $trackings = $shipment->getAllTracks();
                                 if (!empty($trackings)) {
-                                    $first_track = $trackings[0];
+                                    $last_track = end($trackings);;
                                     $gets[$param['name']] = array(
-                                        'value'   => $first_track->getNumber(),
+                                        'value'   => $last_track->getNumber(),
                                         'require' => (array_key_exists('require', $param)
                                             ? explode(' ', $param['require'])
                                             : array()
@@ -232,12 +232,12 @@ class Lengow_Sync_Model_Marketplacev2
                             case 'carrier':
                                 $trackings = $shipment->getAllTracks();
                                 if (!empty($trackings)) {
-                                    $first_track = $trackings[0];
+                                    $last_track = end($trackings);
                                     $gets[$param['name']] = array(
                                         'value'   => $this->_matchCarrier(
                                             $param,
-                                            $first_track->getCarrierCode(),
-                                            $first_track->getTitle()
+                                            $last_track->getCarrierCode(),
+                                            $last_track->getTitle()
                                         ),
                                         'require' => (array_key_exists('require', $param)
                                             ? explode(' ', $param['require'])
