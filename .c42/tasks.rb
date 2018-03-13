@@ -142,10 +142,11 @@ package :deploy do
 	end
 end
 
-desc "pull", "rsync from prod server in case someone modified something there"
-task :pull do
-  exec("rsync -avzP --exclude=/media --exclude=/var/session --exclude=/var/cache --exclude=/var/log --exclude=/var/report occitech-jbag:jumbobag/ htdocs/")
+desc "lmb", "rsync from prod server in case someone modified LMB there"
+task :lmb do
+  exec("rsync -avzP occitech-jbag:deployment/prod/current/htdocs/app/code/local/LMB/ htdocs/app/code/local/LMB/");
 end
+
 
 private
 
