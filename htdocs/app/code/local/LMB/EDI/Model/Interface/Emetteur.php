@@ -17,8 +17,14 @@ class LMB_EDI_Model_Interface_Emetteur {
         $return = $mes->save();
         LMB_EDI_Model_EDI::traceDebug("debug", "save ok");
 
+        $tentative = 0; 
         while (!LMB_EDI_Model_EDI::newProcess("process/start/messages_envoi", LMB_EDI_Model_Liaison_MessageEnvoi::getProcess())) {
             sleep(5);
+            $tentative++; 
+            if ($tentative > 3) { 
+                LMB_EDI_Model_EDI::error(LMB_EDI_Model_Liaison_MessageEnvoi::getProcess()." n'a pas pu être relancé après 3 tentatives"); 
+                break; 
+            } 
         }
 
         return $return;
@@ -273,7 +279,7 @@ class LMB_EDI_Model_Interface_Emetteur {
                 /* @todo trouver comment savoir si article est variant */
                 if($bolenfant) {
                     $commande['docs_lines'][$num_line]['variante'] = $order_line->getProductId();
-                    $prix_enfant = $order_line->getPrice();
+                    $prix_enfant = floatval($order_line->getPrice());
                     if (empty($prix_enfant)) {
                         $prix_enfant = $last_prix_parent;
                     }

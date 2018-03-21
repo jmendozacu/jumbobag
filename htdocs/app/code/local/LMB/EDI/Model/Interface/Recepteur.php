@@ -818,8 +818,6 @@ class LMB_EDI_Model_Interface_Recepteur {
         LMB_EDI_Model_EDI::trace("reception", "CREATE VARIANTE :");
         LMB_EDI_Model_EDI::trace("reception", print_r($variante, true));
 
-        mail(LMB_EDI_Model_Config::GET_PARAM('alerte'), "Attention variante Magento", "URL : " . LMB_EDI_Model_ModuleLiaison::$RACINE_URL . " Parent:" . $variante['ref_article_parent'] . ", Ref:" . $variante['ref_article_variant']);
-
         //Test anti doublons et SKU vide !!!!!!!!!!!!!!!!!!
         if(!isset($variante['reference'])) $variante['reference'] = "";
         $product = Mage::getModel('catalog/product')->loadByAttribute('sku', $variante['reference']);

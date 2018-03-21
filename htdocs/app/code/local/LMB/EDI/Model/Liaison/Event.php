@@ -106,9 +106,15 @@ class LMB_EDI_Model_Liaison_Event implements LMB_EDI_Model_Liaison_Process {
             else mail(LMB_EDI_Model_Config::MAIL_ALERT(),"","$query");
         }
         else {
-            while(!LMB_EDI_Model_EDI::newProcess("process/start/events", self::getProcess())){
-                sleep(5);
-            }
+            $tentative = 0; 
+            while (!LMB_EDI_Model_EDI::newProcess("process/start/events", self::getProcess())) {
+                sleep(5); 
+                $tentative++; 
+                if ($tentative > 3) { 
+                    LMB_EDI_Model_EDI::error(self::getProcess()." n'a pas pu être relancé après 3 tentatives"); 
+                    break; 
+                } 
+            } 
         }
     }
 

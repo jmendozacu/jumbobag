@@ -6,7 +6,7 @@ class LMB_EDI_EchangesController extends Mage_Core_Controller_Front_Action {
         LMB_EDI_Model_Config::$log_file = "transaction_pmrq.log";
 
         ignore_user_abort(true);
-        set_time_limit(0);
+        set_time_limit(60);
         error_reporting(E_ALL);
         //ob_start();
         //register_shutdown_function(array("LMB_EDI_EchangesController", "exit_handler"));
@@ -368,11 +368,20 @@ class LMB_EDI_EchangesController extends Mage_Core_Controller_Front_Action {
             LMB_EDI_Model_EDI::traceDebug("receiver", $query);
 			
             $stmt = $pdo->prepare($query);
-            $stmt->execute();
+            $bdd_return = $stmt->execute();
+            //LMB_EDI_Model_EDI::trace("receiver", $query);
+            LMB_EDI_Model_EDI::trace("receiver", "reception ".($bdd_return ? "OK" : "ERROR"));
 
+            $tentative = 0; 
             while (!LMB_EDI_Model_EDI::newProcess("process/start/messages_recu", LMB_EDI_Model_Liaison_MessageRecu::getProcess())) {
-                sleep(2);
-            }
+                sleep(2); 
+                $tentative++; 
+                if ($tentative > 3) { 
+                    LMB_EDI_Model_EDI::error(LMB_EDI_Model_Liaison_MessageRecu::getProcess()." n'a pas pu être relancé après 3 tentatives"); 
+                    break; 
+                } 
+            } 
+            
             $writer = null;
             return true;
         } else {
