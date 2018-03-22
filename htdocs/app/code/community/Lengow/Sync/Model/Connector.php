@@ -41,23 +41,22 @@ class Lengow_Sync_Model_Connector
     const LENGOW_API_URL = 'http://api.lengow.io:80';
 
     const LENGOW_API_SANDBOX_URL = 'http://api.lengow.net:80';
-    
-    
+
     /**
-     * Default options for curl.
+     * Default options for curl
      */
     public static $CURL_OPTS = array(
         CURLOPT_CONNECTTIMEOUT => 10,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 300,
+        CURLOPT_TIMEOUT        => 20,
         CURLOPT_USERAGENT      => 'lengow-php-sdk',
     );
 
     /**
-     * Make a new Lengow API Connector.
+     * Make a new Lengow API Connector
      *
-     * @param varchar $access_token Your access token.
-     * @param varchar $secret Your secret.
+     * @param string $access_token Your access token
+     * @param string $secret Your secret
      */
     public function init($access_token, $secret)
     {
@@ -65,17 +64,12 @@ class Lengow_Sync_Model_Connector
         $this->secret = $secret;
     }
 
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
     /**
-     * Connectection to the API
+     * Connection to the API
      *
-     * @param varchar $user_token The user token if is connected
+     * @param string $user_token The user token if is connected
      *
-     * @return mixed array [authorized token + account_id + user_id] or false
+     * @return array|false
      */
     public function connect($user_token = '')
     {
@@ -99,14 +93,14 @@ class Lengow_Sync_Model_Connector
     }
 
     /**
-     * The API method.
+     * The API method
      *
-     * @param varchar $method Lengow method API call.
-     * @param varchar $array Lengow method API parameters
-     * @param varchar $type type of request GET|POST|PUT|HEAD|DELETE|PATCH
-     * @param varchar $format return format of API
+     * @param string $method Lengow method API call
+     * @param array $array Lengow method API parameters
+     * @param string $type type of request GET|POST|PUT|HEAD|DELETE|PATCH
+     * @param string $format return format of API
      *
-     * @return array The formated data response
+     * @return array
      */
     public function call($method, $array = array(), $type = 'GET', $format = 'json')
     {
@@ -180,35 +174,49 @@ class Lengow_Sync_Model_Connector
         $opts[CURLOPT_CUSTOMREQUEST] = strtoupper($type);
         $url = parse_url($url);
         $opts[CURLOPT_PORT] = $url['port'];
-        $opts[CURLOPT_HEADER] = true;
+        $opts[CURLOPT_HEADER] = false;
         $opts[CURLOPT_RETURNTRANSFER] = true;
-        $opts[CURLOPT_VERBOSE] = false;
+        $opts[CURLOPT_VERBOSE] = true;
         if (isset($token)) {
             $opts[CURLOPT_HTTPHEADER] = array(
                 'Authorization: '.$token
             );
         }
-        $url = $url['scheme'] . '://' . $url['host'] . $url['path'];
-        if ($type == 'GET') {
-            $opts[CURLOPT_URL] = $url.'?'.http_build_query($args);
-            Mage::helper('lensync/data')->log('Connector: '.$opts[CURLOPT_URL]);
-        } else {
-            $opts[CURLOPT_URL] = $url;
-            $opts[CURLOPT_POST] = count($args);
-            $opts[CURLOPT_POSTFIELDS] = http_build_query($args);
+        $url = $url['scheme'].'://'.$url['host'].$url['path'];
+        switch ($type) {
+            case "GET":
+                $opts[CURLOPT_URL] = $url.'?'.http_build_query($args);
+                Mage::helper('lensync/data')->log('Connector: '.$opts[CURLOPT_URL]);
+                break;
+            case "PATCH":
+                if (isset($token)) {
+                    $opts[CURLOPT_HTTPHEADER] = array_merge(
+                        $opts[CURLOPT_HTTPHEADER],
+                        array('Content-Type: application/json')
+                    );
+                }
+                $opts[CURLOPT_URL] = $url;
+                $opts[CURLOPT_POST] = count($args);
+                $opts[CURLOPT_POSTFIELDS] = json_encode($args);
+                break;
+            default:
+                $opts[CURLOPT_URL] = $url;
+                $opts[CURLOPT_POST] = count($args);
+                $opts[CURLOPT_POSTFIELDS] = http_build_query($args);
+                break;
         }
-        // Exectute url request
+        // Execute url request
         curl_setopt_array($ch, $opts);
         $result = curl_exec($ch);
-        $error = curl_errno($ch);
-        list($header, $data) = explode("\r\n\r\n", $result, 2);
-        $information = curl_getinfo($ch, CURLINFO_HEADER_OUT);
+        $error_number = curl_errno($ch);
+        $error_text = curl_error($ch);
         curl_close($ch);
-        if ($data === false) {
-            throw new Exception('Bad request '.$error['code']);
-            return false;
+        if ($result === false) {
+            $error_curl = 'API call failed : Curl error '.$error_number.' - '.$error_text;
+            Mage::helper('lensync/data')->log($error_curl);
+            throw new Exception('Bad request '.$error_curl);
         }
-        return $data;
+        return $result;
     }
 
     public function getAccountId()
@@ -217,7 +225,7 @@ class Lengow_Sync_Model_Connector
     }
 
     /**
-     * Check API Authentification
+     * Check API Authentication
      *
      * @param integer $account_id Account id
      *

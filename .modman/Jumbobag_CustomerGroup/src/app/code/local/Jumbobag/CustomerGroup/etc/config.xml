@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Jumbobag_CustomerGroup>
+            <version>0.1.0</version>
+        </Jumbobag_CustomerGroup>
+    </modules>
+    <global>
+        <resources>
+            <jumbobag_customer_group_setup>
+                <setup>
+                    <module>Jumbobag_CustomerGroup</module>
+                </setup>
+            </jumbobag_customer_group_setup>
+        </resources>
+        <models>
+            <lensync>
+                <rewrite>
+                    <customer_customer>Jumbobag_CustomerGroup_Model_Sync_Customer_Customer</customer_customer>
+                    <customer_customerv2>Jumbobag_CustomerGroup_Model_Sync_Customer_Customerv2</customer_customerv2>
+                </rewrite>
+            </lensync>
+        </models>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Jumbobag_CustomerGroup>
+                    <files>
+                        <default>Jumbobag_CustomerGroup.csv</default>
+                    </files>
+                </Jumbobag_CustomerGroup>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

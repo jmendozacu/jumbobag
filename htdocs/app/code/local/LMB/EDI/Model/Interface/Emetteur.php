@@ -17,8 +17,14 @@ class LMB_EDI_Model_Interface_Emetteur {
         $return = $mes->save();
         LMB_EDI_Model_EDI::traceDebug("debug", "save ok");
 
+        $tentative = 0; 
         while (!LMB_EDI_Model_EDI::newProcess("process/start/messages_envoi", LMB_EDI_Model_Liaison_MessageEnvoi::getProcess())) {
             sleep(5);
+            $tentative++; 
+            if ($tentative > 3) { 
+                LMB_EDI_Model_EDI::error(LMB_EDI_Model_Liaison_MessageEnvoi::getProcess()." n'a pas pu être relancé après 3 tentatives"); 
+                break; 
+            } 
         }
 
         return $return;
@@ -248,7 +254,7 @@ class LMB_EDI_Model_Interface_Emetteur {
                 if(!$product->getId()) continue;
                 if($product->isConfigurable()){
                     //article parent
-                    $last_prix_parent=$order_line->getPrice();
+                    $last_prix_parent = $order_line->getPrice();
                     $parent_line = $order_line;
                     continue;
                 }
@@ -261,7 +267,7 @@ class LMB_EDI_Model_Interface_Emetteur {
                 if(isset($parentIds[0])) {
                     $parent = Mage::getModel('catalog/product')->load($parentIds[0]);
                     LMB_EDI_Model_EDI::trace("debug_HA2", "Cest un enfant");
-                    $bolenfant=true;
+                    $bolenfant = true;
                 }
                 
                 ++$num_line;
@@ -273,7 +279,11 @@ class LMB_EDI_Model_Interface_Emetteur {
                 /* @todo trouver comment savoir si article est variant */
                 if($bolenfant) {
                     $commande['docs_lines'][$num_line]['variante'] = $order_line->getProductId();
-                    $commande['docs_lines'][$num_line]['pu_ht'] = $last_prix_parent;
+                    $prix_enfant = floatval($order_line->getPrice());
+                    if (empty($prix_enfant)) {
+                        $prix_enfant = $last_prix_parent;
+                    }
+                    $commande['docs_lines'][$num_line]['pu_ht'] = $prix_enfant;
                 } else {
                     $commande['docs_lines'][$num_line]['variante'] = false;
                     $commande['docs_lines'][$num_line]['pu_ht'] = $order_line->getPrice();
@@ -303,7 +313,10 @@ class LMB_EDI_Model_Interface_Emetteur {
                     if (!empty($discount_amount) && (float) $discount_amount !== 0) {
                         $pu_total = $order_line->getQtyOrdered() * $commande['docs_lines'][$num_line]['pu_ht'];
                         $remise = $discount_amount / (1+$tva/100);
-                        $discount = round((100 * $remise) / $pu_total, 2);
+                        $discount = 0;
+                        if ($pu_total > 0) {
+                            $discount = round((100 * $remise) / $pu_total, 2);
+                        }
                     }
                 }
                 
@@ -462,7 +475,15 @@ class LMB_EDI_Model_Interface_Emetteur {
             $payment['date'] = $paiement->getCreatedAt();
             if(empty($payment['date'])) $payment['date'] = $order->getCreatedAt();
             $payment['nb_jours'] = 0;
-            $notes = unserialize($paiement->getAdditionalData());
+            $notes = $paiement->getAdditionalData();
+            try {
+                if (preg_match("/^[siaO]{1}:/", $notes)) {
+                    $notes = unserialize($paiement->getAdditionalData());
+                }
+            }
+            catch(Exception $e) {
+                
+            }
             $payment['notes'] = (is_array($notes)) ? implode("\n", $notes) : $notes;
             $echeancier['echeancier'][] = $payment;
         }

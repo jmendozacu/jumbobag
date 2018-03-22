@@ -1106,6 +1106,11 @@ tr.summary-details-excluded {
 	clear: both;
 	text-align: right;
 }
+
+.header-wrapper {
+	padding-right: 15px;
+}
+
 /********** < Navigation */
 @media (min-width: 1200px) {
 	.header-wrapper {
@@ -1779,7 +1784,7 @@ tr.summary-details-excluded {
 .product-view .image-technique-wrapper .image-technique .texte_gauche p {
 	color: white;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .product-view .image-technique-wrapper .image-technique .texte_droite {
 	text-align: left;
@@ -1796,7 +1801,7 @@ tr.summary-details-excluded {
 .product-view .image-technique-wrapper .image-technique .texte_droite p {
 	color: white;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .product-collateral .box-collateral {
 	margin: 0 0 15px;
@@ -4273,7 +4278,7 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 footer .arguments-footer .argument-footer h3 {
 	font-size: 23px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #666666;
 	margin-bottom: 10px;
 }
@@ -4314,7 +4319,7 @@ footer .liens-footer a,
 footer .liens-footer p {
 	font-size: 12px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: white;
 	text-align: left;
 }
@@ -4354,7 +4359,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
 	font-size: 12px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #999999;
 }
 .fullscreen-before {
@@ -4423,7 +4428,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-category-view .height-centered h1 {
 	font-size: 82px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: white;
 	line-height: 0.9em;
 	text-align: right;
@@ -4507,7 +4512,7 @@ footer .liens-footer .copyright-wrapper p {
 .catalog-product-view .height-centered h1 {
 	font-size: 82px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: white;
 	line-height: 1em;
 	text-align: right;
@@ -4526,7 +4531,7 @@ footer .liens-footer .copyright-wrapper p {
 
 	text-transform: uppercase;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: white;
 }
 @media (min-width: 768px) {
@@ -4587,7 +4592,7 @@ footer .liens-footer .copyright-wrapper p {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #30409f;
 }
 @media (max-width: 767px) {
@@ -4664,7 +4669,7 @@ footer .liens-footer .copyright-wrapper p {
 	font-size: 40px;
 	text-transform: uppercase;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #30409f;
 }
 @media (max-width: 767px) {
@@ -4797,7 +4802,7 @@ footer .liens-footer .copyright-wrapper p {
 	.plus_tissus_acrylique
 	h3 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 24px;
 	float: left;
 	width: 100%;
@@ -4914,7 +4919,7 @@ footer .liens-footer .copyright-wrapper p {
 	.plus_tissus
 	h3 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 24px;
 	float: left;
 	width: 100%;
@@ -5005,7 +5010,7 @@ footer .liens-footer .copyright-wrapper p {
 	.wheelmark
 	p {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 16px;
 }
 .catalog-product-view
@@ -5078,7 +5083,7 @@ footer .liens-footer .copyright-wrapper p {
 	.btn_plus
 	a {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -5125,7 +5130,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .catalog-product-view .informations-produit .product-infos h2 .thin-part {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .catalog-product-view
 	.informations-produit
@@ -5134,7 +5139,7 @@ footer .liens-footer .copyright-wrapper p {
 	span.price {
 	font-size: 30px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #30409f;
 	text-transform: uppercase;
 }
@@ -5311,7 +5316,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus h2 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 30px;
 	margin-top: 80px;
 	margin-bottom: 46px;
@@ -5417,7 +5422,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .product-essential .produits-recemment-vus .product .titles-wrapper h4 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 16px;
 	color: #30409f;
 	text-transform: uppercase;
@@ -5495,7 +5500,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed h2 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 30px;
 	margin-top: 80px;
 	text-align: center;
@@ -5503,7 +5508,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed p {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 16px;
 	margin-top: 20px;
 	margin-bottom: 50px;
@@ -5902,12 +5907,12 @@ footer .liens-footer .liens-footer-inner {
 
 .catalog-product-view .height-centered h1 .bold-part sup {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 52px;
 }
 .catalog-product-view .informations-produit .product-infos h2 sup {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .catalog-product-view .height-centered h1 .bold-part b {
 	font-size: 50px;
@@ -5919,7 +5924,7 @@ footer .liens-footer .liens-footer-inner {
 }
 .catalog-product-view .height-centered h1 .bold-part b sup {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 30px;
 }
 
@@ -6043,7 +6048,7 @@ footer .liens-footer .liens-footer-inner {
 	font-size: 30px;
 	color: #30409f;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .catalog-product-view
 	.informations-produit
@@ -6081,7 +6086,7 @@ footer .liens-footer .liens-footer-inner {
 .catalog-product-view .height-centered h2 .price-box .regular-price .price {
 	font-size: 82px;
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #fff;
 	margin-bottom: 15px;
 }

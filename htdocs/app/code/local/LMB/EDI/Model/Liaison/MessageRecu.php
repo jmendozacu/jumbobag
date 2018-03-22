@@ -131,6 +131,7 @@ class LMB_EDI_Model_Liaison_MessageRecu implements LMB_EDI_Model_Liaison_Process
             return $return;
         }else {
             LMB_EDI_Model_EDI::trace(self::getProcess()->getName(), "La fonction $this->nom_fonction n'existe pas !");
+            return true;
         }
         return false;
     }

@@ -1,0 +1,14 @@
+<?php
+/**
+ * @var $this Jumbobag_Ecotax_Block_Product
+ */
+$ecotax = $this->getEcotax();
+
+if (empty($ecotax)) {
+    return;
+}
+?>
+<div class="clearfix"></div>
+<div class="ecotax">
+    dont <?php echo $ecotax; ?> d'éco-participation
+</div>

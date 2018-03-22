@@ -123,6 +123,10 @@ $imgY = $helper->calculateHeight($imgX);
                     </div>
                 <?php endif; ?>
             <?php endif; ?>
+
+            <?php if ($_item->getEcotax() > 0): ?>
+                <div class="ecotaxe">dont <?php echo Mage::helper('core')->formatPrice($_item->getEcotax()); ?> d'éco-part.</div>
+            <?php endif; ?>
         </td>
         <?php endif; ?>
         <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
@@ -165,6 +169,10 @@ $imgY = $helper->calculateHeight($imgX);
                         <span class="weee"><?php echo Mage::helper('weee')->__('Total incl. tax'); ?>: <?php echo $this->helper('checkout')->formatPrice($_incl+$_item->getWeeeTaxAppliedAmount()); ?></span>
                     </div>
                 <?php endif; ?>
+            <?php endif; ?>
+
+            <?php if ($_item->getEcotax() > 0): ?>
+                <div class="ecotaxe">dont <?php echo Mage::helper('core')->formatPrice($_item->getEcotax()); ?> d'éco-part.</div>
             <?php endif; ?>
         </td>
         <?php endif; ?>

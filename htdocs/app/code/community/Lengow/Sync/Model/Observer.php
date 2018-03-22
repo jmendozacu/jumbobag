@@ -16,6 +16,8 @@ class Lengow_Sync_Model_Observer
 
     protected $_alreadyShippedV2 = array();
 
+    protected $_alreadyChecked = array();
+
     public function import($observer = null)
     {
         if (Mage::getStoreConfig('lensync/performances/active_cron')) {
@@ -214,8 +216,9 @@ class Lengow_Sync_Model_Observer
                     );
                     $marketplace = Mage::getModel('lensync/marketplace', $args);
                     // Compatibility V2
-                    if ($order->getData('feed_id_lengow') != 0) {
+                    if ($order->getData('feed_id_lengow') != 0  && !array_key_exists($order->getData('order_id_lengow'), $this->_alreadyChecked)) {
                         $order = $marketplace->checkAndChangeMarketplaceName($order);
+                        $this->_alreadyChecked[$order->getData('order_id_lengow')] = true;
                     }
                     $marketplace->set($order->getData('marketplace_lengow'));
                     if ($marketplace->isLoaded()) {
@@ -278,8 +281,9 @@ class Lengow_Sync_Model_Observer
                     );
                     $marketplace = Mage::getModel('lensync/marketplace', $args);
                     // Compatibility V2
-                    if ($order->getData('feed_id_lengow') != 0) {
+                    if ($order->getData('feed_id_lengow') != 0  && !array_key_exists($order->getData('order_id_lengow'), $this->_alreadyChecked)) {
                         $order = $marketplace->checkAndChangeMarketplaceName($order);
+                        $this->_alreadyChecked[$order->getData('order_id_lengow')] = true;
                     }
                     $marketplace->set($order->getData('marketplace_lengow'));
                     if ($marketplace->isLoaded()) {

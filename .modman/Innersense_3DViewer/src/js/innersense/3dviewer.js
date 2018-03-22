@@ -29,6 +29,12 @@ Innersense.Viewer3D = (function(options) {
     var viewer, viewerDebugger
     var isWaitingReturnTimeout, isWaitingResponse
 
+    if (!options.initOptions) {
+        options.initOptions = {
+            hiddenMenu: true
+        }
+    }
+
     var initialize = function initialize() {
         if (viewer) {
             console.warn('3DViewer: already initialized')
@@ -141,7 +147,7 @@ Innersense.Viewer3D = (function(options) {
         if (initializeOnLoad) {
             initialized = true
         }
-        viewer.contentWindow.postMessage({ type: 'init', hiddenMenu: true }, '*');
+        viewer.contentWindow.postMessage(Object.assign({ type: 'init' }, options.initOptions), '*');
         viewerDebugger.setStatus('initialisation demandée')
 
         window.addEventListener('message', onViewerMessageReceived, false);

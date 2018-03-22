@@ -17,6 +17,9 @@
         <remove name="cart_sidebar"/>
         <!-- add the local stylesheet & js -->
         <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/style-r.css</stylesheet>
+            </action>
             <action ifconfig="shoppersettings/navigation/use_navigation" method="removeItem">
                 <type>js</type>
                 <name>varien/menu.js</name>
@@ -51,9 +54,6 @@
             </action>
             <action method="addCss">
                 <stylesheet>css/font-awesome-4.7.0/css/font-awesome.min.css</stylesheet>
-            </action>
-            <action method="addCss">
-                <stylesheet>css/style-r.css</stylesheet>
             </action>
             <action method="addCss">
                 <stylesheet>css/colorSwatch.css</stylesheet>
@@ -375,7 +375,8 @@
             <block type="core/text_list" name="product.info.options.configurable.renderers" as="attr_renderers">
                 <block type="configurableswatches/catalog_product_view_type_configurable_swatches" template="configurableswatches/catalog/product/view/type/options/configurable/swatches.phtml"/></block>
             <block type="core/text_list" name="product.info.options.configurable.after" as="after">
-                <block type="core/template" template="configurableswatches/catalog/product/view/type/configurable/swatch-js.phtml"/></block>
+                <block type="core/template" template="configurableswatches/catalog/product/view/type/configurable/swatch-js.phtml"/>
+                <block type="innersense_3dviewer/simulator" template="innersense/3dviewer_link.phtml" /></block>
         </reference>
     </PRODUCT_TYPE_configurable>
 </layout>

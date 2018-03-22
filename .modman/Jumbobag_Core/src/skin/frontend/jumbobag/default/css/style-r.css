@@ -893,7 +893,7 @@
 		margin-right: 20px;
 	}
 }
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 	.product-sublayout-sunbrella
 		.presentation-produit-wrapper
 		.presentation-produit.row {
@@ -1043,35 +1043,6 @@
 	}
 }
 /*-----------------------------xtrem-cuiseline*/
-@media (max-width: 768px) {
-	.product-sublayout-cruiseline.catalog-product-view .entretien {
-		background-color: #fff;
-	}
-	.product-sublayout-cruiseline.catalog-product-view .presentation-produit {
-		background-color: #fff;
-	}
-	.product-sublayout-cruiseline.catalog-product-view
-		.presentation-produit.row
-		.presentation-produit-content {
-		width: 100%;
-	}
-}
-
-@media (max-width: 1024px) {
-	.product-sublayout-cruiseline
-		.presentation-produit-wrapper
-		.presentation-produit.row {
-		background-image: url("/skin/frontend/jumbobag/default/images/tablet-boy-image.jpg") !important;
-	}
-	.product-sublayout-cruiseline .entretien-wrapper .entretien.row {
-		background-image: url("/skin/frontend/jumbobag/default/images/tablet-girl-image.jpg") !important;
-	}
-	.product-sublayout-cruiseline.catalog-product-view
-		.presentation-produit.row
-		.presentation-produit-content {
-		width: 100%;
-	}
-}
 
 .product-sublayout-cruiseline .clearfix {
 	display: block;
@@ -1083,15 +1054,6 @@
 	width: 1200px;
 	margin: 0 auto;
 }
-
-@media (min-width: 1280px) {
-	.product-sublayout-cruiseline
-		.presentation-produit-wrapper
-		.presentation-produit.row {
-		min-height: auto !important;
-	}
-}
-
 .product-sublayout-cruiseline
 	.presentation-produit-wrapper
 	.presentation-produit.row {
@@ -1109,22 +1071,63 @@
 .product-sublayout-cruiseline.catalog-product-view .presentation-produit {
 	background-color: transparent;
 }
+
+@media (max-width: 668px) {
+	.product-sublayout-cruiseline .fullscreen-before {
+		background-attachment: scroll;
+	}
+}
+
+@media (max-width: 568px) {
+	.product-sublayout-cruiseline .fullscreen-before {
+		background-position: center 60px !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.product-sublayout-cruiseline.catalog-product-view .entretien {
+		background-color: #fff;
+	}
+	.product-sublayout-cruiseline.catalog-product-view .presentation-produit {
+		background-color: #fff;
+	}
+	.product-sublayout-cruiseline.catalog-product-view
+		.presentation-produit.row
+		.presentation-produit-content {
+		width: 100%;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.product-sublayout-cruiseline
+		.presentation-produit-wrapper
+		.presentation-produit.row {
+		background-image: url("/skin/frontend/jumbobag/default/images/tablet-boy-image.jpg") !important;
+	}
+	.product-sublayout-cruiseline .entretien-wrapper .entretien.row {
+		background-image: url("/skin/frontend/jumbobag/default/images/tablet-girl-image.jpg") !important;
+	}
+	.product-sublayout-cruiseline.catalog-product-view
+		.presentation-produit.row
+		.presentation-produit-content {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1280px) {
+	.product-sublayout-cruiseline
+		.presentation-produit-wrapper
+		.presentation-produit.row {
+		min-height: auto !important;
+	}
+}
+
 @media (max-width: 1366px) {
 	.product-sublayout-cruiseline
 		.presentation-produit-wrapper
 		.presentation-produit.row {
 		background-position: top right;
 		background-size: auto 100%;
-	}
-}
-@media (max-width: 668px) {
-	.product-sublayout-cruiseline .fullscreen-before {
-		background-attachment: scroll;
-	}
-}
-@media (max-width: 568px) {
-	.product-sublayout-cruiseline .fullscreen-before {
-		background-position: center 60px !important;
 	}
 }
 
@@ -1217,7 +1220,7 @@
 		min-height: 679px;
 	}
 }
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 	.product-sublayout-swimbrella
 		.presentation-produit-wrapper
 		.presentation-produit.row {

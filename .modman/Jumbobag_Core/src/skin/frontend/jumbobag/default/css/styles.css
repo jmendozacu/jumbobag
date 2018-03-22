@@ -1012,7 +1012,7 @@ tr.summary-details-excluded{font-style:italic;}
     line-height: normal;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .catalog-category-view .products-grid .price-box .price {
 	font-family: 'Lato', sans-serif;
@@ -1208,7 +1208,7 @@ footer {
         color: #666;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 .block-subscribe button.button {
     overflow: visible;
@@ -1245,7 +1245,7 @@ footer {
     padding: 0;
     font-size: 30px; line-height: normal;
     font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 }
 footer .liens-footer {
     background-color: #322c29;
@@ -1289,7 +1289,7 @@ footer .liens-footer .social li:not(:last-child) {
 footer .liens-footer a, footer .liens-footer p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: white;
     text-align: left;
 }
@@ -1336,7 +1336,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
     font-size: 12px;
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #999999;
     text-align: center;
 }
@@ -1379,7 +1379,7 @@ footer .liens-footer .copyright-wrapper p {
 .cms-home-new #intro h1
 {
   font-family:"Lato", sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   font-size:40px;
   text-transform:uppercase;
   color:#31419f;
@@ -1535,7 +1535,7 @@ footer .liens-footer .copyright-wrapper p {
 .cms-home-new .gammes article .product-text h2
 {
   font-family: "Lato", sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color:#31419f;
   text-transform:uppercase;
   font-size:34px;
@@ -1563,7 +1563,7 @@ footer .liens-footer .copyright-wrapper p {
   text-align:center;
   font-size:40px;
   font-family: "Lato",sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color:#31419f;
   text-transform:uppercase;
 }
@@ -1695,7 +1695,7 @@ footer .arguments-footer .argument-footer .image-wrapper img {
 }
 footer .arguments-footer .argument-footer h3 {
   font-size: 23px;
-  font-weight: 200;
+  font-weight: 300;
   font-family: 'Lato', sans-serif;
   color: #666666;
   margin-bottom: 10px;
@@ -1733,7 +1733,7 @@ footer .liens-footer a,
 footer .liens-footer p {
   font-size: 12px;
   font-family: 'Lato', sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color: white;
   text-align: left;
 }
@@ -1769,7 +1769,7 @@ footer .liens-footer .copyright-wrapper {
 footer .liens-footer .copyright-wrapper p {
   font-size: 12px;
   font-family: 'Lato', sans-serif;
-  font-weight: 200;
+  font-weight: 300;
   color: #999999;
 }
 
@@ -1838,7 +1838,7 @@ footer .liens-footer .copyright-wrapper p {
 
 .insta #instafeed h2 {
 	font-family: "Lato", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	color: #31419f;
 	text-transform: uppercase;
 	font-size: 34px;
@@ -1847,7 +1847,7 @@ footer .liens-footer .copyright-wrapper p {
 }
 .insta #instafeed p {
     font-family: 'Lato', sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 16px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -2556,4 +2556,18 @@ h2.p2 span strong {
 .product-view .product-image-thumbs img {
 	max-width: 100%;
 	max-height: 100%;
+}
+
+.product-view .ecotax {
+    margin: 0 0 0.1rem 0;
+}
+
+#product_addtocart_form .ecotax span.price {
+    font-size: 1em;
+    font-family: inherit;
+}
+
+tr .ecotaxe {
+    font-size: 0.8em;
+    text-align: left;
 }

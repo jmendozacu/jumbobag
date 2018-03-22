@@ -46,8 +46,10 @@
 
         var selectFilter = function ($filter) {
             $filters.closest('.gallery-header-center-right-links').removeClass('gallery-header-center-right-links-current');
-            $filter.addClass('gallery-header-center-right-links-current');
+            $filter.parents('.gallery-header-center-right-links').addClass('gallery-header-center-right-links-current');
         };
+
+        $filters.first().click();
     });
 </script>
 

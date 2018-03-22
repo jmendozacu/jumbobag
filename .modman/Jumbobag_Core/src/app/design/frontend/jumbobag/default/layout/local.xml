@@ -269,7 +269,6 @@
         <reference name="product.info.upsell">
             <action method="setItemLimit"><type>upsell</type><limit>44</limit></action>
         </reference>
-
     </catalog_product_view>
 
     <reviews>
@@ -428,6 +427,9 @@
             <block type="core/text_list" name="product.info.options.configurable.after" as="after">
                 <block type="core/template"
                        template="configurableswatches/catalog/product/view/type/configurable/swatch-js.phtml"/>
+
+                <block type="innersense_3dviewer/simulator"
+                       template="innersense/3dviewer_link.phtml" />
             </block>
         </reference>
     </PRODUCT_TYPE_configurable>

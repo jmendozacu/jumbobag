@@ -5,6 +5,7 @@ class Innersense_3DViewer_Helper_Data extends Mage_Core_Helper_Abstract
     const VIEWER_BASE_URL_CONFIG_PATH = 'viewer3d/settings/base_url';
     const IS_ENABLED_CONFIG_PATH = 'viewer3d/settings/enabled';
     const IS_DEBUG_ENABLED_CONFIG_PATH = 'viewer3d/settings/debug';
+    const INIT_OPTIONS_CONFIG_PATH = 'viewer3d/settings/init_options';
 
     public function isViewerEnabledFor(Mage_Catalog_Model_Product $product)
     {
@@ -38,5 +39,8 @@ class Innersense_3DViewer_Helper_Data extends Mage_Core_Helper_Abstract
         return parent::isModuleEnabled($moduleName) && Mage::getStoreConfigFlag(static::IS_ENABLED_CONFIG_PATH);
     }
 
-
+    public function getInitOptions()
+    {
+        return Mage::getStoreConfig(static::INIT_OPTIONS_CONFIG_PATH);
+    }
 }
