@@ -252,3 +252,5 @@
         Allow from all
         Satisfy Any
     </Files>
+
+RedirectPermanent  /faq /info
