@@ -6847,9 +6847,8 @@ footer .liens-footer .liens-footer-inner {
 
 @media (max-width: 415px) {
 	.fullscreen-before {
-		background-size: 100% 360px !important;
-		height: 360px !important;
-		background-position: 0px 90px !important;
+		background-position: 50% 0!important;
+		height: 500px!important;
 	}
 	.fullscreen-before .en-savoir-plus {
 		bottom: 5px;
