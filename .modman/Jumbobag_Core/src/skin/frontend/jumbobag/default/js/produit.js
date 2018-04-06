@@ -43,6 +43,14 @@
       .find("label.required")
       .html("Couleurs :");
 
+    var float = $(".product-sublayout-float");
+
+    float.find("#product-options-wrapper label.required").html("Modèle :");
+
+    float.find("#product-options-wrapper label.required").html("Modèle :");
+
+    float.find(".availability").hide();
+
     //Gestion du changement d'image
     $(".swatches-container")
       .find(".swatch-img")
