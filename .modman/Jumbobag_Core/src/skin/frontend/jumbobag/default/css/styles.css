@@ -1874,12 +1874,13 @@ footer .liens-footer .copyright-wrapper p {
     position: relative;
 }
  .faq-main-text {
-    width: 75%;
+    width: 100%;
     float: left;
 }
  .faq-image {
     float: right;
     width: 25%;
+	margin-top: -65px;
 }
  .faq-sidebar {
     background: #3141a0;
@@ -2158,6 +2159,10 @@ h2.p2 span strong {
 }
 
 
+.catalog-category-view #gallery-content {
+	margin-top: 40px;
+}
+
 @media (max-width: 959px) {
 
      .wm-full-header .nav-container {  float: right;   margin: 14px 0 14px 2%;}
@@ -2268,8 +2273,8 @@ h2.p2 span strong {
 	 .faq { width: 100%;  float: left; left: 0;  padding: 10px;  top: 0;  box-sizing: border-box;}
 		
      .mobile-faq-img {display: block; padding: 0 10px;}
-	 .mobile-faq-img .faq-image { display: block; float:right; width:38%}
-	 .mobile-faq-img .faq-sidebar { display: block; position: inherit; padding: 8px 10px; }
+	 .mobile-faq-img .faq-image { display: block; float:right; width:38%; margin-top: 0; }
+	 .mobile-faq-img .faq-sidebar { display: block; position: inherit; padding: 8px 10px; margin-bottom: 15px; }
 	  .mobile-faq-img .faq-sidebar ul li {  font-size: 14px;  line-height: 26px;}
 	
 }
