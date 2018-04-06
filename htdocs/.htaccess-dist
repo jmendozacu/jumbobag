@@ -1,3 +1,5 @@
+RedirectPermanent  /faq /info
+
 ############################################
 ## uncomment these lines for CGI mode
 ## make sure to specify the correct cgi php binary file name
@@ -252,5 +254,3 @@
         Allow from all
         Satisfy Any
     </Files>
-
-RedirectPermanent  /faq /info
