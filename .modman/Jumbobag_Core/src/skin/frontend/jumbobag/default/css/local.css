@@ -1526,8 +1526,8 @@ footer ul.links{display:none;}
 }
 .cms-index-noroute .main-container{
     background-image: url(https://www.jumbobag.fr/skin/frontend/jumbobag/default/images/404.jpg) !important;
-    background-repeat:no-repeat;
 	background-size: cover;
+	background-position: center -100px;
 }
 .cms-index-noroute .arguments-footer{
     display: none !important;
