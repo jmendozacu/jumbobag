@@ -1718,7 +1718,8 @@ footer .liens-footer {
   background-color: #322c29;
   padding-top: 40px;
 }
-footer .liens-footer h4 {
+footer .liens-footer h4,
+footer .liens-footer h4 a {
   font-size: 14px;
   font-family: 'Lato', sans-serif;
   font-weight: 700 !important;
