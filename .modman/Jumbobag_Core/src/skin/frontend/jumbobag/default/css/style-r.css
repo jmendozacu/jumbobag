@@ -1982,6 +1982,10 @@
 	height: 440px;
 }
 
+.product-sublayout-float .presentation-produit-content .bouton-commander {
+  display: none !important;
+}
+
 .marg-plus-tissu {
 	margin-top: 30px;
 }
