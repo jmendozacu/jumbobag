@@ -1945,6 +1945,14 @@
 	padding: 0 2%;
 }
 
+.product-sublayout-float .content_remplissage .btn_plus {
+	display: none;
+}
+
+.product-sublayout-float .content_remplissage .container {
+	margin-bottom: initial !important;
+}
+
 .product-sublayout-float .presentation-produit-wrapper {
 	background: transparent !important;
 }
