@@ -69,7 +69,7 @@ pipeline {
                     -e BUNDLE_APP_CONFIG=/app/.bundle \
                     -w /app \
                     ruby bash -c \
-                    'bundle exec c42 deploy:production'
+                    'bundle exec c42 deploy:prod'
               '''
             }
           }
