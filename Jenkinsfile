@@ -8,7 +8,7 @@ pipeline {
       steps {
         echo "Init $BRANCH_NAME on $JENKINS_URL ..."
         sh '''
-          cp docker-compose.yml.dist docker-compose.yml
+          cp .c42/docker-compose.yml.dist docker-compose.yml
         '''
       }
     }
