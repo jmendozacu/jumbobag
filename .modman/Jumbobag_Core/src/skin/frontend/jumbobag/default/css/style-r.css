@@ -1934,6 +1934,167 @@
 		width: auto;
 	}
 }
+
+/*-----------------------------float*/
+
+.product-sublayout-float
+	.presentation-produit-wrapper
+	.presentation-produit.row,
+.product-sublayout-float .entretien-wrapper .entretien.row {
+	width: 100% !important;
+	padding: 0 2%;
+}
+
+.product-sublayout-float .content_remplissage .btn_plus {
+	display: none;
+}
+
+.product-sublayout-float .content_remplissage .container {
+	margin-bottom: initial !important;
+}
+
+.product-sublayout-float .presentation-produit-wrapper {
+	background: transparent !important;
+}
+.product-sublayout-float .entretien-wrapper {
+	background: transparent !important;
+}
+.product-sublayout-float .wrapper-en-savoir-plus.tissu {
+	display: none !important;
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+	.product-sublayout-float .entretien-wrapper {
+		position: relative;
+		top: -92px;
+	}
+}
+
+.product-sublayout-float .btn-cart {
+	background-color: #ccc !important;
+	padding: 24px !important;
+	font-size: 16px !important;
+}
+
+.product-sublayout-float .presentation-produit {
+	background-size: contain;
+	background-position: right 70px;
+	height: 440px;
+}
+
+.marg-plus-tissu {
+	margin-top: 30px;
+}
+.stars-p {
+	text-align: left;
+}
+.catalog-product-view
+	.informations-produit
+	.product-infos
+	#product-options-wrapper
+	.swatches-container
+	.swatch-img:not(:last-child) {
+	margin-bottom: 15px;
+}
+.product-sublayout-float
+	.informations-produit
+	.product-infos
+	.product-options-bottom {
+	margin-top: 110px !important;
+}
+.product-view .add-to-cart button.button span span {
+	background: url("../images/icone-panier-produit.png") no-repeat;
+	background-position: 10px center;
+}
+.product-sublayout-float .height-centered h1 .title-product-h1 {
+	display: none !important;
+}
+.product-sublayout-float .informations-produit .product-infos h2 .thin-part {
+	display: none;
+}
+.product-sublayout-float
+	.informations-produit
+	.product-infos
+	h2
+	.panier-product-title {
+	font-family: "Lato", sans-serif;
+	font-weight: 700;
+}
+.product-sublayout-float .informations-produit .product-images {
+	margin-top: -50px !important;
+}
+.product-sublayout-float
+	.wrapper-en-savoir-plus
+	.inner-en-savoir-plus
+	.content_tissu
+	.container
+	.wheelmark
+	h3:before {
+	display: none;
+}
+.product-sublayout-float
+	.wrapper-en-savoir-plus
+	.inner-en-savoir-plus
+	.content_tissu
+	.container
+	.wheelmark {
+	margin-top: 0px;
+}
+
+.product-sublayout-float .entretien-wrapper .bouton-commander {
+	display: none !important;
+}
+
+.product-sublayout-float .entretien-wrapper .entretien.row {
+	height: 385px !important;
+}
+@media (max-width: 768px) {
+	.product-sublayout-float .entretien-wrapper .entretien.row {
+		display: none !important;
+	}
+}
+@media (max-width: 480px) {
+	.uvimg1 {
+		margin-bottom: 0px;
+		float: left;
+		margin-right: 3px;
+		width: auto;
+	}
+	.thin-part {
+		display: none;
+	}
+	.product-sublayout-float .informations-produit .product-infos h2 {
+		font-size: 21px;
+	}
+	.product-sublayout-float
+		.informations-produit
+		.product-infos
+		.product-options-bottom {
+		margin-top: 10px !important;
+	}
+}
+@media (max-width: 1024px) {
+	.product-sublayout-float
+		.informations-produit
+		.product-infos
+		.product-options-bottom {
+		margin-top: 30px !important;
+	}
+}
+@media (min-width: 1024px) {
+	.uvimg1 {
+		margin-bottom: 40px;
+		float: left;
+		margin-right: 30px;
+		width: auto;
+	}
+}
+@media only screen and (max-width: 1023px) and (min-width: 769px) {
+	.presentation-produit-wrapper .presentation-produit.row {
+		height: 530px;
+		background-position: bottom center;
+	}
+}
 /*-----------------------------chilly bean*/
 
 .product-sublayout-chilly-bean .presentation-produit-wrapper {

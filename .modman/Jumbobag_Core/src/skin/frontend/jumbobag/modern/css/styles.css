@@ -4510,7 +4510,7 @@ footer .liens-footer .copyright-wrapper p {
 	-o-transform: translate(0, -50%);
 }
 .catalog-product-view .height-centered h1 {
-	font-size: 82px;
+	font-size: 60px;
 	font-family: "Lato", sans-serif;
 	font-weight: 300;
 	color: white;
@@ -5608,7 +5608,7 @@ footer .liens-footer .copyright-wrapper p {
 		.product-images
 		.product-image
 		img {
-		width: 50%;
+		width: 80%;
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
@@ -6847,9 +6847,8 @@ footer .liens-footer .liens-footer-inner {
 
 @media (max-width: 415px) {
 	.fullscreen-before {
-		background-size: 100% 360px !important;
-		height: 360px !important;
-		background-position: 0px 90px !important;
+		background-position: 50% 0!important;
+		height: 500px!important;
 	}
 	.fullscreen-before .en-savoir-plus {
 		bottom: 5px;

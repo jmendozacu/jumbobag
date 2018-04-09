@@ -47,6 +47,7 @@
             <action method="addCss"><stylesheet>css/account.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/colorSwatch.css</stylesheet></action>
             <action method="addCss"><stylesheet>css/product3dViewer.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/cms.css</stylesheet></action>
 
             <action ifconfig="shoppersettings/design/override_css" method="addItem"><type>skin_css</type><name>css/override.css</name></action>
 
