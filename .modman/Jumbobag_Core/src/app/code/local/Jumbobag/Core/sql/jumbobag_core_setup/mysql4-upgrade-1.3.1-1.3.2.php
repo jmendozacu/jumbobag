@@ -24,9 +24,9 @@ try {
             <li><a href="/payment-mode">Payment mode</a></li>
             <li><a href="/legal-notice">Legal notice</a></li>
             <li><a href="/cgv">GTCs</a></li>
-            <li><a href="/dataprotect">Protection des données</a></li>
-            <li><a href="/retractinfo">Droit de rétractation</a></li>
-            <li><a href="/concours">Règlement Jeu Concours</a></li>
+            <li><a href="/dataprotect">Data protection</a></li>
+            <li><a href="/retractinfo">Right of withdrawal</a></li>
+            <li><a href="/concours">Contest Rules Game</a></li>
           </ul>
         </div>
       </div>'
@@ -46,7 +46,7 @@ try {
             <p>12 rue Ferrando</p>
             <p>31400 Toulouse France</p>
             <br />
-            <p>+33(0)9 72 60 09 18</p>
+            <p><a href="tel:+33972600918">+33(0)9 72 60 09 18</a></p>
             <br />
             <p><a href="mailto:contact@jumbobag.fr">contact@jumbobag.fr</a></p>
           </div>
@@ -120,7 +120,7 @@ try {
             <p>12 rue Ferrando</p>
             <p>31400 Toulouse France</p>
             <br />
-            <p>+33(0)9 72 60 09 18</p>
+            <p><a href="tel:+33972600918">+33(0)9 72 60 09 18</a></p>
             <br />
             <p><a href="mailto:contact@jumbobag.fr">contact@jumbobag.fr</a></p>
           </div>
