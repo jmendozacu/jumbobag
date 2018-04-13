@@ -170,6 +170,21 @@
             <block type="cms/block" name="shopper_footer_links" as="shopper_footer_links">
                 <action method="setBlockId"><block_id>shopper_footer_links</block_id></action>
             </block>
+            <block type="cms/block" name="shopper_footer_contact" as="shopper_footer_contact">
+                <action method="setBlockId">
+                    <block_id>shopper_footer_contact</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="shopper_footer_information" as="shopper_footer_information">
+                <action method="setBlockId">
+                    <block_id>shopper_footer_information</block_id>
+                </action>
+            </block>
+            <block type="cms/block" name="shopper_footer_press" as="shopper_footer_press">
+                <action method="setBlockId">
+                    <block_id>shopper_footer_press</block_id>
+                </action>
+            </block>
             <block type="shoppersettings/brands" name="shoppersettings.brands" as="shopper_brands" template="queldorei/brands_slider.phtml" />
         </reference>
 
