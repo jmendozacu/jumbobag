@@ -4364,7 +4364,6 @@ footer .liens-footer .copyright-wrapper p {
 }
 .fullscreen-before {
 	background-repeat: no-repeat;
-	background-attachment: fixed;
 	position: relative;
 	height: 700px;
 }
