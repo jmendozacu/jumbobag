@@ -7301,3 +7301,7 @@ body.fixbandesbleues .presentation-produit-wrapper,
 body.fixbandesbleues .entretien-wrapper {
 	background: transparent !important;
 }
+
+.rev_slider .tp-mask-wrap {
+	display: none !important;
+}
