@@ -1072,12 +1072,6 @@
 	background-color: transparent;
 }
 
-@media (max-width: 668px) {
-	.product-sublayout-cruiseline .fullscreen-before {
-		background-attachment: scroll;
-	}
-}
-
 @media (max-width: 568px) {
 	.product-sublayout-cruiseline .fullscreen-before {
 		background-position: center 60px !important;
@@ -1642,7 +1636,6 @@
 	.product-sublayout-scuba .fullscreen-before {
 		background-size: 100% 430px !important;
 		background-position: 0px 60px !important;
-		background-attachment: scroll !important;
 	}
 
 	.product-sublayout-scuba.catalog-product-view
