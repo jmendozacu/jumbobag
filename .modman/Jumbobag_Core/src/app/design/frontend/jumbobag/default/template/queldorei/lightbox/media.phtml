@@ -5,26 +5,26 @@
  */
 ?>
 <?php
-	$product = $this->getProduct();
-	$outputHelper = $this->helper('catalog/output');
-	$helper = $this->helper('shoppersettings/image');
+    $product = $this->getProduct();
+    $outputHelper = $this->helper('catalog/output');
+    $helper = $this->helper('shoppersettings/image');
     $config = Mage::getStoreConfig('shoppersettings');
 
     list($defaultImgX, $defaultImgY) = $helper->getDefaultSize();
     list($imgX, $imgY) = $helper->getMainSize();
-    if ( $imgX > 800 ) {
+    if ($imgX > 800) {
         $imgX = 800;
         $imgY = $helper->calculateHeight($imgX);
     }
     list($thumbX, $thumbY) = $helper->getThumbSize();
-	list($real_thumbX, $real_thumbY) = $helper->getThumbSize();
-	if ( $real_thumbX < 140 ) {
-		$real_thumbX = 140;
-		$real_thumbY = $helper->calculateHeight($real_thumbX);
-	}
+    list($real_thumbX, $real_thumbY) = $helper->getThumbSize();
+    if ($real_thumbX < 140) {
+        $real_thumbX = 140;
+        $real_thumbY = $helper->calculateHeight($real_thumbX);
+    }
 ?>
 
-<?php if ($product->getInnersenseId()): ?>
+<?php if (Mage::helper("innersense_3dviewer")->isModuleEnabled() && Mage::helper("innersense_3dviewer")->isViewerEnabledFor($product)): ?>
     <script type="text/javascript">
         if (!window.viewer3DOptions) {
             window.viewer3DOptions = {}
