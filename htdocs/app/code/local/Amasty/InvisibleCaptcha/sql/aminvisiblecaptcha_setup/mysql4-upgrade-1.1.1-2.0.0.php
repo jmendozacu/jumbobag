@@ -1,0 +1,1 @@
+../../../../../../../../.modman/Amasty_InvisibleCaptcha/src/app/code/local/Amasty/InvisibleCaptcha/sql/aminvisiblecaptcha_setup/mysql4-upgrade-1.1.1-2.0.0.php

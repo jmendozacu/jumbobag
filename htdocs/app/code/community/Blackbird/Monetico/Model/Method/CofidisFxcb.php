@@ -12,6 +12,13 @@
 class Blackbird_Monetico_Model_Method_CofidisFxcb extends Blackbird_Monetico_Model_Method_Abstract
 {
     /**
+     * Checkout session
+     *
+     * @var Mage_Checkout_Model_Session
+     */
+    protected $checkoutSession;
+
+    /**
      * @var string
      */
     protected $_code = 'monetico_4xcb';
@@ -135,5 +142,26 @@ class Blackbird_Monetico_Model_Method_CofidisFxcb extends Blackbird_Monetico_Mod
         } else {
             return $this->_CMCIC_hmac_KeyPassphrase($string);
         }
+    }
+
+    public function isAvailable($quote = null)
+    {
+        $isAvailable = parent::isAvailable($quote);
+
+        if($isAvailable) {
+            if (is_null($quote)) {
+                $quote = $this->checkoutSession->getQuote();
+            }
+
+            $minAmount = $this->getConfigData('amount_min');
+            $maxAmount = $this->getConfigData('amount_max');
+            $isAvailable = ($minAmount >= 0 && $maxAmount > 0 && $minAmount < $maxAmount);
+
+            if($isAvailable) {
+                $isAvailable = ($quote->getGrandTotal() >= $minAmount && $quote->getGrandTotal() <= $maxAmount);
+            }
+        }
+
+        return $isAvailable;
     }
 }

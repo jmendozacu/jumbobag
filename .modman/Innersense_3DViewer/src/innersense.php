@@ -65,7 +65,7 @@ SELECT
   ot.value as option_title,
   v.option_id as option_value_id,
   vt.value as option_value_title,
-  vt.value_id as option_value_ref
+  vtc.value as option_value_ref
 FROM `catalog_product_entity` as p
 INNER JOIN catalog_product_entity_varchar as n ON p.entity_id = n.entity_id
 INNER JOIN catalog_product_entity_varchar as inn ON p.entity_id = inn.entity_id
@@ -73,7 +73,8 @@ INNER JOIN catalog_product_super_attribute as o ON o.product_id = p.entity_id
 INNER JOIN catalog_product_super_attribute_label as ot ON ot.product_super_attribute_id = o.product_super_attribute_id
 INNER JOIN eav_attribute_option as v ON v.attribute_id = o.attribute_id
 INNER JOIN eav_attribute_option_value as vt ON vt.option_id = v.option_id
-WHERE n.attribute_id = " . $attributeNameId . " AND inn.attribute_id = " . $attributeInnersenseId . " AND vt.store_id = " . $storeId . " AND inn.store_id = " . $storeId . " AND ot.store_id = " . $storeId . " AND n.store_id = " . $storeId . " AND inn.value IS NOT NULL AND inn.value != ''
+INNER JOIN eav_attribute_option_value as vtc ON vtc.option_id = v.option_id
+WHERE n.attribute_id = " . $attributeNameId . " AND inn.attribute_id = " . $attributeInnersenseId . " AND vt.store_id = " . $storeId . " AND vtc.store_id = " . 0 . " AND inn.store_id = " . $storeId . " AND ot.store_id = " . $storeId . " AND n.store_id = " . $storeId . " AND inn.value IS NOT NULL AND inn.value != ''
 
 UNION
 

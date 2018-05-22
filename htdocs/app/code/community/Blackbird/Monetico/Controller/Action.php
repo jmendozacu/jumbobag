@@ -139,7 +139,7 @@ abstract class Blackbird_Monetico_Controller_Action extends Mage_Core_Controller
             $postData = $this->getRequest()->getQuery();
             $method = 'get';
         } else {
-            $model->generateErrorResponse();
+            print_r($model->generateErrorResponse());
         }
 
         $this->setMoneticoResponse($postData);
@@ -157,7 +157,7 @@ abstract class Blackbird_Monetico_Controller_Action extends Mage_Core_Controller
             $order = Mage::getModel('sales/order')->loadByIncrementId($realOrderId);
 
             if (!$order->getId()) {
-                $model->generateErrorResponse();
+                print_r($model->generateErrorResponse());
             }
         }
 
@@ -227,7 +227,7 @@ abstract class Blackbird_Monetico_Controller_Action extends Mage_Core_Controller
             }
 
             if ($method == 'post') {
-                $model->generateSuccessResponse();
+                print_r($model->generateSuccessResponse());
             } else if ($method == 'get') {
                 return;
             }
@@ -239,7 +239,7 @@ abstract class Blackbird_Monetico_Controller_Action extends Mage_Core_Controller
                 $order->addStatusHistoryComment(Mage::helper('blackbird_monetico')->__('Returned MAC is invalid. Order cancelled.'));
                 $order->save();
             }
-            $model->generateErrorResponse();
+            print_r($model->generateErrorResponse());
         }
     }
 

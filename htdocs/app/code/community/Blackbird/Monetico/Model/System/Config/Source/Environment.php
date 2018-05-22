@@ -19,15 +19,15 @@ class Blackbird_Monetico_Model_System_Config_Source_Environment
      */
     public function toOptionArray()
     {
-        return [
-            [
+        return array(
+            array(
                 'value' => self::ENVIRONMENT_SANDBOX,
                 'label' => 'Sandbox',
-            ],
-            [
+            ),
+            array(
                 'value' => self::ENVIRONMENT_PRODUCTION,
                 'label' => 'Production'
-            ]
-        ];
+            )
+        );
     }
 }

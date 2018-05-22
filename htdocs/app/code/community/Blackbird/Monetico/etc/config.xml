@@ -3,7 +3,7 @@
 
     <modules>
         <Blackbird_Monetico>
-            <version>1.0.0</version>
+            <version>1.0.6</version>
         </Blackbird_Monetico>
     </modules>
 
@@ -261,4 +261,13 @@
             </monetico_paypal>
         </payment>
     </default>
+
+    <crontab>
+        <jobs>
+            <monetico_cron_cancel_order>
+                <schedule><cron_expr>* * * * *</cron_expr></schedule>
+                <run><model>blackbird_monetico/cron::execute</model></run>
+            </monetico_cron_cancel_order>
+        </jobs>
+    </crontab>
 </config>

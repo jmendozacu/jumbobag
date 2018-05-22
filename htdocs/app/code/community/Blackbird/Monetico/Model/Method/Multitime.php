@@ -12,6 +12,13 @@
 class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model_Method_Abstract
 {
     /**
+     * Checkout session
+     *
+     * @var Mage_Checkout_Model_Session
+     */
+    protected $checkoutSession;
+
+    /**
      * @var string
      */
     protected $_code = 'monetico_multitime';
@@ -56,12 +63,9 @@ class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model
     {
         Mage::getSingleton('checkout/session')->setIsMultishipping(false);
 
-        if(Mage::getStoreConfig('payment/monetico_multitime/use_iframe')) {
-            return Mage::getUrl('monetico/several/iframe');
-        }
-        else {
-            return Mage::getUrl('monetico/several/redirect');
-        }
+        return Mage::getStoreConfig('payment/monetico_multitime/use_iframe')
+            ? Mage::getUrl('monetico/several/iframe')
+            : Mage::getUrl('monetico/several/redirect');
     }
 
     /**
@@ -112,8 +116,6 @@ class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model
             $fields = array_merge($fields, $terms);
         }
 
-        $fields['MAC'] = $this->_getMAC($fields);
-
         return $fields;
     }
 
@@ -127,7 +129,7 @@ class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model
     {
         if (((int)$this->getVersion()) >= 3) {
             $string = sprintf('%s*%s*%s*%s*%s*%s*%s*%s*%s*%s*', $data['TPE'], $data['date'], $data['montant'], $data['reference'], $data['texte-libre'], $data['version'], $data['lgue'], $data['societe'], $data['mail'], $data['nbrech']);
-            for($i = 1; $i <= $data['nbrech']; $i++)
+            for($i = 1; $i <= 4; $i++)
             {
                 $string = $string . sprintf('%s*%s*', $data['dateech'.$i], $data['montantech'.$i]);
             }
@@ -136,5 +138,40 @@ class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model
         }
 
         return $this->_CMCIC_hmac($string);
+    }
+
+    public function isAvailable($quote = null)
+    {
+        $isAvailable = parent::isAvailable($quote);
+
+        if($isAvailable) {
+            if (is_null($quote)) {
+                $quote = $this->checkoutSession->getQuote();
+            }
+
+            $minAmount = $this->getConfigData('amount_min');
+            $maxAmount = $this->getConfigData('amount_max');
+            $isAvailable = ($minAmount >= 0 && $maxAmount > 0 && $minAmount < $maxAmount);
+
+            if($isAvailable) {
+                $isAvailable = ($quote->getGrandTotal() >= $minAmount && $quote->getGrandTotal() <= $maxAmount);
+            }
+        }
+
+        return $isAvailable;
+    }
+
+
+
+    /**
+     *  Returns Target URL
+     *
+     *  @return	  string Target URL
+     */
+    public function getMoneticoUrl()
+    {
+        return Mage::getStoreConfig('payment/monetico_multitime/environment') == 'sandbox'
+            ? 'https://p.monetico-services.com/test/paiement.cgi'
+            : 'https://p.monetico-services.com/paiement.cgi';
     }
 }

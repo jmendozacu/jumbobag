@@ -14,9 +14,9 @@ class Blackbird_Monetico_Model_System_Config_Source_AvailableLocales
     /**
      * Allowed countries
      */
-    protected $allowedLocales = [
+    protected $allowedLocales = array(
         'DE', 'EN', 'ES', 'FR', 'IT', 'JA', 'NL', 'PT', 'SV',
-    ];
+    );
 
 
     /**
@@ -42,11 +42,11 @@ class Blackbird_Monetico_Model_System_Config_Source_AvailableLocales
      */
     protected function getOptionLocales()
     {
-        $locales = ResourceBundle::getLocales('') ?: [];
+        $locales = ResourceBundle::getLocales('') ?: array();
         $languages = (new Blackbird_Monetico_Bundle_LanguageBundle())->get('')['Languages'];
 
-        $options = [];
-        $processed = [];
+        $options = array();
+        $processed = array();
 
         foreach ($locales as $locale) {
             $langValue = strtoupper(substr($locale, 0, 2));
@@ -59,10 +59,10 @@ class Blackbird_Monetico_Model_System_Config_Source_AvailableLocales
                 continue;
             }
 
-            $options[] = [
+            $options[] = array(
                 'value' => $langValue,
                 'label' => ucwords(Locale::getDisplayLanguage($locale, $locale)) . ' / ' . $languages[$language]
-            ];
+            );
 
             $processed[] = $langValue;
         }
@@ -76,14 +76,14 @@ class Blackbird_Monetico_Model_System_Config_Source_AvailableLocales
      */
     protected function _sortOptionArray($option)
     {
-        $data = [];
+        $data = array();
         foreach ($option as $item) {
             $data[$item['value']] = $item['label'];
         }
         asort($data);
-        $option = [];
+        $option = array();
         foreach ($data as $key => $label) {
-            $option[] = ['value' => $key, 'label' => $label];
+            $option[] = array('value' => $key, 'label' => $label);
         }
         return $option;
     }

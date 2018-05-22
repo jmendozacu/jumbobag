@@ -1,0 +1,1 @@
+../../../../../../../.modman/Amasty_InvisibleCaptcha/src/app/code/local/Amasty/InvisibleCaptcha/Block/Captcha.php
