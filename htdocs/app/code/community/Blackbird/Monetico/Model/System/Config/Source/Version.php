@@ -19,15 +19,15 @@ class Blackbird_Monetico_Model_System_Config_Source_Version
      */
     public function toOptionArray()
     {
-        return [
-            [
+        return array(
+            array(
                 'value' => self::V_3_0,
                 'label' => __('Version %s', self::V_3_0),
-            ],
-            [
+            ),
+            array(
                 'value' => self::V_1_2,
                 'label' => __('Version %s', self::V_1_2),
-            ],
-        ];
+            ),
+        );
     }
 }

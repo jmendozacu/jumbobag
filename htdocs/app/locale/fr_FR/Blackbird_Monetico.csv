@@ -14,6 +14,7 @@
 "We will run a cron to cancel orders, in new status, older than the value you have configured.","Nous allons lancer un cron pour annuler les commandes en attente, antérieures à la valeur configurée."
 "Enable Debug Mode","Activer le mode de débogage"
 "We will trace the events in the /var/log/monetico.log file.","Nous allons reporter tous les évènements dans le fichier /var/log/monetico.log à la racine de Magento."
+"The value is the number of minutes before the order is canceled. (Default: 5 minutes)","La valeur correspond au nombre de minutes avant que la commande soit annulée. (5 minutes par défaut)"
 
 "Onetime Payment","Paiement en une seule fois"
 "The purchases are fully paid in one time.","Les achats sont réglés en une fois."
@@ -88,14 +89,13 @@
 
 
 *** FRONT ***
-
 "Payment through the CM-CIC service.","Paiement via le service CM-CIC."
 "Payment through the Cofidis service.","Paiement via le service Cofidis."
 "Payment through the PayPal service.","Paiement via le service Paypal."
 
 
 
-
+"Payment %s times","Paiement en %s fois"
 
 
 "The order has been canceled by the customer.","La commande a été annulée par le client."

@@ -9,7 +9,7 @@
                     <sort_order>300</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <show_in_store>0</show_in_store>
+                    <show_in_store>1</show_in_store>
 
                     <fields>
 
@@ -20,7 +20,7 @@
                             <frontend_type>text</frontend_type>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <sort_order>0</sort_order>
 
                             <fields>
@@ -31,7 +31,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico/canceled_empty_cart</config_path>
                                 </canceled_empty_cart>
 
@@ -43,7 +43,7 @@
                                     <sort_order>20</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><canceled_empty_cart>0</canceled_empty_cart></depends>
                                     <config_path>payment/monetico/canceled_redirect_cart</config_path>
                                 </canceled_redirect_cart>
@@ -55,7 +55,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico/canceled_error_message</config_path>
                                 </canceler_error_message>
 
@@ -67,18 +67,18 @@
                                     <sort_order>40</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico/use_cron_cancel</config_path>
                                 </use_cron_cancel>
 
                                 <cancel_delay translate="label comment">
                                     <label>Delay Before Cancellation</label>
-                                    <comment>The value is the number of days before the order is canceled.</comment>
+                                    <comment>The value is the number of minutes before the order is canceled. (Default: 5 minutes)</comment>
                                     <frontend_type>text</frontend_type>
                                     <sort_order>50</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><use_cron_cancel>1</use_cron_cancel></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico/cancel_delay</config_path>
@@ -92,7 +92,7 @@
                                     <sort_order>50</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico/debug_mode</config_path>
                                 </debug_mode>
                             </fields>
@@ -117,7 +117,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico_onetime/active</config_path>
                                     <requires>monetico_required</requires>
                                 </active>
@@ -138,7 +138,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <validate>validate-number</validate>
                                     <config_path>payment/monetico_onetime/sort_order</config_path>
                                 </sort_order>
@@ -150,7 +150,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>40</sort_order>
 
                                     <fields>
@@ -160,7 +160,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/version</config_path>
                                             <source_model>blackbird_monetico/system_config_source_version</source_model>
                                         </version>
@@ -171,7 +171,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/environment</config_path>
                                             <source_model>blackbird_monetico/system_config_source_environment</source_model>
                                         </environment>
@@ -181,7 +181,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/tpe_number</config_path>
                                         </tpe_number>
 
@@ -190,7 +190,7 @@
                                             <sort_order>50</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/site_code</config_path>
                                         </site_code>
 
@@ -200,7 +200,7 @@
                                             <sort_order>60</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <backend_model>Mage_Adminhtml_Model_System_Config_Backend_Encrypted</backend_model>
                                             <config_path>payment/monetico_onetime/private_key</config_path>
                                         </private_key>
@@ -213,7 +213,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>50</sort_order>
 
                                     <fields>
@@ -223,7 +223,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Newprocessing</source_model>
                                             <config_path>payment/monetico_onetime/order_status</config_path>
                                         </order_status>
@@ -234,7 +234,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Processing</source_model>
                                             <config_path>payment/monetico_onetime/order_status_payment_accepted</config_path>
                                         </order_status_payment_accepted>
@@ -245,7 +245,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/order_status_payment_refused</config_path>
                                             <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
                                         </order_status_payment_refused>
@@ -256,7 +256,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/order_status_payment_canceled</config_path>
                                             <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
                                         </order_status_payment_canceled>
@@ -268,7 +268,7 @@
                                             <sort_order>50</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/create_invoice</config_path>
                                         </create_invoice>
                                     </fields>
@@ -280,7 +280,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>60</sort_order>
 
                                     <fields>
@@ -290,7 +290,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Payment_Allspecificcountries</source_model>
                                             <config_path>payment/monetico_onetime/allowspecific</config_path>
                                         </allowspecific>
@@ -301,7 +301,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Country</source_model>
                                             <can_be_empty>1</can_be_empty>
                                             <config_path>payment/monetico_onetime/specificcountry</config_path>
@@ -314,7 +314,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>70</sort_order>
 
                                     <fields>
@@ -325,7 +325,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/verify_3dsecure</config_path>
                                         </verify_3dsecure>
 
@@ -335,7 +335,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><verify_3dsecure>0</verify_3dsecure></depends>
                                             <validate>validate-zero-or-greater</validate>
                                             <config_path>payment/monetico_onetime/max_amount</config_path>
@@ -348,7 +348,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>80</sort_order>
 
                                     <fields>
@@ -360,7 +360,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/use_iframe</config_path>
                                         </use_iframe>
 
@@ -371,7 +371,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/locale</config_path>
                                             <source_model>blackbird_monetico/system_config_source_availableLocales</source_model>
                                         </locale>
@@ -393,7 +393,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>90</sort_order>
 
                                     <fields>
@@ -415,7 +415,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>100</sort_order>
 
                                     <fields>
@@ -427,7 +427,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/payment_express</config_path>
                                         </payment_express>
 
@@ -438,7 +438,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><payment_express>1</payment_express></depends>
                                             <config_path>payment/monetico_onetime/force_cb</config_path>
                                         </force_cb>
@@ -451,7 +451,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/allow_options</config_path>
                                         </allow_options>
 
@@ -461,7 +461,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><allow_options>0</allow_options></depends>
                                             <config_path>payment/monetico_onetime/disabled_options</config_path>
                                             <source_model>blackbird_monetico/system_config_source_optionPayment</source_model>
@@ -480,7 +480,7 @@
                             <comment>The purchases are paid in several times.</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <sort_order>2</sort_order>
 
                             <fields>
@@ -491,7 +491,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico_multitime/active</config_path>
                                     <requires>monetico_required_multi</requires>
                                 </active>
@@ -502,7 +502,7 @@
                                     <sort_order>20</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_multitime/amount_min</config_path>
@@ -514,7 +514,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_multitime/amount_max</config_path>
@@ -536,7 +536,7 @@
                                     <sort_order>50</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <validate>validate-number</validate>
                                     <config_path>payment/monetico_multitime/sort_order</config_path>
                                 </sort_order>
@@ -548,7 +548,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>60</sort_order>
 
                                     <fields>
@@ -558,7 +558,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_onetime/version</config_path>
                                             <source_model>blackbird_monetico/system_config_source_version</source_model>
                                         </version>
@@ -569,7 +569,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/environment</config_path>
                                             <source_model>blackbird_monetico/system_config_source_environment</source_model>
                                         </environment>
@@ -579,7 +579,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/tpe_number</config_path>
                                         </tpe_number>
 
@@ -588,7 +588,7 @@
                                             <sort_order>50</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/site_code</config_path>
                                         </site_code>
 
@@ -598,7 +598,7 @@
                                             <sort_order>60</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <backend_model>Mage_Adminhtml_Model_System_Config_Backend_Encrypted</backend_model>
                                             <config_path>payment/monetico_multitime/private_key</config_path>
                                         </private_key>
@@ -611,7 +611,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>70</sort_order>
 
                                     <fields>
@@ -621,7 +621,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Newprocessing</source_model>
                                             <config_path>payment/monetico_multitime/order_status</config_path>
                                         </order_status>
@@ -632,7 +632,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Order_Status_Processing</source_model>
                                             <config_path>payment/monetico_multitime/order_status_payment_accepted</config_path>
                                         </order_status_payment_accepted>
@@ -643,7 +643,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/order_status_payment_refused</config_path>
                                             <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
                                         </order_status_payment_refused>
@@ -654,7 +654,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/order_status_payment_canceled</config_path>
                                             <source_model>blackbird_monetico/system_config_source_order_status_canceled</source_model>
                                         </order_status_payment_canceled>
@@ -666,7 +666,7 @@
                                             <sort_order>50</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/create_invoice</config_path>
                                         </create_invoice>
                                     </fields>
@@ -679,7 +679,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>80</sort_order>
 
                                     <fields>
@@ -690,7 +690,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/number_terms</config_path>
                                             <source_model>blackbird_monetico/system_config_source_paymentTerms</source_model>
                                         </number_terms>
@@ -702,7 +702,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <validate>validate-greater-than-zero</validate>
                                             <config_path>payment/monetico_multitime/term_rate_1</config_path>
                                         </term_rate_1>
@@ -714,7 +714,7 @@
                                             <sort_order>30</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <validate>validate-greater-than-zero</validate>
                                             <config_path>payment/monetico_multitime/term_rate_2</config_path>
                                         </term_rate_2>
@@ -726,7 +726,7 @@
                                             <sort_order>40</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <validate>validate-greater-than-zero</validate>
                                             <config_path>payment/monetico_multitime/term_rate_3</config_path>
                                         </term_rate_3>
@@ -738,7 +738,7 @@
                                             <sort_order>50</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><number_terms>4</number_terms></depends>
                                             <validate>validate-greater-than-zero</validate>
                                             <config_path>payment/monetico_multitime/term_rate_3</config_path>
@@ -750,7 +750,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>90</sort_order>
 
                                     <fields>
@@ -760,7 +760,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Payment_Allspecificcountries</source_model>
                                             <config_path>payment/monetico_multitime/allowspecific</config_path>
                                         </allowspecific>
@@ -771,7 +771,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <source_model>Mage_Adminhtml_Model_System_Config_Source_Country</source_model>
                                             <can_be_empty>1</can_be_empty>
                                             <config_path>payment/monetico_multitime/specificcountry</config_path>
@@ -784,7 +784,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>100</sort_order>
 
                                     <fields>
@@ -795,7 +795,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/verify_3dsecure</config_path>
                                         </verify_3dsecure>
 
@@ -805,7 +805,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><verify_3dsecure>0</verify_3dsecure></depends>
                                             <validate>validate-zero-or-greater</validate>
                                             <config_path>payment/monetico_multitime/max_amount</config_path>
@@ -817,7 +817,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>110</sort_order>
 
                                     <fields>
@@ -828,7 +828,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/use_iframe</config_path>
                                         </use_iframe>
 
@@ -839,7 +839,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/locale</config_path>
                                             <source_model>blackbird_monetico/system_config_source_availableLocales</source_model>
                                         </locale>
@@ -860,7 +860,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>120</sort_order>
 
                                     <fields>
@@ -882,7 +882,7 @@
                                     <frontend_type>text</frontend_type>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <sort_order>130</sort_order>
 
                                     <fields>
@@ -894,7 +894,7 @@
                                             <sort_order>10</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <config_path>payment/monetico_multitime/payment_express</config_path>
                                         </payment_express>
 
@@ -905,7 +905,7 @@
                                             <sort_order>20</sort_order>
                                             <show_in_default>1</show_in_default>
                                             <show_in_website>1</show_in_website>
-                                            <show_in_store>0</show_in_store>
+                                            <show_in_store>1</show_in_store>
                                             <depends><payment_express>1</payment_express></depends>
                                             <config_path>payment/monetico_multitime/force_cb</config_path>
                                         </force_cb>
@@ -922,7 +922,7 @@
                             <comment>The purchases are paid in 3 times by the customer, but the merchant is paid in one time.</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <sort_order>3</sort_order>
 
                             <fields>
@@ -937,7 +937,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico_3xcb/active</config_path>
                                     <requires>monetico_required</requires>
                                 </active>
@@ -948,7 +948,7 @@
                                     <sort_order>20</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_3xcb/amount_min</config_path>
@@ -961,7 +961,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_3xcb/amount_max</config_path>
@@ -984,7 +984,7 @@
                                     <sort_order>50</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <validate>validate-number</validate>
                                     <config_path>payment/monetico_3xcb/sort_order</config_path>
                                 </sort_order>
@@ -999,7 +999,7 @@
                             <comment>The purchases are paid in 4 times by the customer, but the merchant is paid in one time.</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <sort_order>4</sort_order>
 
                             <fields>
@@ -1014,7 +1014,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico_4xcb/active</config_path>
                                     <requires>monetico_required</requires>
                                 </active>
@@ -1025,7 +1025,7 @@
                                     <sort_order>20</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_4xcb/amount_min</config_path>
@@ -1038,7 +1038,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <depends><active>1</active></depends>
                                     <validate>validate-zero-or-greater</validate>
                                     <config_path>payment/monetico_4xcb/amount_max</config_path>
@@ -1061,7 +1061,7 @@
                                     <sort_order>50</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <validate>validate-number</validate>
                                     <config_path>payment/monetico_4xcb/sort_order</config_path>
                                 </sort_order>
@@ -1076,7 +1076,7 @@
                             <comment>PayPal is a worldwide payment method.</comment>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <sort_order>5</sort_order>
 
                             <fields>
@@ -1091,7 +1091,7 @@
                                     <sort_order>10</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <config_path>payment/monetico_paypal/active</config_path>
                                     <requires>monetico_required</requires>
                                 </active>
@@ -1112,7 +1112,7 @@
                                     <sort_order>30</sort_order>
                                     <show_in_default>1</show_in_default>
                                     <show_in_website>1</show_in_website>
-                                    <show_in_store>0</show_in_store>
+                                    <show_in_store>1</show_in_store>
                                     <validate>validate-number</validate>
                                     <config_path>payment/monetico_paypal/sort_order</config_path>
                                 </sort_order>

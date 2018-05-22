@@ -19,7 +19,7 @@ class Blackbird_Monetico_Bundle_DataBundle
     /**
      * @var ResourceBundle[][]
      */
-    protected static $bundles = [];
+    protected static $bundles = array();
 
     /**
      * Get resource bundle for the locale
@@ -66,7 +66,7 @@ class Blackbird_Monetico_Bundle_DataBundle
     protected function cleanLocale($locale)
     {
         $localeParts = Locale::parseLocale($locale);
-        $cleanLocaleParts = [];
+        $cleanLocaleParts = array();
         if (isset($localeParts['language'])) {
             $cleanLocaleParts['language'] = $localeParts['language'];
         }

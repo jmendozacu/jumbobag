@@ -17,8 +17,8 @@ class Blackbird_Monetico_Model_System_Config_Source_Order_Status_Canceled extend
     /**
      * @var string
      */
-    protected $_stateStatuses = [
+    protected $_stateStatuses = array(
         Mage_Sales_Model_Order::STATE_CANCELED,
         Mage_Sales_Model_Order::STATE_HOLDED
-    ];
+    );
 }

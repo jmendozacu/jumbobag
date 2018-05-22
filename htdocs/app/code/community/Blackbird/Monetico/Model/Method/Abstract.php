@@ -51,11 +51,9 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
      */
     public function getMoneticoUrl()
     {
-        $url = '';
-
-        $url = Mage::getStoreConfig('payment/monetico_onetime/environment') == 'sandbox' ? 'https://p.monetico-services.com/test/paiement.cgi' : 'https://p.monetico-services.com/paiement.cgi';
-
-        return $url;
+        return Mage::getStoreConfig('payment/monetico_onetime/environment') == 'sandbox'
+            ? 'https://p.monetico-services.com/test/paiement.cgi'
+            : 'https://p.monetico-services.com/paiement.cgi';
     }
 
     /**
@@ -238,7 +236,6 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
         } else {
             $string = sprintf('%s%s+%s+%s+%s+%s+%s+%s+', $data['retourPLUS'], $data['TPE'], $data['date'], $data['montant'], $data['reference'], $data['texte-libre'], $this->getVersion(), $data['code-retour']);
         }
-
         return strtoupper($this->_CMCIC_hmac($string));
     }
 
@@ -447,7 +444,7 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
      */
     public function generateSuccessResponse()
     {
-        die($this->getSuccessResponse());
+        return $this->getSuccessResponse();
     }
 
     /**
@@ -458,7 +455,7 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
      */
     public function generateErrorResponse()
     {
-        die($this->getErrorResponse());
+        return $this->getErrorResponse();
     }
 
     /**
@@ -520,6 +517,9 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Was the visual cryptogram seized: %s', $postData['cvx']);
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Validity of the card: %s', $postData['vld']);
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Type of the card: %s', $postData['brand']);
+            if($postData['status3ds'] >= 1) {
+                $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('3DSecure: active (id: %s)', $postData['status3ds']);
+            }
         }
 
         return $msg;
@@ -534,6 +534,9 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Was the visual cryptogram seized: %s', $postData['cvx']);
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Validity of the card: %s', $postData['vld']);
             $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('Type of the card: %s', $postData['brand']);
+            if($postData['status3ds'] >= 1 && $postData['status3ds'] <= 4) {
+                $msg .= "<br />" . Mage::helper('blackbird_monetico')->__('3DSecure: active');
+            }
         }
 
         return $msg;
@@ -560,20 +563,20 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
         $extraStreet = implode(' ', $street);
 
         // Build the Customer Data
-        $customerData = [
+        $customerData = array(
             'nomclient' => $billingAddress->getLastname(),
             'prenomclient' => $billingAddress->getFirstname(),
             'adresseclient' => $firstStreet,
             'codepostalclient' => $billingAddress->getPostcode(),
             'villeclient' => strtoupper($billingAddress->getCity()),
             'paysclient' => $billingAddress->getCountryId(),
-        ];
+        );
 
-        if (!empty($extraStreet)) {
+        if ($extraStreet) {
             $customerData['complementadresseclient'] = $extraStreet;
         }
 
-        if (!empty($billingAddress->getTelephone())) {
+        if ($billingAddress->getTelephone()) {
             if (preg_match('/^(\+33|0)(6|7)/', $billingAddress->getTelephone())) {
                 $customerData['telephonemobileclient'] = $billingAddress->getTelephone();
             } else {
@@ -585,11 +588,11 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
         if (Mage::getSingleton('customer/session')->isLoggedIn()) {
             $customer = Mage::getSingleton('customer/session')->getCustomer();
 
-            if (!empty($customer->getData('gender'))) {
+            if ($customer->getData('gender')) {
                 $customerData['civiliteclient'] = $customer->getData('gender');
             }
 
-            if (!empty($customer->getData('dob'))) {
+            if ($customer->getData('dob')) {
                 $dob = new DateTime($customer->getData('dob'));
                 $customerData['datenaissanceclient'] = $dob->format('Ymd');
             }

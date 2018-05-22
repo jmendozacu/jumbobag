@@ -17,7 +17,7 @@ class Blackbird_Monetico_Model_ConfigProvider
      * @param array $params
      * @return string
      */
-    public function getPaymentFormAction($environment, array $params = [])
+    public function getPaymentFormAction($environment, array $params = array())
     {
         return sprintf(
             'https://p.monetico-services.com/%spaiement.cgi%s',

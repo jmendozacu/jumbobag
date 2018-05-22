@@ -26,14 +26,14 @@ class Blackbird_Monetico_Model_System_Config_source_OptionPayment
     public function toOptionArray()
     {
         if (!$this->options) {
-            $options = [];
+            $options = array();
             $paymentMethods = $this->getOptions();
 
             foreach ($paymentMethods as $value => $label) {
-                $options[] = [
+                $options[] = array(
                     'value' => $value,
                     'label' => $label,
-                ];
+                );
             }
 
             $this->options = $options;
@@ -49,10 +49,10 @@ class Blackbird_Monetico_Model_System_Config_source_OptionPayment
      */
     public function getOptions()
     {
-        return [
+        return array(
             self::COFIDIS_TXCB => __('Cofidis 3xCB Payment'),
             self::COFIDIS_FXCB => __('Cofidis 4xCB Payment'),
             self::PAYPAL => __('PayPal Payment'),
-        ];
+        );
     }
 }

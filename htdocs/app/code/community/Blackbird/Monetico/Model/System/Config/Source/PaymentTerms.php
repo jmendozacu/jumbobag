@@ -20,19 +20,19 @@ class Blackbird_Monetico_Model_System_Config_source_PaymentTerms
      */
     public function toOptionArray()
     {
-        return [
-            [
+        return array(
+            array(
                 'value' => self::TWO_TERMS,
                 'label' => __('%s', self::TWO_TERMS),
-            ],
-            [
+            ),
+            array(
                 'value' => self::THREE_TERMS,
                 'label' => __('%s', self::THREE_TERMS),
-            ],
-            [
+            ),
+            array(
                 'value' => self::FOUR_TERMS,
                 'label' => __('%s', self::FOUR_TERMS),
-            ],
-        ];
+            ),
+        );
     }
 }
