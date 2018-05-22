@@ -154,11 +154,7 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
             'version' => $this->getVersion(),
             'TPE' => $this->getConfigData('tpe_number'),
             'date' => date('d/m/Y:H:i:s'),
-            //'date_commande' => date('d/m/Y'),
             'montant' => $this->getAmount() . $order->getBaseCurrencyCode(),
-            //'montant_a_capturer' => $this->getAmount() . $order->getBaseCurrencyCode(),
-            //'montant_deja_capture' => 0 . $order->getBaseCurrencyCode(),
-            //'montant_restant' => 0 . $order->getBaseCurrencyCode(),
             'reference' => $this->getOrderList(),
             'texte-libre' => $description,
             'lgue' => $this->_getLanguageCode(),
@@ -274,6 +270,10 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
         if($key == "")
         {
             $key = Mage::getStoreConfig('payment/monetico_onetime/private_key');
+            if($key == "")
+            {
+                $key = Mage::getStoreConfig('payment/monetico_multitime/private_key');
+            }
         }
 
         $key = Mage::helper('core')->decrypt($key);
@@ -304,11 +304,9 @@ abstract class Blackbird_Monetico_Model_Method_Abstract extends Mage_Payment_Mod
      */
     protected function _CMCIC_hmac($string)
     {
-        if ($this->getConfigData('private_key')) {
-            return $this->_CMCIC_hmac_KeyEncrypted($string);
-        } else {
-            return $this->_CMCIC_hmac_KeyPassphrase($string);
-        }
+        return $this->getConfigData('private_key')
+            ? $this->_CMCIC_hmac_KeyEncrypted($string)
+            : $this->_CMCIC_hmac_KeyPassphrase($string);
     }
 
     /**

@@ -116,6 +116,8 @@ class Blackbird_Monetico_Model_Method_Multitime extends Blackbird_Monetico_Model
             $fields = array_merge($fields, $terms);
         }
 
+        $fields['MAC'] = $this->_getMAC($fields);
+
         return $fields;
     }
 
