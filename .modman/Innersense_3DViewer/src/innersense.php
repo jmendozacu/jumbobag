@@ -16,9 +16,6 @@ if (!$logged_in) {
 
 require_once 'app/Mage.php';
 umask(0);
-Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
-$userModel = Mage::getModel('admin/user');
-$userModel->setUserId(0);
 
 function getProductAttributeId($code)
 {
@@ -27,12 +24,20 @@ function getProductAttributeId($code)
         ->getId();
 }
 
-$attributeInnersenseId = getProductAttributeId('innersense_id');
-$attributeNameId = getProductAttributeId('name');
+Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
+$userModel = Mage::getModel('admin/user');
+$userModel->setUserId(0);
+
+$websites = Mage::app()->getWebsites();
+$frontStoreId = $websites[1]->getDefaultStore()->getId()*1;
+
 $storeId = Mage::app()
     ->getWebsite()
     ->getDefaultGroup()
     ->getDefaultStoreId();
+
+$attributeInnersenseId = getProductAttributeId('innersense_id');
+$attributeNameId = getProductAttributeId('name');
 
 $query = "SELECT
   p.entity_id as product_id,
@@ -74,7 +79,7 @@ INNER JOIN catalog_product_super_attribute_label as ot ON ot.product_super_attri
 INNER JOIN eav_attribute_option as v ON v.attribute_id = o.attribute_id
 INNER JOIN eav_attribute_option_value as vt ON vt.option_id = v.option_id
 INNER JOIN eav_attribute_option_value as vtc ON vtc.option_id = v.option_id
-WHERE n.attribute_id = " . $attributeNameId . " AND inn.attribute_id = " . $attributeInnersenseId . " AND vt.store_id = " . $storeId . " AND vtc.store_id = " . 0 . " AND inn.store_id = " . $storeId . " AND ot.store_id = " . $storeId . " AND n.store_id = " . $storeId . " AND inn.value IS NOT NULL AND inn.value != ''
+WHERE n.attribute_id = " . $attributeNameId . " AND inn.attribute_id = " . $attributeInnersenseId . " AND vt.store_id = " . $frontStoreId . " AND vtc.store_id = " . 0 . " AND inn.store_id = " . $storeId . " AND ot.store_id = " . $storeId . " AND n.store_id = " . $storeId . " AND inn.value IS NOT NULL AND inn.value != ''
 
 UNION
 
