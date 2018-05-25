@@ -103,7 +103,7 @@
                     return options
                 }, [])
                 .forEach(function (option) {
-                    viewer3D.selectOption(option.id, option.value)
+                    viewer3D.selectOption(option.id, option.value, "selectTheme")
                 });
 
             viewer3D.changePrice(window.viewer3DOptions.getPrice())
