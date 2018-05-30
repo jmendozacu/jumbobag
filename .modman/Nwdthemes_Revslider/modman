@@ -1,0 +1,61 @@
+src/js/nwdthemes/	js/nwdthemes/
+
+src/app/etc/modules/Nwdthemes_Revslider.xml	app/etc/modules/Nwdthemes_Revslider.xml
+src/app/etc/modules/Nwdthemes_All.xml	app/etc/modules/Nwdthemes_All.xml
+
+src/app/locale/ru_RU/Nwdthemes_Revslider.csv	app/locale/ru_RU/Nwdthemes_Revslider.csv
+src/app/locale/pl_PL/Nwdthemes_Revslider.csv	app/locale/pl_PL/Nwdthemes_Revslider.csv
+src/app/locale/hu_HU/Nwdthemes_Revslider.csv	app/locale/hu_HU/Nwdthemes_Revslider.csv
+src/app/locale/fr_FR/Nwdthemes_Revslider.csv	app/locale/fr_FR/Nwdthemes_Revslider.csv
+src/app/locale/en_US/Nwdthemes_Revslider.csv	app/locale/en_US/Nwdthemes_Revslider.csv
+src/app/locale/en_US/Nwdthemes_All.csv	        app/locale/en_US/Nwdthemes_All.csv
+src/app/locale/it_IT/Nwdthemes_Revslider.csv	app/locale/it_IT/Nwdthemes_Revslider.csv
+src/app/locale/pt_BR/Nwdthemes_Revslider.csv	app/locale/pt_BR/Nwdthemes_Revslider.csv
+src/app/locale/de_DE/Nwdthemes_Revslider.csv	app/locale/de_DE/Nwdthemes_Revslider.csv
+src/app/locale/zh_CN/Nwdthemes_Revslider.csv	app/locale/zh_CN/Nwdthemes_Revslider.csv
+
+src/app/code/community/Nwdthemes/All/	    app/code/community/Nwdthemes/All
+src/app/code/community/Nwdthemes/Revslider	app/code/community/Nwdthemes/Revslider
+
+src/app/design/adminhtml/default/default/template/nwdthemes/revslider	app/design/adminhtml/default/default/template/nwdthemes/revslider
+src/app/design/adminhtml/default/default/layout/nwdthemes/all.xml	app/design/adminhtml/default/default/layout/nwdthemes/all.xml
+src/app/design/adminhtml/default/default/layout/nwdthemes/nwdrevslider.xml	app/design/adminhtml/default/default/layout/nwdthemes/nwdrevslider.xml
+
+src/app/design/frontend/base/default/template/nwdthemes/revslider/revslider.phtml	app/design/frontend/base/default/template/nwdthemes/revslider/revslider.phtml
+src/app/design/frontend/base/default/layout/nwdthemes/nwdrevslider.xml	app/design/frontend/base/default/layout/nwdthemes/nwdrevslider.xml
+
+src/skin/adminhtml/default/default/nwdthemes/revslider	skin/adminhtml/default/default/nwdthemes/revslider
+src/skin/frontend/base/default/nwdthemes                skin/frontend/base/default/nwdthemes
+
+src/lib/Nwdthemes/Revslider     lib/Nwdthemes/Revslider
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
