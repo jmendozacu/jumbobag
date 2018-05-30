@@ -74,21 +74,30 @@
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page">
 				<div class="fullscreen-before">
-        	<?php echo $this->getChildHtml('header') ?>
+                    <?php echo $this->getChildHtml('header') ?>
+                    <?php if (strpos($this->getBodyClass(), "product-sublayout-float") !== false) {
+    ?>
+                    <?php echo $this->getLayout()->createBlock('nwdrevslider/revslider')->setAlias('float-slider-top')->toHtml(); ?>
+                    <style> .fullscreen-before { background: none !important; } </style>
+                    <?php
+} else {
+        ?>
 					<div class="height-centered">
-						<?php if(strpos($this->getBodyClass(), "catalog-category-view") !== false): ?>
+						<?php if (strpos($this->getBodyClass(), "catalog-category-view") !== false): ?>
 							<button class="decouvrir wow fadeInUp" style="animation-delay:0.2s;">Découvrir la collection</button>
 							<h2 class="wow fadeInUp" data-wow-delay="0.4s">Nouvelle collection pour une toute nouvelle expérience</h2>
 							<div class="made-in-france wow fadeInUp" data-wow-delay="0.6s">
 								<img src="/skin/frontend/jumbobag/default/images/made-in-france.png" alt="Tous nos produits sont fabriqués en France" />
 							</div>
-						<?php elseif(strpos($this->getBodyClass(), "catalog-product-view") !== false): ?>
+						<?php elseif (strpos($this->getBodyClass(), "catalog-product-view") !== false): ?>
 							<div class="bouton-commander wow fadeInRight" data-wow-delay="0.2s">
-								<button>Commander maitenant</button>
+								<button>Commander maintenant</button>
 							</div>
 						<?php endif; ?>
 					</div>
-					<div class="en-savoir-plus wow bounce" data-wow-delay="1s" data-wow-duration="2s" data-wow-iteration="3">En savoir plus</div>
+                    <div class="en-savoir-plus wow bounce" data-wow-delay="1s" data-wow-duration="2s" data-wow-iteration="3">En savoir plus</div>
+                    <?php
+    } ?>
 				</div>
         <div class="main-container col1-layout" id="page_start">
             <div class="main clearfix">
