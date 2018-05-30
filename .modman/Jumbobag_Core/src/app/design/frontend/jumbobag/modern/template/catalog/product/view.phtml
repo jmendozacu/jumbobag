@@ -39,7 +39,7 @@ $replace_upsell =  Mage::getStoreConfig('shoppersettings/labels/replace_upsell')
 
 $big_image = $_product->getData('new_big_image_product');
 
-if(strcmp($big_image, "no_selection") != 0) {
+if (strcmp($big_image, "no_selection") != 0) {
     echo '<div id="product-img" style="display:none;">';
     echo Mage::helper('catalog/image')->init($_product, 'new_big_image_product');
     echo '</div>';
@@ -48,13 +48,13 @@ if(strcmp($big_image, "no_selection") != 0) {
 $helper = $this->helper('shoppersettings/image');
 list($defaultImgX, $defaultImgY) = $helper->getDefaultSize();
 list($imgX, $imgY) = $helper->getMainSize();
-if ( $imgX > 800 ) {
+if ($imgX > 800) {
     $imgX = 800;
     $imgY = $helper->calculateHeight($imgX);
 }
 
 $product_img_box_width = $defaultImgX;
-if ( $defaultImgX != $imgX ) {
+if ($defaultImgX != $imgX) {
     $product_img_box_width = $imgX;
 }
 //add image border
@@ -62,13 +62,13 @@ $product_img_box_width += 18;
 ?>
 <?php
 if (!$_category = Mage::registry('current_category')) {
-    $_product = Mage::getSingleton( 'catalog/product' )->load( $_product->getId() );
+    $_product = Mage::getSingleton('catalog/product')->load($_product->getId());
     $categories=$_product->getCategoryIds();
-    if ( !empty($categories[0]) ) {
+    if (!empty($categories[0])) {
         $_category = Mage::getModel('catalog/category')->load($categories[0]);
     }
 }
-if ( !empty($_category) ) {
+if (!empty($_category)) {
     echo '<div id="product-name-and-price" class="wow fadeInRight"><h1><span class="title-product-h1">'.$_category->getName().'</span><br /><span class="bold-part">'.$_product->getName().'</span></h1></div>';
 }
 echo $this->getChildHtml('alert_urls');
@@ -93,7 +93,7 @@ echo $this->getChildHtml('extrahint');
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view ">
     <div class="product-essential">
-        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
             <div class="no-display">
                 <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
                 <input type="hidden" name="related_product" id="related-products-field" value="" />
@@ -106,7 +106,7 @@ echo $this->getChildHtml('extrahint');
                             <?php
                             $logo_produit = $_product->getData('new_logo_produit');
 
-                            if(strcmp($logo_produit, "no_selection") != 0) {
+                            if (strcmp($logo_produit, "no_selection") != 0) {
                                 echo '<div class="logo-produit">';
                                 echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_logo_produit').'" alt="'.$_product->getName().'" />';
                                 echo '</div>';
@@ -127,7 +127,7 @@ echo $this->getChildHtml('extrahint');
                     <?php
                     $image_pres = $_product->getData('new_image_pres_produit');
 
-                    if(strcmp($image_pres, "no_selection") != 0) {
+                    if (strcmp($image_pres, "no_selection") != 0) {
                         echo '<div id="fond-pres-produit" style="display:none;"><img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_pres_produit').'" /></div>';
                     }
                     ?>
@@ -137,7 +137,7 @@ echo $this->getChildHtml('extrahint');
                     <?php
                     $image_pres = $_product->getData('new_image_pres_mob_produit');
 
-                    if(strcmp($image_pres, "no_selection") != 0) {
+                    if (strcmp($image_pres, "no_selection") != 0) {
                         echo '<div id="fond-pres-produit" style="display:none;"><img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_pres_mob_produit').'" /></div>';
                     }
                     ?>
@@ -152,8 +152,10 @@ echo $this->getChildHtml('extrahint');
                     <?php echo $_product->getData('new_texte_tissu'); ?>
                 </div>
             </div>
+            <?php if (Mage::helper("jumbobag_core")->getThemeSublayout() === "product-sublayout-float"): ?>
+                    <?php echo $this->getLayout()->createBlock('nwdrevslider/revslider')->setAlias('float-slider-middle')->toHtml(); ?>            
+            <?php else: ?>
             <div class="entretien-wrapper">
-
                 <div class="entretien row">
                     <div class="entretien-content">
                         <div class="image-wrapper col-sm-7">
@@ -174,7 +176,7 @@ echo $this->getChildHtml('extrahint');
                     <?php
                     $image_entretien = $_product->getData('new_image_entretien');
 
-                    if(strcmp($image_entretien, "no_selection") != 0) {
+                    if (strcmp($image_entretien, "no_selection") != 0) {
                         echo '<div id="fond-entretien" style="display:none;"><img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_entretien').'" /></div>';
                     }
                     ?>
@@ -184,13 +186,14 @@ echo $this->getChildHtml('extrahint');
                     <?php
                     $image_entretien = $_product->getData('new_image_entretien_mob');
 
-                    if(strcmp($image_entretien, "no_selection") != 0) {
+                    if (strcmp($image_entretien, "no_selection") != 0) {
                         echo '<div id="fond-entretien" style="display:none;"><img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_entretien_mob').'" /></div>';
                     }
                     ?>
                 </div>
 
             </div>
+            <?php endif; ?>
             <div class="wrapper-en-savoir-plus remplissage">
                 <div class="bouton">
                     <p>En savoir plus sur le remplissage<br /><i class="fa fa-plus-circle wow rotateIn" aria-hidden="true"></i></p>
@@ -243,7 +246,7 @@ echo $this->getChildHtml('extrahint');
                         <?php
                         $image_technique = $_product->getData('new_image_technique');
 
-                        if(strcmp($image_technique, "no_selection") != 0) {
+                        if (strcmp($image_technique, "no_selection") != 0) {
                             echo '<img src="'.Mage::helper('catalog/image')->init($_product, 'new_image_technique').'" alt="'.$_product->getName().'" />';
                         }
                         ?>
@@ -264,13 +267,13 @@ echo $this->getChildHtml('extrahint');
                     <?php
                     $_recentlyViewed = Mage::getModel('Mage_Reports_Block_Product_Viewed')->getItemsCollection();
 
-                    if(count($_recentlyViewed) != 0) {
+                    if (count($_recentlyViewed) != 0) {
                         echo '<h2 class=" wow fadeInUp">Consulté récemment</h2>';
 
-                        foreach($_recentlyViewed as $product) {
+                        foreach ($_recentlyViewed as $product) {
                             $categories = $product->getCategoryIds();
 
-                            if(! empty($categories[0])) {
+                            if (! empty($categories[0])) {
                                 $category = Mage::getModel('catalog/category')->load($categories[0]);
                             }
 
@@ -278,7 +281,7 @@ echo $this->getChildHtml('extrahint');
                             echo '<div class="image-wrapper">';
                             $base_image = $product->getData('image');
 
-                            if(strcmp($base_image, "no_selection") != 0) {
+                            if (strcmp($base_image, "no_selection") != 0) {
                                 echo '<img src="'.Mage::helper('catalog/image')->init($product, 'thumbnail').'" alt="'.$product->getName().'" />';
                             }
                             echo '<div class="btn-wrapper">';
@@ -291,7 +294,6 @@ echo $this->getChildHtml('extrahint');
                             echo '<h4>'.$category->getName().'</h4>';
                             echo '</div>';
                             echo '</div>';
-
                         }
                     }
                     ?>
@@ -311,7 +313,7 @@ echo $this->getChildHtml('extrahint');
             //<![CDATA[
 
 
-            <?php if ( !Mage::getStoreConfig('shoppersettings/ajax/cart', Mage::app()->getStore()->getId())) : ?>
+            <?php if (!Mage::getStoreConfig('shoppersettings/ajax/cart', Mage::app()->getStore()->getId())) : ?>
 
             var productAddToCartForm = new VarienForm('product_addtocart_form');
             productAddToCartForm.submit = function(button, url) {
@@ -463,7 +465,7 @@ window.addEventListener('resize', checkScroll, false);
 </script>
     </div>
     <!--<div class="">
-  	  <?php //echo $this->getChildHtml('product_additional_data') ?>
+  	  <?php //echo $this->getChildHtml('product_additional_data')?>
       <?php
         //$output = '';
         /*switch ($replace_upsell) {
@@ -492,6 +494,6 @@ window.addEventListener('resize', checkScroll, false);
         }*/
         ?>
 
-  	  <?php //echo $this->getChildHtml('content_related') ?>
+  	  <?php //echo $this->getChildHtml('content_related')?>
     </div>-->
     </div>
