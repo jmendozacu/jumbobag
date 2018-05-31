@@ -34,7 +34,7 @@
 	.informations-produit
 	.product-infos
 	.product-options-bottom {
-	margin-top: 70px !important;
+	margin-top: 50px !important;
 }
 .product-view .add-to-cart button.button span span {
 	background: url("../images/icone-panier-produit.png") no-repeat;
@@ -1976,7 +1976,7 @@
 }
 
 .product-sublayout-float .presentation-produit-content .bouton-commander {
-  display: none !important;
+	display: none !important;
 }
 
 .marg-plus-tissu {
@@ -2665,7 +2665,7 @@ footer .arguments-footer .argument-footer:hover .image-wrapper {
 	.informations-produit
 	.product-infos
 	.product-options-bottom {
-	margin-top: 70px !important;
+	margin-top: 50px !important;
 }
 .product-view .add-to-cart button.button span span {
 	background: url("../images/icone-panier-produit.png") no-repeat;
