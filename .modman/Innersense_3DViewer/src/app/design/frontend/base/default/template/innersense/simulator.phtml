@@ -14,6 +14,7 @@
         <?php echo $this->__('Please upgrade your browser in order to display the viewer.'); ?>
     </div>
     <div class="supported" style="display: none;"></div>
+    <div class="loader"></div>
 </div>
 <script type="text/javascript">
     if (!window.viewer3DOptions) {
@@ -136,7 +137,15 @@
                 'initOptions' => $this->getInitOptions()
             )); ?>)
 
+            window.addEventListener("message", function(e) {
+                if(e && e.data && e.data.type && /^(furnitureLoaded|successfullyUpdated)$/.test(e.data.type)) {
+                    window.setTimeout(function() {
+                        document.querySelector('.product-image-3dviewer').classList.remove('product-image-3dviewer--loading');
+                    }, 200);
+                }
+            });
             window.viewer3D.initialize()
+
             if (window.viewer3DOptions.bypassListeners) {
                 var inputs = document.querySelectorAll('.product-custom-option')
                 for (var i = 0; i < inputs.length; ++i) {

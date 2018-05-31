@@ -58,3 +58,5 @@ app/design/frontend/base/default/layout/nwdthemes/nwdrevslider.xml
 skin/adminhtml/default/default/nwdthemes/revslider
 skin/frontend/base/default/nwdthemes
 lib/Nwdthemes/Revslider
+
+skin/frontend/base/default/images/innersense
