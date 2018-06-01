@@ -43,13 +43,12 @@
 	height: 100%;
 	opacity: 1;
 	z-index: 2;
-	background: url(/skin/frontend/base/default/images/innersense/loader.gif)
-		no-repeat no-repeat center 65%;
-	background-size: 50%;
+	background: url(/skin/frontend/base/default/images/innersense/loader.svg)
+		no-repeat no-repeat center 65% transparent;
 	visibility: hidden;
 }
 .product-image-3dviewer--loading {
-	opacity: 0.5;
+	background: transparent;
 }
 .product-image-3dviewer--loading iframe {
 	visibility: hidden;
