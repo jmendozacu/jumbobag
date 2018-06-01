@@ -45,7 +45,7 @@
 	opacity: 0.5;
 }
 .product-image-3dviewer--loading iframe {
-	visibility: hidden;
+	opacity: 0;
 }
 .product-image-3dviewer--loading .loader {
 	visibility: visible;
