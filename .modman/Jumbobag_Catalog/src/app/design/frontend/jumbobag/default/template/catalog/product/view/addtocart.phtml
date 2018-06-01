@@ -27,18 +27,9 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $theme_sublayout = Mage::helper("jumbobag_core")->getThemeSublayout(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
-<?php if ($theme_sublayout == "product-sublayout-float"): ?>
-    <div class="add-to-cart">
-        <button type="button" title="Disponible à partir de juin 2018" class="button btn-cart">
-            Disponible à partir de juin 2018
-        </button>
-        <?php echo $this->getChildHtml('', true, true) ?>
-    </div>
-<?php else: ?>
 <?php if ($_product->isSaleable()): ?>
     <div class="add-to-cart">
         <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
-<?php endif; ?>
 <?php endif; ?>
