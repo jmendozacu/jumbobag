@@ -13,6 +13,13 @@
 	width: 60%;
 	padding-top: 15px;
 }
+@media (max-width: 768px) {
+	.product-image-3dviewer-link {
+		margin-top: 15px;
+		padding-top: 25px;
+		width: 100%;
+	}
+}
 .product-image-3dviewer-link--hidden {
 	opacity: 0;
 	pointer-events: none;
