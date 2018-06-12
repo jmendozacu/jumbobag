@@ -41,5 +41,36 @@
 				</rewrite>
 			</popupbuilder>
 		</blocks>
+		<translate>
+			<modules>
+				<Jumbobag_Core>
+					<files>
+						<default>Jumbobag_Core.csv</default>
+					</files>
+				</Jumbobag_Core>
+			</modules>
+		</translate>
 	</global>
+	<frontend>
+		<translate>
+			<modules>
+				<Jumbobag_Core>
+					<files>
+						<default>Jumbobag_Core.csv</default>
+					</files>
+				</Jumbobag_Core>
+			</modules>
+		</translate>
+	</frontend>
+	<adminhtml>
+		<translate>
+			<modules>
+				<Jumbobag_Core>
+					<files>
+						<default>Jumbobag_Core.csv</default>
+					</files>
+				</Jumbobag_Core>
+			</modules>
+		</translate>
+	</adminhtml>
 </config>
