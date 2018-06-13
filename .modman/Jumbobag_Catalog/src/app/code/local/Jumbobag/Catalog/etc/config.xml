@@ -2,10 +2,22 @@
 <config>
     <modules>
         <Jumbobag_Catalog>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </Jumbobag_Catalog>
     </modules>
     <global>
+        <resources>
+            <jumbobag_catalog_attributes>
+                <setup>
+                    <module>Jumbobag_Catalog</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </jumbobag_catalog_attributes>
+        </resources>
+
         <helpers>
             <jumbobag_catalog>
                 <class>Jumbobag_Catalog_Helper</class>

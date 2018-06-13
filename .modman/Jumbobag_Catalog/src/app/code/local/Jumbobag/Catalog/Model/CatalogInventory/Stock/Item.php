@@ -3,7 +3,7 @@
 class Jumbobag_Catalog_Model_CatalogInventory_Stock_Item extends Mage_CatalogInventory_Model_Stock_Item {
 
     // FIXME: Change this with the real attribute
-    const BACKORDER_CUSTOM_HINT_TEXT = "new_titre_entretien";
+    const BACKORDER_CUSTOM_HINT_TEXT = "texte_perso_rupture";
 
     public function checkQuoteItemQty($qty, $summaryQty, $origQty = 0)
     {
