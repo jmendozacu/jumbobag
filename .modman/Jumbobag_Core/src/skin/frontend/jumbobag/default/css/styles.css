@@ -602,7 +602,13 @@ tr.summary-details-excluded{font-style:italic;}
 .cart .checkout-types{float:right;text-align:right;}
 .cart .checkout-types .paypal-or{margin:0 8px;line-height:2.3;}
 .cart .totals .checkout-types .paypal-or{clear:both;display:block;padding:3px 55px 8px 0;line-height:1.0;font-size:11px;}
-.cart-table .item-msg{font-size:10px;}
+.cart-table .item-msg{
+	font-size:12px;
+	display: block;
+    float: left;
+    clear: both;
+    color: black;
+}
 .cart .cart-collaterals{padding:25px 0 0;}
 .cart .cart-collaterals .col2-set{float:left;width:700px;}
 .cart .crosssell{}
