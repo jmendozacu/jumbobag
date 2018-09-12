@@ -111,7 +111,7 @@ class LMB_EDI_Model_Liaison_Event implements LMB_EDI_Model_Liaison_Process {
                 sleep(5); 
                 $tentative++; 
                 if ($tentative > 3) { 
-                    LMB_EDI_Model_EDI::error(self::getProcess()." n'a pas pu être relancé après 3 tentatives"); 
+                    LMB_EDI_Model_EDI::error(self::getProcess()->getName()." n'a pas pu être relancé après 3 tentatives"); 
                     break; 
                 } 
             } 
