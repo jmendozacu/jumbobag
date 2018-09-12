@@ -148,7 +148,7 @@ class LMB_EDI_Model_Interface_Recepteur {
             }
         }
         else {
-            $attribute_load = $this->getCaracByCorresp($carac['ref_carac']);
+            $attribute_load = $this->getCaracByCorresp($carac['ref_carac_ext']);
             $id = $attribute_load->getId();
         }
 
