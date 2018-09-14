@@ -756,17 +756,6 @@ Product.ConfigurableSwatches.prototype = {
          **/
         getAttrLabelElement: function(attrCode) {
             return false; // modified to remove select label
-
-            var spanLabel = $$('#select_label_'+attrCode);
-            if (spanLabel.length) {
-                return spanLabel[0];
-            } else {
-                var label = $$('#'+attrCode+'_label');
-                if (label.length) {
-                    return label[0].insert({ 'bottom': ' <span id="select_label_'+attrCode+'" class="select-label"></span>'}).select('span.select-label')[0];
-                };
-            };
-            return false;
         },
         /**
          *
