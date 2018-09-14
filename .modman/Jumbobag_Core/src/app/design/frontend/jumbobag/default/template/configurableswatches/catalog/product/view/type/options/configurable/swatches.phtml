@@ -44,8 +44,7 @@ $_productChildIds = [];
 ?>
 <dt class="swatch-attr">
     <label id="<?php echo $_attrCode ?>_label" class="required">
-        <em>*</em><?php echo $_attribute->getLabel() ?>:
-        <span id="select_label_<?php echo $_attrCode ?>" class="select-label"></span>
+        <?php echo $_attribute->getLabel() ?>:
     </label>
 </dt>
 <dd class="clearfix swatch-attr<?php if ($_attribute->decoratedIsLast) echo ' last'; ?>">

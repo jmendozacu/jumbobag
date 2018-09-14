@@ -755,6 +755,8 @@ Product.ConfigurableSwatches.prototype = {
          * Find (or else, make) the attribute's label
          **/
         getAttrLabelElement: function(attrCode) {
+            return false; // modified to remove select label
+
             var spanLabel = $$('#select_label_'+attrCode);
             if (spanLabel.length) {
                 return spanLabel[0];
