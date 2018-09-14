@@ -469,6 +469,13 @@ class LMB_EDI_Model_Interface_Recepteur {
 		LMB_EDI_Model_EDI::traceDebug("reception", "Update article");
         LMB_EDI_Model_EDI::traceDebug("article", "Update : " . print_r($article, true));
 
+        /*
+        if ($article['ref_article'] == 701 || (!empty($article['ref_article_parent']) && $article['ref_article_parent'] == 701)) {
+    		LMB_EDI_Model_EDI::trace("ignore_701", "Message ignoré car concerne le groupe en erreur");
+            return true;
+        }
+        //*/
+        
         //Test anti doublons et SKU vide !!!!!!!!!!!!!!!!!!
         $product = Mage::getModel('catalog/product')->loadByAttribute('sku', $article['reference']);
         if (empty($article['reference']) || ($product && $product->getId())) {
@@ -526,7 +533,19 @@ class LMB_EDI_Model_Interface_Recepteur {
                         . "<br />" . $article['evt_name']);
                 $product->setTypeId(Mage_Catalog_Model_Product_Type::TYPE_SIMPLE);
 
-                $configurableProduct = Mage::getModel('catalog/product')->load($article['ref_article_parent']);
+                try {
+                    LMB_EDI_Model_EDI::trace("test_parent.log", "chargement du parent ".$article['ref_article_parent']);
+                    $configurableProduct = Mage::getModel('catalog/product')->load($article['ref_article_parent']);
+                    LMB_EDI_Model_EDI::trace("test_parent.log", "chargement OK");
+                }
+                catch (Exception $e) {
+                    LMB_EDI_Model_EDI::trace("test_parent.log", "chargement incorrect");
+                    LMB_EDI_Model_EDI::trace("backtrace_parent.log", print_r(debug_backtrace(2), true));
+                    LMB_EDI_Model_EDI::error("Le chargement de l'article parent ".$article['ref_article_parent']." pour modifier l'article ".$article['ref_article']." a échoué !!");
+                    
+                    return true;
+                }
+                
                 if (!$configurableProduct->getId() || $configurableProduct->getTypeId() != Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE) {
                     LMB_EDI_Model_EDI::error("Erreur VARIANTE => Enfant:" . $article['ref_article'] . ", Parent: " . $article['ref_article_parent']." n'en est pas un...");
 					mail(LMB_EDI_Model_Config::GET_PARAM('alerte'), "Attention ERREUR variante Magento", "URL : " . LMB_EDI_Model_ModuleLiaison::$RACINE_URL . " Enfant:" . $article['ref_article'] . ", Parent: " . $article['ref_article_parent']." n'en est pas un...");

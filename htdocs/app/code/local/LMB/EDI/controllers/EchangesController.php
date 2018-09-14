@@ -434,7 +434,11 @@ class LMB_EDI_EchangesController extends Mage_Core_Controller_Front_Action {
         $msg .= "Erreur sur la ligne " . $except->getLine() . " dans le fichier " . $except->getFile() . "<br/>";
         $dt = debug_backtrace();
         foreach ($dt as $t) {
-            $msg .= $t['file'] . ' line ' . $t['line'] . ' calls ' . $t['function'] . "()<br/>";
+			$file = empty($t['file']) ? "fichier inconnu" : $t['file'];
+			$line = empty($t['line']) ? "ligne inconnue" : $t['line'];
+			$func = empty($t['function']) ? "fonction inconnue" : $t['function'];
+			
+            $msg .= $file . ' line ' . $line . ' calls ' . $func . "()<br/>";
         }
         LMB_EDI_Model_EDI::trace("Error_PHP", $msg);
     }
