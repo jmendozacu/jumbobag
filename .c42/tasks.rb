@@ -31,7 +31,7 @@ package :mage do
 	desc "run", "Run Magerun"
 	shell_task "run", MAGERUN
 
-	desc "sbase_url LOCAL_URL", "Set l'URL de Magento"
+	desc "base_url LOCAL_URL", "Set l'URL de Magento"
 	task "base_url" do |url|
 		url = check_url(url)
 		fatal("L'URL n'a pas au bon format") unless url
