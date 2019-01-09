@@ -1,3 +1,10 @@
+MAGENTO_DB = "jumbobag"
+MAGENTO_BO_PATH = "admin123"
+MAGENTO_URL = "jumbobag.test"
+REMOTE_HOST = "occitech-jbag"
+REMOTE_MEDIA = "deployment/prod/current/htdocs/media"
+REMOTE_DUMP = "jbag_mage.sql.gz"
+
 SHELL = "/bin/bash"
 MAGENTO_DIR = "/var/www/htdocs"
 MAGERUN = "docker-compose run --rm web n98-magerun"
@@ -15,11 +22,16 @@ shell_task "composer", COMPOSER
 desc "modman:deploy", "Lance modman"
 shell_task "modman:deploy", "vendor/colinmollenhour/modman/modman deploy-all --force"
 
+desc "dump:get DATE", "Recupère le dump de la bdd en fonction de la date"
+task "dump:get" do |date|
+  run("rsync -avz #{REMOTE_HOST}:admin/backup/#{date}/mysql/#{REMOTE_DUMP} .c42/tmp/dump.sql.gz")
+end
+
 package :mage do
 	desc "run", "Run Magerun"
 	shell_task "run", MAGERUN
-	
-	desc "base_url LOCAL_URL", "Set l'URL de Magento"
+
+	desc "sbase_url LOCAL_URL", "Set l'URL de Magento"
 	task "base_url" do |url|
 		url = check_url(url)
 		fatal("L'URL n'a pas au bon format") unless url
@@ -66,6 +78,9 @@ desc "install URL_LOCAL", "Installe le projet sur URL_LOCAL"
 task :install do
 	url = "jumbobag.test"
 
+  info("Invoking dump:get")
+  invoke "dump:get", [Time.now.strftime("%Y-%m-%d")]
+
   sql_cat_cmd = "cat .c42/tmp/dump.sql" if File.exists?(".c42/tmp/dump.sql")
 	sql_cat_cmd = "zcat .c42/tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
 	fatal("Could not find .c42/tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
@@ -92,7 +107,7 @@ task :install do
 
 	info("Invoking composer install")
 	invoke "composer", ["install"]
-	
+
 	info("Invoking docker:run")
 	invoke "docker:run", []
 
@@ -101,22 +116,22 @@ task :install do
 
 	info("Invoking modman:deploy")
 	invoke "modman:deploy", []
-	
+
 	info("Invoking mage:local_xml")
 	invoke "mage:local_xml", []
-	
+
 	info("Invoking mage:base_url")
 	invoke "mage:base_url", [url]
-	
+
 	info("Invoking mage:cache:clear")
 	invoke "mage:cache:clear", []
-	
+
 	info("Invoking mage:cache:disable")
 	invoke "mage:cache:disable", []
 
 	info("Enabling symlinks")
     invoke "mage:symlinks", []
-	
+
 	info("Invoking mage:demo_notice")
 	invoke "mage:demo_notice", []
 
@@ -152,7 +167,7 @@ private
 
 require "uri"
 def check_url(url)
-	url = "http://#{url}" unless url.respond_to?(:match) && url.match(/https?:\/\//i)
+	url = "https://#{url}" unless url.respond_to?(:match) && url.match(/https?:\/\//i)
 	uri = URI.parse(url) rescue nil
 	if uri.nil? || uri.hostname.nil?
 		nil

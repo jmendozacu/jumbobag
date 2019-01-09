@@ -2,7 +2,7 @@
 <config>
 	<modules>
 		<Jumbobag_Core>
-			<version>1.3.3</version>
+			<version>1.3.5</version>
 		</Jumbobag_Core>
 	</modules>
 	<global>

@@ -1868,13 +1868,6 @@ footer .liens-footer .copyright-wrapper p {
     padding-right: 15px;
 	float: left;
 }
-.cms-home-new .gammes.gammes-mobile {
-    display: none !important;
-}
-
-.cms-home-new .gammes.gammes-mobile-view {
-    display: none;
-}
 /*------stj style 13june2017-----*/
 .faq-all-links {
     position: relative;
@@ -2148,8 +2141,6 @@ h2.p2 span strong {
 	.block-subscribe .block-title{ padding: 0 0 22px!important; }
 	.block-subscribe .input-box {    width: 70%!important;}
     .catalog-category-view.category-products ul.products-grid.one_column_4{ float: none;  margin:50px auto 0; }
-	.cms-home-new .gammes {display: none;}	
-	.cms-home-new .gammes.gammes-mobile {display: block !important;}
 	.cms-home-new .gammes article.printed .product-image, .cms-home-new .gammes article.x-trem .product-image { margin-top: 50px;}
 	.cms-home-new .gammes article.original .product-image, .cms-home-new .gammes article.flottant .product-image { margin-top: 50px;}
 	footer .arguments-footer{display: block !important;}
@@ -2262,8 +2253,6 @@ h2.p2 span strong {
 	.cms-home-new #paralax { padding: 65px 0 0 0; }
 	.cms-home-new #intro { display: none;}
 	.cms-home-new #paralax { display: none;}	
-	.cms-home-new .gammes.gammes-mobile {display: none !important;}
-	.cms-home-new .gammes.gammes-mobile-view { display: block;}
 	.cms-home-new .gammes {  padding-top: 50px;}
 	.cms-home-new .gammes article.original .product-image, .cms-home-new .gammes article.flottant .product-image,
 	.cms-home-new .gammes article.printed .product-image, .cms-home-new .gammes article.x-trem .product-image { width: 100%; text-align: center; margin:0;}
@@ -2586,4 +2575,16 @@ tr .ecotaxe {
 
 .rev_slider .tp-mask-wrap {
 	display: none !important;
+}
+
+@media (max-width: 1024px) {
+		.hidden-mobile, .hidden-tablet {
+				display: none;
+		}
+}
+
+@media (min-width: 1024px) {
+		.hidden-desktop {
+				display: none;
+		}
 }
