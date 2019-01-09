@@ -13,6 +13,9 @@ pipeline {
   stages {
     stage('Init') {
       steps {
+        script {
+          TO_DEPLOY = false
+        }
         echo "Init $BRANCH_NAME on $JENKINS_URL ..."
         sh '''
           cp .c42/docker-compose.yml.jenkins docker-compose.yml
@@ -27,9 +30,6 @@ pipeline {
         }
       }
       steps {
-        script {
-          TO_DEPLOY = false
-        }
         notifyBuild()
         echo "Building $BRANCH_NAME on $JENKINS_URL ..."
         sh '''
