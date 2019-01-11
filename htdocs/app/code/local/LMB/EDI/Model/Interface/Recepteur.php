@@ -1257,6 +1257,29 @@ class LMB_EDI_Model_Interface_Recepteur {
 
         return true;
     }
+    function delete_all_images($article) {
+		
+        LMB_EDI_Model_EDI::trace("images_delete", "*******************************************\nDEBUT delete_all_images " . print_r($article, true));
+        if (empty($article['ref_article'])) 
+            return true;
+        $product = Mage::getModel('catalog/product')->load($article['ref_article']);
+        if (!$product->getId())
+            return true;
+        $attributes = $product->getTypeInstance(true)
+                ->getSetAttributes($product);
+
+        $mediaGalleryAttribute = $attributes["media_gallery"];
+        // getMediaGallery('images') permet de récupérer les images exclues, contrairement à getMediaGalleryImages()
+        $images = $product->getMediaGallery('images');
+        foreach ($images as $image) {
+            $mediaGalleryAttribute->getBackend()->removeImage($product, $image['file']);
+        }
+
+        LMB_EDI_Model_EDI::trace("images_delete", "*******************************************\n FIN delete_all_images");
+        $product->save();
+        
+        return true;
+    }
 
     function delete_art_img($image) {
         LMB_EDI_Model_EDI::trace("reception", "*******************************************\nDEBUT delete_art_image " . print_r($image, true));
