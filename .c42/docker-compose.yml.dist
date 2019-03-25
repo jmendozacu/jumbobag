@@ -17,7 +17,6 @@ services:
         - traefik
       labels:
         - traefik.frontend.rule=Host:jumbobag.test
-        - traefik.protocol=http
 
     db:
       image: mysql:5.6

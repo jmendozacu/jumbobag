@@ -1,18 +1,21 @@
 .product-images {
 	clear: both;
 }
+
 .product-image-3dviewer-container {
 	position: relative;
 }
+
 .product-image-3dviewer-link {
 	display: block;
 	opacity: 1;
 	transition: opacity 0.15s ease;
 	border-top: 1px solid #ddd;
 	margin-top: 5px;
-	width: 60%;
+	width: 4rem;
 	padding-top: 15px;
 }
+
 @media (max-width: 768px) {
 	.product-image-3dviewer-link {
 		margin-top: 15px;
@@ -20,10 +23,12 @@
 		width: 100%;
 	}
 }
+
 .product-image-3dviewer-link--hidden {
 	opacity: 0;
 	pointer-events: none;
 }
+
 .product-image-3dviewer {
 	position: absolute;
 	top: 0;
@@ -35,6 +40,7 @@
 	z-index: 1;
 	background: #ffffff;
 }
+
 .product-image-3dviewer .loader {
 	position: absolute;
 	top: 0;
@@ -43,27 +49,28 @@
 	height: 100%;
 	opacity: 1;
 	z-index: 2;
-	background: url(/skin/frontend/base/default/images/innersense/loader.svg)
-		no-repeat no-repeat center 65% transparent;
+	background: url(/skin/frontend/base/default/images/innersense/loader.svg) no-repeat no-repeat center 65% transparent;
 	visibility: hidden;
 }
+
 .product-image-3dviewer--loading {
 	background: transparent;
 }
+
 .product-image-3dviewer--loading iframe {
 	opacity: 0;
 }
+
 .product-image-3dviewer--loading .loader {
 	visibility: visible;
 }
+
 .product-image-3dviewer--hidden {
 	visibility: hidden;
 	opacity: 0;
 }
-.product-sublayout-original
-	.informations-produit
-	.product-images
-	.product-image-3dviewer {
+
+.product-sublayout-original .informations-produit .product-images .product-image-3dviewer {
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
