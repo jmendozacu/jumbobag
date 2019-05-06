@@ -82,42 +82,42 @@ task :install do
   invoke "dump:get", [Time.now.strftime("%Y-%m-%d")]
 
   sql_cat_cmd = "cat .c42/tmp/dump.sql" if File.exists?(".c42/tmp/dump.sql")
-	sql_cat_cmd = "zcat .c42/tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
-	fatal("Could not find .c42/tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
+  sql_cat_cmd = "zcat .c42/tmp/dump.sql.gz" if File.exists?(".c42/tmp/dump.sql.gz")
+  fatal("Could not find .c42/tmp/dump.sql[.gz]") unless defined?(sql_cat_cmd) && !sql_cat_cmd.nil?
 
-	unless File.exists?(".c42/docker-compose.yml") && File.exists?("docker-compose.yml")
-		info("copying docker-compose.yml")
-		copy_file("docker-compose.yml.dist", ".c42/docker-compose.yml")
-		create_link("docker-compose.yml", ".c42/docker-compose.yml")
-		if yes?("Do you want to edit docker-compose.yml? [y/N]")
-			system(%{"${EDITOR:-vim}" docker-compose.yml })
-		end
-	end
+  unless File.exists?(".c42/docker-compose.yml") && File.exists?("docker-compose.yml")
+    info("copying docker-compose.yml")
+    copy_file("docker-compose.yml.dist", ".c42/docker-compose.yml")
+    create_link("docker-compose.yml", ".c42/docker-compose.yml")
+    if yes?("Do you want to edit docker-compose.yml? [y/N]")
+      system(%{"${EDITOR:-vim}" docker-compose.yml })
+    end
+  end
 
-	unless File.exists?(".c42/docker/entrypoint.sh")
-		info("copying docker-compose.yml")
-		copy_file("docker/entrypoint.sh.dist", ".c42/docker/entrypoint.sh")
-		if yes?("Do you want to edit .c42/docker/entrypoint.sh? [y/N]")
-			system(%{"${EDITOR:-vim}" .c42/docker/entrypoint.sh })
-		end
-	end
+  unless File.exists?(".c42/docker/entrypoint.sh")
+    info("copying docker-compose.yml")
+    copy_file("docker/entrypoint.sh.dist", ".c42/docker/entrypoint.sh")
+    if yes?("Do you want to edit .c42/docker/entrypoint.sh? [y/N]")
+      system(%{"${EDITOR:-vim}" .c42/docker/entrypoint.sh })
+    end
+  end
 
-	info("Chmoding docker/entrypoint.sh")
-	chmod(".c42/docker/entrypoint.sh", 0755)
+  info("Chmoding docker/entrypoint.sh")
+  chmod(".c42/docker/entrypoint.sh", 0755)
 
-	info("Invoking composer install")
-	invoke "composer", ["install"]
+  info("Invoking composer install")
+  invoke "composer", ["install"]
 
-	info("Invoking docker:run")
-	invoke "docker:run", []
+  info("Invoking docker:run")
+  invoke "docker:run", []
 
-	info("Piping sql dump into mysql:console")
-	run("#{sql_cat_cmd} | c42 mysql:console")
+#  info("Piping sql dump into mysql:console")
+#  run("#{sql_cat_cmd} | c42 mysql:console")
 
-	info("Invoking modman:deploy")
-	invoke "modman:deploy", []
+  info("Invoking modman:deploy")
+  invoke "modman:deploy", []
 
-	info("Invoking mage:local_xml")
+  info("Invoking mage:local_xml")
 	invoke "mage:local_xml", []
 
 	info("Invoking mage:base_url")
