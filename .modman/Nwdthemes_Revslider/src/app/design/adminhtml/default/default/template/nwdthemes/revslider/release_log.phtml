@@ -1,12 +1,79 @@
 <div class="slider-revolution-update-list">
 
+    <h3 class="version-number">Version 5.4.8.3 StarPath (3rd December 2018)</h3>
+    <div class="change"><strong style="font-weight:700">CHANGES</strong></div>
+    <ul>
+        <li>Allowed access to slider Media Gallery for users with access to Slider Revolution</li>
+    </ul>
+
+    <h3 class="version-number">Version 5.4.8.2 StarPath (11th October 2018)</h3>
+    <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
+    <ul>
+        <li>Fixed display of error message on template import</li>
+        <li>Fixed sort by random in product based slider</li>
+        <li>Fixed warning in getting Facebook stream</li>
+        <li>Fixed error on slider import error</li>
+        <li>Fixed empty letter-spacing value if no letter spacing specified</li>
+    </ul>
+
+    <h3 class="version-number">Version 5.4.8.1 StarPath (25th July 2018)</h3>
+    <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
+    <ul>
+        <li>Added Exploding Layers Add-On</li>
+        <li>Added Paint Brush Add-On</li>
+    </ul>
+    <div class="change"><strong style="font-weight:700">CHANGES</strong></div>
+    <ul>
+        <li>Changed inclusion of JS and CSS asssets of Add-Ons on frontend and in export to HTML</li>
+    </ul>
+    <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
+    <ul>
+        <li>Fixed bug with combination of Product slider and Typewriter Add-On</li>
+        <li>Fixed empty px values of line-hegiht and font-size that break validation</li>
+        <li>Fixed inital image size in add image layer</li>
+        <li>Fixed layer actions options titles in slide editor</li>
+    </ul>
+
+    <h3 class="version-number">Version 5.4.8 StarPath (22nd June 2018)</h3>
+    <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
+    <ul>
+        <li>GDPR Policy Updates: <a href="https://nwdthemes.com/2018/05/24/nwdthemes-extensions-and-new-gdpr-policy-compliance/" target="_blank">https://nwdthemes.com/2018/05/24/nwdthemes-extensions-and-new-gdpr-policy-compliance/</a></li>
+        <li>Added options for GDPR: Added Global Setting to download Google Fonts instead of including them</li>
+        <li>Added options for GDPR: Added Global Setting to stop the inclusion of Google Fonts completely</li>
+        <li>Added (Re)Load Add-On</li>
+        <li>Added BubbleMorph Add-On</li>
+        <li>Added Distortion Add-On</li>
+    </ul>
+    <div class="change"><strong style="font-weight:700">CHANGES</strong></div>
+    <ul>
+        <li>Updated Google Fonts List</li>
+        <li>YouTube videos now loaded from youtube-nocookie.com</li>
+        <li>Changed database checks to lower the query count</li>
+        <li>Changed line endings of two svg files from CR to CRLF</li>
+    </ul>
+    <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
+    <ul>
+        <li>Fixed YouTube BG video not loading sometimes in the latest Chrome</li>
+        <li>Fixed incorrect Vimeo Layer position on slide change</li>
+        <li>Fixed PHP count() warning messages occuring on latest PHP builds</li>
+        <li>Fixed a small Visual Composer page builder issue</li>
+        <li>Fixed Video Playback Issues with Chrome Browser</li>
+        <li>Fixed and adapted to new Instagram requirements</li>
+        <li>Moved admin/images controller to admin/nwdimages controller to avoid conflicts</li>
+        <li>Fixed display of slides thumbnails in navigation</li>
+        <li>Fixed typo in admin.css</li>
+        <li>Fixed problem with layer letter spacing option on front end</li>
+        <li>Added missing cursor files for export to HTML of carousel sliders</li>
+        <li>Fixed slider background image url</li>
+    </ul>
+
     <h3 class="version-number">Version 5.4.7.2 StarPath (10th April 2018)</h3>
     <div class="change"><strong style="font-weight:700">CHANGES</strong></div>
     <ul>
         <li>Removed not applicable troubleshoot options from slider settings</li>
     </ul>
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>    
+    <ul>
         <li>Fixed a Bug where a change of Slide Length in Slide General Settings negative influences Default Transition Time</li>
         <li>Added ";" to  Slider Initialisation to avoid issues by minimising files</li>
         <li>Fixed ForceRewind Video option, which will now reset Video Position before the Layer shown to avoid Frame jumps</li>
@@ -33,9 +100,9 @@
         <li>Now fetching higher quality YouTube Video Poster</li>
     </ul>
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>    
-        <li>Further fixes for DOMContentLoaded issues where document height was not well calculated at start</li>     
-        <li>Fixed DOMContentLoaded issues and extended with fall back on Document Ready State to support Deferred</li> 
+    <ul>
+        <li>Further fixes for DOMContentLoaded issues where document height was not well calculated at start</li>
+        <li>Fixed DOMContentLoaded issues and extended with fall back on Document Ready State to support Deferred</li>
         <li>Fixed Instagram Author not displaying correctly</li>
         <li>Removed create_function() to retrieve compatibility with latest PHP versions</li>
         <li>Fixed Instagram Content/Title not displaying correctly</li>
@@ -305,7 +372,7 @@
         <li>Fixed Slide Transitions where Transion should happen based on the Slide Direction</li>
         <li>Flickering issue by Static Layers with Action fixed</li>
         <li>Fixed an issue where Quick and Long LAyer Actions made Layers unavailable</li>
-        <li>Fixed Order issues on Row Duplication</li>
+	<li>Fixed Order issues on Row Duplication</li>
         <li>RTL Backend Issues with the new Objet Library has been fixed</li>
         <li>Fixed missing Styles after Hovering Layers in Firefox</li>
         <li>Toggled Content without Action was not swapping its Toggled Status. Issue is fixed now</li>
@@ -471,7 +538,7 @@
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
     <ul>
-        <li>Fixed Action Delay Issues</li>
+	<li>Fixed Action Delay Issues</li>
         <li>Eliminated Loading issues, where Static Layer Load time was over 5s or Slider was simple not starting due high loading times</li>
     </ul>
 
@@ -637,7 +704,7 @@
         <li>Fixed Timeline Calculation Issues on Backend</li>
         <li>Fixed Warning Issue by leaving the Slider</li>
         <li>Fixed KenBurns issues on RTL Environment</li>
-        <li>Fixed Bug with Static Layers if Static Layer was set to only show on Slider Hover</li>
+	<li>Fixed Bug with Static Layers if Static Layer was set to only show on Slider Hover</li>
         <li>Fixed Video Background Loop And Keep Slider Progress Function</li>
         <li>Fixed Shape Resize Issue, where Shape Height lost its last valuse</li>
         <li>Fixed Sorting Order WP Gallery Images when using revslider shortcode wrap</li>
@@ -731,8 +798,8 @@
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
     <ul>
-        <li>Fixed a bug where the background image would be exported (if there was one selected at a time) even if transparent or solid color was selected</li>
-        <li>Fixed PanZoom/KenBurns Disabling on Mobile function</li>
+	<li>Fixed a bug where the background image would be exported (if there was one selected at a time) even if transparent or solid color was selected</li>
+	<li>Fixed PanZoom/KenBurns Disabling on Mobile function</li>
         <li>Fixed z-index position for From/Till Calendar in Slide Editor</li>
         <li>Fixed Swipe Treshold and Fingers Options which were ignored in earlier version</li>
         <li>Fixed and issue with Static Layer Parallax handling</li>
@@ -748,7 +815,7 @@
         <li>Instagram Stream can now also be fetched through hashtags</li>
         <li>Added option to import layers from any existing Slide into the current Slide at the "Add Layer" selector</li>
         <li>Added Video Toggle Action</li>
-        <li>Added Mute, UnMute, Toggle Mute Action</li>
+	<li>Added Mute, UnMute, Toggle Mute Action</li>
         <li>Added Toggle Functions for HTML Layers. Toggled Layers can have two states if any Toggle Action is activated</li>
     </ul>
 
@@ -791,7 +858,7 @@
     <ul>
         <li>Added a key listener which will allow to close Fullscreen mode with ESC once it has been triggered by FullScreen Action</li>
         <li>Added Keyboard listener to Slide Editor to save the Slider on CTRL+S / CMD+S</li>
-        <li>Added Keyboard listener to Slide Editor to delte Layers on Backspace / Delete Key</li>
+	<li>Added Keyboard listener to Slide Editor to delte Layers on Backspace / Delete Key</li>
         <li>Added two new Premium Sliders</li>
     </ul>
 
@@ -822,7 +889,7 @@
         <li>Post Based Sliders can now choose between Categories & Tags, Related, Popular, Recent and Next / Previous</li>
         <li>Specific Post Based Sliders can now add Popular and Recent Posts</li>
         <li>Custom build navigations will now be added to the exports and will be also imported at the import process</li>
-        <li>New Cursors for Layers: zoom-in & zoom-out</li>
+	<li>New Cursors for Layers: zoom-in & zoom-out</li>
     </ul>
 
     <div class="change"><strong style="font-weight:700">Changes</strong></div>
@@ -836,7 +903,7 @@
     <ul>
         <li>Fixed a very rare bug where a slide may change it's selected background image</li>
         <li>Fixed "number of comments" option not working properly for Post Based Slider</li>
-        <li>Fixed hover color not working</li>
+	<li>Fixed hover color not working</li>
         <li>Fixed multiple bugs for certain servers that could not import Sliders</li>
         <li>Fixed a bug where the toolbar was missing after adding a video layer</li>
         <li>Fixed some CSS Issues</li>
@@ -880,8 +947,8 @@
     </ul>
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>
-        <li>Fixed a bug with Focus Listener where the Option had no real effect on the Blur/Focus events.</li>
+<ul>
+	<li>Fixed a bug with Focus Listener where the Option had no real effect on the Blur/Focus events.</li>
         <li>Fixed PHP Warnings in case no static-layers.css existing on some Update processes</li>
         <li>Fixed some PHP Warning in WP Backend</li>
         <li>Fixed Google Fonts / Fonts Drop Down issues</li>
@@ -901,15 +968,15 @@
 
     <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
     <ul>
-        <li>Added Enable/Disable FullScreen Video Button for YouTube and HTML5 Videos.  Option is available due the Video Settings Panel only in Layer Video Mode.</li>
-        <li>Added % based Border Radius Fields to Element Styling also</li>
+	<li>Added Enable/Disable FullScreen Video Button for YouTube and HTML5 Videos.  Option is available due the Video Settings Panel only in Layer Video Mode.</li>
+	<li>Added % based Border Radius Fields to Element Styling also</li>
     </ul>
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>
-        <li>Fixed Poster View only on Mobile and Disable Video on Mobile features</li>
+<ul>
+	<li>Fixed Poster View only on Mobile and Disable Video on Mobile features</li>
         <li>Fixed Stop on Hover function. It will keep the Slider paused also if Next slide has been called</li>
-        <li>Fixed Full Slider Link Issues where next,previous,slide index and Scroll Under Links were not working well</li>
+	<li>Fixed Full Slider Link Issues where next,previous,slide index and Scroll Under Links were not working well</li>
         <li>Importing Templates with bigger file size will request a bigger TimeOut to avoid Import failures or will give a clear feedback for further Debugging</li>
     </ul>
 
@@ -917,7 +984,7 @@
     <h3 class="version-number">Version 5.0.8.5 StarPath (15th September 2015)</h3>
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>
+<ul>
         <li>Fixed Static Layers Position calculation issues.</li>
         <li>Fixed Typo Failure in the Navigation Styling</li>
         <li>Added a Workaround for YouTube Video API's with broken Origin attributes. (i.e. http://www.domain.com vs. http://domain.com)</li>
@@ -932,7 +999,7 @@
     <h3 class="version-number">Version 5.0.8 StarPath (11th September 2015)</h3>
     <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
     <ul>
-        <li>FaceBook API 2.4 support</li>
+	<li>FaceBook API 2.4 support</li>
         <li>Added Disable Force FullWidth for FullScreen Slider, to be able to set FullScreen Slider floated horizontal</li>
     </ul>
 
@@ -944,9 +1011,9 @@
     </ul>
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>
+<ul>
         <li>Fixed a bug where Static Images with Links in lazy Load mode was not showing up correctly</li>
-        <li>Fixed a bug where Layers were flashing or not visible at all in "Show Layer on Slider Hover" mode</li>
+	<li>Fixed a bug where Layers were flashing or not visible at all in "Show Layer on Slider Hover" mode</li>
         <li>Fixed an OutPut bug within css parser where in some situation an error was reported in Console log with Undefined Index</li>
         <li>Fixed a Bug where Layers text coud not be edited any more if Splitted Layer animation was selected</li>
         <li>Fixed Rounded Background issues on layers in FireFox and IE in some situation</li>
@@ -964,12 +1031,12 @@
 
     <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
     <ul>
-        <li>Now First Slide can be always the same (Alternative First Slide) even if the rest order of slides are Randomzied</li>
-        <li>Added Requirements & Recommendations Informations to the Slider Overview page to highlight recommended server configurations</li>
+	<li>Now First Slide can be always the same (Alternative First Slide) even if the rest order of slides are Randomzied</li>
+	<li>Added Requirements & Recommendations Informations to the Slider Overview page to highlight recommended server configurations</li>
     </ul>
 
     <div class="bugfix"><strong style="font-weight:700">BUGFIXES</strong></div>
-    <ul>
+<ul>
         <li>Lazy Loading Fixes. Due an internal failure, none of the Lazy Loading option was working. Single, Smart and Full Lazy Loading are available again.</li>
         <li>Fixed a bug where HTML5 Cover Videos in IE did not really cover the slider.</li>
         <li>Fixed default override not working with all available options</li>
@@ -980,7 +1047,7 @@
     <h3 class="version-number">Version 5.0.6 StarPath (2nd September 2015)</h3>
     <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
     <ul>
-        <li>Added New Layer Scale mode "Cover" and "Stretch" to be able to scale Layer images proportional also over the Layer grid or over the slide</li>
+	<li>Added New Layer Scale mode "Cover" and "Stretch" to be able to scale Layer images proportional also over the Layer grid or over the slide</li>
     </ul>
     <div class="change"><strong style="font-weight:700">CHANGES</strong></div>
     <ul>
@@ -1001,9 +1068,9 @@
     <h3 class="version-number">Version 5.0.5 StarPath (27th August 2015)</h3>
     <div class="newfeature"><strong style="font-weight:700">NEW FEATURES</strong></div>
     <ul>
-        <li>Added "Disable Browser Blur/Focus behavior" option to not stop the Slider in case the broswer tab has been blurred</li>
+	<li>Added "Disable Browser Blur/Focus behavior" option to not stop the Slider in case the broswer tab has been blurred</li>
         <li>Added a Info Field under Main Background / Source Settings to show the current selected Image URL</li>
-        <li>Double Click is now allowed for Editing content of Layers for quicker Content Editor Mode</li>
+	<li>Double Click is now allowed for Editing content of Layers for quicker Content Editor Mode</li>
         <li>Added a Quick Menu to edit Slider, Go back to Sliders Overview or edit Slides directly</li>
         <li>Added revaddcallback() Method to add Call Back to i.e. the Parallax Module. See Documentation for further instructions</li>
         <li>Added revgetparallaxproc() Method to get the current scroll percentage</li>
@@ -1016,7 +1083,7 @@
     <ul>
         <li>Allow to change Title of Slides due simple Enter / Tab also for quick editing Slide Titles</li>
         <li>Adding content to a text box (for the first time) is automatically mirrored in the layer’s ‘caption text’</li>
-        <li>Click on the Small Thumbnail in Slider Overview will open the Slide Editor</li>
+	<li>Click on the Small Thumbnail in Slider Overview will open the Slide Editor</li>
         <li>Changed missleading "Video Not Found" to make it more clear for YouTube videos if no thumbnail is set on the video</li>
         <li>Removed option Hide Controls for Vimeo Video Layer as this is not supported by Vimeo</li>
         <li>Minor Layout changes in Slider lists and in Slide Editor</li>
@@ -1029,7 +1096,7 @@
         <li>Fixed Next Slide on Focus bug</li>
         <li>Fixed a bug that broke the Slider Output when using Spinner "4"</li>
         <li>Fixed RTL Layer Aligns on Frontend. Elements now showing up in the Correct position on RTL Direction also</li>
-        <li>Fixed a bug where files relative with special chars under subdomain could not be loaded</li>
+	<li>Fixed a bug where files relative with special chars under subdomain could not be loaded</li>
         <li>Fixes the 1px Gap on the left side at some fullscreen and fullwidth Sliders</li>
         <li>Fixed an Editor Bug where Imported Layers could not be edited on some browser</li>
         <li>Fixed import inside of Slider Settings</li>
@@ -1169,7 +1236,7 @@
     <ul><li>We have implemented almost all navigation types you can think of, which can be aligned anywhere on the stage.<br/>Be in full control with Slider Revolution Navigation!</li></ul>
     <ul>
     <li>Bullet, Button, Tabs and Thumbnail Navigation, single or mixed mode. Any position like outter,inner, aligned etc.</li>
-    <li>Left/Right, Top/Bottom Mouse Scroll events.</li>
+<li>Left/Right, Top/Bottom Mouse Scroll events.</li>
     <li>Vertical/Horizontal Keyboard actions</li>
     <li>Mobile Touch Enabled (Optional)</li>
     <li>Drag and Pull Carousel Feature</li>
@@ -1270,7 +1337,7 @@
         <li>Fixed an issue where the Parallax Effect if Mouse already hovered on the Slider in Firefox was not working well</li>
         <li>Fixed an issue where exports can have wrong styles in it</li>
         <li>Fixed Firefox HTML5 Video Playback</li>
-        <li>Fixed Thumbnail Vertical Offset Positions in Resized Screens</li>
+		<li>Fixed Thumbnail Vertical Offset Positions in Resized Screens</li>
     </ul>
 
 

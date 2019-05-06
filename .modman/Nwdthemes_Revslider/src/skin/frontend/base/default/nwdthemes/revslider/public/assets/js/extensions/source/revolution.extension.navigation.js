@@ -1,7 +1,7 @@
 (function(jQuery) {
 
     /********************************************
-     * REVOLUTION 5.4.2 EXTENSION - NAVIGATION
+     * REVOLUTION 5.4.8 EXTENSION - NAVIGATION
      * @version: 1.3.5 (06.04.2017)
      * @requires jquery.themepunch.revolution.js
      * @author ThemePunch

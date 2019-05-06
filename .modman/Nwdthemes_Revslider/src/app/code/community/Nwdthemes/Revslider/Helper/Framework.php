@@ -19,7 +19,8 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 	const WP_CONTENT_DIR = 'revslider';
 	const RS_DEMO = false;
 
-    protected $_pluginHelper;
+	protected $_pluginHelper;
+	protected $_noAdmin = false;
 
 	/**
 	 *	Constructor
@@ -116,13 +117,12 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 	 *	@param	string	Value
 	 *	@param	string	State (on/off)
 	 */
-
-	public function checked($value = '', $state = 'on')
-	{
-		if ( $value == $state )
-		{
-			echo 'checked="checked"';
+	function checked($value = '', $state = 'on', $output = true) {
+		$result = $value == $state ? 'checked="checked"' : '';
+		if ($output) {
+			echo $result;
 		}
+		return $result;
 	}
 
 	/**
@@ -171,6 +171,17 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
         }
         $content = $this->forceSSL($content);
 		return $content;
+	}
+
+	/**
+	 *	Check if has shortcode
+	 *
+	 *	@param	string $content
+	 *	@param	string $keyword
+	 *	@return	boolean
+	 */
+	public function has_shortcode($content, $keyword) {
+		return strpos($content, '[' . $keyword) !== false;
 	}
 
 	/**
@@ -369,7 +380,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 		}
 		return false;
 	}
-    
+
     /**
      *	Force ssl on urls
      *
@@ -382,7 +393,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
             $url = str_replace('http://', 'https://', $url);
         }
 		return $url;
-	}    
+	}
 
 	/**
 	 *	Get upload dir
@@ -396,7 +407,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 			'url'		=> Mage::getBaseUrl(),
 			'subdir'	=> '/',
 			'basedir'	=> Mage::getBaseDir('media') . DIRECTORY_SEPARATOR . self::WP_CONTENT_DIR,
-			'baseurl'	=> Mage::getBaseUrl('media') . self::WP_CONTENT_DIR . '/',
+			'baseurl'	=> Mage::getBaseUrl('media') . self::WP_CONTENT_DIR,
 			'error'		=> FALSE
 		);
 		return $upload_dir;
@@ -617,7 +628,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 
             $args = array_slice(func_get_args(), 1, $filter['accepted_args']);
 			$args[0] = $value;
-			
+
 			if (is_array($filter['function']) && count($filter['function']) && is_string($filter['function'][0])) {
 				$reflectionMethod = new ReflectionMethod($filter['function'][0], $filter['function'][1]);
 				if (!$reflectionMethod->isStatic()) {
@@ -911,7 +922,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 			}
 		}
 		return $terms;
-	}	
+	}
 
 	/**
 	 *	Check if in admin access now
@@ -920,7 +931,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 	 */
 
 	public function is_admin() {
-		return Mage::app()->getStore()->isAdmin();
+		return $this->_noAdmin ? false : Mage::app()->getStore()->isAdmin();
 	}
 
 	public function is_super_admin() {
@@ -933,6 +944,14 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 
 	public function is_user_logged_in() {
 		return $this->is_admin();
+	}
+
+	/**
+	 * Temporary set/unset forcing of no admin mode
+	 * @param boolean $noAdmin
+	 */
+	public function forceNoAdmin($noAdmin) {
+		$this->_noAdmin = $noAdmin;
 	}
 
 	/**
@@ -1055,7 +1074,7 @@ class Nwdthemes_Revslider_Helper_Framework extends Mage_Core_Helper_Abstract {
 	 *	@param	string	Url
 	 *	@return	string
 	 */
-	
+
 	public function admin_url($url) {
         $url = str_replace('admin-ajax.php', 'adminhtml/nwdrevslider/adminajax', $url);
 		$adminUrl = Mage::helper('adminhtml')->getUrl($url);

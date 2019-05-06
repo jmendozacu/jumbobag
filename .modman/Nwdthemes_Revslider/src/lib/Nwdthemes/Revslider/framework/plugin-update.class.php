@@ -10,39 +10,39 @@ class RevSliderPluginUpdate {
 	/**
 	 * @since 5.0
 	 */
-	public function __construct(){		
+	public function __construct(){
 	}
-	
-	
+
+
 	/**
 	 * return version of installation
 	 * @since 5.0
 	 */
 	public static function get_version(){
 		$real_version = Mage::helper('nwdrevslider/framework')->get_option('revslider_update_version', 1.0);
-		
+
 		return $real_version;
 	}
-	
-	
+
+
 	/**
 	 * set version of installation
 	 * @since 5.0
 	 */
 	public static function set_version($set_to){
-	
+
 		Mage::helper('nwdrevslider/framework')->update_option('revslider_update_version', $set_to);
-		
+
 	}
-	
-	
+
+
 	/**
 	 * check for updates and proceed if needed
 	 * @since 5.0
 	 */
 	public static function do_update_checks(){
 		$version = self::get_version();
-		
+
 		if(version_compare($version, 5.0, '<')){
 			self::update_css_styles(); //update styles to the new 5.0 way
 			self::add_v5_styles(); //add the version 5 styles that are new!
@@ -52,17 +52,17 @@ class RevSliderPluginUpdate {
 			self::add_style_settings_to_layer(); //set missing styling fields to the slides layers
 			self::change_settings_on_layers(); //change settings on layers, for example, add the new structure of actions
 			self::add_general_settings(); //set general settings
-			
+
 			self::remove_static_slides(); //remove static slides if the slider was v4 and had static slides which were not enabled
-			
+
 			$version = 5.0;
 			self::set_version($version);
 		}
-		
-		
+
+
 		if(version_compare($version, '5.0.7', '<')){
 			$version = '5.0.7';
-			
+
 			self::change_general_settings_5_0_7();
 			self::set_version($version);
 		}
@@ -81,15 +81,22 @@ class RevSliderPluginUpdate {
             self::change_layers_svg_5_2_5_5();
             self::set_version($version);
         }
+
+        if(version_compare($version, '5.4.8.1', '<')){
+            $version = '5.4.8.1';
+
+            self::upgrade_addons_5481();
+            self::set_version($version);
+        }
 	}
-	
-	
+
+
 	/**
 	 * add new styles for version 5.0
 	 * @since 5.0
 	 */
 	public static function add_v5_styles(){
-		
+
 		$v5 = array(
 			array('handle' => '.tp-caption.MarkerDisplay','settings' => '{"translated":5,"type":"text","version":"5.0"}','hover' => '{"color":"#ff0000","text-decoration":"none","background-color":"transparent","background-transparency":"1","border-color":"transparent","border-style":"none","border-width":"0","border-radius":["0px","0px","0px","0px"],"skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0"}','params' => '{"font-style":"normal","font-family":"Permanent Marker","padding":"0px 0px 0px 0px","text-decoration":"none","background-color":"transparent","background-transparency":"1","border-color":"#000000","border-style":"none","border-width":"0px","border-radius":"0px 0px 0px 0px","z":"0","skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0","2d_origin_x":"50","2d_origin_y":"50","pers":"600"}','advanced' => '{"idle":{"text-shadow":"none"},"hover":""}'),
 			array('handle' => '.tp-caption.Restaurant-Display','settings' => '{"hover":"false","version":"5.0","translated":"5"}','hover' => '{"color":"#ffffff","text-decoration":"none","background-color":"transparent","background-transparency":"0","border-color":"transparent","border-style":"none","border-width":"0","border-radius":["0","0","0","0"],"skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0"}','params' => '{"color":"#ffffff","font-size":"120px","line-height":"120px","font-weight":"700","font-style":"normal","font-family":"Roboto","padding":["0","0","0","0"],"text-decoration":"none","background-color":"transparent","background-transparency":"1","border-color":"transparent","border-style":"none","border-width":"0","border-radius":["0","0","0","0"],"z":"0","skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0","2d_origin_x":"50","2d_origin_y":"50","pers":"600"}','advanced' => '{"idle":"","hover":""}'),
@@ -154,9 +161,9 @@ class RevSliderPluginUpdate {
 			array('handle' => '.tp-caption.Photography-Button','settings' => '{"hover":"true","type":"button","version":"5.0","translated":"5"}','hover' => '{"color":"#ffffff","color-transparency":"1","text-decoration":"none","background-color":"#000000","background-transparency":"0","border-color":"#ffffff","border-transparency":"1","border-style":"solid","border-width":"1px","border-radius":["30px","30px","30px","30px"],"opacity":"1","scalex":"1","scaley":"1","skewx":"0","skewy":"0","xrotate":"0","yrotate":"0","2d_rotation":"0","pointer_events":"auto","css_cursor":"auto","speed":"300","easing":"Power3.easeOut"}','params' => '{"color":"#ffffff","color-transparency":"1","font-size":"15px","line-height":"15px","font-weight":"600","font-style":"normal","font-family":"Raleway","padding":["13px","35px","13px","35px"],"text-decoration":"none","text-align":"left","background-color":"#000000","background-transparency":"0","border-color":"#ffffff","border-transparency":"0.25","border-style":"solid","border-width":"1px","border-radius":["30px","30px","30px","30px"],"z":"0","skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0","2d_origin_x":"50","2d_origin_y":"50","pers":"600","corner_left":"nothing","corner_right":"nothing","parallax":"-"}','advanced' => '{"idle":{"letter-spacing":"1px"},"hover":""}'),
 			array('handle' => '.tp-caption.Newspaper-Button-2','settings' => '{"hover":"true","type":"button","version":"5.0","translated":"5"}','hover' => '{"color":"#ffffff","color-transparency":"1","text-decoration":"none","background-color":"#000000","background-transparency":"0","border-color":"#ffffff","border-transparency":"1","border-style":"solid","border-width":"2","border-radius":["3px","3px","3px","3px"],"opacity":"1","scalex":"1","scaley":"1","skewx":"0","skewy":"0","xrotate":"0","yrotate":"0","2d_rotation":"0","pointer_events":"auto","css_cursor":"pointer","speed":"300","easing":"Linear.easeNone"}','params' => '{"color":"#ffffff","color-transparency":"1","font-size":"15px","line-height":"15px","font-weight":"900","font-style":"normal","font-family":"Roboto","padding":["10px","30px","10px","30px"],"text-decoration":"none","text-align":"left","background-color":"#000000","background-transparency":"0","border-color":"#ffffff","border-transparency":"0.5","border-style":"solid","border-width":"2","border-radius":["3px","3px","3px","3px"],"z":"0","skewx":"0","skewy":"0","scalex":"1","scaley":"1","opacity":"1","xrotate":"0","yrotate":"0","2d_rotation":"0","2d_origin_x":"50","2d_origin_y":"50","pers":"600","corner_left":"nothing","corner_right":"nothing","parallax":"-"}','advanced' => '{"idle":"","hover":""}')
 		);
-		
+
 		$db = new RevSliderDB();
-		
+
 		foreach($v5 as $v5class){
             $result = $db->fetch(RevSliderGlobals::$table_css, $db->prepare("handle = %s", array($v5class['handle'])));
 			if(empty($result)){
@@ -164,22 +171,22 @@ class RevSliderPluginUpdate {
 				$db->insert(RevSliderGlobals::$table_css, $v5class);
 			}
 		}
-		
+
 	}
-	
+
 
 	/**
 	 * update the styles to meet requirements for version 5.0
 	 * @since 5.0
 	 */
 	public static function update_css_styles(){
-	
+
 		$css = new RevSliderCssParser();
 		$db = new RevSliderDB();
-		
+
 		$styles = $db->fetch(RevSliderGlobals::$table_css);
 		$default_classes = RevSliderCssParser::default_css_classes();
-		
+
 		$cs = array(
 			'background-color' => 'backgroundColor', //rgb rgba and opacity
 			'border-color' => 'borderColor',
@@ -197,19 +204,19 @@ class RevSliderPluginUpdate {
 			'text-decoration' => 'textDecoration',
             'text-align' => 'textAlign'
 		);
-		
+
         $cs = array_merge($cs, RevSliderCssParser::get_deformation_css_tags());
-        
-        
-        
+
+
+
 		foreach($styles as $key => $attr){
-			
+
 			if(isset($attr['advanced'])){
 				$adv = json_decode(RevSliderCssParser::fixQuotedFont($attr['advanced']), true); // = array('idle' => array(), 'hover' => '');
 			}else{
 				$adv = array('idle' => array(), 'hover' => '');
 			}
-			
+
 			if(!isset($adv['idle'])) $adv['idle'] = array();
 			if(!isset($adv['hover'])) $adv['hover'] = array();
 
@@ -218,13 +225,13 @@ class RevSliderPluginUpdate {
 			if(!empty($settings) && isset($settings['translated'])){
 				if(version_compare($settings['translated'], 5.0, '>=')) continue;
 			}
-			
+
 			$idle = json_decode(RevSliderCssParser::fixQuotedFont($attr['params']), true);
 			$hover = json_decode(RevSliderCssParser::fixQuotedFont($attr['hover']), true);
-			
+
 			//check if in styles, there is type, then change the type text to something else
 			$the_type = 'text';
-			
+
 			if(!empty($idle)){
 				foreach($idle as $style => $value){
 					if($style == 'type') $the_type = $value;
@@ -236,7 +243,7 @@ class RevSliderPluginUpdate {
 					}
 				}
 			}
-			
+
 			if(!empty($hover)){
 				foreach($hover as $style => $value){
 					if(!isset($cs[$style])){
@@ -247,12 +254,12 @@ class RevSliderPluginUpdate {
 					}
 				}
 			}
-			
+
 			$settings['translated'] = 5.0; //set the style version to 5.0
 			$settings['type'] = $the_type; //set the type version to text, since 5.0 we also have buttons and shapes, so we need to differentiate from now on
-			
-			
-			
+
+
+
 			if(!isset($settings['version'])){
 				if(isset($default_classes[$styles[$key]['handle']])){
 					$settings['version'] = $default_classes[$styles[$key]['handle']];
@@ -260,21 +267,21 @@ class RevSliderPluginUpdate {
 					$settings['version'] = 'custom'; //set the version to custom as its not in the defaults
 				}
 			}
-			
+
 			$styles[$key]['params'] = json_encode($idle);
 			$styles[$key]['hover'] = json_encode($hover);
 			$styles[$key]['advanced'] = json_encode($adv);
-			$styles[$key]['settings'] = json_encode($settings);			
+			$styles[$key]['settings'] = json_encode($settings);
 		}
-		
+
 		//save now all styles back to database
 		foreach($styles as $key => $attr){
 			$ret = $db->update(RevSliderGlobals::$table_css, array('settings' => $styles[$key]['settings'], 'params' => $styles[$key]['params'], 'hover' => $styles[$key]['hover'], 'advanced' => $styles[$key]['advanced']), array('id' => $attr['id']));
 		}
-		
+
 	}
-	
-	
+
+
 	/**
 	 * remove the settings from the table and use them from now on with get_option / update_option
 	 * @since 5.0
@@ -288,34 +295,34 @@ class RevSliderPluginUpdate {
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * move the template sliders and add the slides to corresponding post based slider or simply move them and change them to post based slider if no slider is using them
 	 * @since 5.0
 	 */
 	public static function move_template_slider(){
 		$db = new RevSliderDB();
-		
+
 		$used_templates = array(); //will store all template IDs that are used by post based Sliders, these can be deleted after the progress.
-		
+
 		$sr = new RevSlider();
 		$sl = new RevSliderSlide();
 		$arrSliders = $sr->getArrSliders(false, false);
 		$tempSliders = $sr->getArrSliders(false, true);
-		
+
 		if(empty($tempSliders) || !is_array($tempSliders)) return true; //as we do not have any template sliders, we do not need to run further here
-		
+
 		if(!empty($arrSliders) && is_array($arrSliders)){
 			foreach($arrSliders as $slider){
 				if( ! in_array($slider->getParam('source_type', 'gallery'), array('posts', 'specific_posts')))  continue; //only check Slider with type of posts
 
 				$slider->updateParam(array('post_types' => 'post'));
-				
+
 				$slider_id = $slider->getID();
-				
+
 				$template_id = $slider->getParam('slider_template_id',0);
-				
+
 				if($template_id > 0){ //initialize slider to see if it exists. Then copy over the Template Sliders Slides to the Post Based Slider
 					foreach($tempSliders as $t_slider){
 						if($t_slider->getID() === $template_id){ //copy over the slides
@@ -338,55 +345,55 @@ class RevSliderPluginUpdate {
 							}
 
 							//get all slides from template, then copy to Slider
-							
+
 							$slides = $t_slider->getSlides();
 
 
-							
+
 							if(!empty($slides) && is_array($slides)){
 								foreach($slides as $slide){
 									$slide_id = $slide->getID();
 									$slider->copySlideToSlider(array('slider_id' => $slider_id, 'slide_id' => $slide_id));
 								}
 							}
-							
+
 							$static_id = $sl->getStaticSlideID($template_id);
 							if($static_id !== false){
                                 $record = $db->fetchSingle(RevSliderGlobals::$table_static_slides, $db->prepare("id = %s", array($static_id)));
 								unset($record['id']);
 								$record['slider_id'] = $slider_id;
-								
+
 								$db->insert(RevSliderGlobals::$table_static_slides, $record);
 							}
-							
+
 							$used_templates[$template_id] = $t_slider;
 							break;
 						}
 					}
 				}
-				
+
 			}
 		}
-		
+
 		if(!empty($used_templates)){
 			foreach($used_templates as $tid => $t_slider){
 				$t_slider->deleteSlider();
 			}
 		}
-		
+
 		//translate all other template Sliders to normal sliders and set them to post based
-		$temp_sliders = $sr->getArrSliders(false, true); 
-		
+		$temp_sliders = $sr->getArrSliders(false, true);
+
 		if(!empty($temp_sliders) && is_array($temp_sliders)){
 			foreach($temp_sliders as $slider){
 				$slider->updateParam(array('template' => 'false'));
 				$slider->updateParam(array('source_type' => 'posts'));
 			}
 		}
-		
+
 	}
-	
-	
+
+
 	/**
 	 * add missing new animation fields to the layers as all animations would be broken without this
 	 * @since 5.0
@@ -394,14 +401,14 @@ class RevSliderPluginUpdate {
 	public static function add_animation_settings_to_layer($sliders = false){
 		$sr = new RevSlider();
 		$sl = new RevSliderSlide();
-		
+
 		if($sliders === false){ //do it on all Sliders
 			$sliders = $sr->getArrSliders(false);
 		}else{
 			$sliders = array($sliders);
 		}
-		
-		
+
+
 		$inAnimations = RevSliderOperations::getArrAnimations(true);
 		$outAnimations = RevSliderOperations::getArrEndAnimations(true);
 		if(!empty($sliders) && is_array($sliders)){
@@ -418,7 +425,7 @@ class RevSliderPluginUpdate {
 						$slides = array_merge($slides, array($msl));
 					}
 				}
-				
+
 				if(!empty($slides) && is_array($slides)){
 					foreach($slides as $slide){
 						$layers = $slide->getLayers();
@@ -429,7 +436,7 @@ class RevSliderPluginUpdate {
 									$endanimation = RevSliderFunctions::getVal($layer, 'endanimation', 'tp-fade');
 									if($animation == 'fade') $animation = 'tp-fade';
 									if($endanimation == 'fade') $endanimation = 'tp-fade';
-									
+
 									$anim_values = array();
 									foreach($inAnimations as $handle => $anim){
 										if($handle == $animation){
@@ -438,7 +445,7 @@ class RevSliderPluginUpdate {
 											break;
 										}
 									}
-									
+
 									$anim_endvalues = array();
 									foreach($outAnimations as $handle => $anim){
 										if($handle == $endanimation){
@@ -447,21 +454,21 @@ class RevSliderPluginUpdate {
 											break;
 										}
 									}
-									
+
 									$layers[$lk]['x_start'] = RevSliderFunctions::getVal($anim_values, 'movex', 'inherit');
 									$layers[$lk]['x_end'] = RevSliderFunctions::getVal($anim_endvalues, 'movex', 'inherit');
 									$layers[$lk]['y_start'] = RevSliderFunctions::getVal($anim_values, 'movey', 'inherit');
 									$layers[$lk]['y_end'] = RevSliderFunctions::getVal($anim_endvalues, 'movey', 'inherit');
 									$layers[$lk]['z_start'] = RevSliderFunctions::getVal($anim_values, 'movez', 'inherit');
 									$layers[$lk]['z_end'] = RevSliderFunctions::getVal($anim_endvalues, 'movez', 'inherit');
-									
+
 									$layers[$lk]['x_rotate_start'] = RevSliderFunctions::getVal($anim_values, 'rotationx', 'inherit');
 									$layers[$lk]['x_rotate_end'] = RevSliderFunctions::getVal($anim_endvalues, 'rotationx', 'inherit');
 									$layers[$lk]['y_rotate_start'] = RevSliderFunctions::getVal($anim_values, 'rotationy', 'inherit');
 									$layers[$lk]['y_rotate_end'] = RevSliderFunctions::getVal($anim_endvalues, 'rotationy', 'inherit');
 									$layers[$lk]['z_rotate_start'] = RevSliderFunctions::getVal($anim_values, 'rotationz', 'inherit');
 									$layers[$lk]['z_rotate_end'] = RevSliderFunctions::getVal($anim_endvalues, 'rotationz', 'inherit');
-									
+
 									$layers[$lk]['scale_x_start'] = RevSliderFunctions::getVal($anim_values, 'scalex', 'inherit');
 									if(intval($layers[$lk]['scale_x_start']) > 10) $layers[$lk]['scale_x_start'] /= 100;
 									$layers[$lk]['scale_x_end'] = RevSliderFunctions::getVal($anim_endvalues, 'scalex', 'inherit');
@@ -470,15 +477,15 @@ class RevSliderPluginUpdate {
 									if(intval($layers[$lk]['scale_y_start']) > 10) $layers[$lk]['scale_y_start'] /= 100;
 									$layers[$lk]['scale_y_end'] = RevSliderFunctions::getVal($anim_endvalues, 'scaley', 'inherit');
 									if(intval($layers[$lk]['scale_y_end']) > 10) $layers[$lk]['scale_y_end'] /= 100;
-									
+
 									$layers[$lk]['skew_x_start'] = RevSliderFunctions::getVal($anim_values, 'skewx', 'inherit');
 									$layers[$lk]['skew_x_end'] = RevSliderFunctions::getVal($anim_endvalues, 'skewx', 'inherit');
 									$layers[$lk]['skew_y_start'] = RevSliderFunctions::getVal($anim_values, 'skewy', 'inherit');
 									$layers[$lk]['skew_y_end'] = RevSliderFunctions::getVal($anim_endvalues, 'skewy', 'inherit');
-									
+
 									$layers[$lk]['opacity_start'] = RevSliderFunctions::getVal($anim_values, 'captionopacity', 'inherit');
 									$layers[$lk]['opacity_end'] = RevSliderFunctions::getVal($anim_endvalues, 'captionopacity', 'inherit');
-									
+
 								}
 							}
 							$slide->setLayersRaw($layers);
@@ -489,8 +496,8 @@ class RevSliderPluginUpdate {
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * add/change layers options
 	 * @since 5.0
@@ -503,7 +510,7 @@ class RevSliderPluginUpdate {
 		}else{
 			$sliders = array($sliders);
 		}
-		
+
 		if(!empty($sliders) && is_array($sliders)){
 			foreach($sliders as $slider){
 				$slides = $slider->getSlides();
@@ -535,7 +542,7 @@ class RevSliderPluginUpdate {
 											$layers[$lk]['layer_action']->link_type = array('a' => 'a');
 											$layers[$lk]['layer_action']->image_link = array('a' => $link);
 											$layers[$lk]['layer_action']->link_open_in = array('a' => $link_open_in);
-											
+
 											unset($layers[$lk]['link']);
 											unset($layers[$lk]['link_open_in']);
 										case 'next':
@@ -548,23 +555,23 @@ class RevSliderPluginUpdate {
 											$scrollunder_offset = RevSliderFunctions::getVal($layer, 'scrollunder_offset');
 											$layers[$lk]['layer_action']->action = array('a' => 'scroll_under');
 											$layers[$lk]['layer_action']->scrollunder_offset = array('a' => $scrollunder_offset);
-											
+
 											unset($layers[$lk]['scrollunder_offset']);
 										break;
 										default: //its an ID, so its a slide ID
 											$layers[$lk]['layer_action']->action = array('a' => 'jumpto');
 											$layers[$lk]['layer_action']->jump_to_slide = array('a' => $link_slide);
 										break;
-										
+
 									}
 									$layers[$lk]['layer_action']->tooltip_event = array('a' => 'click');
-									
+
 									unset($layers[$lk]['link_slide']);
-									
+
 									$do_save = true;
 								}
 							}
-							
+
 							if($do_save){
 								$slide->setLayersRaw($layers);
 								$slide->saveLayers();
@@ -575,14 +582,14 @@ class RevSliderPluginUpdate {
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * add missing new style fields to the layers as all layers would be broken without this
 	 * @since 5.0
 	 */
 	public static function add_style_settings_to_layer($sliders = false){
-		
+
 		$sr = new RevSlider();
 		$sl = new RevSliderSlide();
 		$operations = new RevSliderOperations();
@@ -591,9 +598,9 @@ class RevSliderPluginUpdate {
 		}else{
 			$sliders = array($sliders);
 		}
-		
+
 		$styles = $operations->getCaptionsContentArray();
-		
+
 		if(!empty($sliders) && is_array($sliders)){
 			foreach($sliders as $slider){
 				$slides = $slider->getSlides();
@@ -616,40 +623,40 @@ class RevSliderPluginUpdate {
 								$static_styles = (array) RevSliderFunctions::getVal($layer, 'static_styles', array());
 								$def_val = (array) RevSliderFunctions::getVal($layer, 'deformation', array());
 								$defh_val = (array) RevSliderFunctions::getVal($layer, 'deformation-hover', array());
-								
+
 								if(empty($def_val)){
-									
+
 									//add parallax always!
 									$def_val['parallax'] = RevSliderFunctions::getVal($layer, 'parallax_level', '-');
 									$layers[$lk]['deformation'] = $def_val;
-									
+
 									//check for selected style in styles, then add all deformations to the layer
 									$cur_style = RevSliderFunctions::getVal($layer, 'style', '');
-									
+
 									if(trim($cur_style) == '') continue;
 									$wws = false;
-									
+
 									foreach($styles as $style){
 										if($style['handle'] == '.tp-caption.'.$cur_style){
 											$wws = $style;
 											break;
 										}
 									}
-									
+
 									if($wws == false) continue;
-									
+
 									$css_idle = '';
 									$css_hover = '';
-									
+
 									$wws['params'] = (array)$wws['params'];
 									$wws['hover'] = (array)$wws['hover'];
 									$wws['advanced'] = (array)$wws['advanced'];
-									
+
 									if(isset($wws['params']['font-family'])) $def_val['font-family'] = $wws['params']['font-family'];
 									if(isset($wws['params']['padding'])){
 										$raw_pad = $wws['params']['padding'];
 										if(!is_array($raw_pad)) $raw_pad = explode(' ', $raw_pad);
-										
+
 										switch(count($raw_pad)){
 											case 1:
 												$raw_pad = array($raw_pad[0], $raw_pad[0], $raw_pad[0], $raw_pad[0]);
@@ -661,7 +668,7 @@ class RevSliderPluginUpdate {
 												$raw_pad = array($raw_pad[0], $raw_pad[1], $raw_pad[2], $raw_pad[1]);
 											break;
 										}
-										
+
 										$def_val['padding'] = $raw_pad;
 									}
 									if(isset($wws['params']['font-style'])) $def_val['font-style'] = $wws['params']['font-style'];
@@ -679,7 +686,7 @@ class RevSliderPluginUpdate {
 									}else{
 										if(isset($wws['params']['background-color'])) $def_val['background-transparency'] = RevSliderFunctions::get_trans_from_rgba($wws['params']['background-color'], true);
 									}
-									
+
 									if(isset($wws['params']['border-color'])){
 										if(RevSliderFunctions::isrgb($wws['params']['border-color'])){
 											$def_val['border-color'] = RevSliderFunctions::rgba2hex($wws['params']['border-color']);
@@ -687,13 +694,13 @@ class RevSliderPluginUpdate {
 											$def_val['border-color'] = $wws['params']['border-color'];
 										}
 									}
-									
+
 									if(isset($wws['params']['border-style'])) $def_val['border-style'] = $wws['params']['border-style'];
 									if(isset($wws['params']['border-width'])) $def_val['border-width'] = $wws['params']['border-width'];
 									if(isset($wws['params']['border-radius'])){
 										$raw_bor = $wws['params']['border-radius'];
 										if(!is_array($raw_bor)) $raw_bor = explode(' ', $raw_bor);
-										
+
 										switch(count($raw_bor)){
 											case 1:
 												$raw_bor = array($raw_bor[0], $raw_bor[0], $raw_bor[0], $raw_bor[0]);
@@ -705,7 +712,7 @@ class RevSliderPluginUpdate {
 												$raw_bor = array($raw_bor[0], $raw_bor[1], $raw_bor[2], $raw_bor[1]);
 											break;
 										}
-										
+
 										$def_val['border-radius'] = $raw_bor;
 									}
 									if(isset($wws['params']['x'])) $def_val['x'] = $wws['params']['x'];
@@ -722,7 +729,7 @@ class RevSliderPluginUpdate {
 									if(isset($wws['params']['2d_origin_x'])) $def_val['2d_origin_x'] = $wws['params']['2d_origin_x'];
 									if(isset($wws['params']['2d_origin_y'])) $def_val['2d_origin_y'] = $wws['params']['2d_origin_y'];
 									if(isset($wws['params']['pers'])) $def_val['pers'] = $wws['params']['pers'];
-									
+
 									if(isset($wws['params']['color'])){
 										if(RevSliderFunctions::isrgb($wws['params']['color'])){
 											$static_styles['color'] = RevSliderFunctions::rgba2hex($wws['params']['color']);
@@ -730,23 +737,23 @@ class RevSliderPluginUpdate {
 											$static_styles['color'] = $wws['params']['color'];
 										}
 									}
-									
+
 									if(isset($wws['params']['font-weight'])) $static_styles['font-weight'] = $wws['params']['font-weight'];
 									if(isset($wws['params']['font-size'])) $static_styles['font-size'] = $wws['params']['font-size'];
 									if(isset($wws['params']['line-height'])) $static_styles['line-height'] = $wws['params']['line-height'];
 									if(isset($wws['params']['font-family'])) $static_styles['font-family'] = $wws['params']['font-family'];
-									
+
 									if(isset($wws['advanced']) && isset($wws['advanced']['idle']) && is_array($wws['advanced']['idle']) && !empty($wws['advanced']['idle'])){
 										$css_idle = '{'."\n";
 										foreach($wws['advanced']['idle'] as $handle => $value){
 											$value = implode(' ', $value);
 											if($value !== '')
 												$css_idle .= '	'.$key.': '.$value.';'."\n";
-											
+
 										}
 										$css_idle .= '}'."\n";
 									}
-									
+
 									if(isset($wws['hover']['color'])){
 										if(RevSliderFunctions::isrgb($wws['hover']['color'])){
 											$defh_val['color'] = RevSliderFunctions::rgba2hex($wws['hover']['color']);
@@ -780,7 +787,7 @@ class RevSliderPluginUpdate {
 									if(isset($wws['hover']['border-radius'])){
 										$raw_bor = $wws['hover']['border-radius'];
 										if(!is_array($raw_bor)) $raw_bor = explode(' ', $raw_bor);
-										
+
 										switch(count($raw_bor)){
 											case 1:
 												$raw_bor = array($raw_bor[0], $raw_bor[0], $raw_bor[0], $raw_bor[0]);
@@ -792,7 +799,7 @@ class RevSliderPluginUpdate {
 												$raw_bor = array($raw_bor[0], $raw_bor[1], $raw_bor[2], $raw_bor[1]);
 											break;
 										}
-										
+
 										$defh_val['border-radius'] = $raw_bor;
 									}
 									if(isset($wws['hover']['x'])) $defh_val['x'] = $wws['hover']['x'];
@@ -810,19 +817,19 @@ class RevSliderPluginUpdate {
 									if(isset($wws['hover']['2d_origin_y'])) $defh_val['2d_origin_y'] = $wws['hover']['2d_origin_y'];
 									if(isset($wws['hover']['speed'])) $defh_val['speed'] = $wws['hover']['speed'];
 									if(isset($wws['hover']['easing'])) $defh_val['easing'] = $wws['hover']['easing'];
-									
+
 									if(isset($wws['advanced']) && isset($wws['advanced']['hover']) && is_array($wws['advanced']['hover']) && !empty($wws['advanced']['hover'])){
 										$css_hover = '{'."\n";
 										foreach($wws['advanced']['hover'] as $handle => $value){
 											$value = implode(' ', $value);
 											if($value !== '')
 												$css_hover .= '	'.$key.': '.$value.';'."\n";
-											
+
 										}
 										$css_hover .= '}'."\n";
-										
+
 									}
-									
+
 									if(!isset($layers[$lk]['inline'])) $layers[$lk]['inline'] = array();
 									if($css_idle !== ''){
 										$layers[$lk]['inline']['idle'] = $css_idle;
@@ -830,13 +837,13 @@ class RevSliderPluginUpdate {
 									if($css_hover !== ''){
 										$layers[$lk]['inline']['idle'] = $css_hover;
 									}
-									
+
 									$layers[$lk]['deformation'] = $def_val;
 									$layers[$lk]['deformation-hover'] = $defh_val;
 									$layers[$lk]['static_styles'] = $static_styles;
 								}
 							}
-							
+
 							$slide->setLayersRaw($layers);
 							$slide->saveLayers();
 						}
@@ -845,14 +852,14 @@ class RevSliderPluginUpdate {
 			}
 		}
 	}
-	
-	
+
+
 	/**
-	 * add settings to layer depending on how 
+	 * add settings to layer depending on how
 	 * @since 5.0
 	 */
 	public static function add_general_settings($sliders = false){
-		
+
 		$sr = new RevSlider();
 		$sl = new RevSliderSlide();
 		//$operations = new RevSliderOperations();
@@ -861,17 +868,17 @@ class RevSliderPluginUpdate {
 		}else{
 			$sliders = array($sliders);
 		}
-		
+
 		//$styles = $operations->getCaptionsContentArray();
-		
+
 		if(!empty($sliders) && is_array($sliders)){
 			$fonts = Mage::helper('nwdrevslider/framework')->get_option('tp-google-fonts', array());
-			
+
 			foreach($sliders as $slider){
 				$settings = $slider->getSettings();
 				$bg_freeze = $slider->getParam('parallax_bg_freeze', 'off');
 				$google_fonts = $slider->getParam('google_font', array());
-				
+
 				if(!isset($settings['version']) || version_compare($settings['version'], 5.0, '<')){
 					if(empty($google_fonts) && !empty($fonts)){ //add all punchfonts to the Slider
 						foreach($fonts as $font){
@@ -882,11 +889,11 @@ class RevSliderPluginUpdate {
 					$settings['version'] = 5.0;
 					$slider->updateSetting(array('version' => 5.0));
 				}
-				
+
 				if($bg_freeze == 'on'){ //deprecated here, moved to slides so remove check here and add on to slides
 					$slider->updateParam(array('parallax_bg_freeze' => 'off'));
 				}
-				
+
 				$slides = $slider->getSlides();
 				$staticID = $sl->getStaticSlideID($slider->getID());
 				if($staticID !== false){
@@ -901,7 +908,7 @@ class RevSliderPluginUpdate {
 				}
 				if(!empty($slides) && is_array($slides)){
 					foreach($slides as $slide){
-						
+
 						if($bg_freeze == 'on'){ //set bg_freeze to on for slide settings
 							$slide->setParam('slide_parallax_level', '1');
 						}
@@ -909,18 +916,18 @@ class RevSliderPluginUpdate {
 						$slide->saveParams();
 					}
 				}
-				
+
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * remove static slide from Sliders if the setting was set to off
 	 * @since 5.0
 	 */
 	public static function remove_static_slides($sliders = false){
-		
+
 		$sr = new RevSlider();
 		$sl = new RevSliderSlide();
 		//$operations = new RevSliderOperations();
@@ -929,26 +936,26 @@ class RevSliderPluginUpdate {
 		}else{
 			$sliders = array($sliders);
 		}
-		
+
 		//$styles = $operations->getCaptionsContentArray();
-		
+
 		if(!empty($sliders) && is_array($sliders)){
 			foreach($sliders as $slider){
 				$settings = $slider->getSettings();
 				$enable_static_layers = $slider->getParam('enable_static_layers', 'off');
-				
+
 				if($enable_static_layers == 'off'){
 					$staticID = $sl->getStaticSlideID($slider->getID());
 					if($staticID !== false){
 						$slider->deleteStaticSlide();
 					}
 				}
-				
+
 			}
 		}
 	}
-	
-	
+
+
 	/**
 	 * change general settings of all sliders to 5.0.7
 	 * @since 5.0.7
@@ -963,18 +970,18 @@ class RevSliderPluginUpdate {
 		}else{
 			$sliders = array($sliders);
 		}
-		
+
 		if(!empty($sliders) && is_array($sliders)){
 			foreach($sliders as $slider){
 				$settings = $slider->getSettings();
-				
+
 				if(!isset($settings['version']) || version_compare($settings['version'], '5.0.7', '<')){
 					$start_with_slide = $slider->getParam('start_with_slide', '1');
-					
+
 					if($start_with_slide !== '1'){
 						$slider->updateParam(array('start_with_slide_enable' => 'on'));
 					}
-					
+
 					$settings['version'] = '5.0.7';
 					$slider->updateSetting(array('version' => '5.0.7'));
 				}
@@ -982,7 +989,7 @@ class RevSliderPluginUpdate {
 			}
 		}
 	}
-	
+
 
     /**
      * change image id of all slides to 5.1.1
@@ -1072,7 +1079,23 @@ class RevSliderPluginUpdate {
                 }
             }
         }
-    }
+	}
+
+	/**
+	 * Upgrade Whiteboard and Typewriter Add-Ons for compatiblity with 5.4.8.1
+	 */
+	public static function upgrade_addons_5481() {
+		$addons = array(
+			'revslider-whiteboard-addon/revslider-whiteboard-addon.php',
+			'revslider-typewriter-addon/revslider-typewriter-addon.php'
+		);
+		$rslb = new RevSliderLoadBalancer();
+		foreach ($addons as $addon) {
+			if (Mage::helper('nwdrevslider/plugin')->isPluginActive($addon)) {
+				Mage::helper('nwdrevslider/plugin')->updatePlugin($rslb->get_url('updates'), strstr($addon, '/', true));
+			}
+		}
+	}
 }
 
 /**

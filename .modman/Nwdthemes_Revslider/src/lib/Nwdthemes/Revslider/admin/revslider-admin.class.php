@@ -14,7 +14,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 	const VIEW_SLIDE = "slide";
 
 	protected static $rslb;
-	
+
 	/**
 	 * the constructor
 	 */
@@ -53,12 +53,12 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 	private function init(){
 		global $revSliderAsTheme;
         global $pagenow;
-		
+
 		$template = new RevSliderTemplate();
 		$operations = new RevSliderOperations();
 		$obj_library = new RevSliderObjectLibrary();
 		$general_settings = $operations->getGeneralSettingsValues();
-		
+
 		$force_activation_box = RevSliderBase::getVar($general_settings, 'force_activation_box', 'off');
 
 		if($force_activation_box == 'on'){ //force the notifications and more
@@ -137,26 +137,26 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
         $plugins = Mage::helper('nwdrevslider/framework')->get_plugins();
 
         foreach($plugins as $plugin_id => $plugin){
-            
+
             $slug = dirname($plugin_id);
             if(empty($slug)) continue;
             if($slug !== 'revslider') continue;
-            
+
             //check version, latest updates and if registered or not
             $validated = Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false');
             $latestv = Mage::helper('nwdrevslider/framework')->get_option('revslider-latest-version', RevSliderGlobals::SLIDER_REVISION);
-            
+
             if($validated == 'false'){ //activate for updates and support
                 Mage::helper('nwdrevslider/framework')->add_action( "after_plugin_row_" . $plugin_id, array('RevSliderAdmin', 'show_purchase_notice'), 10, 3);
             }
-            
+
             if(version_compare($latestv, $plugin['Version'], '>')){
                 Mage::helper('nwdrevslider/framework')->add_action( "after_plugin_row_" . $plugin_id, array('RevSliderAdmin', 'show_update_notice'), 10, 3);
             }
-        }   
+        }
     }
-    
-    
+
+
     public static function show_purchase_notice(){
         $wp_list_table = Mage::helper('nwdrevslider/framework')->_get_list_table('WP_Plugins_List_Table');
         ?>
@@ -165,10 +165,10 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
             <?php echo __('Activate Slider Revolution for <a href="http://revolution.themepunch.com/direct-customer-benefits/" target="_blank">Premium Benefits (e.g. Add-Ons)</a>.'); ?>
             </div>
         </tr>
-        <?php 
+        <?php
     }
-    
-    
+
+
     public static function show_update_notice(){
         $wp_list_table = Mage::helper('nwdrevslider/framework')->_get_list_table('WP_Plugins_List_Table');
         ?>
@@ -177,14 +177,14 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
             <?php echo __('A new version of Slider Revolution is available.'); ?>
             </div>
         </tr>
-        <?php 
+        <?php
     }
-    
-    
+
+
     public static function plugin_action_links($links, $file){
         if ($file == Mage::helper('nwdrevslider/plugin')->plugin_basename(RS_PLUGIN_FILE_PATH)){
             $rs_enabled = Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false');
-            
+
             if($rs_enabled == 'true'){
                 krsort($links);
                 end($links);
@@ -192,35 +192,35 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                 $links[$key] .= '';
             }
         }
-        
+
         return $links;
 	}
-	
-	
+
+
 	public static function enqueue_styles(){
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style('rs-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600,800');
         Mage::helper('nwdrevslider/framework')->wp_enqueue_style('revslider-global-styles', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL . 'admin/assets/css/global.css', array(), GlobalsRevSlider::SLIDER_REVISION );
 	}
 
-	
+
 	public static function include_custom_css(){
-		
+
 		$type = (isset(Nwdthemes_Revslider_Helper_Data::$_GET['view'])) ? Nwdthemes_Revslider_Helper_Data::$_GET['view'] : '';
 		$page = (isset(Nwdthemes_Revslider_Helper_Data::$_GET['page'])) ? Nwdthemes_Revslider_Helper_Data::$_GET['page'] : '';
-		
+
 		if($page !== 'slider' && $page !== 'revslider_navigation') return false; //showbiz fix
-		
+
 		$sliderID = '';
-		
+
 		switch($type){
 			case 'slider':
-				
+
 				$sliderID = (isset(Nwdthemes_Revslider_Helper_Data::$_GET['id'])) ? Nwdthemes_Revslider_Helper_Data::$_GET['id'] : '';
 			break;
 			case 'slide':
 				$slideID = (isset(Nwdthemes_Revslider_Helper_Data::$_GET['id'])) ? Nwdthemes_Revslider_Helper_Data::$_GET['id'] : '';
 				if($slideID == 'new') break;
-				
+
 				$slide = new RevSlide();
 				$slide->initByID($slideID);
 				$sliderID = $slide->getSliderID();
@@ -239,14 +239,14 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 			$slider->initByID($sliderID);
 			$settingsFields = $slider->getSettingsFields();
 			$arrFieldsMain = $settingsFields['main'];
-			$arrFieldsParams = $settingsFields['params'];			
+			$arrFieldsParams = $settingsFields['params'];
 			$custom_css = @stripslashes($arrFieldsParams['custom_css']);
 			$custom_css = RevSliderCssParser::compress_css($custom_css);
 			echo '<style>'.$custom_css.'</style>';
 		}
 	}
-	
-	
+
+
 	public static function enqueue_all_admin_scripts() {
 		Mage::helper('nwdrevslider/framework')->wp_localize_script('unite_admin', 'rev_lang', self::get_javascript_multilanguage()); //Load multilanguage for JavaScript
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style(array('wp-color-picker'));
@@ -413,9 +413,9 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		if(!Mage::helper('nwdrevslider/framework')->current_user_can('administrator')) return true;
 
 		$enable_newschannel = RevSliderBase::getVar($general_settings, 'enable_newschannel', 'on');
-		
+
 		$enable_newschannel = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_set_notifications', $enable_newschannel);
-		
+
 		if($enable_newschannel == 'on'){
 
 			$nonce = Mage::helper('nwdrevslider/framework')->wp_create_nonce("revslider_actions");
@@ -504,17 +504,17 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 	 *  custom output function
 	 */
 	public static function customPostFieldsOutput(){
-		
+
 		$meta = Mage::helper('nwdrevslider/framework')->get_post_meta(get_the_ID(), 'slide_template', true);
 		if($meta == '') $meta = 'default';
-		
+
 		$slider = new RevSlider();
 		$arrOutput = array();
 		$arrOutput["default"] = "default";
 
 		$arrSlides = $slider->getArrSlidersWithSlidesShort(RevSlider::SLIDER_TYPE_TEMPLATE);
 		$arrOutput = $arrOutput + $arrSlides;	//union arrays
-		
+
 		?>
 		<ul class="revslider_settings">
 			<li id="slide_template_row">
@@ -551,15 +551,15 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 	 * common scripts even if the plugin not load, use this function only if no choise.
 	 */
 	public static function onAddScripts(){
-		
+
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style('edit_layers', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/css/edit_layers.css', array(), RevSliderGlobals::SLIDER_REVISION);
-		
+
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('unite_layers_timeline', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/js/edit_layers_timeline.js', array(), RevSliderGlobals::SLIDER_REVISION );
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('unite_context_menu', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/js/context_menu.js', array(), RevSliderGlobals::SLIDER_REVISION );
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('unite_layers', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/js/edit_layers.js', array('jquery-ui-mouse'), RevSliderGlobals::SLIDER_REVISION );
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('unite_css_editor', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/js/css_editor.js', array(), RevSliderGlobals::SLIDER_REVISION );
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('rev_admin', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/js/rev_admin.js', array(), RevSliderGlobals::SLIDER_REVISION );
-		
+
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_script('tp-tools', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'public/assets/js/jquery.themepunch.tools.min.js', array(), RevSliderGlobals::SLIDER_REVISION );
 
 		//include all media upload scripts
@@ -567,13 +567,13 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 
 		//add rs css:
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style('rs-plugin-settings', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'public/assets/css/settings.css', array(), RevSliderGlobals::SLIDER_REVISION);
-		
+
 		//add icon sets
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style('rs-icon-set-fa-icon-', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'public/assets/fonts/font-awesome/css/font-awesome.css', array(), RevSliderGlobals::SLIDER_REVISION);
 		Mage::helper('nwdrevslider/framework')->wp_enqueue_style('rs-icon-set-pe-7s-', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'public/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css', array(), RevSliderGlobals::SLIDER_REVISION);
-		
+
 		Mage::helper('nwdrevslider/framework')->add_filter('revslider_mod_icon_sets', array('RevSliderBase', 'set_icon_sets'));
-		
+
 		$db = new RevSliderDB();
 
 		$styles = $db->fetch(RevSliderGlobals::$table_css);
@@ -584,7 +584,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		$custom_css = RevSliderOperations::getStaticCss();
 		$custom_css = RevSliderCssParser::compress_css($custom_css);
 		Mage::helper('nwdrevslider/framework')->wp_add_inline_style( 'rs-plugin-settings', '<style type="text/css" id="rs-inline-static-css">'.$custom_css.'</style>' );
-		
+
 	}
 
 	/**
@@ -626,8 +626,8 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		}
 		exit();
 	}
-	
-	
+
+
 	/**
 	 * import slider from TP servers
 	 * @since: 5.0.5
@@ -764,10 +764,10 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 			exit;
 		}else{
 			$tmp = new RevSliderTemplate();
-			
+
 			$package = Mage::helper('nwdrevslider/framework')->esc_attr($data['package']);
             $package = ($package == 'true') ? true : false;
-			
+
             //get all in the same package as the uid
             if($package === true){
                 $uids = $tmp->get_package_uids($uid);
@@ -861,27 +861,27 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 				exit;
 			}
 		}
-		
+
 		exit;
 	}
-	
-	
+
+
 	/**
 	 *
 	 * import slider handle (not ajax response)
 	 */
 	private static function importSliderTemplateHandle($viewBack = null, $updateAnim = true, $updateStatic = true, $single_slide = false){
-		
+
 		$uid = Mage::helper('nwdrevslider/framework')->esc_attr(RevSliderFunctions::getPostVariable('uid'));
 		if($uid == ''){
 			$message = __("ID missing, something went wrong. Please try again!");
 			RevSliderOperations::import_failed_message($message, $viewBack);
 			exit;
 		}
-		
+
 		//check if the filename is correct
 		//import to templates, then duplicate Slider
-		
+
 		$slider = new RevSlider();
 		$response = $slider->importSliderFromPost($updateAnim, $updateStatic, false, $uid, $single_slide);
 
@@ -923,8 +923,8 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		$link = Mage::helper('nwdrevslider/framework')->admin_url('admin.php?page=themepunch-google-fonts');
 		return($link);
 	}
-	
-	
+
+
 	/**
 	 * Toggle Favorite State of Slider
 	 * @since: 5.0
@@ -932,29 +932,29 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 	public static function toggle_favorite_by_id($id){
 		$id = intval($id);
 		if($id === 0) return false;
-		
+
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$table_name = $wpdb->prefix . RevSliderGlobals::TABLE_SLIDERS_NAME;
-		
+
 		//check if ID exists
 		$slider = $wpdb->get_row($wpdb->prepare("SELECT settings FROM $table_name WHERE id = %s", $id), Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-		
+
 		if(empty($slider))
 			return __('Slider not found');
-			
+
 		$settings = json_decode($slider['settings'], true);
-		
+
 		if(!isset($settings['favorite']) || $settings['favorite'] == 'false' || $settings['favorite'] == false){
 			$settings['favorite'] = 'true';
 		}else{
 			$settings['favorite'] = 'false';
 		}
-		
+
 		$response = $wpdb->update($table_name, array('settings' => json_encode($settings)), array('id' => $id));
-		
+
 		if($response === false) return __('Slider setting could not be changed');
-		
+
 		return true;
 	}
 
@@ -1007,6 +1007,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                     case 'import_slide_template_slidersview':
 					case 'import_slider_online_template_slidersview_new':
                     case 'fix_database_issues':
+                    case 'trigger_font_deletion':
                         RevSliderFunctions::throwError(__('Function Only Available for Adminstrators'));
                         exit;
                     break;
@@ -1029,54 +1030,54 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 			}
 			switch($action){
 				case 'add_new_preset':
-					
+
 					if(!isset($data['settings']) || !isset($data['values'])) self::ajaxResponseError(__('Missing values to add preset'), false);
-					
+
 					$result = $operations->add_preset_setting($data);
-					
+
 					if($result === true){
-						
+
 						$presets = $operations->get_preset_settings();
-						
+
 						self::ajaxResponseSuccess(__('Preset created'), array('data' => $presets));
 					}else{
 						self::ajaxResponseError($result, false);
 					}
-					
+
 					exit;
 				break;
 				case 'update_preset':
 
 					if(!isset($data['name']) || !isset($data['values'])) self::ajaxResponseError(__('Missing values to update preset'), false);
-					
+
 					$result = $operations->update_preset_setting($data);
-					
+
 					if($result === true){
-						
+
 						$presets = $operations->get_preset_settings();
-						
+
 						self::ajaxResponseSuccess(__('Preset created'), array('data' => $presets));
 					}else{
 						self::ajaxResponseError($result, false);
 					}
-					
+
 					exit;
 				break;
 				case 'remove_preset':
-					
+
 					if(!isset($data['name'])) self::ajaxResponseError(__('Missing values to remove preset'), false);
-					
+
 					$result = $operations->remove_preset_setting($data);
-					
+
 					if($result === true){
-						
+
 						$presets = $operations->get_preset_settings();
-						
+
 						self::ajaxResponseSuccess(__('Preset deleted'), array('data' => $presets));
 					}else{
 						self::ajaxResponseError($result, false);
 					}
-					
+
 					exit;
 				break;
 				case "export_slider":
@@ -1214,13 +1215,13 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 				break;
 				case 'copy_slide_to_slider':
 					$slideID = (isset($data['redirect_id'])) ? $data['redirect_id'] : -1;
-					
+
 					if($slideID === -1) RevSliderFunctions::throwError(__('Missing redirect ID!'));
-					
+
 					$return = $slider->copySlideToSlider($data);
-					
+
 					if($return !== true) RevSliderFunctions::throwError($return);
-					
+
 					$urlRedirect = self::getViewUrl(self::VIEW_SLIDE,"id=$slideID");
 					$responseText = __("Slide copied to current Slider, redirecting...");
 					self::ajaxResponseSuccessRedirect($responseText,$urlRedirect);
@@ -1294,14 +1295,14 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						RevSliderFunctions::throwError(__('No valid title given'));
 						exit;
 					}
-					
+
 					$return = $template->copySlideToTemplates($data['slideID'], $data['title'], $data['settings']);
-					
+
 					if($return == false){
 						RevSliderFunctions::throwError(__('Could not save Slide as Template'));
 						exit;
 					}
-					
+
 					//get HTML for template section
 
 					$html = Mage::app()->getLayout()
@@ -1349,7 +1350,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                         RevSliderFunctions::throwError(__('Style name should start with alphabetic charcter. CSS not saved.'));
 
                     $arrCaptions = $operations->insertCaptionsContentData($data);
-					
+
 					if($arrCaptions !== false){
 						$db = new RevSliderDB();
 						$styles = $db->fetch(RevSliderGlobals::$table_css);
@@ -1357,14 +1358,14 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						$styles = RevSliderCssParser::compress_css($styles);
 						$custom_css = RevSliderOperations::getStaticCss();
 						$custom_css = RevSliderCssParser::compress_css($custom_css);
-						
+
 						$arrCSS = $operations->getCaptionsContentArray();
 						$arrCssStyles = RevSliderFunctions::jsonEncodeForClientSide($arrCSS);
 						$arrCssStyles = $arrCSS;
-						
+
 						self::ajaxResponseSuccess(__("CSS saved"),array("arrCaptions"=>$arrCaptions,'compressed_css'=>$styles.$custom_css,'initstyles'=>$arrCssStyles));
 					}
-					
+
 					RevSliderFunctions::throwError(__('CSS could not be saved'));
 					exit();
 				break;
@@ -1377,7 +1378,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                         RevSliderFunctions::throwError(__('Style name should start with alphabetic charcter. CSS not saved.'));
 
                     $arrCaptions = $operations->updateCaptionsContentData($data);
-					
+
 					if($arrCaptions !== false){
 						$db = new RevSliderDB();
 						$styles = $db->fetch(RevSliderGlobals::$table_css);
@@ -1385,19 +1386,19 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						$styles = RevSliderCssParser::compress_css($styles);
 						$custom_css = RevSliderOperations::getStaticCss();
 						$custom_css = RevSliderCssParser::compress_css($custom_css);
-						
+
 						$arrCSS = $operations->getCaptionsContentArray();
 						$arrCssStyles = RevSliderFunctions::jsonEncodeForClientSide($arrCSS);
 						$arrCssStyles = $arrCSS;
-						
+
 						self::ajaxResponseSuccess(__("CSS saved"),array("arrCaptions"=>$arrCaptions,'compressed_css'=>$styles.$custom_css,'initstyles'=>$arrCssStyles));
 					}
-					
+
 					RevSliderFunctions::throwError(__('CSS could not be saved'));
 					exit();
 				break;
 				case "update_captions_advanced_css":
-					
+
 					$arrCaptions = $operations->updateAdvancedCssData($data);
 					if($arrCaptions !== false){
 						$db = new RevSliderDB();
@@ -1406,61 +1407,61 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						$styles = RevSliderCssParser::compress_css($styles);
 						$custom_css = RevSliderOperations::getStaticCss();
 						$custom_css = RevSliderCssParser::compress_css($custom_css);
-						
+
 						$arrCSS = $operations->getCaptionsContentArray();
 						$arrCssStyles = RevSliderFunctions::jsonEncodeForClientSide($arrCSS);
 						$arrCssStyles = $arrCSS;
-						
+
 						self::ajaxResponseSuccess(__("CSS saved"),array("arrCaptions"=>$arrCaptions,'compressed_css'=>$styles.$custom_css,'initstyles'=>$arrCssStyles));
 					}
-					
+
 					RevSliderFunctions::throwError(__('CSS could not be saved'));
 					exit();
 				break;
 				case "rename_captions_css":
 					//rename all captions in all sliders with new handle if success
 					$arrCaptions = $operations->renameCaption($data);
-					
+
 					$db = new RevSliderDB();
 					$styles = $db->fetch(RevSliderGlobals::$table_css);
 					$styles = RevSliderCssParser::parseDbArrayToCss($styles, "\n");
 					$styles = RevSliderCssParser::compress_css($styles);
 					$custom_css = RevSliderOperations::getStaticCss();
 					$custom_css = RevSliderCssParser::compress_css($custom_css);
-					
+
 					$arrCSS = $operations->getCaptionsContentArray();
 					$arrCssStyles = RevSliderFunctions::jsonEncodeForClientSide($arrCSS);
 					$arrCssStyles = $arrCSS;
-					
+
 					self::ajaxResponseSuccess(__("Class name renamed"),array("arrCaptions"=>$arrCaptions,'compressed_css'=>$styles.$custom_css,'initstyles'=>$arrCssStyles));
 				break;
 				case "delete_captions_css":
 					$arrCaptions = $operations->deleteCaptionsContentData($data);
-					
+
 					$db = new RevSliderDB();
 					$styles = $db->fetch(RevSliderGlobals::$table_css);
 					$styles = RevSliderCssParser::parseDbArrayToCss($styles, "\n");
 					$styles = RevSliderCssParser::compress_css($styles);
 					$custom_css = RevSliderOperations::getStaticCss();
 					$custom_css = RevSliderCssParser::compress_css($custom_css);
-					
+
 					$arrCSS = $operations->getCaptionsContentArray();
 					$arrCssStyles = RevSliderFunctions::jsonEncodeForClientSide($arrCSS);
 					$arrCssStyles = $arrCSS;
-					
+
 					self::ajaxResponseSuccess(__("Style deleted!"),array("arrCaptions"=>$arrCaptions,'compressed_css'=>$styles.$custom_css,'initstyles'=>$arrCssStyles));
 				break;
 				case "update_static_css":
 					$data = ''; //do not allow to add new global CSS anymore, instead, remove all!
 					$staticCss = $operations->updateStaticCss($data);
-					
+
 					$db = new RevSliderDB();
 					$styles = $db->fetch(RevSliderGlobals::$table_css);
 					$styles = RevSliderCssParser::parseDbArrayToCss($styles, "\n");
 					$styles = RevSliderCssParser::compress_css($styles);
 					$custom_css = RevSliderOperations::getStaticCss();
 					$custom_css = RevSliderCssParser::compress_css($custom_css);
-					
+
 					self::ajaxResponseSuccess(__("CSS saved"),array("css"=>$staticCss,'compressed_css'=>$styles.$custom_css));
 				break;
 				case "insert_custom_anim":
@@ -1504,16 +1505,16 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						$operations->previewOutputMarkup($sliderID);
 					else
 						$operations->previewOutput($sliderID);
-                    
+
                     exit;
 				break;
                 case "get_import_slides_data":
                     $slides = array();
                     if(!is_array($data)){
                         $slider->initByID(intval($data));
-                        
+
                         $full_slides = $slider->getSlides(); //static slide is missing
-                        
+
                         if(!empty($full_slides)){
                             foreach($full_slides as $slide_id => $mslide){
                                 $slides[$slide_id]['layers'] = $mslide->getLayers();
@@ -1523,7 +1524,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                                 $slides[$slide_id]['params'] = $mslide->getParams();
                             }
                         }
-                        
+
                         $staticID = $slide->getStaticSlideID($slider->getID());
                         if($staticID !== false){
                             $msl = new RevSliderSlide();
@@ -1549,9 +1550,9 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                 break;
                 case "create_navigation_preset":
                     $nav = new RevSliderNavigation();
-                    
+
                     $return = $nav->add_preset($data);
-                    
+
                     if($return === true){
                         self::ajaxResponseSuccess(__('Navigation preset saved/updated'), array('navs' => $nav->get_all_navigations()));
                     }else{
@@ -1561,9 +1562,9 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                 break;
                 case "delete_navigation_preset":
                     $nav = new RevSliderNavigation();
-                    
+
                     $return = $nav->delete_preset($data);
-                    
+
                     if($return){
                         self::ajaxResponseSuccess(__('Navigation preset deleted'), array('navs' => $nav->get_all_navigations()));
                     }else{
@@ -1586,8 +1587,13 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                 case "fix_database_issues":
                     Mage::helper('nwdrevslider/framework')->update_option('revslider_change_database', true);
                     RevSliderFront::createDBTables();
-                    
+
                     self::ajaxResponseSuccess(__('Database structure creation/update done'));
+                break;
+                case "trigger_font_deletion":
+                    RevSliderOperations::deleteGoogleFonts();
+
+                    self::ajaxResponseSuccess(__('Downloaded Google Fonts will be updated'));
                 break;
 				case "update_posts_sortby":
 					$slider->updatePostsSortbyFromData($data);
@@ -1618,7 +1624,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                     if(!empty($data['code'])){ // && !empty($data['email'])
 						$result = $operations->checkPurchaseVerification($data);
 					}else{
-                        RevSliderFunctions::throwError(__('The Purchase Code and the E-Mail address need to be set!'));
+                        RevSliderFunctions::throwError(__('The Purchase Code need to be set!'));
 						exit();
 					}
 
@@ -1659,7 +1665,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                         $notices_discarded[] = Mage::helper('nwdrevslider/framework')->esc_attr(trim($data['id']));
                         Mage::helper('nwdrevslider/framework')->update_option('revslider-notices-dc', $notices_discarded);
                     }
-					
+
 					self::ajaxResponseSuccess(__("."));
 				break;
 				case 'toggle_favorite':
@@ -1669,7 +1675,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 							self::ajaxResponseSuccess(__('Setting Changed!'));
 						}else{
 							$error = $return;
-						}	
+						}
 					}else{
 						$error = __('No ID given');
 					}
@@ -1678,7 +1684,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 				case "subscribe_to_newsletter":
 					if(isset($data['email']) && !empty($data['email'])){
 						$return = ThemePunch_Newsletter::subscribe($data['email']);
-						
+
 						if($return !== false){
 							if(!isset($return['status']) || $return['status'] === 'error'){
 								$error = (isset($return['message']) && !empty($return['message'])) ? $return['message'] : __('Invalid Email');
@@ -1688,7 +1694,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 							}
 						}else{
 							self::ajaxResponseError(__('Invalid Email/Could not connect to the Newsletter server'));
-						}	
+						}
 					}else{
 						self::ajaxResponseError(__('No Email given'));
 					}
@@ -1696,7 +1702,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 				case "unsubscribe_to_newsletter":
 					if(isset($data['email']) && !empty($data['email'])){
 						$return = ThemePunch_Newsletter::unsubscribe($data['email']);
-						
+
 						if($return !== false){
 							if(!isset($return['status']) || $return['status'] === 'error'){
 								$error = (isset($return['message']) && !empty($return['message'])) ? $return['message'] : __('Invalid Email');
@@ -1706,14 +1712,14 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 							}
 						}else{
 							self::ajaxResponseError(__('Invalid Email/Could not connect to the Newsletter server'));
-						}	
+						}
 					}else{
 						self::ajaxResponseError(__('No Email given'));
 					}
 				break;
 				case 'change_specific_navigation':
 					$nav = new RevSliderNavigation();
-					
+
 					$found = false;
 					$navigations = $nav->get_all_navigations();
 					foreach($navigations as $navig){
@@ -1727,30 +1733,30 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 					}else{
 						$nav->create_update_navigation($data);
 					}
-					
+
 					self::ajaxResponseSuccess(__('Navigation saved/updated'), array('navs' => $nav->get_all_navigations()));
-					
+
 				break;
 				case 'change_navigations':
 					$nav = new RevSliderNavigation();
-					
+
 					$nav->create_update_full_navigation($data);
-					
+
 					self::ajaxResponseSuccess(__('Navigations updated'), array('navs' => $nav->get_all_navigations()));
 				break;
 				case 'delete_navigation':
 					$nav = new RevSliderNavigation();
-					
+
 					if(isset($data) && intval($data) > 0){
 						$return = $nav->delete_navigation($data);
-						
+
 						if($return !== true){
 							self::ajaxResponseError($return);
 						}else{
 							self::ajaxResponseSuccess(__('Navigation deleted'), array('navs' => $nav->get_all_navigations()));
 						}
 					}
-					
+
 					self::ajaxResponseError(__('Wrong ID given'));
 				break;
 				case "get_facebook_photosets":
@@ -1762,7 +1768,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						}
 						else{
 							$error = __('Could not fetch Facebook albums');
-							self::ajaxResponseError($error);	
+							self::ajaxResponseError($error);
 						}
 					}
 					else {
@@ -1806,47 +1812,6 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						$error = __('Could not fetch YouTube playlists');
 						self::ajaxResponseError($error);
 					}
-				break;
-				case 'rs_get_store_information': 
-					
-					$code = Mage::helper('nwdrevslider/framework')->get_option('revslider-code', '');
-					$shop_version = RevSliderTemplate::SHOP_VERSION;
-					
-					$validated = Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false');
-					if($validated == 'false'){
-						$api_key = '';
-						$username = '';
-						$code = '';
-					}
-					
-					$rattr = array(
-						'code' => urlencode($code),
-						'product' => urlencode(RevSliderGlobals::PLUGIN_SLUG),
-						'shop_version' => urlencode($shop_version),
-						'version' => urlencode(RevSliderGlobals::SLIDER_REVISION)
-					);
-
-                    $done    = false;
-                    $count    = 0;
-                    do {
-                        $url = self::$_rslb->get_url('templates');
-                        $request = Mage::helper('nwdrevslider/framework')->wp_remote_post($url . '/revslider/store.php', array(
-                            'body' => $rattr
-                        ));
-
-                        $response = '';
-
-                        if (!Mage::helper('nwdrevslider/framework')->is_wp_error($request)) {
-                            $response = json_decode(@$request['body'], true);
-                            $done = true;
-                        } else {
-                            self::$_rslb->move_server_list();
-                        }
-
-                        $count++;
-                    }while($done == false && $count < 5);
-
-					self::ajaxResponseData(array("data"=>$response));
 				break;
 				case 'load_library_object':
 					$obj_library = new RevSliderObjectLibrary();
@@ -1924,7 +1889,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
                     $return = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_admin_onAjaxAction_switch', false, $action, $data, $slider, $slide, $operations);
                     if($return === false)
                         self::ajaxResponseError("wrong ajax action: ".Mage::helper('nwdrevslider/framework')->esc_attr($action));
-                    
+
                     exit;
 				break;
 			}
@@ -1946,7 +1911,7 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		self::ajaxResponseError("No response output on $action action. please check with the developer.");
 		exit();
 	}
-	
+
 
 	/**
 	 * onAjax action handler
@@ -1956,12 +1921,12 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 		$slider = new RevSlider();
 		$slide = new RevSlide();
 		$operations = new RevSliderOperations();
-		
+
 		$token = self::getPostVar("token", false);
-		
+
 		//verify the token
 		$isVerified = Mage::helper('nwdrevslider/framework')->wp_verify_nonce($token, 'RevSlider_Front');
-		
+
 		$error = false;
 		if($isVerified){
 			$data = self::getPostVar('data', false);
@@ -1973,26 +1938,26 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 						ob_start();
 						$slider_class = RevSliderOutput::putSlider($id);
 						$html = ob_get_contents();
-						
+
 						//add styling
 						$custom_css = RevSliderOperations::getStaticCss();
 						$custom_css = RevSliderCssParser::compress_css($custom_css);
 						$styles = $db->fetch(RevSliderGlobals::$table_css);
 						$styles = RevSliderCssParser::parseDbArrayToCss($styles, "\n");
 						$styles = RevSliderCssParser::compress_css($styles);
-						
+
 						$html .= '<style type="text/css">'.$custom_css.'</style>';
 						$html .= '<style type="text/css">'.$styles.'</style>';
-						
+
 						ob_clean();
 						ob_end_clean();
-						
+
 						$result = (!empty($slider_class) && $html !== '') ? true : false;
-						
+
 						if(!$result){
 							$error = __('Slider not found');
 						}else{
-							
+
 							if($html !== false){
 								self::ajaxResponseData($html);
 							}else{
@@ -2004,21 +1969,21 @@ class RevSliderAdmin extends RevSliderBaseAdmin{
 					}
 				break;
 			}
-			
+
 		}else{
 			$error = true;
 		}
-		
+
 		if($error !== false){
 			$showError = __('Loading Error');
 			if($error !== true)
 				$showError = __('Loading Error: ').$error;
-			
+
 			self::ajaxResponseError($showError, false);
 		}
 		exit();
 	}
-	
+
 
 	/**
 	 *	Get javascript transactions json

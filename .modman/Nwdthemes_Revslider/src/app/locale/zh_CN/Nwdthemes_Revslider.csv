@@ -11,8 +11,6 @@ Appearance,外观
 "Background Repeat:",背景重复：
 "Background color",背景颜色
 Bottom,下部
-"By Compressing Output",通过压缩输出
-"By Echo Output",由echo打印输出
 Center,居中
 "Choose the import file",选择导入文件
 "Choose video type",选择视频类型
@@ -40,7 +38,6 @@ Gallery,图片墙
 "Global Settings",全局设置
 "Go To Slide",转到幻灯片
 Help,帮助
-"JQuery No Conflict Mode",JQuery的无冲突模式
 "Lazy Load",延迟加载
 Left,左边
 "Margin Bottom","下边距(Margin Bottom)"
@@ -58,7 +55,6 @@ No,否
 None,空
 Off,关闭
 On,打开
-"Output Filters Protection",保护输出滤波器
 "Pause Slider",暂停滑块
 Position,位置
 "Position on the page",页面上的位置
@@ -66,7 +62,6 @@ Preview,预览
 "Preview Slider",预览滑块
 "Previous Slide",上一张幻灯片
 Published,已发布
-"Put JS Includes To Body",把JS包含在body块
 Regular,正常
 Replacing...,替换中...
 "Resume Slider",重命名滑块

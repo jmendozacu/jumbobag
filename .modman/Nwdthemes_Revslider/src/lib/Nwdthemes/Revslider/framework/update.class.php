@@ -4,14 +4,14 @@
  * @link      http://www.themepunch.com/
  * @copyright 2015 ThemePunch
  */
- 
+
 class RevSliderUpdate {
 
 	private $plugin_url			= 'https://codecanyon.net/item/slider-revolution-responsive-magento-extension/9332896';
     private $remote_url         = 'check_for_updates.php';
     private $remote_url_info    = 'revslider-magento/revslider-magento.php';
     private $remote_temp_active = 'temp_activate.php';
-	private $plugin_slug		= 'revslider_magento';
+	private $plugin_slug		= RevSliderGlobals::PLUGIN_SLUG;
 	private $plugin_path		= 'revslider/revslider.php';
 	private $version;
 	private $option;
@@ -23,18 +23,18 @@ class RevSliderUpdate {
 		$this->option = $this->plugin_slug . '_update_info';
 		$this->_retrieve_version_info();
 		$this->version = $version;
-		
+
 	}
-	
+
 	public function add_update_checks(){
-		
+
 		Mage::helper('nwdrevslider/framework')->add_filter('pre_set_site_transient_update_plugins', array(&$this, 'set_update_transient'));
 		Mage::helper('nwdrevslider/framework')->add_filter('plugins_api', array(&$this, 'set_updates_api_results'), 10, 3);
-		
+
 	}
-	
+
 	public function set_update_transient($transient) {
-	
+
 		$this->_check_updates();
 
 		if(isset($transient) && !isset($transient->response)) {
@@ -48,13 +48,13 @@ class RevSliderUpdate {
 				$transient->response[$this->plugin_path] = $this->data->basic;
 			}
 		}
-		
+
 		return $transient;
 	}
 
 
 	public function set_updates_api_results($result, $action, $args) {
-	
+
 		$this->_check_updates();
 
 		if(isset($args->slug) && $args->slug == $this->plugin_slug && $action == 'plugin_information') {
@@ -62,7 +62,7 @@ class RevSliderUpdate {
 				$result = $this->data->full;
 			}
 		}
-		
+
 		return $result;
 	}
 
@@ -71,42 +71,42 @@ class RevSliderUpdate {
 		//reset saved options
 
 		$force_check = false;
-		
+
 		if(isset(Nwdthemes_Revslider_Helper_Data::$_GET['checkforupdates']) && Nwdthemes_Revslider_Helper_Data::$_GET['checkforupdates'] == 'true') $force_check = true;
-		
+
 		// Get data
 		if(empty($this->data)) {
 			$data = Mage::helper('nwdrevslider/framework')->get_option($this->option, false);
 			$data = $data ? $data : new stdClass;
-			
+
 			$this->data = is_object($data) ? $data : Mage::helper('nwdrevslider/framework')->maybe_unserialize($data);
-			
+
 		}
-		
+
 		$last_check = Mage::helper('nwdrevslider/framework')->get_option('revslider-update-check');
 		if($last_check == false){ //first time called
 			$last_check = time();
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-update-check', $last_check);
 		}
-		
+
 		// Check for updates
 		if(time() - $last_check > 172800 || $force_check == true){
-			
+
 			$data = $this->_retrieve_update_info();
-			
+
 			if(isset($data->basic)) {
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-update-check', time());
-				
+
 				$this->data->checked = time();
 				$this->data->basic = $data->basic;
 				$this->data->full = $data->full;
-				
+
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-stable-version', $data->full->stable);
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-latest-version', $data->full->version);
 			}
-			
+
 		}
-		
+
 		// Save results
 		Mage::helper('nwdrevslider/framework')->update_option($this->option, $this->data);
 	}
@@ -118,15 +118,15 @@ class RevSliderUpdate {
 
 		// Build request
 		$code = Mage::helper('nwdrevslider/framework')->get_option('revslider-code', '');
-		
+
 		$validated = Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false');
 		$stable_version = Mage::helper('nwdrevslider/framework')->get_option('revslider-stable-version', '4.2');
-		
+
 		$rattr = array(
 			'code' => urlencode($code),
 			'version' => urlencode(RevSliderGlobals::SLIDER_REVISION)
 		);
-		
+
 		if($validated !== 'true' && version_compare(RevSliderGlobals::SLIDER_REVISION, $stable_version, '<')){ //We'll get the last stable only now!
 			$rattr['get_stable'] = 'true';
 		}
@@ -153,32 +153,32 @@ class RevSliderUpdate {
 			if($response = Mage::helper('nwdrevslider/framework')->maybe_unserialize($request['body'])) {
 				if(is_object($response)) {
 					$data = $response;
-					
+
 					$data->basic->url = $this->plugin_url;
 					$data->full->url = $this->plugin_url;
 					$data->full->external = 1;
 				}
 			}
 		}
-		
+
 		return $data;
 	}
-	
-	
+
+
 	public function _retrieve_version_info($force_check = false) {
-		
+
 		$last_check = Mage::helper('nwdrevslider/framework')->get_option('revslider-update-check-short');
 		if($last_check == false){ //first time called
 			$last_check = time();
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-update-check-short', $last_check);
 		}
-		
+
 
 		// Check for updates
 		if(time() - $last_check > 172800 || $force_check == true){
-			
+
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-update-check-short', time());
-			
+
             $purchase = (Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false') == 'true') ? Mage::helper('nwdrevslider/framework')->get_option('revslider-code', '') : '';
 
             $done    = false;
@@ -212,20 +212,20 @@ class RevSliderUpdate {
 			}else{
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-connection', true);
 			}
-			
+
 			$version_info = json_decode($version_info);
 			if(isset($version_info->version)){
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-latest-version', $version_info->version);
 			}
-			
+
 			if(isset($version_info->stable)){
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-stable-version', $version_info->stable);
 			}
-			
+
 			if(isset($version_info->notices)){
 				Mage::helper('nwdrevslider/framework')->update_option('revslider-notices', $version_info->notices);
 			}
-			
+
             if(isset($version_info->dashboard)){
                 Mage::helper('nwdrevslider/framework')->update_option('revslider-dashboard', $version_info->dashboard);
             }
@@ -243,13 +243,13 @@ class RevSliderUpdate {
             }
 
 		}
-		
+
 		if($force_check == true){ //force that the update will be directly searched
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-update-check', '');
 		}
-		
+
 	}
-	
+
 
     public function add_temp_active_check($force = false){
 

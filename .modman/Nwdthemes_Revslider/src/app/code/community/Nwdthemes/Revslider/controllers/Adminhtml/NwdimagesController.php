@@ -12,7 +12,7 @@
 
 require_once 'Mage/Adminhtml/controllers/Cms/Wysiwyg/ImagesController.php';
 
-class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_Wysiwyg_ImagesController {
+class Nwdthemes_Revslider_Adminhtml_NwdimagesController extends Mage_Adminhtml_Cms_Wysiwyg_ImagesController {
 
     protected function _initAction() {
         $this->getStorage();
@@ -82,9 +82,16 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
         Mage::helper('catalog')->setStoreId($storeId);
         $helper->setStoreId($storeId);
 
-		$imageUrl = $helper->getImageHtmlDeclaration($filename, false);
+        $imageUrl = $helper->getImageHtmlDeclaration($filename, false);
 
-        $this->getResponse()->setBody($imageUrl);
+        $data = array('image' => $imageUrl);
+        $imagePath = $helper->getCurrentPath() . DIRECTORY_SEPARATOR . $filename;
+        if (file_exists($imagePath) && $imageSize = getimagesize($imagePath)) {
+            $data['width'] = isset($imageSize[0]) ? $imageSize[0] : '';
+            $data['height'] = isset($imageSize[1]) ? $imageSize[1] : '';
+        }
+
+        $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($data));
     }
 
     /**
@@ -151,8 +158,8 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
 
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
 
-    }	
-	
+    }
+
     public function treeJsonAction()
     {
         try {
@@ -173,6 +180,15 @@ class Nwdthemes_Revslider_Adminhtml_ImagesController extends Mage_Adminhtml_Cms_
             Mage::register('storage', $storage);
         }
         return Mage::registry('storage');
+    }
+
+    /**
+     * Check current user permission on resource and privilege
+     *
+     * @return bool
+     */
+    protected function _isAllowed() {
+        return Mage::getSingleton('admin/session')->isAllowed('nwdthemes/nwdrevslider');
     }
 
 }

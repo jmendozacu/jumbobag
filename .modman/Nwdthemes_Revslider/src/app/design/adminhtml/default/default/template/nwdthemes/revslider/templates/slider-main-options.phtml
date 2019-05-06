@@ -196,17 +196,20 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 						   		jQuery('.source-selector-wrapper input').change(rsSelectorFun);
 						   		rsSelectorFun();
 						   })
-							})($nwd_jQuery);   
+							})($nwd_jQuery);
 						</script>
 					</div>
-					
+
 					<div id="rs-instagram-settings-wrapper" class="rs-settings-wrapper">
 						<div style="width:50%;display:block;float:left;">
-						<span class="rev-new-label"><?php echo $this->__('Slides');?></span>
-							<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-count', '');?>" name="instagram-count" title="<?php echo $this->__('Display this number of photos');?>">
+							<span class="rev-new-label"><?php echo $this->__('Slides');?></span>
+							<input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-count', '');?>" name="instagram-count" title="<?php echo $this->__('Display this number of photos (max. 12 photos)');?>">
 							<p>
                                 <span class="rev-new-label"><?php echo $this->__('Cache (sec)');?></span>
                                 <input type="text" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'instagram-transient', '1200');?>" name="instagram-transient" title="<?php echo $this->__('Cache the result');?>">
+                            </p>
+                            <p>
+								<span class="description"><?php echo $this->__('Please remember that you can only fetch max 12 items.');?></span>
                             </p>
 						</div>
 						<div style="width:50%;display:block;float:left;">
@@ -596,16 +599,16 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 							<span style="width: 201px; display: inline-block;"><?php echo $this->__('From'); ?> <input type="text" class='small-text' style="width: 50px !important; margin-right: 40px;" id="reg_price_from" name="reg_price_from" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'reg_price_from', '');?>" />
 							<?php echo $this->__('To'); ?>  <input type="text" class='small-text' style="width: 50px !important;" id="reg_price_to" name="reg_price_to" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'reg_price_to', '');?>" />
 							</span><span class="tp-clearfix"></span>
-							
+
 							<span class="rev-new-label"><?php echo $this->__('Sale Price:');?></span>
 							<span style="width: 201px; display: inline-block;"><?php echo $this->__('From'); ?> <input type="text" class='small-text' style="width: 50px !important; margin-right: 40px;" id="sale_price_from" name="sale_price_from" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'sale_price_from', '');?>" />
 							<?php echo $this->__('To'); ?>  <input type="text" class='small-text' style="width: 50px !important;" id="sale_price_to" name="sale_price_to" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'sale_price_to', '');?>" />
 							</span><span class="tp-clearfix"></span>
-							
+
 							<span class="rev-new-label"><?php echo $this->__('In Stock Only:');?></span>
 							<input type="checkbox" id="instock_only" name="instock_only" class="tp-moderncheckbox" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'instock_only', 'off'), "on");?>>
 							<span class="tp-clearfix"></span>
-							
+
 							<span class="rev-new-label"><?php echo $this->__('Featured Only:');?></span>
 							<input type="checkbox" id="featured_only" name="featured_only" class="tp-moderncheckbox" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'featured_only', 'off'), "on");?>>
 							<span class="tp-clearfix"></span>
@@ -733,7 +736,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 							echo '<span class="rs-preset-image" style="background-image: url('.Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'/admin/assets/images/mainoptions/add_preset.png);"></span>';
 							echo '	<span class="rs-preset-label">' . __('Save Current Settings as Preset') . '</span>';
 							echo '</span>';
-							
+
 							echo '<script type="text/javascript">';
 							//$pjs = RevSliderFunctions::jsonEncodeForClientSide($pjs);
 							$pjs = RevSliderFunctions::jsonEncodeForClientSide($presets);
@@ -748,7 +751,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 					 </div>
 					 <script type="text/javascript">
 						(function(jQuery) {
-							
+
 					 	jQuery("document").ready(function() {
 
 					 		jQuery('.preset-splitter').click(function() {
@@ -756,17 +759,17 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 					 			jQuery(this).removeClass('readytoopen');
 					 		})
 							var preset_template_container = wp.template( "rs-preset-container" );
-							
+
 							function rs_reset_preset_html(){
-								
+
 								jQuery('.rs-preset-entry').remove();
 
 								for(var key in revslider_presets) if (revslider_presets.hasOwnProperty(key)) {
-									
+
 									if (typeof(revslider_presets[key]['settings']['preset']) === 'undefined') {
 										revslider_presets[key]['settings']['preset'] = 'standardpreset';
 									}
-									
+
 									var data = {};
 									data['key'] = key;
 									data['name'] = revslider_presets[key]['settings']['name'];
@@ -774,16 +777,16 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 									data['img'] = (typeof(revslider_presets[key]['settings']['image']) !== 'undefined') ? revslider_presets[key]['settings']['image'] : '';
 									data['class'] = (typeof(revslider_presets[key]['settings']['class']) !== 'undefined') ? revslider_presets[key]['settings']['class'] : '';
 									data['custom'] = (typeof(revslider_presets[key]['settings']['custom']) !== 'undefined' && revslider_presets[key]['settings']['custom'] == true) ? true : false;
-									
+
 									var content = preset_template_container(data);
-									
+
 									jQuery('#rs-add-new-settings-preset').before(content);
 								}
-								
+
 								jQuery('.rs-slidertype.selected').click(); //show only for current active type
 							}
 							rs_reset_preset_html();
-							
+
 					 		function updateSliderPresets() {
 					 			var bt = jQuery('.rs-slidertype.selected'),
 					 				sw  =jQuery('#preselect-horiz-wrapper'),
@@ -797,24 +800,24 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 					 			jQuery('.rs-preset-selector').removeClass("selected").hide().css({width:prewi+"px"});
 								preitems.show();
 
-								
+
 								//if (preitems.length<7) {
 									sw.css({position:"relative",height:"auto",width:"100%"});
 									swp.css({position:"relative",height:"auto"});
 
 
 								//} else {
-									
+
 								//	sw.css({position:"absolute",height:"400px",width:(prewi*Math.ceil(preitems.length/2))+"px"});
 								//	swp.css({position:"relative",height:"400px"});
 								//}
 								jQuery('.preset-selector-wrapper').perfectScrollbar('update');
 
 								switch(mode) {
-									case "standardpreset":											
+									case "standardpreset":
 										jQuery('.dontshowonhero').show();
 										jQuery('.dontshowonstandard').hide();
-									break;								
+									break;
 									case "carouselpreset":
 										jQuery('.dontshowonhero').show();
 										jQuery('.dontshowonstandard').show();
@@ -825,7 +828,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								}
 
 					 		}
-							
+
 					 		jQuery('body').on("click",'.rs-slidertype',function() {
 								var bt = jQuery(this);
 								jQuery('.rs-slidertype').removeClass("selected");
@@ -843,7 +846,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 					 		updateSliderPresets();
 					 		jQuery(window).resize(updateSliderPresets);
 
-							
+
 							jQuery('body').on('mouseover', '.rs-preset-selector', function(){
 								jQuery(this).find('.rev-remove-preset').show();
 								jQuery(this).find('.rev-update-preset').show();
@@ -852,9 +855,9 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								jQuery(this).find('.rev-remove-preset').hide();
 								jQuery(this).find('.rev-update-preset').hide();
 							});
-							
+
 							var googlef_template_container = wp.template( "rs-preset-googlefont" );
-							
+
 							jQuery('body').on('click', '.rs-preset-selector', function(){
 								if(typeof(jQuery(this).attr('id')) == 'undefined' || jQuery(this).hasClass('rs-do-nothing')) return false;
 								var preset_id = jQuery(this).attr('id').replace('rs-preset-' , '');
@@ -868,11 +871,11 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 
 										if(key == 'google_font'){
 											jQuery('#rs-google-fonts').html('');
-											
+
 											for(var gfk in revslider_presets[preset_id]['values'][key]) if (revslider_presets[preset_id]['values'][key].hasOwnProperty(gfk)) {
 												jQuery('#rs-google-fonts').append(googlef_template_container({'value':revslider_presets[preset_id]['values'][key][gfk]}));
 											}
-											
+
 										}
 
 										if(entry.length == 0) continue;
@@ -918,7 +921,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 
 										entry.change(); //trigger change call for elements to hide/show dependencies
 									}
-									
+
 									if(typeof rev_cm_custom_css !== 'undefined') rev_cm_custom_css.refresh();
 									if(typeof rev_cm_custom_js !== 'undefined') rev_cm_custom_js.refresh();
 								}
@@ -931,13 +934,13 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								var params = RevSliderSettings.getSettingsObject('form_slider_params');
 								delete params.action;
 								delete params['0'];
-								
+
 								var ecsn = (jQuery('input[name="enable_custom_size_notebook"]').is(':checked')) ? 'on' : 'off';
 								var ecst = (jQuery('input[name="enable_custom_size_tablet"]').is(':checked')) ? 'on' : 'off';
 								var ecsi = (jQuery('input[name="enable_custom_size_iphone"]').is(':checked')) ? 'on' : 'off';
 								var mof = (jQuery('input[name="main_overflow_hidden"]').is(':checked')) ? 'on' : 'off';
 								var ah = (jQuery('input[name="auto_height"]').is(':checked')) ? 'on' : 'off';
-								
+
 								var params2 = {
 									slider_type: jQuery('input[name="slider_type"]:checked').val(),
 									width: jQuery('input[name="width"]').val(),
@@ -951,42 +954,42 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 									enable_custom_size_notebook: ecsn,
 									enable_custom_size_tablet: ecst,
 									enable_custom_size_iphone: ecsi,
-									
+
 									main_overflow_hidden: mof,
 									auto_height: ah,
 									min_height: jQuery('input[name="min_height"]').val(),
 								};
-								
+
 								if(typeof rev_cm_custom_js !== 'undefined')
 									params2.custom_javascript = rev_cm_custom_js.getValue();
 
 								if(typeof rev_cm_custom_css !== 'undefined')
 									params2.custom_css = rev_cm_custom_css.getValue();
-								
+
 								jQuery.extend(params, params2);
-								
+
 
 								return params;
-								
+
 							}
-							
-							
+
+
 							jQuery('body').on('click', '.rev-update-preset', function(){
 								if(confirm(rev_lang.update_preset)){
-									
+
 									var pr_id = jQuery(this).closest('.rs-preset-entry').attr('id').replace('rs-preset-', '');
 
 									if(typeof(revslider_presets[pr_id]) == 'undefined') alert(rev_lang.preset_not_found);
 
 									var params = get_preset_params();
-									
+
 									var update_preset = {name: revslider_presets[pr_id]['settings']['name'], values: params};
-									
+
 									UniteAdminRev.ajaxRequest('update_preset', update_preset, function(response){
 										if(response.success == true){
 											//refresh presets
 											revslider_presets = response.data;
-											
+
 											rs_reset_preset_html();
 										}
 									});
@@ -995,12 +998,12 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								return false;
 							});
 
-							
+
 							jQuery('#rs-add-new-settings-preset').click(function(){
 								jQuery('input[name="rs-preset-name"]').val('');
 								jQuery('input[name="rs-preset-image-id"]').val('');
 								jQuery('#rs-preset-img-wrapper').css('background-image', '');
-								
+
 								jQuery('#dialog-rs-add-new-setting-presets').dialog({
 									modal:true,
 									resizable:false,
@@ -1014,7 +1017,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 											jQuery('input[name="rs-preset-name"]').val(preset_name);
 
 											if(preset_name == '') return false;
-											
+
 											for(var key in revslider_presets) if (revslider_presets.hasOwnProperty(key)) {
 												if(revslider_presets[key]['settings']['name'] == preset_name){
 													alert(rev_lang.preset_name_already_exists);
@@ -1022,32 +1025,32 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 												}
 											}
 											var c_type = jQuery('.rs-slidertype.selected').data('mode');
-											
+
 											var params = get_preset_params();
 
 											var new_preset = {
 												settings: {'class':'', image:preset_img, name:preset_name, preset:c_type},
 												values: params
 											};
-										
-											
+
+
 											//add new preset to the list
 											UniteAdminRev.ajaxRequest('add_new_preset', new_preset, function(response){
 												if(response.success == true){
 													//refresh presets
 													revslider_presets = response.data;
-													
+
 													rs_reset_preset_html();
 												}
-												
+
 												jQuery('#dialog-rs-add-new-setting-presets').dialog('close');
 											});
-											
+
 										}
 									}
 								});
-								
-								
+
+
 							});
 
 							jQuery('input[name="rs-button-select-img"]').click(function(){
@@ -1056,11 +1059,11 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 
 								UniteAdminRev.openAddImageDialog(rev_lang.select_image,function(urlImage,imageID,width,height){
 									var data = {url_image:urlImage,image_id:imageID,img_width:width,img_height:height};
-									
+
 									jQuery('input[name="rs-preset-image-id"]').val(data.image_id);
 
 									jQuery('#rs-preset-img-wrapper').css('background-image', ' url('+data.url_image+')');
-									
+
 									var mw = 200;
 									var mh = height / width * 200;
 
@@ -1070,26 +1073,26 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 								});
 
 							});
-							
+
 							jQuery('body').on('click', '.rev-remove-preset', function(){
 								if(confirm(rev_lang.delete_preset)){
 
 									var pr_id = jQuery(this).closest('.rs-preset-entry').attr('id').replace('rs-preset-', '');
-									
+
 									if(typeof(revslider_presets[pr_id]) == 'undefined') alert(rev_lang.preset_not_found);
-									
+
 									UniteAdminRev.ajaxRequest('remove_preset', {name: revslider_presets[pr_id]['settings']['name']}, function(response){
 										revslider_presets = response.data;
-										
+
 										rs_reset_preset_html();
 									});
 								}
-								
+
 								return false;
 							});
-							
+
 					 	});
-						
+
 						})($nwd_jQuery);
 					 </script>
 				</div>
@@ -1329,10 +1332,10 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 						<div class="inside" id="visual-sizing" style="display:none; padding:25px 20px;">
 							<div id="fullscreen-advanced-sizing">
 								<span class="one-half-container" style="vertical-align:top">
-									
+
 									<span class="rs-preset-label noopacity "><?php echo $this->__("Minimal Height of Slider (Optional)");?></span>
 									<span style="clear:both;float:none; height:25px;display:block"></span>
-								
+
 									<span style="text-align:left; display:none;">
 										<span class="rs-preset-label noopacity " style="display:inline-block;margin-right:20px"><?php echo $this->__("FullScreen Align Force");?> </span>
 										<input type="checkbox"  class="tp-moderncheckbox withlabel" id="full_screen_align_force" name="full_screen_align_force" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'full_screen_align_force', 'off'), "on");?>>
@@ -1408,7 +1411,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 									</span>
 								</div>
 							</div>
-							
+
 						</div>		<!-- / VISUAL ADVANCED SIZING -->
 
 						<script>
@@ -1432,11 +1435,11 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 										jQuery('#normal-advanced-sizing').show();
 										jQuery('#fullscreen-advanced-sizing').hide();
 									}
-									
-									var s_fs = jQuery('#slider_type_1').attr("checked")==="checked";									
-									if (s_fs) {										
+
+									var s_fs = jQuery('#slider_type_1').attr("checked")==="checked";
+									if (s_fs) {
 										jQuery('.rs-show-on-auto').show();
-									}else{										
+									}else{
 										jQuery('.rs-show-on-auto').hide();
 									}
 								});
@@ -1548,7 +1551,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 										o.mh = 0;
 									}
 
-									
+
 									setLayoutDesign(jQuery('.rsp-device-imac'), s.w_d.val(), s.h_d.val(), 1400,900,1,o.dw,o.dm,o.dh,0);
 									setLayoutDesign(jQuery('.rsp-device-macbook'), s.w_n.val(), s.h_n.val(), 1200,770,1.166,o.nw,o.nm,o.nh,0);
 									setLayoutDesign(jQuery('.rsp-device-ipad'), s.w_t.val(), s.h_t.val(), 768,1024,1.78,o.tw,o.tm,o.th,6);
@@ -1579,7 +1582,7 @@ if(!isset($linksEditSlides)) $linksEditSlides = '';
 											if (bt.data('oldstatus')==="checked" || bt.data('oldstatus') ===undefined) {
 												bp.addClass("disabled").find('input[type="text"]').attr("disabled","disabled");
 												aw.hide();
-												cw.show();												
+												cw.show();
 												bp.find('input[type="text"]').each(function() {
 													var inp = jQuery(this);
 													inp.data('oldval',inp.val());
@@ -1702,7 +1705,7 @@ if (isset($linksEditSlides)) {
 								<div style="float:none; clear:both; height:20px;"></div>
 
 								<span class="button-primary revblue rs-embed-slider"><i class="eg-icon-plus-circled"></i><?php echo $this->__("Embed Slider");?> </span>
-								
+
 							</span>
 						</div>
 					</div>
@@ -1723,7 +1726,7 @@ if (isset($linksEditSlides)) {
 				(function(jQuery) {
 				jQuery('body').on('click', '.rs-embed-slider', function(){
 					var use_alias = jQuery('#alias').val();
-					
+
 					jQuery('.rs-dialog-embed-slider').find('.rs-example-alias').text(use_alias);
 					jQuery('.rs-dialog-embed-slider').find('.rs-example-alias-1').text('{{block type="nwdrevslider/revslider" alias="'+use_alias+'"}}');
 
@@ -1748,7 +1751,7 @@ if (isset($linksEditSlides)) {
                     $custom_css = @stripslashes($arrFieldsParams['custom_css']);
                     $custom_js = @stripslashes($arrFieldsParams['custom_javascript']);
                 }
-                
+
                 $hidebox = '';
                 if(!RevSliderFunctionsWP::isAdminUser() && Mage::helper('nwdrevslider/framework')->apply_filters('revslider_restrict_role', true)){
                     $hidebox = 'display: none;';
@@ -1777,21 +1780,21 @@ if (isset($linksEditSlides)) {
                 <script type="text/javascript">
                     rev_cm_custom_css = null;
                     rev_cm_custom_js = null;
-                    
+
                     (function(jQuery) {
                     jQuery(document).ready(function(){
                         rev_cm_custom_css = CodeMirror.fromTextArea(document.getElementById("rs_custom_css"), {
                             onChange: function(){ },
                             lineNumbers: true,
                             mode: 'css',
-                            lineWrapping:true                                            
+                            lineWrapping:true
                         });
 
                         rev_cm_custom_js = CodeMirror.fromTextArea(document.getElementById("rs_custom_javascript"), {
                             onChange: function(){ },
                             lineNumbers: true,
                             mode: 'text/html',
-                            lineWrapping:true                                                    
+                            lineWrapping:true
                         });
 
 
@@ -1844,11 +1847,11 @@ if (isset($linksEditSlides)) {
 							tslideprev.css({boxShadow:"none"})
 						}
 					} else {
-						punchgs.TweenLite.to(tslideprev,0.5,{transformPerspective:800, rotationY:0,rotationX:0,scale:1});						
+						punchgs.TweenLite.to(tslideprev,0.5,{transformPerspective:800, rotationY:0,rotationX:0,scale:1});
 						tslideprev.addClass('tp-shadow'+jQuery('#shadow_type').val());
 						tslideprev.css({boxShadow:"none"})
 					}
-					
+
 
 
 
@@ -2055,7 +2058,7 @@ if (isset($linksEditSlides)) {
 										<input type="checkbox"  class="tp-moderncheckbox withlabel" id="next_slide_on_window_focus" name="next_slide_on_window_focus" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'next_slide_on_window_focus', 'off'), "on");?>>
 										<div class="clearfix"></div>
 									</div>
-									
+
 									<div>
 										<!-- BLUR ON FOCUS -->
 										<span id="label_disable_focus_listener" class="label" origtitle="<?php echo $this->__("This will disable the blur/focus behavior of the browser.");?>"><?php echo $this->__("Disable Blur/Focus behavior");?> </span>
@@ -2070,7 +2073,7 @@ if (isset($linksEditSlides)) {
                                     <?php $layer_selection = RevSliderFunctions::getVal($arrFieldsParams, 'def-layer_selection', 'off'); ?>
                                     <span id="label_def-layer_selection" origtitle="<?php echo $this->__("Default Layer Selection on Frontend enabled or disabled");?>" class="label"><?php echo $this->__('Layers Selectable:');?></span>
                                     <input type="checkbox" class="tp-moderncheckbox withlabel" id="def-layer_selection" name="def-layer_selection" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked($layer_selection, 'on');?>>
-                                    
+
                                     <!-- SLIDER ID -->
                                     <span class="label" id="label_slider_id" origtitle="<?php echo $this->__("Set a specific ID to the Slider, if empty, there will be a default one written");?>"><?php echo $this->__("Slider ID");?> </span>
                                     <input type="text"  class="text-sidebar withlabel" id="slider_id" name="slider_id" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'slider_id', '');?>">
@@ -2166,7 +2169,7 @@ if (isset($linksEditSlides)) {
 											echo 'display: none;';
 										}
 										?>width:60px;margin-right:10px" value="<?php echo $bgPositionX;?>" />
-										<input type="text" name="def-bg_position_y" style="<?php if ($bgPosition != 'percentage') { 
+										<input type="text" name="def-bg_position_y" style="<?php if ($bgPosition != 'percentage') {
 											echo 'display: none;';
 										}
 										?>width:60px;margin-right:10px" value="<?php echo $bgPositionY;?>" />
@@ -2272,7 +2275,7 @@ if (isset($linksEditSlides)) {
 										<div class="clear"></div>
 										*/
 										?>
-										
+
 										<?php $kb_end_fit = RevSliderFunctions::getVal($arrFieldsParams, 'def-kb_end_fit', '100');?>
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_end_fit" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('End Fit: (in %):');?></span>
 										<input type="text" name="def-kb_end_fit" value="<?php echo intval($kb_end_fit);?>" />
@@ -2282,17 +2285,17 @@ if (isset($linksEditSlides)) {
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_start_offset_x" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('Start Offset X:');?></span>
 										<input type="text" name="def-kb_start_offset_x" value="<?php echo intval($kb_start_offset_x);?>" />
 										<div class="clear"></div>
-										
+
 										<?php $kb_start_offset_y = RevSliderFunctions::getVal($arrFieldsParams, 'def-kb_start_offset_y', '0');?>
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_start_offset_y" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('Start Offset Y:');?></span>
 										<input type="text" name="def-kb_start_offset_y" value="<?php echo intval($kb_start_offset_y);?>" />
 										<div class="clear"></div>
-										
+
 										<?php $kb_end_offset_x = RevSliderFunctions::getVal($arrFieldsParams, 'def-kb_end_offset_x', '0');?>
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_end_offset_x" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('End Offset X:');?></span>
 										<input type="text" name="def-kb_end_offset_x" value="<?php echo intval($kb_end_offset_x);?>" />
 										<div class="clear"></div>
-										
+
 										<?php $kb_end_offset_y = RevSliderFunctions::getVal($arrFieldsParams, 'def-kb_end_offset_y', '0');?>
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_end_offset_y" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('End Offset Y:');?></span>
 										<input type="text" name="def-kb_end_offset_y" value="<?php echo intval($kb_end_offset_y);?>" />
@@ -2302,7 +2305,7 @@ if (isset($linksEditSlides)) {
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_start_rotate" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('Start Rotate:');?></span>
 										<input type="text" name="def-kb_start_rotate" value="<?php echo intval($kb_start_rotate);?>" />
 										<div class="clear"></div>
-										
+
 										<?php $kb_end_rotate = RevSliderFunctions::getVal($arrFieldsParams, 'def-kb_end_rotate', '0');?>
 										<input type="checkbox" class="rs-ingore-save rs-reset-slide-setting" name="reset-kb_end_rotate" /> <span id="label_kb_end_fit" class="label"><?php echo $this->__('End Rotate:');?></span>
 										<input type="text" name="def-kb_end_rotate" value="<?php echo intval($kb_end_rotate);?>" />
@@ -2343,7 +2346,7 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="start_with_slide" name="start_with_slide" value="<?php echo $start_with_slide; ?>">
 										<div class="clear"></div>
 									</div>
-									
+
 									<span id="label_first_transition_active" class="label" origtitle="<?php echo $this->__("If active, it will overwrite the first slide transition. Use it to get special transition for the first slide.");?>"><?php echo $this->__("First Transition Active");?> </span>
 									<input type="checkbox" class="tp-moderncheckbox withlabel" id="first_transition_active" name="first_transition_active" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, "first_transition_active", "off"), "on");?>>
 									<div class="clear"></div>
@@ -2434,7 +2437,7 @@ if (isset($linksEditSlides)) {
 										<div class="clear"></div>
 
 									</div>
-                                    
+
                                     <!-- wait for revstart -->
                                     <span id="label_waitforinit" class="label label-with-subsection text-selectable" origtitle="<?php echo $this->__("Wait for the revstart method to be called before playing.");?>"><?php echo $this->__("Wait for ");?>revapi<?php echo ($is_edit) ? $sliderID : ''; ?>.revstart() </span>
                                     <input type="checkbox" class="tp-moderncheckbox withlabel"  id="waitforinit" name="waitforinit" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'waitforinit', 'off'), 'on');?>>
@@ -2787,10 +2790,10 @@ if (isset($linksEditSlides)) {
 									 	jQuery(ref).show();
 									 	li.addClass("selected");
 
-									 	if (ref=='#navigation-arrows' || ref=='#navigation-bullets' || ref=='#navigation-tabs'|| ref=='#navigation-thumbnails')									 		
+									 	if (ref=='#navigation-arrows' || ref=='#navigation-bullets' || ref=='#navigation-tabs'|| ref=='#navigation-thumbnails')
 									 		jQuery('#navigation-miniimagedimensions').show();
 									 	else
-									 		if (!jQuery('#navigation-settings-wrapper>h3').hasClass("box_closed")) 
+									 		if (!jQuery('#navigation-settings-wrapper>h3').hasClass("box_closed"))
 									 			jQuery('#navigation-miniimagedimensions').hide();
 
 									 })
@@ -2847,11 +2850,11 @@ if (isset($linksEditSlides)) {
                                             <option class="never" value="custom"><?php echo $this->__('Custom'); ?></option>
                                         </select>
                                         <div class="clear"></div>
-                                        
+
                                         <div data-navtype="arrows" class="toggle-custom-navigation-style-wrapper">
                                             <div class="toggle-custom-navigation-style triggernavstyle"><?php echo $this->__("Toggle Custom Navigation Styles");?></div>
-                                            <div class="toggle-custom-navigation-styletarget navigation_arrow_placeholder triggernavstyle" style="display:none">                                                
-                                            </div>        
+                                            <div class="toggle-custom-navigation-styletarget navigation_arrow_placeholder triggernavstyle" style="display:none">
+                                            </div>
                                         </div>
                                         <div class="clear"></div>
 
@@ -2925,7 +2928,7 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="leftarrow_offset_vert" name="leftarrow_offset_vert" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "leftarrow_offset_vert", "0");?>">
 										<span><?php echo $this->__("px");?></span>
 										<div class="clear"></div>
-                                        
+
                                         <span class="label" id="label_leftarrow_position" origtitle="<?php echo $this->__("Position the Left Arrow to Slider or Layer Grid");?>"><?php echo $this->__("Aligned by");?></span>
                                         <select id="leftarrow_position" name="leftarrow_position" class="withlabel">
                                             <option value="slider" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "leftarrow_position", "slider"), "slider");?>><?php echo $this->__("Slider");?></option>
@@ -2964,7 +2967,7 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="rightarrow_offset_vert" name="rightarrow_offset_vert" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "rightarrow_offset_vert", "0");?>">
 										<span><?php echo $this->__("px");?></span>
 										<div class="clear"></div>
-                                        
+
                                         <span class="label" id="label_rightarrow_position" origtitle="<?php echo $this->__("Position the Right Arrow to Slider or Layer Grid");?>"><?php echo $this->__("Aligned by");?></span>
                                         <select id="rightarrow_position" name="rightarrow_position" class="withlabel">
                                             <option value="slider" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "rightarrow_position", "slider"), "slider");?>><?php echo $this->__("Slider");?></option>
@@ -2973,7 +2976,7 @@ if (isset($linksEditSlides)) {
                                         <div class="clear"></div>
 									</div>
 								</div><!-- END OF NAVIGATION ARROWS -->
-								
+
 								<!-- NAVIGATION BULLETS -->
 								<div id="navigation-bullets" style="display:none;">
 
@@ -3012,7 +3015,7 @@ if (isset($linksEditSlides)) {
                                             </div>
                                         </div>
                                         <div class="clear"></div>
-                                        
+
 										<span class="label" id="label_bullets_space" origtitle="<?php echo $this->__("Space between the bullets.");?>"><?php echo $this->__("Space");?></span>
 										<input type="text" class="text-sidebar withlabel" id="bullets_space" name="bullets_space" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'bullets_space', '5');?>">
 										<span><?php echo $this->__("px");?></span>
@@ -3096,14 +3099,14 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="bullets_offset_vert" name="bullets_offset_vert" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'bullets_offset_vert', '20');?>">
 										<span><?php echo $this->__("px");?></span>
 										<div class="clear"></div>
-                                        
+
                                         <span class="label" id="label_bullets_position" origtitle="<?php echo $this->__("Position the Bullets to Slider or Layer Grid");?>"><?php echo $this->__("Aligned by");?></span>
                                         <select id="bullets_position" name="bullets_position" class="withlabel">
                                             <option value="slider" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "bullets_position", "slider"), "slider");?>><?php echo $this->__("Slider");?></option>
                                             <option value="grid" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "bullets_position", "slider"), "grid");?>><?php echo $this->__("Layer Grid");?></option>
                                         </select>
                                         <div class="clear"></div>
-                                        
+
 									</div>
 								</div><!-- END OF NAVIGATION BULLETS -->
 
@@ -3161,7 +3164,7 @@ if (isset($linksEditSlides)) {
                                             </div>
                                         </div>
                                         <div class="clear"></div>
-										
+
 										<span id="label_thumb_amount" class="label"  origtitle="<?php echo $this->__("The amount of max visible Thumbnails in the same time. ");?>"><?php echo $this->__("Visible Thumbs Amount");?></span>
 										<input type="text" class="text-sidebar withlabel" id="thumb_amount" name="thumb_amount" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "thumb_amount", "5");?>">
 										<div class="clear"></div>
@@ -3339,8 +3342,8 @@ if (isset($linksEditSlides)) {
                                                 function checkMetis(){
                                                     var v = jQuery('#tabs_style').val().toLowerCase();
                                                     if (v.indexOf('metis')>=0) {
-                                                        jQuery('#tabs_padding').val(0).attr('disabled','disabled');                                                        
-														
+                                                        jQuery('#tabs_padding').val(0).attr('disabled','disabled');
+
                                                         jQuery('#tabs_width_min').val(0).attr('disabled','disabled');
                                                         jQuery('#tabs_direction').val('vertical').attr('disabled','disabled');
                                                         jQuery('#tabs_align_hor').val('left').attr('disabled','disabled');
@@ -3348,10 +3351,10 @@ if (isset($linksEditSlides)) {
                                                         RevSliderSettings.onoffStatus(jQuery('#span_tabs_wrapper'));
                                                     } else {
                                                         jQuery('#tabs_padding').removeAttr('disabled');
-														
+
                                                         jQuery('#tabs_direction').removeAttr('disabled');
                                                         jQuery('#tabs_width_min').removeAttr('disabled');
-                                                        jQuery('#tabs_align_hor').removeAttr('disabled');                                                        
+                                                        jQuery('#tabs_align_hor').removeAttr('disabled');
                                                     }
 
                                                 }
@@ -3373,7 +3376,7 @@ if (isset($linksEditSlides)) {
                                             </div>
                                         </div>
 										<div class="clear"></div>
-										
+
 										<span id="label_tabs_amount" class="label"  origtitle="<?php echo $this->__("The amount of max visible tabs in same time.");?>"><?php echo $this->__("Visible Tabs Amount");?></span>
 										<input type="text" class="text-sidebar withlabel" id="tabs_amount" name="tabs_amount" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "tabs_amount", "5");?>">
 										<div class="clear"></div>
@@ -3489,7 +3492,7 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="tabs_offset_vert" name="tabs_offset_vert" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'tabs_offset_vert', '20');?>">
 										<span><?php echo $this->__("px");?></span>
 										<div class="clear"></div>
-                                        
+
                                         <div id="rs-tabs_position_wrapper">
                                             <span class="label" id="label_tabs_position" origtitle="<?php echo $this->__("Position the Tabs to Slider or Layer Grid");?>"><?php echo $this->__("Aligned by");?></span>
                                             <select id="tabs_position" name="tabs_position" class="withlabel">
@@ -3528,7 +3531,7 @@ if (isset($linksEditSlides)) {
 									<span class="label" id="label_swipe_direction" origtitle="<?php echo $this->__("Swipe Direction to swap slides?");?>"><?php echo $this->__("Swipe Direction");?></span>
 									<select id="swipe_direction" name="swipe_direction" class="withlabel">
 										<option value="horizontal" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'swipe_direction', 'horizontal'), "horizontal");?>><?php echo $this->__("Horizontal");?></option>
-										<option value="vertical" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'swipe_direction', 'horizontal'), "vertical");?>><?php echo $this->__("Vertical");?></option>											
+										<option value="vertical" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'swipe_direction', 'horizontal'), "vertical");?>><?php echo $this->__("Vertical");?></option>
 									</select>
 									<div class="clear"></div>
 
@@ -3539,11 +3542,11 @@ if (isset($linksEditSlides)) {
 									<span class="label" id="label_keyboard_navigation" origtitle="<?php echo $this->__("Allow/disallow to navigate the slider with keyboard.");?>"><?php echo $this->__("Keyboard Navigation");?></span>
 									<input type="checkbox" class="tp-moderncheckbox withlabel" id="keyboard_navigation" name="keyboard_navigation" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, 'keyboard_navigation', 'off'), "on");?>>
 									<div class="clear"></div>
-									
+
 									<span class="label" id="label_keyboard_direction" origtitle="<?php echo $this->__("Keyboard Direction to swap slides (horizontal - left/right arrow, vertical - up/down arrow)?");?>"><?php echo $this->__("Key Direction");?></span>
 									<select id="keyboard_direction" name="keyboard_direction" class="withlabel">
 										<option value="horizontal" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'keyboard_direction', 'horizontal'), "horizontal");?>><?php echo $this->__("Horizontal");?></option>
-										<option value="vertical" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'keyboard_direction', 'horizontal'), "vertical");?>><?php echo $this->__("Vertical");?></option>											
+										<option value="vertical" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'keyboard_direction', 'horizontal'), "vertical");?>><?php echo $this->__("Vertical");?></option>
                                         <option value="vertical" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'keyboard_direction', 'horizontal'), "vertical");?>><?php echo $this->__("Vertical");?></option>
 									</select>
 									<div class="clear"></div>
@@ -3560,14 +3563,14 @@ if (isset($linksEditSlides)) {
                                     <select id="mousescroll_navigation_reverse" name="mousescroll_navigation_reverse" class="withlabel">
                                         <option value="reverse" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'mousescroll_navigation_reverse', 'default'), "reverse");?>><?php echo $this->__("Reverse");?></option>
                                         <option value="default" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'mousescroll_navigation_reverse', 'default'), "default");?>><?php echo $this->__("Default");?></option>
-                                        
+
                                     </select>
 
 									<div class="clear"></div>
 
 								</div><!-- END KEYBOARD NAVIGATION -->
-								
-								<!-- PREVIEW IMAGE SIZES -->									
+
+								<!-- PREVIEW IMAGE SIZES -->
 								<div id="navigation-miniimagedimensions" style="border-top:1px solid #f1f1f1; margin:20px -20px 0px; padding:0px 20px">
 									<h4><?php echo $this->__("Preview Image Size");?></h4>
 
@@ -3586,8 +3589,8 @@ if (isset($linksEditSlides)) {
 							<script>
 								(function(jQuery) {
 								jQuery('#navigation-settings-wrapper input, #navigation-settings-wrapper select').on("change",drawToolBarPreview);
-								
-								// NOT NICE, BUT SURELY UNBREAKABLE LATER :) 
+
+								// NOT NICE, BUT SURELY UNBREAKABLE LATER :)
 								jQuery('#enable_arrows').on("change",function() {
 										var sbi = jQuery(this);
 										if (sbi.attr("checked") === "checked") {
@@ -3637,10 +3640,10 @@ if (isset($linksEditSlides)) {
 											jQuery("#"+sbi.data("showhidetarget")).show();
 										} else {
 											jQuery("#"+sbi.data("showhidetarget")).hide();
-										}									
+										}
 									});
 
-								
+
 
 								jQuery('#thumbnails_inner_outer').on('change',function() {
 										var sbi = jQuery(this),
@@ -3704,7 +3707,7 @@ if (isset($linksEditSlides)) {
 								});
 
 
-								
+
 								jQuery('.showhidewhat_truefalse').change();
 								jQuery('#thumbnails_inner_outer').change();
 								jQuery('#tabs_inner_outer').change();
@@ -3747,18 +3750,18 @@ if (isset($linksEditSlides)) {
 									<!-- Border Radius -->
 									<span class="label" id="label_carousel_borderr" origtitle="<?php echo $this->__("The border radius of slides");?>"><?php echo $this->__("Border Radius");?> </span>
 									<input style="width:60px;min-width:60px;max-width:60px;" type="text" class="text-sidebar withlabel"   id="carousel_borderr" name="carousel_borderr" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'carousel_borderr', '0');?>">
-									
+
 									<!-- Border Radius Unit -->
 									<select style="width:45px;min-width:45px;max-width:45px;" id="carousel_borderr_unit" name="carousel_borderr_unit">
 										<option value="px" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'carousel_borderr_unit', 'px'), "px");?>><?php echo $this->__("px");?></option>
 										<option value="%" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'carousel_borderr_unit', 'px'), "%");?>><?php echo $this->__("%");?></option>
 									</select>
 									<div class="clear"></div>
-									
+
 									<!-- Padding -->
 									<span class="label" id="label_carousel_padding_top" origtitle="<?php echo $this->__("The padding top of slides");?>"><?php echo $this->__("Padding Top");?> </span>
 									<input type="text" class="text-sidebar withlabel"   id="carousel_padding_top" name="carousel_padding_top" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'carousel_padding_top', '0');?>"> <?php echo $this->__('px'); ?>
-									
+
 									<span class="label" id="label_carousel_padding_bottom" origtitle="<?php echo $this->__("The padding bottom of slides");?>"><?php echo $this->__("Padding Bottom");?> </span>
 									<input type="text" class="text-sidebar withlabel"   id="carousel_padding_bottom" name="carousel_padding_bottom" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'carousel_padding_bottom', '0');?>"> <?php echo $this->__('px'); ?>
 
@@ -3998,8 +4001,8 @@ if (isset($linksEditSlides)) {
 									<input type="checkbox" class="tp-moderncheckbox withlabel" id="ddd_parallax" name="ddd_parallax" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, "ddd_parallax", "off"), "on");?>>
 									<div class="clear"></div>
 
-									
-									
+
+
 									<div class="show_on_ddd_parallax">
 										<h4><?php echo $this->__("3D Settings");?></h4>
 										<div class="withsublabels">
@@ -4024,12 +4027,12 @@ if (isset($linksEditSlides)) {
 											<select id="ddd_parallax_path" class="withlabel"  name="ddd_parallax_path" style="max-width:110px">
 												<option value="mouse" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'ddd_parallax_path', 'mouse'), "mouse");?>><?php echo $this->__("Mouse Based");?></option>
 												<option value="static" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'ddd_parallax_path', 'mouse'), "static");?>><?php echo $this->__("Static Path (Set Slide by Slide)");?></option>
-												<option value="both" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'ddd_parallax_path', 'mouse'), "both");?>><?php echo $this->__("Both");?></option>												
+												<option value="both" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, 'ddd_parallax_path', 'mouse'), "both");?>><?php echo $this->__("Both");?></option>
 											</select>
 											<div class="clear"></div>-->
 
 											<span class="label" id="label_ddd_parallax_zcorrection" origtitle="<?php echo $this->__("Solves issues in Safari Browser. It will move layers along z-axis if BG Freeze enabled to avoid 3d Rendering issues");?>"><?php echo $this->__("3D Crop Fix (z)");?> </span>
-											<input type="text" class="text-sidebar withlabel" id="ddd_parallax_zcorrection" name="ddd_parallax_zcorrection" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "ddd_parallax_zcorrection", "65");?>">									
+											<input type="text" class="text-sidebar withlabel" id="ddd_parallax_zcorrection" name="ddd_parallax_zcorrection" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "ddd_parallax_zcorrection", "65");?>">
 											<span ><?php echo $this->__("px");?></span>
 											<div class="clear"></div>
 
@@ -4052,16 +4055,16 @@ if (isset($linksEditSlides)) {
 											<span id="label_parallax_origo" class="label" origtitle="<?php echo $this->__("Mouse Based parallax calculation Origo");?>"><?php echo $this->__("Parallax Origo");?></span>
                                             <select id="parallax_origo" name="parallax_origo"  class="withlabel" style="width:140px">
 												<option value="enterpoint" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "parallax_origo", "enterpoint"), "enterpoint");?>><?php echo $this->__("Mouse Enter Point");?></option>
-												<option value="slidercenter" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "parallax_origo", "enterpoint"), "slidercenter");?>><?php echo $this->__("Slider Center");?></option>										
+												<option value="slidercenter" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "parallax_origo", "enterpoint"), "slidercenter");?>><?php echo $this->__("Slider Center");?></option>
 											</select>
 											<div class="clear"></div>
 										</div>
 
                                         <div id="px_m_b_speed" style="display:none">
                                             <span class="label" id="label_parallax_speed" origtitle="<?php echo $this->__("Parallax Speed for Mouse movements.");?>"><?php echo $this->__("Mouse based Speed");?> </span>
-										<input type="text" class="text-sidebar withlabel" id="parallax_speed" name="parallax_speed" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_speed", "400");?>">									
+										<input type="text" class="text-sidebar withlabel" id="parallax_speed" name="parallax_speed" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_speed", "400");?>">
 										<span ><?php echo $this->__("ms");?></span>
-										<div class="clear"></div>		
+										<div class="clear"></div>
 									</div>
 
                                         <div id="px_s_b_speed" style="display:none">
@@ -4088,7 +4091,7 @@ if (isset($linksEditSlides)) {
 										</span>
 
 										<span class="label" id="label_parallax_level_1" origtitle="<?php echo $this->__("Defines the strength of the effect. The higher the value, the stronger the effect. In 3D World the smaller Value comes to the front, and the Higher Value goes to the Background. Set for BG in 3D World the highest value always. Elements with higher z-index should get smaller values to make the effect perfect.");?>"><span class="hide_on_ddd_parallax"><?php echo $this->__("Level Depth 1");?></span><span class="show_on_ddd_parallax"><?php echo $this->__("Depth 1");?></span></span>
-										<input type="text" class="text-sidebar withlabel" id="parallax_level_1" name="parallax_level_1" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_level_1", "5");?>">									
+										<input type="text" class="text-sidebar withlabel" id="parallax_level_1" name="parallax_level_1" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_level_1", "5");?>">
 										<div class="clear"></div>
 
 										<span class="label" id="label_parallax_level_2" origtitle="<?php echo $this->__("Defines the strength of the effect. The higher the value, the stronger the effect. In 3D World the smaller Value comes to the front, and the Higher Value goes to the Background. Set for BG in 3D World the highest value always. Elements with higher z-index should get smaller values to make the effect perfect.");?>"><span class="hide_on_ddd_parallax"><?php echo $this->__("Level Depth 2");?></span><span class="show_on_ddd_parallax"><?php echo $this->__("Depth 2");?></span> </span>
@@ -4106,7 +4109,7 @@ if (isset($linksEditSlides)) {
 										<span class="label" id="label_parallax_level_5" origtitle="<?php echo $this->__("Defines the strength of the effect. The higher the value, the stronger the effect. In 3D World the smaller Value comes to the front, and the Higher Value goes to the Background. Set for BG in 3D World the highest value always. Elements with higher z-index should get smaller values to make the effect perfect.");?>"><span class="hide_on_ddd_parallax"><?php echo $this->__("Level Depth 5");?></span><span class="show_on_ddd_parallax"><?php echo $this->__("Depth 5");?></span> </span>
 										<input type="text" class="text-sidebar withlabel" id="parallax_level_5" name="parallax_level_5" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_level_5", "25");?>">
 										<div class="clear"></div>
-										
+
 										<span class="label" id="label_parallax_level_6" origtitle="<?php echo $this->__("Defines the strength of the effect. The higher the value, the stronger the effect. In 3D World the smaller Value comes to the front, and the Higher Value goes to the Background. Set for BG in 3D World the highest value always. Elements with higher z-index should get smaller values to make the effect perfect.");?>"><span class="hide_on_ddd_parallax"><?php echo $this->__("Level Depth 6");?></span><span class="show_on_ddd_parallax"><?php echo $this->__("Depth 6");?></span> </span>
 										<input type="text" class="text-sidebar withlabel" id="parallax_level_6" name="parallax_level_6" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_level_6", "30");?>">
 										<div class="clear"></div>
@@ -4147,10 +4150,10 @@ if (isset($linksEditSlides)) {
 										<input type="text" class="text-sidebar withlabel" id="parallax_level_15" name="parallax_level_15" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "parallax_level_15", "51");?>">
 										<div class="clear"></div>
 
-										
+
 									</div>
 								</div>
-									
+
 							</div>
 							</div>
 
@@ -4201,7 +4204,7 @@ if (isset($linksEditSlides)) {
 											jQuery('.hide_on_ddd_parallax').show();
 											jQuery('.show_on_ddd_parallax').hide();
 											if (jQuery('input[name="slider-type"]:checked').val()==="hero") jQuery('#fadeinoutparallax').show();
-										}									
+										}
 								});
 
 								jQuery('#ddd_parallax_shadow').on("change",drawToolBarPreview);
@@ -4222,7 +4225,7 @@ if (isset($linksEditSlides)) {
 
 							<span><?php echo $this->__('Scroll Effects');?></span>
 							</h3>
-							<div class="inside" style="display:none">								
+							<div class="inside" style="display:none">
 								<!-- FADE EFFECT ON SCROLL -->
 								<span class="label" id="label_fade_scrolleffect" origtitle="<?php echo $this->__("Endable / Disable Fade Effect on Scroll:");?>"><?php echo $this->__("Fade Effect");?> </span>
 								<input type="checkbox" class="tp-moderncheckbox withlabel" id="fade_scrolleffect" name="fade_scrolleffect" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, "fade_scrolleffect", "off"), "on");?>>
@@ -4240,13 +4243,13 @@ if (isset($linksEditSlides)) {
 
 								<h4><?php echo $this->__("Effect Levels:");?></h4>
 								<div class="withsublabels">
-									
+
 									<!-- MAX BLUR EFFECT -->
 									<span class="label" id="label_scrolleffect_maxblur" origtitle="<?php echo $this->__("Maximum Blur Level on Elements by Maximal Scroll. Optimal Values between 0-100");?>"><?php echo $this->__("Max. Blur Effect");?> </span>
 									<input type="text" class="text-sidebar withlabel" id="scrolleffect_maxblur" name="scrolleffect_maxblur" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_maxblur", "10");?>">
 									<span ><?php echo $this->__("px");?></span>
 									<div class="clear"></div>
-									
+
 								</div>
 
 								<h4><?php echo $this->__("Effects on Elements:");?></h4>
@@ -4288,20 +4291,20 @@ if (isset($linksEditSlides)) {
 									<div class="clear"></div>
 
 									<span class="label" id="label_scrolleffect_multiplicator" origtitle="<?php echo $this->__("Parallax Speed Multiplicator For Background. Best Values between 0.2 and 2");?>"><?php echo $this->__("Effect Factor BG");?> </span>
-									<input type="text" class="text-sidebar withlabel" id="scrolleffect_multiplicator" name="scrolleffect_multiplicator" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_multiplicator", "1.3");?>">																				
+									<input type="text" class="text-sidebar withlabel" id="scrolleffect_multiplicator" name="scrolleffect_multiplicator" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_multiplicator", "1.3");?>">
 									<div class="clear"></div>
 
 									<span class="label" id="label_scrolleffect_multiplicator_layers" origtitle="<?php echo $this->__("Parallax Speed Multiplicator For Layers.  Best Values between 0.2 and 2");?>"><?php echo $this->__("Effect Factor Layers");?> </span>
-									<input type="text" class="text-sidebar withlabel" id="scrolleffect_multiplicator_layers" name="scrolleffect_multiplicator_layers" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_multiplicator_layers", "1.3");?>">																				
+									<input type="text" class="text-sidebar withlabel" id="scrolleffect_multiplicator_layers" name="scrolleffect_multiplicator_layers" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_multiplicator_layers", "1.3");?>">
 									<div class="clear"></div>
 
 									<span class="label" id="label_scrolleffect_off_mobile" origtitle="<?php echo $this->__("Disable Fade Out Effect On Mobile Devices");?>"><?php echo $this->__("Disable on Mobile");?> </span>
 									<input type="checkbox" class="tp-moderncheckbox withlabel" id="scrolleffect_off_mobile" name="scrolleffect_off_mobile" data-unchecked="off" <?php Mage::helper('nwdrevslider/framework')->checked(RevSliderFunctions::getVal($arrFieldsParams, "scrolleffect_off_mobile", "on"), "on");?>>
 									<div class="clear"></div>
 
-								</div>								
+								</div>
 							</div>
-						</div><!-- END OF SCROLL EFFECTS--> 
+						</div><!-- END OF SCROLL EFFECTS-->
 
 
 					<?php
@@ -4333,7 +4336,7 @@ if (isset($linksEditSlides)) {
 									<option value="none" <?php Mage::helper('nwdrevslider/framework')->selected($llt, 'none');?>><?php echo $this->__("No Lazy Loading");?></option>
 								</select>
 								<div class="clearfix"></div>
-								
+
 								<!-- MONITORING PART -->
 								<?php //list all images and speed here ?>
 								<?php
@@ -4414,7 +4417,7 @@ if (isset($linksEditSlides)) {
 									<a original-title="" href="javascript:void(0)" class="button-image-select-background-img button-primary revblue"><?php echo $this->__('Set'); ?></a>
 									<div class="clear"></div>
 								</div>
-                                
+
                                 <div class="rs-show-on-auto">
                                     <div id="label_ignore_height_changes" class="label" origtitle="<?php echo $this->__("Prevents jumping of background image for Android devices for example");?>"><?php echo $this->__("Ignore Height Changes");?> </div>
                                     <select id="ignore_height_changes" name="ignore_height_changes" class="withlabel">
@@ -4423,7 +4426,7 @@ if (isset($linksEditSlides)) {
                                         <option value="always" <?php Mage::helper('nwdrevslider/framework')->selected(RevSliderFunctions::getVal($arrFieldsParams, "ignore_height_changes", "off"), "always");?>><?php echo $this->__("Always");?></option>
                                     </select>
                                     <div class="clear"></div>
-                                    
+
                                     <span class="label" id="label_ignore_height_changes_px" origtitle="<?php echo $this->__("Ignores the Ignore Height Changes feature under a certain amount of pixels.");?>"><?php echo $this->__("Ignore Height Changes Under");?></span>
                                     <input type="text" class="text-sidebar withlabel" id="ignore_height_changes_px" name="ignore_height_changes_px" value="<?php echo RevSliderFunctions::getVal($arrFieldsParams, 'ignore_height_changes_px', '0');?>">
                                     <span><?php echo $this->__("px");?></span>
@@ -4470,95 +4473,102 @@ if (isset($linksEditSlides)) {
 						</script>
 					</div>
 
-						<div class="setting_box rs-cm-refresh" id="v_goo_fo">
-						<h3 class="box_closed"><i class="rs-rp-accordion-icon eg-icon-font"></i>
-							<div class="setting_box-arrow"></div>
-							<span><?php echo $this->__('Google Fonts');?></span>
-						</h3>
-
-						<div class="inside" style="display:none">
-
-							<div class="rs-gf-listing">
-								<?php
-								$subsets = RevSliderFunctions::getVal($arrFieldsParams, 'subsets', array());
-								
-								$gf = array();
-								if ($is_edit) {
-									if(!empty($sliderID)) {
-										$gf = $slider->getUsedFonts();
-									}
-								}
-								if(!empty($gf)){
-									echo '<h4 style="margin-top:0px;margin-bottom:8px">'.$this->__('Dynamically Registered Google Fonts').'</h4>';
-									
-									foreach($gf as $mgf => $mgv){
-										echo '<div class="single-google-font-item">';
-										echo '<span class="label font-name-label">'.$mgf.':';
-										if(!empty($mgv['variants'])){
-											$mgfirst = true;
-											foreach($mgv['variants'] as $mgvk => $mgvv){
-												if(!$mgfirst) echo ',';
-												echo $mgvk;
-												$mgfirst = false;
-											}
-										}	
-										echo '</span>';
-										echo '<div class="single-font-setting-wrapper">';
-										if(!empty($mgv['slide'])){
-											echo '<span class="label">Used in Slide:</span>';
-											echo '<select class="google-font-slide-link-list">';
-											echo '<option value="blank">Edit Slide(s)</option>';
-											foreach($mgv['slide'] as $mgskey => $mgsval){
-												echo '<option value="'.$this->getViewUrl(RevSliderAdmin::VIEW_SLIDE,'id='.$mgsval['id'].'&slider='.intval($sliderID)).'">'.$this->__('Edit:').' '.Mage::helper('nwdrevslider/framework')->esc_attr($mgsval['title']).'</option>';
-											}
-											echo '</select>';
-											
-										}
-										
-										if(!empty($mgv['subsets'])){
-											echo '<div class="clear"></div>';
-											
-											foreach($mgv['subsets'] as $ssk => $ssv){
-												echo '<span class="label subsetlabel">'.$ssv.'</span>';
-												echo '<input class="tp-moderncheckbox" type="checkbox" data-useval="true" value="'.Mage::helper('nwdrevslider/framework')->esc_attr($mgf.'+'.$ssv).'" name="subsets[]" ';
-												if(array_search(Mage::helper('nwdrevslider/framework')->esc_attr($mgf.'+'.$ssv), $subsets) !== false){
-													echo 'checked="checked"';
-												}
-												echo '> ';
-											}
-										}
-										echo '</div>';
-										echo '</div>';
-									}
-								} else {
-									echo '<h4 style="margin-top:0px;">'.$this->__('No dynamic fonts registered').'</h4>';
-								}
-								
-								?>
-							</div>
-							<script>
-								(function(jQuery) {
-								jQuery('.google-font-slide-link-list').on('change', function() {
-									var t = jQuery(this),
-										v = t.find('option:selected').val();
-
-									if (v!="blank") {
-										var win = window.open(v,'_blank');
-										if (win) {
-											win.focus();
-										} else {
-											alert('<?php echo $this->__('Link to Slide Editor is Blocked ! Please Allow Pop Ups for this Site !'); ?>');
-										}
-									}
-									t.val("blank");
-									
-								});
-								})($nwd_jQuery);
-							</script>
-						</div>
-					</div>
-                    
                     <?php
+                    $glob_vals = RevSliderOperations::getGeneralSettingsValues();
+                    $dl_fonts = RevSliderFunctions::getVal($glob_vals, 'load_google_fonts', 'off');
+                    if($dl_fonts === 'off'){
+                        ?>
+						<div class="setting_box rs-cm-refresh" id="v_goo_fo">
+							<h3 class="box_closed"><i class="rs-rp-accordion-icon eg-icon-font"></i>
+								<div class="setting_box-arrow"></div>
+								<span><?php echo $this->__('Google Fonts');?></span>
+							</h3>
+
+							<div class="inside" style="display:none">
+
+								<div class="rs-gf-listing">
+									<?php
+									$subsets = RevSliderFunctions::getVal($arrFieldsParams, 'subsets', array());
+
+									$gf = array();
+									if ($is_edit) {
+										if(!empty($sliderID)) {
+											$gf = $slider->getUsedFonts();
+										}
+									}
+									if(!empty($gf)){
+										echo '<h4 style="margin-top:0px;margin-bottom:8px">'.$this->__('Dynamically Registered Google Fonts').'</h4>';
+
+										foreach($gf as $mgf => $mgv){
+											echo '<div class="single-google-font-item">';
+											echo '<span class="label font-name-label">'.$mgf.':';
+											if(!empty($mgv['variants'])){
+												$mgfirst = true;
+												foreach($mgv['variants'] as $mgvk => $mgvv){
+													if(!$mgfirst) echo ',';
+													echo $mgvk;
+													$mgfirst = false;
+												}
+											}
+											echo '</span>';
+											echo '<div class="single-font-setting-wrapper">';
+											if(!empty($mgv['slide'])){
+												echo '<span class="label">Used in Slide:</span>';
+												echo '<select class="google-font-slide-link-list">';
+												echo '<option value="blank">Edit Slide(s)</option>';
+												foreach($mgv['slide'] as $mgskey => $mgsval){
+													echo '<option value="'.$this->getViewUrl(RevSliderAdmin::VIEW_SLIDE,'id='.$mgsval['id'].'&slider='.intval($sliderID)).'">'.$this->__('Edit:').' '.Mage::helper('nwdrevslider/framework')->esc_attr($mgsval['title']).'</option>';
+												}
+												echo '</select>';
+
+											}
+
+											if(!empty($mgv['subsets'])){
+												echo '<div class="clear"></div>';
+
+												foreach($mgv['subsets'] as $ssk => $ssv){
+													echo '<span class="label subsetlabel">'.$ssv.'</span>';
+													echo '<input class="tp-moderncheckbox" type="checkbox" data-useval="true" value="'.Mage::helper('nwdrevslider/framework')->esc_attr($mgf.'+'.$ssv).'" name="subsets[]" ';
+													if(array_search(Mage::helper('nwdrevslider/framework')->esc_attr($mgf.'+'.$ssv), $subsets) !== false){
+														echo 'checked="checked"';
+													}
+													echo '> ';
+												}
+											}
+											echo '</div>';
+											echo '</div>';
+										}
+									} else {
+										echo '<h4 style="margin-top:0px;">'.$this->__('No dynamic fonts registered').'</h4>';
+									}
+
+									?>
+								</div>
+								<script>
+									(function(jQuery) {
+									jQuery('.google-font-slide-link-list').on('change', function() {
+										var t = jQuery(this),
+											v = t.find('option:selected').val();
+
+										if (v!="blank") {
+											var win = window.open(v,'_blank');
+											if (win) {
+												win.focus();
+											} else {
+												alert('<?php echo $this->__('Link to Slide Editor is Blocked ! Please Allow Pop Ups for this Site !'); ?>');
+											}
+										}
+										t.val("blank");
+
+									});
+									})($nwd_jQuery);
+								</script>
+							</div>
+						</div>
+
+						<?php
+                    }
+
                     $revslider_addon = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_slider_addons', array(), $arrFieldsParams);
                     if(!empty($revslider_addon)){
                         foreach($revslider_addon as $addon_handle => $addon_values){
@@ -4642,7 +4652,7 @@ if (isset($linksEditSlides)) {
                                     <li data-content="#import-export" class=""><?php echo $this->__('Export');?></li>
                                     <li data-content="#import-replace" class=""><?php echo $this->__('Replace URL');?></li>
                                 </ul>
-                                
+
                                 <div id="import-import">
                                     <?php
                                     if(!RevSliderFunctionsWP::isAdminUser() && Mage::helper('nwdrevslider/framework')->apply_filters('revslider_restrict_role', true)){
@@ -4700,7 +4710,7 @@ if (isset($linksEditSlides)) {
                                 </div>
 							</div>
 						</div>
-                        <?php 
+                        <?php
                     }
 				}
 				?> <!-- END OF IMPORT EXPORT SETTINGS -->
@@ -4725,7 +4735,7 @@ if (isset($linksEditSlides)) {
                                     <span class="label" id="label_apiapi1" style="min-width:130px" origtitle="<?php echo $this->__("Call this function to start the slider.");?>"><?php echo $this->__("Start Slider")?>:</span>
                                     <input type="text" style="width:180px" readonly  class="api-input withlabel" id="apiapi0" value="<?php echo $api?>.revstart();"></span>
                                     <div class="tp-clearfix"></div>
-                                    
+
 									<span class="label" id="label_apiapi1" style="min-width:130px" origtitle="<?php echo $this->__("Call this function to pause the slider.");?>"><?php echo $this->__("Pause Slider")?>:</span>
 									<input type="text" style="width:180px" readonly  class="api-input withlabel" id="apiapi1" value="<?php echo $api?>.revpause();"></span>
 									<div class="tp-clearfix"></div>
@@ -4792,7 +4802,7 @@ if (isset($linksEditSlides)) {
 	console.log("current slide <li> Index: "+data.slideLIIndex);
 	//data.currentslide - <?php echo $this->__('Current  Slide as jQuery Object');?>
 
-	//data.prevslide - <?php echo $this->__('Previous Slide as jQuery Object');?>  
+	//data.prevslide - <?php echo $this->__('Previous Slide as jQuery Object');?>
 });</textarea>
 <h4 style="margin-top:15px"><?php echo $this->__("Slider paused")?></h4>
 <textarea class="api_area" style=" height:80px;" readonly>
@@ -4923,8 +4933,8 @@ if (isset($linksEditSlides)) {
 		<div class="clear"></div>
 		<script type="text/javascript">
 			(function(jQuery) {
-            
-            
+
+
             <?php
             $ph_presets_full = array();
             foreach($arr_navigations as $nav){
@@ -4940,11 +4950,11 @@ if (isset($linksEditSlides)) {
                 }
             }
             ?>
-            
+
             var phpfullresets = jQuery.parseJSON(<?php echo RevSliderFunctions::jsonEncodeForClientSide($ph_presets_full); ?>);
-            
+
             if(phpfullresets == null) phpfullresets = [];
-            
+
             var fullresetsstay = false;
 			// Some Inline Script for Right Side Panel Actions.
 			jQuery(document).ready(function($) {
@@ -5019,15 +5029,15 @@ if (isset($linksEditSlides)) {
 		    			}
 		    		});
 		    	});
-                
-                function rs_trigger_color_picker(){                    
+
+                function rs_trigger_color_picker(){
 					jQuery('.my-color-field').not('.rev-cpicker-component').tpColorPicker({
 						mode:"full",
 						defaultValue:'#FFFFFF',
-						wrapper:'<span class="rev-m-colorpickerspan"></span>',																		
+						wrapper:'<span class="rev-m-colorpickerspan"></span>',
 						change:function(inputElement,color,gradientObj) {
                             drawToolBarPreview();
-                            try{                                                
+                            try{
 								inputElement.closest('.placeholder-single-wrapper').find('.placeholder-checkbox').attr('checked','checked');
                             } catch(e) {
 
@@ -5037,11 +5047,11 @@ if (isset($linksEditSlides)) {
 
 
 					jQuery('.alpha-color-field').not('.rev-cpicker-component').tpColorPicker({
-						mode:"single",						
+						mode:"single",
 						wrapper:'<span class="rev-m-colorpickerspan"></span>',
 						change:function(inputElement,color,gradientObj) {
 							drawToolBarPreview();
-							try{												
+							try{
 								inputElement.closest('.placeholder-single-wrapper').find('.placeholder-checkbox').attr('checked','checked');
 							} catch(e) {
 
@@ -5050,12 +5060,12 @@ if (isset($linksEditSlides)) {
                     });
 
 
-					
+
                 }
 
 
-                
-                
+
+
                 rs_trigger_color_picker();
 
 				jQuery('.wp-color-result').on("click",function() {
@@ -5089,17 +5099,17 @@ if (isset($linksEditSlides)) {
 				//----------------------------------------------------
 
                 function convertAnytoRGBorRGBA(a,c) {
-                    if (a==="color" || a==="color-rgba") {                        
+                    if (a==="color" || a==="color-rgba") {
                         if (c.indexOf("rgb")>=0) {
                             c = c.split('(')[1].split(")")[0];
                         }
-                        else{                            
+                        else{
                             c = UniteAdminRev.convertHexToRGB(c);
                             c = c[0]+","+c[1]+","+c[2];
                         }
 
-                        if (a==="color-rgba" && c.split(",").length<4) c = c+",1";                        
-                        
+                        if (a==="color-rgba" && c.split(",").length<4) c = c+",1";
+
                     }
                     return c;
                 }
@@ -5114,20 +5124,20 @@ if (isset($linksEditSlides)) {
                         navpre  = jQuery('#preview-nav-wrapper');
 
                     navpre.css({height:200});
-						
+
 
 					ap.html("");
 					bp.html("");
 					tabp.html("");
 					thumbp.html("");
-					
+
 					ap.hide();
 					bp.hide();
 					tabp.hide();
 					thumbp.hide();
 					sizer.hide();
 
-                    
+
 
                     var pattern = new RegExp(":hover",'g'),
                         parts = the_css.split('##'),
@@ -5143,45 +5153,45 @@ if (isset($linksEditSlides)) {
                             counter++;
                         }
                     }
-                    
-                    
+
+
 					if (sbut=="arrows") {
                         ap.show();
                         jQuery.each(sfor,function(i,sf) {
-                            
+
                             jQuery.each(settings.placeholders,function(i,o) {
                                 if (sf===o.handle && o["nav-type"]==="arrows") {
                                     var rwith=""
                                     if (jQuery('input[name="ph-'+mclass+'-arrows-'+o.handle+'-'+o.type+'-def"]').attr("checked")==="checked")
-                                        rwith = jQuery('input[name="ph-'+mclass+'-arrows-'+o.handle+'-'+o.type+'"]').val();                                                
+                                        rwith = jQuery('input[name="ph-'+mclass+'-arrows-'+o.handle+'-'+o.type+'"]').val();
                                      else
                                          rwith =  o.data[o.type];
 
-                                    rwith = convertAnytoRGBorRGBA(o.type,rwith);                                    
+                                    rwith = convertAnytoRGBorRGBA(o.type,rwith);
                                     the_css = the_css.replace('##'+sf+'##',rwith);
                                 }
-                            });                            
+                            });
                         });
 
-						
-                    
+
+
                         var t = '<style>'+the_css+'</style>';
 						t = t + '<div class="'+mclass+' tparrows tp-leftarrow">'+the_markup+'</div>';
-						t = t + '<div class="'+mclass+' tparrows tp-rightarrow">'+the_markup+'</div>';					
-						ap.html(t);	
-                    
+						t = t + '<div class="'+mclass+' tparrows tp-rightarrow">'+the_markup+'</div>';
+						ap.html(t);
+
                         var arh = ap.find('.tparrows').first().height()+40,
                             pph = navpre.height();
 
-                        
+
                         if (pph<arh)
                             navpre.css({height:arh});
 
-                        
-						
-					} else 
+
+
+					} else
 					if (sbut=="bullets") {
-						bp.show();	
+						bp.show();
 
                         jQuery.each(sfor,function(i,sf) {
                             jQuery.each(settings.placeholders,function(i,o) {
@@ -5195,12 +5205,12 @@ if (isset($linksEditSlides)) {
                                     rwith = convertAnytoRGBorRGBA(o.type,rwith);
 
                                     the_css = the_css.replace('##'+sf+'##',rwith);
-                                    
+
                                 }
-                            });                            
+                            });
                         });
 
-                        
+
 
 						var t = '<style>'+the_css+'</style>';
 						t = t + '<div class="'+mclass+' tp-bullets">'
@@ -5215,26 +5225,26 @@ if (isset($linksEditSlides)) {
 							mw = 0;
 						bp.find('.tp-bullet').each(function(i) {
 							var e = jQuery(this);
-							if (i==0) 
+							if (i==0)
 								setTimeout(function() {
 									try{e.addClass("selected");} catch(e) {}
 								},150);
-							
-							
+
+
 							var np = i*bw + i*10;
 							if (jQuery('#bullets_direction option:selected').attr("value")=="horizontal") {
-								e.css({left:np+"px"});	
+								e.css({left:np+"px"});
 							} else {
-								e.css({top:np+"px"});	
+								e.css({top:np+"px"});
 							}
-							
+
 							mw = mw + bw + 10;
 						})
 						mw = mw-10;
 						if (jQuery('#bullets_direction option:selected').attr("value")=="horizontal") {
-							bp.find('.tp-bullets').css({width:mw, height:bh});					
+							bp.find('.tp-bullets').css({width:mw, height:bh});
 						} else {
-							bp.find('.tp-bullets').css({height:mw, width:bh});					
+							bp.find('.tp-bullets').css({height:mw, width:bh});
 						}
 
                         bp.find('.tp-bullets').addClass("nav-pos-ver-"+jQuery('#bullets_align_vert').val()).addClass("nav-pos-hor-"+jQuery('#bullets_align_hor').val()).addClass("nav-dir-"+jQuery('#bullets_direction').val());
@@ -5246,23 +5256,23 @@ if (isset($linksEditSlides)) {
                             jQuery.each(settings.placeholders,function(i,o) {
                                 if (sf===o.handle && o["nav-type"]==="tabs") {
                                     var rwith = "";
-                                    if (jQuery('input[name="ph-'+mclass+'-tabs-'+o.handle+'-'+o.type+'-def"]').attr("checked")==="checked") 
+                                    if (jQuery('input[name="ph-'+mclass+'-tabs-'+o.handle+'-'+o.type+'-def"]').attr("checked")==="checked")
                                         rwith = jQuery('input[name="ph-'+mclass+'-tabs-'+o.handle+'-'+o.type+'"]').val();
-                                    else 
+                                    else
                                         rwith = o.data[o.type];
                                     rwith = convertAnytoRGBorRGBA(o.type,rwith);
                                     the_css = the_css.replace('##'+sf+'##',rwith);
                                 }
-                            });                            
+                            });
                         });
-                        
+
 						var t = '<style>'+the_css+'</style>';
 						t = t + '<div class="'+mclass+'"><div class="tp-tab">'+the_markup+'</div></div>';
 						tabp.html(t);
 						var s = new Object();
 						s.w = 160,
 						s.h = 160;
-						if (settings!="" && settings!=undefined) {							
+						if (settings!="" && settings!=undefined) {
 							if (settings.width!=undefined && settings.width.tabs!=undefined)
 								s.w=settings.width.tabs;
 							if (settings.height!=undefined && settings.height.tabs!=undefined)
@@ -5277,12 +5287,12 @@ if (isset($linksEditSlides)) {
                         var arh = tabc.height()+40,
                             pph = navpre.height();
 
-                        
+
                         if (pph<arh)
                             navpre.css({height:arh});
 
 						return s;
-					
+
 					} else
 					if (sbut=="thumbs") {
 						thumbp.show();
@@ -5290,14 +5300,14 @@ if (isset($linksEditSlides)) {
                             jQuery.each(settings.placeholders,function(i,o) {
                                 if (sf===o.handle && o["nav-type"]==="thumbs") {
                                     var rwith="";
-                                    if (jQuery('input[name="ph-'+mclass+'-thumbs-'+o.handle+'-'+o.type+'-def"]').attr("checked")==="checked") 
+                                    if (jQuery('input[name="ph-'+mclass+'-thumbs-'+o.handle+'-'+o.type+'-def"]').attr("checked")==="checked")
                                         rwith = jQuery('input[name="ph-'+mclass+'-thumbs-'+o.handle+'-'+o.type+'"]').val();
-                                    else 
+                                    else
                                         rwith = o.data[o.type];
                                     rwith = convertAnytoRGBorRGBA(o.type,rwith);
                                     the_css = the_css.replace('##'+sf+'##',rwith);
                                 }
-                            });                            
+                            });
                         });
 
 						var t = '<style>'+the_css+'</style>';
@@ -5306,14 +5316,14 @@ if (isset($linksEditSlides)) {
 						var s = new Object();
 						s.w = 160,
 						s.h = 160;
-						if (settings!="" && settings!=undefined) {							
+						if (settings!="" && settings!=undefined) {
 							if (settings.width!=undefined && settings.width.thumbs!=undefined)
 								s.w=settings.width.thumbs;
 							if (settings.height!=undefined && settings.height.thumbs!=undefined)
 								s.h=settings.height.thumbs;
 						}
 						thumbp.find('.tp-thumb').each(function(){
-							jQuery(this).css({width:s.w+"px",height:s.h+"px"});			
+							jQuery(this).css({width:s.w+"px",height:s.h+"px"});
 						});
 
                         var thumbsc = thumbp.find('.tp-thumb').parent();
@@ -5322,14 +5332,14 @@ if (isset($linksEditSlides)) {
 					}
 
 				}
-                
-                
+
+
                 fillNavStylePlaceholderOnInit();
 
                 jQuery('.toggle-custom-navigation-style').click(function() {
                     var p = jQuery(this).closest('.toggle-custom-navigation-style-wrapper'),
-                        c = p.find('.toggle-custom-navigation-styletarget');     
-                    
+                        c = p.find('.toggle-custom-navigation-styletarget');
+
                     if (c.hasClass("opened")) {
                         c.removeClass("opened");
                         c.slideUp(200);
@@ -5338,15 +5348,15 @@ if (isset($linksEditSlides)) {
                         c.addClass("opened");
                     }
                 });
-                
-                
+
+
                 function fillNavStylePlaceholderOnInit(){
                     <?php
                     $ph_types = array('navigation_arrow_style' => 'arrows', 'navigation_bullets_style' => 'bullets', 'tabs_style' => 'tabs', 'thumbnails_style' => 'thumbs');
                     foreach($ph_types as $phname => $pht){
 
                         $ph_arr_type = RevSliderFunctions::getVal($arrFieldsParams, $phname, '');
-                        
+
                         $ph_init = array();
                         $ph_presets = array();
                         foreach($arr_navigations as $nav){
@@ -5354,16 +5364,16 @@ if (isset($linksEditSlides)) {
                                 if(isset($nav['settings']) && isset($nav['settings']['placeholders'])){
                                     foreach($nav['settings']['placeholders'] as $placeholder){
                                         if(empty($placeholder)) continue;
-                                        
+
                                         $ph_vals = array();
                                         $ph_vals_def = array();
-                                        
+
                                         //$placeholder['type']
                                         foreach($placeholder['data'] as $k => $d){
 											$ph_vals[$k] = stripslashes(RevSliderFunctions::getVal($arrFieldsParams, 'ph-'.$ph_arr_type.'-'.$pht.'-'.$placeholder['handle'].'-'.$k, $d));
-											$ph_vals_def[$k] = stripslashes(RevSliderFunctions::getVal($arrFieldsParams, 'ph-'.$ph_arr_type.'-'.$pht.'-'.$placeholder['handle'].'-'.$k.'-def', 'off'));											
+											$ph_vals_def[$k] = stripslashes(RevSliderFunctions::getVal($arrFieldsParams, 'ph-'.$ph_arr_type.'-'.$pht.'-'.$placeholder['handle'].'-'.$k.'-def', 'off'));
                                         }
-                                        
+
                                         $ph_init[] = array('nav-type' => @$placeholder['nav-type'], 'title' => @$placeholder['title'], 'handle' => $placeholder['handle'], 'type' => $placeholder['type'], 'data' => $ph_vals, 'default' => $ph_vals_def);
                                     }
                                     if(!empty($ph_vals) && isset($nav['settings']['presets']) && !empty($nav['settings']['presets'])){
@@ -5373,12 +5383,12 @@ if (isset($linksEditSlides)) {
                                 break;
                             }
                         }
-                        
+
                         if(!empty($ph_init)){
                             ?>
                             var phvals = jQuery.parseJSON(<?php echo RevSliderFunctions::jsonEncodeForClientSide($ph_init); ?>);
                             var phpresets = jQuery.parseJSON(<?php echo RevSliderFunctions::jsonEncodeForClientSide($ph_presets); ?>);
-                            
+
                             //check for values
                             showNavStylePlaceholder('<?php echo $pht; ?>', phvals, phpresets);
                             <?php
@@ -5386,8 +5396,8 @@ if (isset($linksEditSlides)) {
                     }
                     ?>
                 }
-                
-                
+
+
                 function showNavStylePlaceholder(navtype, vals, phpresets){
 
                     var cur_edit_type;
@@ -5419,19 +5429,19 @@ if (isset($linksEditSlides)) {
                             return false;
                         break;
                     }
-                    
-                    
+
+
                     var current_value = ph_preset_sel.val();
-                    
+
                     ph_div.html('');
                     ph_preset_sel.find('option').each(function(){
                         if(!jQuery(this).hasClass('never')) jQuery(this).remove();
                     });
-                    
-                    
+
+
                     if(vals == undefined){
-                        for(var key in rs_navigations) if (rs_navigations.hasOwnProperty(key)) {                                    
-                            if(rs_navigations[key]['handle'] == cur_edit_type){                                
+                        for(var key in rs_navigations) if (rs_navigations.hasOwnProperty(key)) {
+                            if(rs_navigations[key]['handle'] == cur_edit_type){
                                 cur_edit = UniteAdminRev.duplicateObject(rs_navigations[key]);
                                 break;
                             }
@@ -5442,40 +5452,40 @@ if (isset($linksEditSlides)) {
 
                     var tcnsw = ph_div.closest('.toggle-custom-navigation-style-wrapper'),
                         holder_type = tcnsw.data('navtype');
-                    
+
                     if (cur_edit['settings'] == undefined || cur_edit['settings']['placeholders'] == undefined) {
                         tcnsw.find('.toggle-custom-navigation-style').removeClass("visible");
                         return false;
                     }
-                    
+
                     var count = 0;
                     for(var key in cur_edit['settings']['placeholders']) if (cur_edit['settings']['placeholders'].hasOwnProperty(key)) {
 
                         var m = cur_edit['settings']['placeholders'][key];
-                        
+
                         if (holder_type==m['nav-type']) count++;
 
                         if(m['default'] == undefined) m['default'] = {};
-                        
+
                         if(jQuery.isEmptyObject(m) || m == '') continue;
-                        
+
                         var deftype = (m["type"] == 'font-family') ? 'font_family' : m["type"];
-                        
+
                         var isfor = 'ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-'+deftype,
                             ph_title = (m['title'] == undefined) ? '##'+m['handle']+'##' : m['title'],
-                            ph_html = '<div class="placeholder-single-wrapper '+m["nav-type"]+'"><input type="checkbox" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-'+deftype+'-def" data-isfor="'+isfor+'" class="tp-moderncheckbox placeholder-checkbox custom-preset-val triggernavstyle" data-unchecked="off" ';                                                            
-                        
+                            ph_html = '<div class="placeholder-single-wrapper '+m["nav-type"]+'"><input type="checkbox" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-'+deftype+'-def" data-isfor="'+isfor+'" class="tp-moderncheckbox placeholder-checkbox custom-preset-val triggernavstyle" data-unchecked="off" ';
+
                         ph_html+= (m['default'][deftype] == undefined || m['default'][deftype] == 'off') ? '>' : ' checked="checked">';
                         ph_html+= '<span class="label placeholder-label triggernavstyle">'+ph_title+'</span>';
 
                         switch(m['type']){
-                            case 'color':                                                                
-                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-color" class="triggernavstyle alpha-color-field custom-preset-val" id="'+isfor+'" value="'+m['data']['color']+'">';                                                                
+                            case 'color':
+                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-color" class="triggernavstyle alpha-color-field custom-preset-val" id="'+isfor+'" value="'+m['data']['color']+'">';
                             break;
-                            case 'color-rgba':                                                                
-                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-color-rgba" class="triggernavstyle alpha-color-field custom-preset-val" id="'+isfor+'" value="'+m['data']['color-rgba']+'">';                                                                
+                            case 'color-rgba':
+                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-color-rgba" class="triggernavstyle alpha-color-field custom-preset-val" id="'+isfor+'" value="'+m['data']['color-rgba']+'">';
                             break;
-                            case 'font-family':                                
+                            case 'font-family':
                                 ph_html+= '<select style="width:112px" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-font_family" class="triggernavstyle custom-preset-val" id="'+isfor+'">';
                                 <?php
                                 $font_families = $operations->getArrFontFamilys();
@@ -5491,19 +5501,19 @@ if (isset($linksEditSlides)) {
                                 }
                                 ?>
                                 ph_html+= '</select>';
-                                
+
                             break;
-                            case 'custom':                                                    
-                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-custom" value="'+m['data']['custom']+'" class="triggernavstyle custom-preset-val" id="'+isfor+'">';                                                                
+                            case 'custom':
+                                ph_html+= '<input type="text" name="ph-'+cur_edit_type+'-'+navtype+'-'+m['handle']+'-custom" value="'+m['data']['custom']+'" class="triggernavstyle custom-preset-val" id="'+isfor+'">';
                             break;
-                            
+
                         }
 
-                        ph_html+= '</div><div class="clear"></div>';                                
+                        ph_html+= '</div><div class="clear"></div>';
                         if (holder_type==m['nav-type']) ph_div.prepend(ph_html);
                     }
-                    
-                    
+
+
                     if(phpresets !== undefined){
                         //add presets in the box
                         for(var key in phpresets) if (phpresets.hasOwnProperty(key)) {
@@ -5514,10 +5524,10 @@ if (isset($linksEditSlides)) {
                                 }
                             }
                         }
-                        
+
                         //select the correct preset in select box
                         ph_preset_sel.find('option[value="'+ph_preset_sel.data('startvalue')+'"]').attr('selected', true);
-                    
+
                     }else{
                         //phpfullresets
                         //fill the field, as we have changed the nav type, and set the select to default
@@ -5530,25 +5540,25 @@ if (isset($linksEditSlides)) {
                                 }
                             }
                         }
-                        
+
                         if(ph_preset_sel.find('option[value="'+current_value+'"]').length > 0){
                             ph_preset_sel.find('option[value="'+current_value+'"]').attr('selected', true);
                         }else{
                             ph_preset_sel.find('option[value="default"]').attr('selected', true);
                         }
-                        
+
                         if(fullresetsstay !== false){
                             if(ph_preset_sel.find('option[value="'+fullresetsstay+'"]').length > 0){
                                 ph_preset_sel.find('option[value="'+fullresetsstay+'"]').attr('selected', true);
                             }
                         }
-                        
-                        
+
+
                         ph_preset_sel.change();
                     }
                     fullresetsstay = false;
-                    
-                    
+
+
                     if (count>0) {
                         tcnsw.find('.toggle-custom-navigation-style').addClass("visible");
                         ph_div.append('<span class="overwrite-arrow"></span><span class="placeholder-description"><?php echo $this->__('Check to use Custom'); ?></span>');
@@ -5556,17 +5566,17 @@ if (isset($linksEditSlides)) {
                         tcnsw.find('.toggle-custom-navigation-style').removeClass("visible");
                     }
                     ph_div.append('<div class="tp-clear"></div><div class="save-navigation-style-as-preset"><?php echo $this->__("Save as Preset");?></div><div class="delete-navigation-style-as-preset"><?php echo $this->__("Delete Preset");?></div>');
-                    
+
                     rs_trigger_color_picker();
                 }
-                
-                
+
+
                 /**
                  * If changed, set parent to Custom!
                  **/
                 jQuery('body').on('change', '.custom-preset-val', function(){
                     var navtype = jQuery(this).closest('.toggle-custom-navigation-style-wrapper').data('navtype');
-                    
+
                     switch(navtype){
                         case 'arrows':
                             jQuery('#navigation_arrows_preset option[value="custom"]').attr('selected', true);
@@ -5582,11 +5592,11 @@ if (isset($linksEditSlides)) {
                         break;
                     }
                 });
-                
-                
+
+
                 jQuery('body').on('change', '#navigation_arrows_preset, #navigation_bullets_preset, #navigation_tabs_preset, #navigation_thumbs_preset', function(){
                     var myv = jQuery(this).val();
-                    
+
                     var type = 'arrows';
                     var sel_value = '';
                     switch(jQuery(this).attr('id')){
@@ -5607,7 +5617,7 @@ if (isset($linksEditSlides)) {
                             sel_value = jQuery('#thumbnails_style option:selected').val();
                         break;
                     }
-                    
+
                     if(myv == 'default' || myv !== 'custom'){
                         //uncheck all checkboxes, set the values to default values
                         for(var key in rs_navigations) if (rs_navigations.hasOwnProperty(key)) {
@@ -5639,7 +5649,7 @@ if (isset($linksEditSlides)) {
                             }
                         }
                     }
-                    
+
                     if(myv == 'custom'){
                         //leave all as it is
                     }else{
@@ -5654,13 +5664,13 @@ if (isset($linksEditSlides)) {
                         }
                     }
                 });
-                
-                
+
+
                 jQuery('body').on('click', '.save-navigation-style-as-preset', function(){
                     //what type am I
                     var ce = jQuery(this);
                     var nav_type = ce.closest('.toggle-custom-navigation-style-wrapper').data('navtype');
-                    
+
                     //set a name
                     jQuery('.rs-dialog-save-nav-preset').dialog({
                         modal:true,
@@ -5670,13 +5680,13 @@ if (isset($linksEditSlides)) {
                         closeOnEscape:true,
                         buttons:{
                             '<?php echo $this->__('Save As'); ?>':function(){
-                                
+
                                 var preset_name = jQuery('input[name="preset-name"]').val();
                                 var preset_handle = UniteAdminRev.sanitize_input(jQuery('input[name="preset-name"]').val());
                                 var preset_navigation = nav_type;
                                 var preset_values = {};
                                 var preset_nav_handle = '';
-                                
+
                                 switch(nav_type){
                                     case 'arrows':
                                         var ph_class = '.navigation_arrow_placeholder';
@@ -5698,7 +5708,7 @@ if (isset($linksEditSlides)) {
                                         return false;
                                     break;
                                 }
-                                
+
                                 var overwrite = false;
                                 //check if preset handle is already existing!
                                 if(typeof(phpfullresets[preset_nav_handle]) !== 'undefined' && typeof(phpfullresets[preset_nav_handle][nav_type]) !== 'undefined'){
@@ -5710,18 +5720,18 @@ if (isset($linksEditSlides)) {
                                         overwrite = true;
                                     }
                                 }
-                                
+
                                 //get values where checkbox is selected
                                 jQuery(ph_class+' input[type="checkbox"]').each(function(){
                                     if(jQuery(this).is(':checked')){
                                         var jqrobj = jQuery('#'+jQuery(this).data('isfor'));
-                                        
+
                                         preset_values[jqrobj.attr('name')] = jqrobj.val();
                                     }
                                 });
-                                
+
                                 if(!jQuery.isEmptyObject(preset_values)){
-                                    
+
                                     var data = {
                                         navigation: preset_nav_handle,
                                         name: preset_name,
@@ -5730,32 +5740,32 @@ if (isset($linksEditSlides)) {
                                         do_overwrite: overwrite,
                                         values: preset_values
                                     }
-                                    
+
                                     UniteAdminRev.ajaxRequest('create_navigation_preset', data, function(response){
                                         reload_navigation_preset_fields(response.navs, preset_handle);
-                                        
+
                                         jQuery('.rs-dialog-save-nav-preset').dialog('close');
                                     });
                                 }else{
                                     alert('<?php echo $this->__('No fields are checked, please check at least one field to save a preset'); ?>');
                                 }
-                                
+
                             }
                         }
                     });
-                    
-                    
+
+
                     //if exists, overwrite existing
                 });
-                
+
                 jQuery('body').on('click', '.delete-navigation-style-as-preset', function(){
                     //check if we are default or custom
                     //if not, ask to really delete
-                    
+
                     var nav_type = jQuery(this).closest('.toggle-custom-navigation-style-wrapper').data('navtype');
-                    
+
                     var cur_preset = jQuery('#navigation_'+nav_type+'_preset option:selected').val();
-                    
+
                     if(cur_preset !== 'default' && cur_preset !== 'custom' && cur_preset !== undefined){ //default and custom can not be deleted
                         if(confirm('<?php echo $this->__('Delete this Navigation Preset?'); ?>')){
                             var style_handle = '';
@@ -5773,46 +5783,46 @@ if (isset($linksEditSlides)) {
                                     style_handle = jQuery('#thumbnails_style option:selected').val();
                                 break;
                             }
-                            
+
                             //delete that entry
                             var data = {
                                 style_handle: style_handle,
                                 handle: cur_preset,
                                 type: nav_type
                             }
-                            
-                            
+
+
                             UniteAdminRev.ajaxRequest('delete_navigation_preset', data, function(response){
-                                
+
                                 reload_navigation_preset_fields(response.navs);
-                                
+
                             });
-                            
+
                         }
                     }
                 });
-                
-                
+
+
                 function reload_navigation_preset_fields(navs, stay_at_current){
-                    
+
                     //reload select boxes!
                     for(var key in navs) if (navs.hasOwnProperty(key)) {
                         if(navs[key]['settings'] !== null && navs[key]['settings'] !== undefined && navs[key]['settings']['presets'] !== undefined){
                             phpfullresets[navs[key]['handle']] = {};
-                            
+
                             for(var kkey in navs[key]['settings']['presets']) if (navs[key]['settings']['presets'].hasOwnProperty(kkey)) { //push values into phpfullresets
                                 var m = navs[key]['settings']['presets'][kkey];
-                                
+
                                 if(phpfullresets[navs[key]['handle']][m['type']] == undefined) phpfullresets[navs[key]['handle']][m['type']] = {};
-                                
+
                                 phpfullresets[navs[key]['handle']][m['type']][m['handle']] = m;
                             }
                         }
                     }
-                    
+
                     //select the new created preset
                     //and select the things on other elements as they have changed to default
-                    
+
                     //now reset all fields with the new phpfullresets
                     if(stay_at_current !== undefined){
                         fullresetsstay = stay_at_current;
@@ -5821,9 +5831,9 @@ if (isset($linksEditSlides)) {
                     showNavStylePlaceholder('bullets');
                     showNavStylePlaceholder('tabs');
                     showNavStylePlaceholder('thumbs');
-                    
+
                 }
-                
+
 
 				function changeNavStyle(navtype) {
 					var cur_edit = {},
@@ -5832,75 +5842,75 @@ if (isset($linksEditSlides)) {
 						nav_id,
 						mclass="";
 
-					if (navtype == "arrows")					
+					if (navtype == "arrows")
 						cur_edit_type=jQuery('#navigation_arrow_style option:selected').attr('value');
-					else 
+					else
 					if (navtype == 'bullets')
 						cur_edit_type=jQuery('#navigation_bullets_style option:selected').attr('value');
 					else
 					if (navtype == 'tabs')
 						cur_edit_type=jQuery('#tabs_style option:selected').attr('value');
-					else 
+					else
 					if (navtype == 'thumbs')
 						cur_edit_type=jQuery('#thumbnails_style option:selected').attr('value');
 
-					for(var key in rs_navigations) if (rs_navigations.hasOwnProperty(key)) {									
+					for(var key in rs_navigations) if (rs_navigations.hasOwnProperty(key)) {
 						if(rs_navigations[key]['handle'] == cur_edit_type){
 							cur_edit = UniteAdminRev.duplicateObject(rs_navigations[key]);
 							break;
 						}
 					}
-					
+
 					var the_css = (typeof(cur_edit['css']) !== 'undefined' && cur_edit['css'] !== null && typeof(cur_edit['css'][navtype]) !== 'undefined') ? cur_edit['css'][navtype] : '',
 						the_markup = (typeof(cur_edit['markup']) !== 'undefined' && cur_edit['markup'] !== null && typeof(cur_edit['markup'][navtype]) !== 'undefined') ? cur_edit['markup'][navtype] : "",
 						settings = (typeof(cur_edit['settings']) !== 'undefined' && cur_edit['settings'] !== null) ? cur_edit['settings'] : "";
-					
+
 					if (cur_edit["name"]==undefined) return false;
 					var mclass = UniteAdminRev.sanitize_input(cur_edit["name"].toLowerCase());
-					
+
 
 					if(cur_edit['css'] == null) return false;
 					if(cur_edit['markup'] == null) return false;
-					
+
 
 					return previewNav(navtype,mclass,the_css,the_markup,settings);
-					
+
 				}
 
                 function callChangeNavStyle(e) {
                       prev.hide();
-                    navpre.show();    
+                    navpre.show();
                     punchgs.TweenLite.set(navpre,{autoAlpha:1});
-                    
+
                     if (e.closest('#nav_arrows_subs').length>0) {
                         navtype = 'arrows';
                         title.html("Arrow Styling");
                     }
-                    else 
+                    else
                     if (e.closest('#nav_bullets_subs').length>0) {
-                        navtype = 'bullets';    
+                        navtype = 'bullets';
                         title.html("Bullet Styling");
                     }
-                    else 
+                    else
                     if (e.closest('#nav_tabs_subs').length>0){
                         navtype = 'tabs';
                         title.html("Tabs Styling");
                     }
-                    else 
+                    else
                     if (e.closest('#nav_thumbnails_subs').length>0){
                         navtype = 'thumbs';
                         title.html("Thumbnails Styling");
                     }
-                        
-                    var s = changeNavStyle(navtype,jQuery(this));    
+
+                    var s = changeNavStyle(navtype,jQuery(this));
                     if (s!=undefined)
                         cont.html("Suggested Size:"+s.w+" x "+s.h+"px");
                     else cont.hide();
 
                   }
-                  
-                      
-                  jQuery('body').on('mouseenter','.label, .withlabel, .triggernavstyle, #form_toolbar',function() {                          
+
+
+                  jQuery('body').on('mouseenter','.label, .withlabel, .triggernavstyle, #form_toolbar',function() {
                     drawToolBarPreview();
 
                     var lbl     = jQuery(this).hasClass("withlabel") ? (jQuery(this).attr('id')===undefined ? jQuery("#label_"+jQuery(this).attr("label")) : jQuery("#label_"+jQuery(this).attr("id"))) : jQuery(this),
@@ -5915,14 +5925,14 @@ if (isset($linksEditSlides)) {
                         exti     = tb.find('.toolbar-extended-info'),
                         navpre  = jQuery('#preview-nav-wrapper');
 
-                    
+
                     if (jQuery(this).attr('id')!=="form_toolbar") {
                         if (!jQuery(this).hasClass("triggernavstyle")) {
                             navpre.css({height:200});
                             title.html(lbl.html());
                             cont.html(lbl.attr('origtitle'));
                         }
-                        
+
                         if (lbl.attr('origmedia')=="show" || lbl.attr('origmedia')=="showbg") {
                             prev.slideDown(150);
                             shads.slideDown(150);
@@ -5943,7 +5953,7 @@ if (isset($linksEditSlides)) {
                             if (diff<0) topp = topp + diff;
 
 
-                        if (lbl.hasClass("triggernavstyle")) {                        
+                        if (lbl.hasClass("triggernavstyle")) {
                             callChangeNavStyle(jQuery(this));
                         } else {
                             cont.show();
@@ -5954,30 +5964,30 @@ if (isset($linksEditSlides)) {
                     } else {
                         punchgs.TweenLite.to(tb,0.5,{autoAlpha:1,overwrite:"all"});
                     }
-                    
+
                 });
 
-                jQuery('body').on('mouseleave','.label, .withlabel, .triggernavstyle, #form_toolbar',function() {                    
+                jQuery('body').on('mouseleave','.label, .withlabel, .triggernavstyle, #form_toolbar',function() {
                      punchgs.TweenLite.to(jQuery('#form_toolbar'),0.2,{autoAlpha:0,ease:punchgs.Power3.easeOut,delay:0.2});
                 });
 
-                
 
-                jQuery('body').on('click','.placeholder-single-wrapper input.custom-preset-val',function() {    
-                    if (!jQuery(this).is(":checkbox"))                
+
+                jQuery('body').on('click','.placeholder-single-wrapper input.custom-preset-val',function() {
+                    if (!jQuery(this).is(":checkbox"))
                         jQuery(this).closest('.placeholder-single-wrapper').find('.placeholder-checkbox').attr('checked','checked');
                     return true;
                 });
 
-                jQuery('body').on('keyup','.placeholder-single-wrapper input',function() {                                        
-                    callChangeNavStyle(jQuery(this));                        
+                jQuery('body').on('keyup','.placeholder-single-wrapper input',function() {
+                    callChangeNavStyle(jQuery(this));
                 });
 
-                  jQuery('body').on('mousemove','.toggle-custom-navigation-styletarget',function() {                      
+                  jQuery('body').on('mousemove','.toggle-custom-navigation-styletarget',function() {
                     callChangeNavStyle(jQuery(this));
                     punchgs.TweenLite.to(jQuery('#form_toolbar'),0.2,{autoAlpha:1,ease:punchgs.Power3.easeOut,overwrite:"auto"});
   				});
-				
+
 
 				jQuery('#navigation_arrow_style, #navigation_bullets_style, #tabs_style, #thumbnails_style').on("change",function() {
 					var e = jQuery(this),
@@ -5985,22 +5995,22 @@ if (isset($linksEditSlides)) {
 						title   = tb.find('.toolbar-title'),
 						cont    = tb.find('.toolbar-content');
 
-					if (e.closest('#nav_arrows_subs').length>0) 
+					if (e.closest('#nav_arrows_subs').length>0)
 						navtype = 'arrows';
-					else 
-					if (e.closest('#nav_bullets_subs').length>0) 
-						navtype = 'bullets';	
-					else 
+					else
+					if (e.closest('#nav_bullets_subs').length>0)
+						navtype = 'bullets';
+					else
 					if (e.closest('#nav_tabs_subs').length>0)
 						navtype = 'tabs';
-					else 
+					else
 					if (e.closest('#nav_thumbnails_subs').length>0)
 						navtype = 'thumbs';
-						
+
                     var s = changeNavStyle(navtype,jQuery(this));
-                    
+
                     showNavStylePlaceholder(navtype);
-                    
+
 					if (s!=undefined)
                         cont.html("<?php echo $this->__('Suggested Size:'); ?>"+s.w+" x "+s.h+"px");
 					else cont.hide();
@@ -6019,15 +6029,15 @@ if (isset($linksEditSlides)) {
 						jQuery("#show_alternate_image").val(urlImage);
 					});
 				});
-					
+
 				jQuery('#rs_import_slider_form').on('submit', function() {
 					jQuery('#rs-submit-import-form')
 						.val(jQuery('#rs-submit-import-form').data('loading'))
 						.attr('disabled', 'disabled');
 					jQuery(this).on('submit', function() { return false; });
 					return true;
-				});				
-				
+				});
+
 			});
 			})($nwd_jQuery);
 		</script>
@@ -6080,15 +6090,15 @@ THE INFO ABOUT EMBEDING OF THE SLIDER
 			<?php echo $this->__("use")?>:<br/>
 			<code>$this->getLayout()->createBlock('nwdrevslider/revslider')->setAlias('<span class="rs-example-alias"><?php echo $exampleID; ?></span>')->toHtml();</code><br/>
 		</div>
-		
+
 	</div>
 </div>
 <script>
-(function(jQuery) {	
+(function(jQuery) {
  jQuery('#advanced-emeding').click(function() {
 	jQuery('#advanced-accord').toggle(200);
  })
-})($nwd_jQuery); 
+})($nwd_jQuery);
 </script>
 
 

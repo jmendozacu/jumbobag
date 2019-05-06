@@ -33,7 +33,6 @@
 ""задержки"" из Основных Настроек Слайдера."
 "API Functions","API Функции"
 Actions,Действия
-"Activate a protection against wordpress output filters that adds html blocks to the shortcode output like P and BR.","Активировать защиту от  фильтра wordpress который добавляет html элементы типа P, BR."
 Add,Добавить
 "Add Blank Slide","Добавить пустой Слайд"
 "Add Bulk Slides","Пакетное добавление Слайдов"
@@ -139,8 +138,6 @@ Bottom,Низ
 Bullets,Маркеры
 Button,Кнопка
 Buttons,Кнопки
-"By Compressing Output","Сжимать при выводе"
-"By Echo Output","Выводить похожие"
 "By Favorit","По 
 Избранным"
 "By ID","По ID"
@@ -528,7 +525,6 @@ Import,Импорт
 "It will keep aspect ratio and ignore max height of Layer Grid by upscaling. Layer Area will be vertical centered.","Сохранит пропорции и будет игнорировать макс. высоту Сетки Слоя. Слой будет вертикально отцентрирован."
 "Italic Font","Курсивный Шрифт"
 "Italic Font On/Off","Включить / Выключить Курсивный Шрифт"
-"JQuery No Conflict Mode","JQuery Не Conflict Mode"
 "Jump to Slide","Перейти к Слайду"
 "Keep Aspect Ratio (on/off)","Сохранять пропорции"
 "Keep Hidden","Оставить скрытым"
@@ -738,8 +734,6 @@ Original,Оригинал
 "Original Size","Оригинальный Размер"
 "Our drag and drop editor will make creating slide content an absolut breeze. This is where the magic happens!","Наш drag-n-drop редактор серьозно облегчает процесс создание слайда. Вот где происходит волшебство!"
 "Out Of ViewPort:","За границами видимой области:"
-"Output Filters Protection","Защита от 
-фильтра wordpress"
 "Overall Slider Performance","Общая Производительность Слайдера"
 "Overwrite Selected Settings on all Slides","Перезаписать Выбранные настройки для всех Слайдов"
 "Overwrite current animation?","Перезаписать анимацию?"
@@ -813,7 +807,6 @@ Pulse,Пульс
  зарегистрирован!"
 "Purchase Code is invalid","Код покупки
  недействителен"
-"Put JS Includes To Body","Вставить JS Includes в Body"
 "Put in the Facebook App ID","Введите Facebook App ID"
 "Put in the Facebook App secret","Введите Facebook App secret
 "
@@ -1203,8 +1196,6 @@ Transitions,Переходы
 Transparent,Прозрачность
 "Trigger Memory","Память События"
 Troubleshooting,"Устранение неисправностей"
-"Try this to fix some javascript conflicts of type: TypeError: tpj('#rev_slider_1_1').show().revolution is not a function","Попробуйте этот метод для исправление конфликтов javascript типа: TypeError: tpj('#rev_slider_1_1').show().revolution is not a function"
-"Turns on / off jquery noconflict mode. Try to enable this option if javascript conflicts exist on the page.","Включить / выключить режим jQuery noConflict"
 "Twitter Name @","Имя Twitter @"
 "Unbind all listeners, remove current animations and delete containers. Ready for Garbage collection.","Убрать все события, анимации и удалить контейнеры. Готов для сборки мусора."
 Unknown,Неизвестно

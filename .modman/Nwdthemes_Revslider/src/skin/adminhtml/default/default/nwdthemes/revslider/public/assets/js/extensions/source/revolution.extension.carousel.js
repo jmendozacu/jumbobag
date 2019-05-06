@@ -1,7 +1,7 @@
 (function(jQuery) {
 
     /********************************************
-     * REVOLUTION 5.4.2 EXTENSION - CAROUSEL
+     * REVOLUTION 5.4.8 EXTENSION - CAROUSEL
      * @version: 1.2.1 (18.11.2016)
      * @requires jquery.themepunch.revolution.js
      * @author ThemePunch

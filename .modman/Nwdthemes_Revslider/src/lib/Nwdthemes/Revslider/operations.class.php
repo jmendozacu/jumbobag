@@ -4,7 +4,7 @@
  * @link      http://www.themepunch.com/
  * @copyright 2015 ThemePunch
  */
- 
+
 class RevSliderOperations extends RevSliderElementsBase{
 
 
@@ -168,7 +168,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"fadethroughdark"=>"Fade Through Black",
 			"fadethroughlight"=>"Fade Through Light",
 			"fadethroughtransparent"=>"Fade Through Transparent",
-					
+
 			"notselectable2"=>"SLIDE SIMPLE",
 			"slideup"=>"Slide To Top",
 			"slidedown"=>"Slide To Bottom",
@@ -183,7 +183,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"slideoverright"=>"Slide Over To Right",
 			"slideoverleft"=>"Slide Over To Left",
 			"slideoverhorizontal"=>"Slide Over Horizontal (Next/Previous)",
-			"slideoververtical"=>"Slide Over Vertical (Next/Previous)",		
+			"slideoververtical"=>"Slide Over Vertical (Next/Previous)",
 
 			"notselectable22"=>"SLIDE REMOVE",
 			"slideremoveup"=>"Slide Remove To Top",
@@ -191,7 +191,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"slideremoveright"=>"Slide Remove To Right",
 			"slideremoveleft"=>"Slide Remove To Left",
 			"slideremovehorizontal"=>"Slide Remove Horizontal (Next/Previous)",
-			"slideremovevertical"=>"Slide Remove Vertical (Next/Previous)",		
+			"slideremovevertical"=>"Slide Remove Vertical (Next/Previous)",
 
 			"notselectable26"=>"SLIDING OVERLAYS",
 			"slidingoverlayup"=>"Sliding Overlays To Top",
@@ -199,8 +199,8 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"slidingoverlayright"=>"Sliding Overlays To Right",
 			"slidingoverlayleft"=>"Sliding Overlays To Left",
 			"slidingoverlayhorizontal"=>"Sliding Overlays Horizontal (Next/Previous)",
-			"slidingoverlayvertical"=>"Sliding Overlays Vertical (Next/Previous)",			
-			
+			"slidingoverlayvertical"=>"Sliding Overlays Vertical (Next/Previous)",
+
 			"notselectable23"=>"SLOTS AND BOXES",
 			"boxslide"=>"Slide Boxes",
 			"slotslide-horizontal"=>"Slide Slots Horizontal",
@@ -208,7 +208,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"boxfade"=>"Fade Boxes",
 			"slotfade-horizontal"=>"Fade Slots Horizontal",
 			"slotfade-vertical"=>"Fade Slots Vertical",
-			
+
 			"notselectable31"=>"FADE & SLIDE",
 			"fadefromright"=>"Fade and Slide from Right",
 			"fadefromleft"=>"Fade and Slide from Left",
@@ -218,14 +218,14 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"fadetorightfadefromleft"=>"To Right From Left",
 			"fadetotopfadefrombottom"=>"To Top From Bottom",
 			"fadetobottomfadefromtop"=>"To Bottom From Top",
-			
+
 			"notselectable4"=>"PARALLAX",
 			"parallaxtoright"=>"Parallax to Right",
 			"parallaxtoleft"=>"Parallax to Left",
 			"parallaxtotop"=>"Parallax to Top",
 			"parallaxtobottom"=>"Parallax to Bottom",
 			"parallaxhorizontal"=>"Parallax Horizontal",
-			"parallaxvertical"=>"Parallax Vertical",			
+			"parallaxvertical"=>"Parallax Vertical",
 
 			"notselectable5"=>"ZOOM TRANSITIONS",
 			"scaledownfromright"=>"Zoom Out and Fade From Right",
@@ -236,7 +236,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"zoomin"=>"ZoomIn",
 			"slotzoom-horizontal"=>"Zoom Slots Horizontal",
 			"slotzoom-vertical"=>"Zoom Slots Vertical",
-			
+
 			"notselectable6"=>"CURTAIN TRANSITIONS",
 			"curtain-1"=>"Curtain from Left",
 			"curtain-2"=>"Curtain from Right",
@@ -251,8 +251,8 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"blurlightcross"=>"Blur Light Cross Transition",
 			"blurstrong"=>"Blur Strong Transition",
 			"blurstrongcross"=>"Blur Strong Cross Transition",
-			
-			
+
+
 			"notselectable7"=>"PREMIUM TRANSITIONS",
 			"3dcurtain-horizontal"=>"3D Curtain Horizontal",
 			"3dcurtain-vertical"=>"3D Curtain Vertical",
@@ -263,27 +263,27 @@ class RevSliderOperations extends RevSliderElementsBase{
 			"turnoff"=>"TurnOff Horizontal",
 			"turnoff-vertical"=>"TurnOff Vertical",
 			"papercut"=>"Paper Cut",
-			"flyin"=>"Fly In",	
+			"flyin"=>"Fly In",
 
 			"notselectable1a"=>"RANDOM",
 			"random-selected"=>"Random of Selected",
 			"random-static"=>"Random Flat",
 			"random-premium"=>"Random Premium",
-			"random"=>"Random Flat and Premium"	
+			"random"=>"Random Flat and Premium"
 		);
-		
+
 		return($arrTransition);
 	}
-	
+
 
 	/**
 	 * get animations array
 	 */
 	public static function getArrAnimations($all = true){
 		$arrAnimations = array(
-			
+
 		);
-		
+
 		$arrAnimations['custom'] = array('handle' => __('## Custom Animation ##'));
         $arrAnimations['vSFXs'] = array('handle' => '-----------------------------------');
         $arrAnimations['vSFX'] = array('handle' => __('- SPECIAL EFFECTS -'));
@@ -297,7 +297,7 @@ class RevSliderOperations extends RevSliderElementsBase{
         $arrAnimations['v5s'] = array('handle' => '-----------------------------------');
 		$arrAnimations['v5'] = array('handle' => __('- VERSION 5.0 ANIMATIONS -'));
 		$arrAnimations['v5e'] = array('handle' => '-----------------------------------');
-		
+
 		$arrAnimations['LettersFlyInFromBottom'] = array('handle' => 'LettersFlyInFromBottom','params' => '{"movex":"inherit","movey":"[100%]","movez":"0","rotationx":"inherit","rotationy":"inherit","rotationz":"-35deg","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"inherit","mask":"true","mask_x":"0px","mask_y":"0px","easing":"Power4.easeInOut","speed":"2000","split":"chars","splitdelay":"5"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['LettersFlyInFromLeft'] = array('handle' => 'LettersFlyInFromLeft','params' => '{"movex":"[-105%]","movey":"inherit","movez":"0","rotationx":"0deg","rotationy":"0deg","rotationz":"-90deg","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"inherit","mask":"true","mask_x":"0px","mask_y":"0px","easing":"Power4.easeInOut","speed":"2000","split":"chars","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['LettersFlyInFromRight'] = array('handle' => 'LettersFlyInFromRight','params' => '{"movex":"[105%]","movey":"inherit","movez":"0","rotationx":"45deg","rotationy":"0deg","rotationz":"90deg","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"inherit","mask":"true","mask_x":"0px","mask_y":"0px","easing":"Power4.easeInOut","speed":"2000","split":"chars","splitdelay":"5"}', 'settings' => array('version' => '5.0'));
@@ -315,10 +315,10 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$arrAnimations['SmoothMaskFromRight'] = array('handle' => 'SmoothMaskFromRight','params' => '{"movex":"[-175%]","movey":"0px","movez":"0","rotationx":"0","rotationy":"0","rotationz":"0","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"1","mask":"true","mask_x":"[100%]","mask_y":"0","easing":"Power3.easeOut","speed":"1500","split":"none","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['SmoothMaskFromLeft'] = array('handle' => 'SmoothMaskFromLeft','params' => '{"movex":"[175%]","movey":"0px","movez":"0","rotationx":"0","rotationy":"0","rotationz":"0","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"1","mask":"true","mask_x":"[-100%]","mask_y":"0","easing":"Power3.easeOut","speed":"1500","split":"none","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['SmoothSlideFromBottom'] = array('handle' => 'SmoothSlideFromBottom','params' => '{"movex":"inherit","movey":"[100%]","movez":"0","rotationx":"0deg","rotationy":"0","rotationz":"0","scalex":"1","scaley":"1","skewx":"0","skewy":"0","captionopacity":"0","mask":"false","mask_x":"0px","mask_y":"[100%]","easing":"Power4.easeInOut","speed":"2000","split":"none","splitdelay":"5"}', 'settings' => array('version' => '5.0'));
-  
+
 		$arrAnimations['v4s'] = array('handle' => '-----------------------------------');
 		$arrAnimations['v4'] = array('handle' => __('- VERSION 4.0 ANIMATIONS -'));
-		$arrAnimations['v4e'] = array('handle' => '-----------------------------------');		
+		$arrAnimations['v4e'] = array('handle' => '-----------------------------------');
 		$arrAnimations['noanim'] = array('handle' => 'No-Animation','params' => '{"movex":"inherit","movey":"inherit","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"inherit","skewy":"inherit","captionopacity":"inherit","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"500"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['tp-fade'] = array('handle' => 'Fade-In','params' => '{"movex":"inherit","movey":"inherit","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"inherit","skewy":"inherit","captionopacity":"0","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"0"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['sft'] = array('handle' => 'Short-from-Top','params' => '{"movex":"inherit","movey":"-50px","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"inherit","skewy":"inherit","captionopacity":"0","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"500"}', 'settings' => array('version' => '5.0'));
@@ -334,27 +334,27 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$arrAnimations['skewfromleftshort'] = array('handle' => 'Skew-From-Short-Left','params' => '{"movex":"-200px","movey":"inherit","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"85px","skewy":"inherit","captionopacity":"0","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"500"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['skewfromrightshort'] = array('handle' => 'Skew-From-Short-Right','params' => '{"movex":"200px","movey":"inherit","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"-85px","skewy":"inherit","captionopacity":"0","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"500"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['randomrotate'] = array('handle' => 'Random-Rotate-and-Scale','params' => '{"movex":"{-250,250}","movey":"{-150,150}","movez":"inherit","rotationx":"{-90,90}","rotationy":"{-90,90}","rotationz":"{-360,360}","scalex":"{0,1}","scaley":"{0,1}","skewx":"inherit","skewy":"inherit","captionopacity":"0","mask":"false","mask_x":"0","mask_y":"0","mask_speed":"500"}', 'settings' => array('version' => '5.0'));
-		
-		
+
+
 		if($all){
 			$arrAnimations['vss'] = array('handle' => '--------------------------------------');
 			$arrAnimations['vs'] = array('handle' => __('- SAVED CUSTOM ANIMATIONS -'));
 			$arrAnimations['vse'] = array('handle' => '--------------------------------------');
-		
+
 			//$custom = RevSliderOperations::getCustomAnimations('customin');
 			$custom = RevSliderOperations::getCustomAnimationsFullPre('customin');
 
 			$arrAnimations = array_merge($arrAnimations, $custom);
 		}
-		
+
 		foreach($arrAnimations as $key => $value){
 			if(!isset($value['params'])) continue;
-			
+
 			$t = json_decode(str_replace("'", '"', $value['params']), true);
 			if(!empty($t))
 				$arrAnimations[$key]['params'] = $t;
 		}
-		
+
 		return($arrAnimations);
 	}
 
@@ -388,7 +388,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$arrAnimations['SlideMaskToTop'] = array('handle' => 'SlideMaskToTop','params' => '{"movex":"inherit","movey":"[-100%]","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"inherit","skewy":"inherit","captionopacity":"inherit","mask":"true","mask_x":"inherit","mask_y":"inherit","easing":"nothing","speed":"300","split":"none","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['SlurpOut'] = array('handle' => 'SlurpOut','params' => '{"movex":"inherit","movey":"[100%]","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"0deg","scalex":"0.7","scaley":"0.7","skewx":"inherit","skewy":"inherit","captionopacity":"inherit","mask":"true","mask_x":"0","mask_y":"0","easing":"Power3.easeInOut","speed":"1000","split":"none","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
 		$arrAnimations['SmoothCropToBottom'] = array('handle' => 'SmoothCropToBottom','params' => '{"movex":"inherit","movey":"[175%]","movez":"inherit","rotationx":"inherit","rotationy":"inherit","rotationz":"inherit","scalex":"inherit","scaley":"inherit","skewx":"inherit","skewy":"inherit","captionopacity":"inherit","mask":"true","mask_x":"inherit","mask_y":"inherit","easing":"Power2.easeInOut","speed":"1000","split":"none","splitdelay":"10"}', 'settings' => array('version' => '5.0'));
- 
+
 		$arrAnimations['v4s'] = array('handle' => '-----------------------------------');
 		$arrAnimations['v4'] = array('handle' => __('- VERSION 4.0 ANIMATIONS -'));
 		$arrAnimations['v4e'] = array('handle' => '-----------------------------------');
@@ -417,10 +417,10 @@ class RevSliderOperations extends RevSliderElementsBase{
 
 			$arrAnimations = array_merge($arrAnimations, $custom);
 		}
-		
+
 		foreach($arrAnimations as $key => $value){
 			if(!isset($value['params'])) continue;
-			
+
 			$t = json_decode(str_replace("'", '"', $value['params']), true);
 			if(!empty($t))
 				$arrAnimations[$key]['params'] = $t;
@@ -456,18 +456,18 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 * insert custom animations
 	 */
 	public static function updateCustomAnim($anim){
-		
+
 		if(isset($anim['handle'])) {
 			$db = new RevSliderDB();
 			$handle = $anim['handle'];
 			unset($anim['handle']);
-			
+
 			$id = str_replace(array('customin-', 'customout-'), array('', ''), $handle);
-			
+
 			$arrUpdate = array();
 			$arrUpdate['params'] = stripslashes(json_encode(str_replace("'", '"', $anim['params'])));
 			//$arrUpdate["settings"] = json_encode(array('version' => 'custom'));
-			
+
 			$result = $db->update(RevSliderGlobals::$table_layer_anims, $arrUpdate, array('id' => $id));
 		}
 
@@ -487,7 +487,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			$db = new RevSliderDB();
 			$id = $anim['id'];
 			unset($anim['id']);
-			
+
 			$result = $db->update(RevSliderGlobals::$table_layer_anims, $anim, array('id' => $id));
 		}
 
@@ -561,8 +561,8 @@ class RevSliderOperations extends RevSliderElementsBase{
 
         return $ret_array;
 	}
-	
-	
+
+
 	/**
 	 *
 	 * get custom animations
@@ -572,7 +572,7 @@ class RevSliderOperations extends RevSliderElementsBase{
         if(empty(self::$animations)){
             self::fillAnimations();
         }
-        
+
 		$customAnimations = array();
 		$customTemp = array();
 		$sort = array();
@@ -593,7 +593,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 
 		return $customAnimations;
 	}
-	
+
 
 	/**
 	 *
@@ -632,7 +632,7 @@ class RevSliderOperations extends RevSliderElementsBase{
                 return json_decode(str_replace("'", '"', $value['params']), true);
             }
         }
-        
+
 		return false;
 
 	}
@@ -655,7 +655,7 @@ class RevSliderOperations extends RevSliderElementsBase{
                 return $customAnimations;
             }
         }
-        
+
 		return false;
 	}
 
@@ -665,7 +665,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 */
 	public static function parseCustomAnimationByArray($animArray, $is = 'start', $frame_val){
 		$retString = '';
-		
+
 		$reverse = (isset($animArray['x_'.$is.'_reverse']) && $animArray['x_'.$is.'_reverse'] == true) ? '(R)' : ''; //movex reverse
 		if(isset($animArray['x_'.$is]) && $animArray['x_'.$is] !== '' && $animArray['x_'.$is] !== 'inherit') $retString.= 'x:'.$animArray['x_'.$is].$reverse.';'; //movex
 		$reverse = (isset($animArray['y_'.$is.'_reverse']) && $animArray['y_'.$is.'_reverse'] == true) ? '(R)' : ''; //movey reverse
@@ -709,11 +709,11 @@ class RevSliderOperations extends RevSliderElementsBase{
 		if($retString == ''){ //we do not have animations set, so set them here
 
 		}
-		
+
 		return $retString;
 	}
 
-	
+
 	/**
 	 * parse mask params
 	 * @since: 5.0
@@ -726,11 +726,11 @@ class RevSliderOperations extends RevSliderElementsBase{
 		if(isset($animArray['mask_y_'.$is]) && $animArray['mask_y_'.$is] !== '') $retString.= 'y:'.$animArray['mask_y_'.$is].$reverse.';';
 		if(isset($animArray['mask_speed_'.$is]) && $animArray['mask_speed_'.$is] !== '') $retString.= 's:'.$animArray['mask_speed_'.$is].';';
 		if(isset($animArray['mask_ease_'.$is]) && $animArray['mask_ease_'.$is] !== '') $retString.= 'e:'.$animArray['mask_ease_'.$is].';';
-		
+
 		return $retString;
 	}
 
-	
+
 	/**
 	 *
 	 * parse css file and get the classes from there.
@@ -740,11 +740,11 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$parser = new RevSliderCssParser();
 		$parser->initContent($contentCSS);
 		$arrCaptionClasses = $parser->getArrClasses('','',true);
-		
+
 		return($arrCaptionClasses);
 	}
 
-	
+
 	/**
 	 *
 	 * get all CSS classes from database with version numbers
@@ -754,7 +754,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$parser = new RevSliderCssParser();
 		$parser->initContent($contentCSS);
 		$arrCaptionClasses = $parser->getArrClasses('','',true);
-		
+
 		return($arrCaptionClasses);
 	}
 
@@ -802,11 +802,11 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 * @changed in 5.1.0
 	 */
 	public function cleanFontStyle($font){
-		
+
 		$font = str_replace(array('family=', '+'), array('', ' '), $font);
 		$font = explode(':', $font);
 		return (strpos($font['0'], ' ') !== false) ? '"'.$font['0'].'"' : $font['0'];
-		
+
 	}
 
 	/**
@@ -819,7 +819,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		return($htmlSelect);
 	}
 
-    
+
     /**
      * Fetch all Custom CSS only one time
      * @since: 5.2.4
@@ -827,27 +827,27 @@ class RevSliderOperations extends RevSliderElementsBase{
     public static function fillCSS(){
         if(empty(self::$css)){
             $db = new RevSliderDB();
-            
+
             $customCss = array();
             $result = $db->fetch(RevSliderGlobals::$table_css);
             if(!empty($result)){
                 $customCss = $result;
             }
-            
+
             self::$css = $customCss;
         }
     }
-    
+
 	/**
 	 *
 	 * get contents of the css table
 	 */
 	public function getCaptionsContent(){
-        
+
         if(empty(self::$css)){
             self::fillCSS();
         }
-        
+
         $result = self::$css;
 		$contentCSS = RevSliderCssParser::parseDbArrayToCss($result);
 		return($contentCSS);
@@ -862,7 +862,7 @@ class RevSliderOperations extends RevSliderElementsBase{
         if(empty(self::$css)){
             self::fillCSS();
         }
-        
+
         $result = self::$css;
 		$contentCSS = RevSliderCssParser::parseDbArrayToArray($result, $handle);
 		return($contentCSS);
@@ -921,36 +921,36 @@ class RevSliderOperations extends RevSliderElementsBase{
 	public function insertCaptionsContentData($content){
 
 		if(!isset($content['handle']) || !isset($content['idle']) || !isset($content['hover'])) return false; // || !isset($content['advanced'])
-		
+
 		$db = new RevSliderDB();
 
 		$handle = $content['handle'];
-		
+
 		if(!isset($content['hover'])) $content['hover'] = '';
 		if(!isset($content['advanced'])) $content['advanced'] = array();
 		if(!isset($content['advanced']['idle'])) $content['advanced']['idle'] = array();
 		if(!isset($content['advanced']['hover'])) $content['advanced']['hover'] = array();
-		
+
 		$arrInsert = array();
 		$arrInsert["handle"] = '.tp-caption.'.$handle;
 		$arrInsert["params"] = stripslashes(json_encode(str_replace("'", '"', $content['idle'])));
 		$arrInsert["hover"] = stripslashes(json_encode(str_replace("'", '"', $content['hover'])));
-		
+
 		if(!isset($content['settings'])) $content['settings'] = array();
 		$content['settings']['version'] = 'custom';
 		$content['settings']['translated'] = '5'; // translated to version 5 currently
 		$arrInsert["settings"] = stripslashes(json_encode(str_replace("'", '"', $content['settings'])));
-		
+
 		$arrInsert["advanced"] = array();
 		$arrInsert["advanced"]['idle'] = $content['advanced']['idle'];
 		$arrInsert["advanced"]['hover'] = $content['advanced']['hover'];
 		$arrInsert["advanced"] = stripslashes(json_encode(str_replace("'", '"', $arrInsert["advanced"])));
-		
+
 		$result = $db->insert(RevSliderGlobals::$table_css, $arrInsert);
 
 		//output captions array
 		$arrCaptions = RevSliderCssParser::get_captions_sorted();
-		
+
 		return($arrCaptions);
 	}
 
@@ -959,17 +959,17 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 * @return new captions html select
 	 */
 	public function updateCaptionsContentData($content){
-		
+
 		if(!isset($content['handle']) || !isset($content['idle']) || !isset($content['hover'])) return false; // || !isset($content['advanced'])
-		
+
 		$db = new RevSliderDB();
 
 		//first get single entry to merge settings
 
         $styles = $db->fetchSingle(RevSliderGlobals::$table_css, $db->prepare('`handle` = %s', array('.tp-caption.'.$content['handle'])));
-	
+
 		if(empty($styles)) return false;
-		
+
 		$settings = json_decode(str_replace("'", '"', $styles['settings']), true);
 		if(isset($content['settings']) && !empty($content['settings'])){
 			foreach($content['settings'] as $key => $value){
@@ -977,34 +977,34 @@ class RevSliderOperations extends RevSliderElementsBase{
 			}
 			//$settings = array_merge($content['settings'], $settings);
 		}
-		
+
 		$handle = $content['handle'];
-		
+
 		if(!isset($content['idle'])) $content['idle'] = '';
 		if(!isset($content['hover'])) $content['hover'] = '';
 		if(!isset($content['advanced'])) $content['advanced'] = array();
 		if(!isset($content['advanced']['idle'])) $content['advanced']['idle'] = array();
 		if(!isset($content['advanced']['hover'])) $content['advanced']['hover'] = array();
-		
+
 		$arrUpdate = array();
 		$arrUpdate["params"] = stripslashes(json_encode(str_replace("'", '"', $content['idle'])));
 		$arrUpdate["hover"] = stripslashes(json_encode(str_replace("'", '"', $content['hover'])));
 		$arrUpdate["settings"] = stripslashes(json_encode(str_replace("'", '"', $settings)));
-		
+
 		$arrUpdate["advanced"] = array();
 		$arrUpdate["advanced"]['idle'] = $content['advanced']['idle'];
 		$arrUpdate["advanced"]['hover'] = $content['advanced']['hover'];
 		$arrUpdate["advanced"] = stripslashes(json_encode(str_replace("'", '"', $arrUpdate["advanced"])));
-		
+
 		$result = $db->update(RevSliderGlobals::$table_css, $arrUpdate, array('handle' => '.tp-caption.'.$handle));
-		
+
 		//output captions array
 		$arrCaptions = RevSliderCssParser::get_captions_sorted();
-		
+
 		return($arrCaptions);
 	}
-	
-	
+
+
 	/**
 	 * update captions advanced css
 	 * @return: new captions html select
@@ -1013,40 +1013,40 @@ class RevSliderOperations extends RevSliderElementsBase{
 	public function updateAdvancedCssData($data){
 		if(!isset($data['handle']) || !isset($data['styles']) || !isset($data['type'])) return false;
 		if($data['type'] !== 'idle' && $data['type'] !== 'hover') return false;
-		
+
 		$db = new RevSliderDB();
-		
+
 		//get current styles
         $styles = $db->fetchSingle(RevSliderGlobals::$table_css, $db->prepare('`handle` = %s', array($data['handle'])));
-		
+
 		if(!empty($styles)){
 			if(!isset($styles['advanced'])) $styles['advanced'] = '';
-			
+
 			$adv = json_decode(str_replace("'", '"', $styles['advanced']), true);
-			
+
 			if(!isset($adv['idle'])) $adv['idle'] = array();
 			if(!isset($adv['hover'])) $adv['hover'] = array();
-			
+
 			$adv[$data['type']] = $data['styles'];
 
-			
+
 			$arrUpdate = array();
-			
+
 			$arrUpdate['advanced'] = json_encode(str_replace("'", '"', $adv));
-			
+
 			$result = $db->update(RevSliderGlobals::$table_css, $arrUpdate, array('handle' => $data['handle']));
-			
+
 			//output captions array
 			$arrCaptions = RevSliderCssParser::get_captions_sorted();
-			
+
 			return($arrCaptions);
-			
+
 		}else{
 			return false;
 		}
-		
+
 	}
-	
+
 	/**
 	 * rename caption
 	 * @since: 5.0
@@ -1078,8 +1078,8 @@ class RevSliderOperations extends RevSliderElementsBase{
 		$arrCaptions = RevSliderCssParser::get_captions_sorted();
 		return($arrCaptions);
 	}
-	
-	
+
+
 	/**
 	 *
 	 * delete captions css file content
@@ -1094,7 +1094,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 
 		//output captions array
 		$arrCaptions = RevSliderCssParser::get_captions_sorted();
-		
+
 		return($arrCaptions);
 	}
 
@@ -1168,7 +1168,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 			$contentCSS = file_get_contents(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'backup/'.'captions-original.css');
 		else
 			$contentCSS = '';
-		
+
 		$result = RevSliderCssParser::parseCssToArray($contentCSS);
 
 		return($result);
@@ -1348,7 +1348,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 	 */
 	public function previewOutputMarkup($sliderID){
 		$export_real = true; //if false, then kriki export for JavaScript Standalone version
-		
+
 		if($export_real){ //set all different file path's here
 			$path_fonts = 'fonts/';
 			$path_css = 'css/';
@@ -1366,18 +1366,18 @@ class RevSliderOperations extends RevSliderElementsBase{
 			$path_assets_vid = '../../assets/videos';
 			$path_assets_raw_vid = 'assets/videos';
 		}
-		
+
 		//check if file exists, and if yes, delete it!
-		
+
 		if(file_exists(RevSliderGlobals::$uploadsUrlExportZip)){
 			@unlink(RevSliderGlobals::$uploadsUrlExportZip); //delete file to start with a fresh one
 		}
-		
+
 		$usepcl = false;
 		if (class_exists('ZipArchive', false)) {
 			$zip = new ZipArchive;
 			$success = $zip->open(RevSliderGlobals::$uploadsUrlExportZip, ZIPARCHIVE::CREATE | ZipArchive::OVERWRITE);
-			
+
 			if($success !== true){
 				echo __("No write permissions. Can't create zip file: ").RevSliderGlobals::$uploadsUrlExportZip;
 				exit;
@@ -1385,14 +1385,14 @@ class RevSliderOperations extends RevSliderElementsBase{
 		}else{
 			//fallback to pclzip
             require_once Mage::getBaseDir('lib') . '/Nwdthemes/Revslider/framework/pclzip.lib.php';
-			
+
 			$pclzip = new PclZip(RevSliderGlobals::$uploadsUrlExportZip);
-			
+
 			//either the function uses die() or all is cool
 			$usepcl = true;
 		}
-		
-		
+
+
 		if($sliderID == "empty_output"){
 			echo __("Wrong request!");
 			exit;
@@ -1402,11 +1402,11 @@ class RevSliderOperations extends RevSliderElementsBase{
 
 		$slider = new RevSlider();
 		$slider->initByID($sliderID);
-		
+
 		$output->setPreviewMode();
 
 		$static_css = RevSliderOperations::getStaticCss();
-		
+
 		ob_start();
 		$output->putSliderBase($sliderID, array(), true);
         $content = ob_get_contents();
@@ -1417,10 +1417,10 @@ class RevSliderOperations extends RevSliderElementsBase{
 		while(strpos($content, '<!-- FONT -->') !== false){
 			$temp_font = substr($content, strpos($content, '<!-- FONT -->'), strpos($content, '<!-- /FONT -->') + 14 - strpos($content, '<!-- FONT -->'))."\n";
 			$fonts .= $temp_font;
-			
+
 			$starthtml = substr($content, 0, strpos($content, '<!-- FONT -->'));
 			$endhtml = substr($content, strpos($content, '<!-- /FONT -->')+14);
-			
+
 			$content = $starthtml.$endhtml; //remove from html markup
 		}
 		$fonts = str_replace(array('<!-- FONT -->', '<!-- /FONT -->'), '', $fonts); //remove the tags
@@ -1430,28 +1430,28 @@ class RevSliderOperations extends RevSliderElementsBase{
 		while(strpos($content, '<!-- SCRIPT -->') !== false){
 			$temp_script = substr($content, strpos($content, '<!-- SCRIPT -->'), strpos($content, '<!-- /SCRIPT -->') + 16 - strpos($content, '<!-- SCRIPT -->'))."\n";
 			$scripts .= $temp_script;
-			
+
 			$starthtml = substr($content, 0, strpos($content, '<!-- SCRIPT -->'));
 			$endhtml = substr($content, strpos($content, '<!-- /SCRIPT -->')+16);
-			
+
 			$content = $starthtml.$endhtml; //remove from html markup
 		}
 		$scripts = str_replace(array('<!-- SCRIPT -->', '<!-- /SCRIPT -->'), '', $scripts); //remove the tags
-		
+
 		$styles = '';
 		while(strpos($content, '<!-- STYLE -->') !== false){
 			$temp_style = substr($content, strpos($content, '<!-- STYLE -->'), strpos($content, '<!-- /STYLE -->') + 15 - strpos($content, '<!-- STYLE -->'))."\n";
 			$styles .= $temp_style;
-			
+
 			$starthtml = substr($content, 0, strpos($content, '<!-- STYLE -->'));
 			$endhtml = substr($content, strpos($content, '<!-- /STYLE -->')+15);
-			
+
 			$content = $starthtml.$endhtml; //remove from html markup
 		}
 		$styles = str_replace(array('<!-- STYLE -->', '<!-- /STYLE -->'), '', $styles); //remove the tags
-		
+
 		$full_content = '';
-		
+
 		ob_start();
 		?><!DOCTYPE html>
 	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -1471,20 +1471,20 @@ class RevSliderOperations extends RevSliderElementsBase{
 		<!-- LOAD JQUERY LIBRARY -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
 		<script type="text/javascript">var $nwd_jQuery = jQuery.noConflict(true);</script>
-		
+
 		<!-- LOADING FONTS AND ICONS -->
 		<?php echo $fonts; ?>
-		
+
 		<link rel="stylesheet" type="text/css" href="<?php echo $path_fonts; ?>pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo $path_fonts; ?>font-awesome/css/font-awesome.css">
-		
+
 		<!-- REVOLUTION STYLE SHEETS -->
 		<link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>settings.css">
 		<!-- REVOLUTION LAYERS STYLES -->
-		<?php 
-		if($export_real){ 
+		<?php
+		if($export_real){
 			echo $styles;
-			
+
 			if($static_css !== ''){
 				echo '<style type="text/css">';
 				echo RevSliderCssParser::compress_css($static_css);
@@ -1493,7 +1493,7 @@ class RevSliderOperations extends RevSliderElementsBase{
 		}else{
 			?>
 			<link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>layers.css">
-			
+
 			<!-- REVOLUTION NAVIGATION STYLES -->
 			<link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>navigation.css">
 
@@ -1503,42 +1503,18 @@ class RevSliderOperations extends RevSliderElementsBase{
 			<?php
 		}
 
-        $polyfoldEnabled = $slider->getParam('polyfold_top_enabled', 'false') == 'true' || $slider->getParam('polyfold_bottom_enabled', 'false') == 'true';
+        Mage::helper('nwdrevslider/framework')->do_action('wp_enqueue_scripts');
         ?>
 
         <!-- ADD-ONS CSS FILES -->
-        <?php if ($slider->getParam('beforeafter_enabled', 'false') == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.beforeafter.css"><?php endif; ?>
-        <?php if ($slider->getParam('duotonefilters_enabled', false) == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.duotonefilters.css"><?php endif; ?>
-        <?php if ($slider->getParam('filmstrip_enabled', 'false') == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.filmstrip.css"><?php endif; ?>
-        <?php if ($slider->getParam('panorama_enabled', 'false') == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.panorama.css"><?php endif; ?>
-        <?php if ($slider->getParam('particles_enabled', 'false') == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.particles.css"><?php endif; ?>
-        <?php if ($polyfoldEnabled) : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.polyfold.css"><?php endif; ?>
-        <?php if ($slider->getParam('typewriter_defaults_enabled', 'false') == 'true') : ?><link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>typewriter.css"><?php endif; ?>
-        <?php if ($slider->getParam('revealer_enabled', false) == 'true') : ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.revealer.css">
-            <link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revolution.addon.revealer.preloaders.css">
-        <?php endif; ?>
-        <?php if ($slider->getParam('revslider-weather-enabled', 'false') == 'true') : ?>
-            <link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revslider-weather-addon-icon.css">
-            <link rel="stylesheet" type="text/css" href="<?php echo $path_css; ?>revslider-weather-addon-public.css">
-        <?php endif; ?>
+        <?php foreach (Mage::helper('nwdrevslider/framework')->getFromRegister('styles') as $_handle => $_style) : ?>
+            <link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $_style; ?>" />
+        <?php endforeach; ?>
 
         <!-- ADD-ONS JS FILES -->
-        <?php if ($slider->getParam('beforeafter_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.beforeafter.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('duotonefilters_enabled', false) == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.duotonefilters.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('filmstrip_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.filmstrip.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('panorama_enabled', 'false') == 'true') : ?>
-            <script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.panorama.min.js"></script>
-            <script type="text/javascript" src="<?php echo $path_js; ?>three.min.js"></script>
-        <?php endif; ?>
-        <?php if ($slider->getParam('particles_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.particles.min.js"></script><?php endif; ?>
-        <?php if ($polyfoldEnabled) : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.polyfold.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('slicey_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.slicey.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('snow_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.snow.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('typewriter_defaults_enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.typewriter.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('revealer_enabled', false) == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.revealer.min.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('revslider-weather-enabled', 'false') == 'true') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revslider-weather-addon-public.js"></script><?php endif; ?>
-        <?php if ($slider->getParam('wb_enable', 'off') == 'on') : ?><script type="text/javascript" src="<?php echo $path_js; ?>revolution.addon.whiteboard.min.js"></script><?php endif; ?>
+        <?php foreach (Mage::helper('nwdrevslider/framework')->getFromRegister('scripts') as $_handle => $_script) : ?>
+            <script type="text/javascript" src="<?php echo $_script; ?>"></script>
+        <?php endforeach; ?>
 
 		<!-- REVOLUTION JS FILES -->
 		<script type="text/javascript" src="<?php echo $path_js; ?>jquery.themepunch.tools.min.js"></script>
@@ -1570,7 +1546,7 @@ class RevSliderOperations extends RevSliderElementsBase{
         echo $setRevStartSize;
         ?>
 	</head>
-	
+
 	<body>
 		<?php if(!$export_real){ ?>
 		<!-- HEADER -->
@@ -1610,18 +1586,18 @@ class RevSliderOperations extends RevSliderElementsBase{
 			</article>
 		</section>
 			<div class="bottom-history-wrap" style="margin-top:150px">
-		<?php		
+		<?php
 		if($slider_type == 'fullscreen'){
 		?>
 
-		  <article class="small-history bottom-history" style="background:#f5f7f9;"> 
+		  <article class="small-history bottom-history" style="background:#f5f7f9;">
             <h2 class="textaligncenter" style="margin-bottom:25px;">Your Slider Revolution jQuery Plugin</h2>
             <p>Slider Revolution is an innovative, responsive Slider Plugin that displays your content the beautiful way. Whether it's a <strong>Slider, Carousel, Hero Scene</strong> or even a whole <strong>Front Page</strong>.<br>The <a href="https://codecanyon.net/item/slider-revolution-jquery-visual-editor-addon/13934907" target="_blank">visual drag &amp; drop editor</a> will help you to create your Sliders and tell your own stories in no time!</p>
           </article>
 		<?php
 		}
 		?>
-		
+
 				<article class="small-history bottom-history">
 					<i class="fa-icon-question tp-headicon"></i>
 					<h2 class="textaligncenter" style="margin-bottom:25px;">Find the Documentation ?</h2>
@@ -1695,42 +1671,51 @@ ob_clean();
 ob_end_clean();
 
 		$slider_html = $head."\n".$content."\n".$scripts."\n".$footer;
-		
+
 		$upload_dir = RevSliderFunctionsWP::getPathUploads();
-		$upload_dir_multisiteless = Mage::helper('nwdrevslider/framework')->wp_upload_dir();
+        $upload_dir_multisiteless = Mage::helper('nwdrevslider/framework')->wp_upload_dir();
 		$cont_url = $upload_dir_multisiteless['baseurl'];
 		$cont_url_no_www = str_replace('www.', '', $upload_dir_multisiteless['baseurl']);
 		$upload_dir_multisiteless = $upload_dir_multisiteless['basedir'].'/';
 
-		$search = array($cont_url, $cont_url_no_www, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL, 'nwdthemes/revslider/');
-
-        if(defined('WHITEBOARD_PLUGIN_URL')){
-            $search[] = WHITEBOARD_PLUGIN_URL;
-        }
-        if(defined('RS_FILMSTRIP_PLUGIN_URL')){
-            $search[] = RS_FILMSTRIP_PLUGIN_URL;
-        }
+		$search = array(
+            $cont_url,
+            $cont_url_no_www,
+            Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL,
+            'nwdthemes/revslider/',
+            trim(json_encode($cont_url), '"'),
+            trim(json_encode($cont_url_no_www), '"')
+        );
 
         $search = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_html_export_replace_urls', $search);
 
 		$added = array();
 
-    foreach($search as $s){
-			preg_match_all("/(\"|')".str_replace('/', '\/', $s)."\S+(\"|')/", $slider_html, $_files);
-			if(!empty($_files) && isset($_files[0]) && !empty($_files[0])){
+        foreach($search as $s){
+
+            $_keyword = strpos($s, '\/') === false ? str_replace('/', '\/', $s) : str_replace('\/', '\\\\\/', $s);
+            $_pattern = "/(\"|'|\()".$_keyword."\S+(\"|'|\))/U";
+			preg_match_all($_pattern, $slider_html, $_files);
+
+            if(!empty($_files) && isset($_files[0]) && !empty($_files[0])){
 				//go through all files, check for existance and add to the zip file
 				foreach($_files[0] as $_file){
 
 					$o = $_file;
-					$_file = str_replace(array('"', "'", $s), '', $_file);
-					
+                    $_file = str_replace(array('"', "'", '(', ')'), '', $_file);
+                    $_file = str_replace($s, '', $_file);
+                    $_file = str_replace('\/', '/', $_file);
+
 					//check if video or image
 					$use_path = $path_assets;
 					$use_path_raw = $path_assets_raw;
-					
-                    preg_match('/.*?.(?:jpg|jpeg|gif|png|svg)/i', $_file, $match);
-                    preg_match('/.*?.(?:ogv|webm|mp4|mp3)/i', $_file, $match2);
-                    
+
+                    preg_match('/.*?\.(?:jpg|jpeg|gif|png|svg)/i', $_file, $match);
+                    preg_match('/.*?\.(?:ogv|webm|mp4|mp3)/i', $_file, $match2);
+                    preg_match('/.*?\.(?:woff2|woff|ttf)/i', $_file, $fontMatch);
+                    preg_match('/.*?\.(?:css)/i', $_file, $cssMatch);
+                    preg_match('/.*?\.(?:js)/i', $_file, $jsMatch);
+
 					$f = false;
 					if(!empty($match) && isset($match[0]) && !empty($match[0])){
 						//image
@@ -1744,6 +1729,21 @@ ob_end_clean();
 						$use_path_raw = $path_assets_raw_vid;
 						$f = true;
 					}
+                    if(!empty($fontMatch) && isset($fontMatch[0]) && !empty($fontMatch[0])){
+                        $use_path = rtrim($path_fonts, '/');
+                        $use_path_raw = rtrim($path_fonts, '/');
+                        $f = true;
+                    }
+                    if(!empty($cssMatch) && isset($cssMatch[0]) && !empty($cssMatch[0])){
+                        $use_path = rtrim($path_css, '/');
+                        $use_path_raw = rtrim($path_css, '/');
+                        $f = true;
+                    }
+                    if(!empty($jsMatch) && isset($jsMatch[0]) && !empty($jsMatch[0])){
+                        $use_path = rtrim($path_js, '/');
+                        $use_path_raw = rtrim($path_js, '/');
+                        $f = true;
+                    }
 
 					if($f == false){
 						//no file, just a location. So change the location accordingly by removing base and add ../../revolution
@@ -1752,16 +1752,16 @@ ob_end_clean();
 						}
 						continue; //no correct file, nothing to add
 					}
-					
-					if(isset($added[$_file])) continue;
-					
+
+                    if(isset($added[$_file])) continue;
+
 					$add = '';
 					$__file = '';
 					$repl_to = explode('/', $_file);
 					$repl_to = end($repl_to);
-					
+
 					$remove = false;
-					
+
 					if(is_file($upload_dir.$_file)){
 						$mf = str_replace('//', '/', $upload_dir.$_file);
 						if(!$usepcl){
@@ -1780,14 +1780,14 @@ ob_end_clean();
 						$remove = true;
 					}elseif(is_file(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.$_file)){
 						$mf = str_replace('//', '/', Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.$_file);
-                        
+
                         //we need to be special with svg files
                         $__file = basename($_file);
-                        
+
 						//remove admin/assets/
                         //$__file = str_replace('admin/assets/images/', '', $_file);
-                        
-                        
+
+
 						if(!$usepcl){
 							$zip->addFile($mf, $use_path_raw.'/'.$__file);
 						}else{
@@ -1795,40 +1795,29 @@ ob_end_clean();
 						}
 						$remove = true;
 						$add = '/';
-                    }else{
-                        if(defined('WHITEBOARD_PLUGIN_PATH')){
-                            if(is_file(WHITEBOARD_PLUGIN_PATH.$_file)){
-                                $mf = str_replace('//', '/', WHITEBOARD_PLUGIN_PATH.$_file);
-
-                                //we need to be special with svg files
-                                $__file = basename($_file);
-
-                                if(!$usepcl){
-                                    $zip->addFile($mf, $use_path_raw.'/'.$__file);
-                                }else{
-                                    $v_list = $pclzip->add($mf, PCLZIP_OPT_REMOVE_PATH, str_replace(basename($mf), '', $mf), PCLZIP_OPT_ADD_PATH, $use_path_raw.'/');
-                                }
-                                $remove = true;
-                                $add = '/';
-
-                            }
-                        }
-					}
+                    }
 
 					if($remove == true){
 						$added[$_file] = true; //set as added
 						//replace file with new path
 						if($add !== '') $_file = $__file; //set the different path here
-						$re = (strpos($o, "'") !== false) ? "'" : '"';
-                        $slider_html = str_replace($o, $re.$use_path.'/'.$repl_to.$re, $slider_html);
+                        if (strpos($o, '(') === false) {
+                            $reOpen = strpos($o, "'") !== false ? "'" : '"';
+                            $reClose = $reOpen;
+                        } else {
+                            $reOpen = '(';
+                            $reClose = ')';
+                        }
+
+                        $slider_html = str_replace($o, $reOpen.$use_path.'/'.$repl_to.$reClose, $slider_html);
                         $slider_html = str_replace(
                             str_replace(array('{"s":"\"', '\""}'), '', json_encode(array('s' => $o))),
-                            str_replace(array('{"s":"\"', '\""}'), '', json_encode(array('s' => $re.$use_path.'/'.$repl_to.$re))),
+                            str_replace(array('{"s":"\"', '\""}'), '', json_encode(array('s' => $reOpen.$use_path.'/'.$repl_to.$reClose))),
                             $slider_html
                         );
 					}
 				}
-				
+
 			}
 		}
 
@@ -1862,68 +1851,13 @@ ob_end_clean();
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/js/extensions/revolution.extension.slideanims.min.js', 'js/extensions/revolution.extension.slideanims.min.js');
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/js/extensions/revolution.extension.video.min.js', 'js/extensions/revolution.extension.video.min.js');
 
-                if ($slider->getParam('beforeafter_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_BEFOREAFTER_PLUGIN_PATH . 'public/assets/js/revolution.addon.beforeafter.min.js', 'js/revolution.addon.beforeafter.min.js');
-                    $zip->addFile(RS_BEFOREAFTER_PLUGIN_PATH . 'public/assets/css/revolution.addon.beforeafter.css', 'css/revolution.addon.beforeafter.css');
-                }
-
-                if ($slider->getParam('duotonefilters_enabled', false) == 'true') {
-                    $zip->addFile(RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/js/revolution.addon.duotonefilters.js', 'js/revolution.addon.duotonefilters.js');
-                    $zip->addFile(RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/css/revolution.addon.duotonefilters.css', 'css/revolution.addon.duotonefilters.css');
-                }
-
-                if ($slider->getParam('filmstrip_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/js/revolution.addon.filmstrip.min.js', 'js/revolution.addon.filmstrip.min.js');
-                    $zip->addFile(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/css/revolution.addon.filmstrip.css', 'css/revolution.addon.filmstrip.css');
-                }
-
-                if ($slider->getParam('panorama_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/revolution.addon.panorama.min.js', 'js/revolution.addon.panorama.min.js');
-                    $zip->addFile(RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/three.min.js', 'js/three.min.js');
-                    $zip->addFile(RS_PANORAMA_PLUGIN_PATH . 'public/assets/css/revolution.addon.panorama.css', 'css/revolution.addon.panorama.css');
-                }
-
-                if ($slider->getParam('particles_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_PARTICLES_PLUGIN_PATH . 'public/assets/js/revolution.addon.particles.min.js', 'js/revolution.addon.particles.min.js');
-                    $zip->addFile(RS_PARTICLES_PLUGIN_PATH . 'public/assets/css/revolution.addon.particles.css', 'css/revolution.addon.particles.css');
-                }
-
-                if ($slider->getParam('polyfold_top_enabled', 'false') == 'true' || $slider->getParam('polyfold_bottom_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_POLYFOLD_PLUGIN_PATH . 'public/assets/js/revolution.addon.polyfold.min.js', 'js/revolution.addon.polyfold.min.js');
-                    $zip->addFile(RS_POLYFOLD_PLUGIN_PATH . 'public/assets/css/revolution.addon.polyfold.css', 'css/revolution.addon.polyfold.css');
-                }
-
-                if ($slider->getParam('slicey_enabled', 'false') == 'true')
-                    $zip->addFile(RS_SLICEY_PLUGIN_PATH.'public/assets/js/revolution.addon.slicey.min.js', 'js/revolution.addon.slicey.min.js');
-
-                if ($slider->getParam('snow_enabled', 'false') == 'true')
-                    $zip->addFile(RS_SNOW_PLUGIN_PATH.'public/assets/js/revolution.addon.snow.min.js', 'js/revolution.addon.snow.min.js');
-
-                if ($slider->getParam('typewriter_defaults_enabled', 'false') == 'true') {
-                    $zip->addFile(RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/js/revolution.addon.typewriter.min.js', 'js/revolution.addon.typewriter.min.js');
-                    $zip->addFile(RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/css/typewriter.css', 'css/typewriter.css');
-                }
-
-                if ($slider->getParam('revealer_enabled', false) == 'true') {
-                    $zip->addFile(RS_REVEALER_PLUGIN_PATH . 'public/assets/js/revolution.addon.revealer.min.js', 'js/revolution.addon.revealer.min.js');
-                    $zip->addFile(RS_REVEALER_PLUGIN_PATH . 'public/assets/css/revolution.addon.revealer.css', 'css/revolution.addon.revealer.css');
-                    $zip->addFile(RS_REVEALER_PLUGIN_PATH . 'public/assets/css/revolution.addon.revealer.preloaders.css', 'css/revolution.addon.revealer.preloaders.css');
-                }
-
-                if ($slider->getParam('revslider-weather-enabled', 'false') == 'true') {
-                    $zip->addFile(RS_WEATHER_PLUGIN_PATH . 'public/js/revslider-weather-addon-public.js', 'js/revslider-weather-addon-public.js');
-                    $zip->addFile(RS_WEATHER_PLUGIN_PATH . 'public/css/revslider-weather-addon-icon.css', 'css/revslider-weather-addon-icon.css');
-                    $zip->addFile(RS_WEATHER_PLUGIN_PATH . 'public/css/revslider-weather-addon-public.css', 'css/revslider-weather-addon-public.css');
-                }
-
-                if ($slider->getParam('wb_enable', 'off') == 'on')
-                    $zip->addFile(WHITEBOARD_PLUGIN_PATH.'public/assets/js/revolution.addon.whiteboard.min.js', 'js/revolution.addon.whiteboard.min.js');
-
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/js/jquery.themepunch.enablelog.js', 'js/jquery.themepunch.enablelog.js');
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/js/jquery.themepunch.revolution.min.js', 'js/jquery.themepunch.revolution.min.js');
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/js/jquery.themepunch.tools.min.js', 'js/jquery.themepunch.tools.min.js');
-				
+
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/css/settings.css', 'css/settings.css');
+                $zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/css/closedhand.cur', 'css/closedhand.cur');
+                $zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/css/openhand.cur', 'css/openhand.cur');
 
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css', 'fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css');
 				$zip->addFile(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/fonts/pe-icon-7-stroke/css/helper.css', 'fonts/pe-icon-7-stroke/css/helper.css');
@@ -1958,69 +1892,14 @@ ob_end_clean();
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/extensions/revolution.extension.slideanims.min.js', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/extensions/revolution.extension.video.min.js', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
 
-                if ($slider->getParam('beforeafter_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/js/revolution.addon.beforeafter.min.js', PCLZIP_OPT_REMOVE_PATH, RS_BEFOREAFTER_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/css/revolution.addon.beforeafter.css', PCLZIP_OPT_REMOVE_PATH, RS_BEFOREAFTER_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('duotonefilters_enabled', false) == 'true') {
-                    $pclzip->add(RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/js/revolution.addon.duotonefilters.js', PCLZIP_OPT_REMOVE_PATH, RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/css/revolution.addon.duotonefilters.css', PCLZIP_OPT_REMOVE_PATH, RS_DUOTONEFILTERS_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('filmstrip_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/js/revolution.addon.filmstrip.min.js', PCLZIP_OPT_REMOVE_PATH, RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/css/revolution.addon.filmstrip.css', PCLZIP_OPT_REMOVE_PATH, RS_FILMSTRIP_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('panorama_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/revolution.addon.panorama.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/three.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PANORAMA_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_PANORAMA_PLUGIN_PATH . 'public/assets/css/revolution.addon.panorama.css', PCLZIP_OPT_REMOVE_PATH, RS_PANORAMA_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('particles_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_PARTICLES_PLUGIN_PATH . 'public/assets/js/revolution.addon.particles.min.js', PCLZIP_OPT_REMOVE_PATH, RS_PARTICLES_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_PARTICLES_PLUGIN_PATH . 'public/assets/css/revolution.addon.particles.css', PCLZIP_OPT_REMOVE_PATH, RS_PARTICLES_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('polyfold_top_enabled', 'false') == 'true' || $slider->getParam('polyfold_bottom_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_POLYFOLD_PLUGIN_PATH . 'public/assets/js/revolution.addon.polyfold.min.js', PCLZIP_OPT_REMOVE_PATH, RS_POLYFOLD_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_POLYFOLD_PLUGIN_PATH . 'public/assets/css/revolution.addon.polyfold.css', PCLZIP_OPT_REMOVE_PATH, RS_POLYFOLD_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('slicey_enabled', 'false') == 'true')
-                    $pclzip->add(RS_SLICEY_PLUGIN_PATH.'public/assets/js/revolution.addon.slicey.min.js', PCLZIP_OPT_REMOVE_PATH, RS_SLICEY_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-
-                if ($slider->getParam('snow_enabled', 'false') == 'true')
-                    $pclzip->add(RS_SNOW_PLUGIN_PATH.'public/assets/js/revolution.addon.snow.min.js', PCLZIP_OPT_REMOVE_PATH, RS_SNOW_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-
-                if ($slider->getParam('typewriter_defaults_enabled', 'false') == 'true') {
-                    $pclzip->add(RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/js/revolution.addon.typewriter.min.js', PCLZIP_OPT_REMOVE_PATH, RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/css/typewriter.css', PCLZIP_OPT_REMOVE_PATH, RS_TYPEWRITER_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('revealer_enabled', false) == 'true') {
-                    $pclzip->add(RS_REVEALER_PLUGIN_PATH . 'public/assets/js/revolution.addon.revealer.min.js', PCLZIP_OPT_REMOVE_PATH, RS_REVEALER_PLUGIN_PATH . 'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_REVEALER_PLUGIN_PATH . 'public/assets/css/revolution.addon.revealer.css', PCLZIP_OPT_REMOVE_PATH, RS_REVEALER_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                    $pclzip->add(RS_REVEALER_PLUGIN_PATH . 'public/assets/css/revolution.addon.revealer.preloaders.css', PCLZIP_OPT_REMOVE_PATH, RS_REVEALER_PLUGIN_PATH . 'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('revslider-weather-enabled', 'false') == 'true') {
-                    $pclzip->add(RS_WEATHER_PLUGIN_PATH . 'public/js/revslider-weather-addon-public.js', PCLZIP_OPT_REMOVE_PATH, RS_WEATHER_PLUGIN_PATH . 'public/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-                    $pclzip->add(RS_WEATHER_PLUGIN_PATH . 'public/css/revslider-weather-addon-icon.css', PCLZIP_OPT_REMOVE_PATH, RS_WEATHER_PLUGIN_PATH . 'public/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                    $pclzip->add(RS_WEATHER_PLUGIN_PATH . 'public/css/revslider-weather-addon-public.css', PCLZIP_OPT_REMOVE_PATH, RS_WEATHER_PLUGIN_PATH . 'public/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-                }
-
-                if ($slider->getParam('wb_enable', 'off') == 'on')
-                    $pclzip->add(WHITEBOARD_PLUGIN_PATH.'public/assets/js/revolution.addon.whiteboard.min.js', PCLZIP_OPT_REMOVE_PATH, WHITEBOARD_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/jquery.themepunch.enablelog.js', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/jquery.themepunch.revolution.min.js', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/jquery.themepunch.tools.min.js', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/js/', PCLZIP_OPT_ADD_PATH, 'js/');
-				
+
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/settings.css', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
-				
+                $pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/closedhand.cur', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
+                $pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/openhand.cur', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/css/', PCLZIP_OPT_ADD_PATH, 'css/');
+
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/fonts/pe-icon-7-stroke/css/helper.css', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
 				$pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
@@ -2045,32 +1924,32 @@ ob_end_clean();
                 $pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/assets/coloredbg.png', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
                 $pclzip->add(Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'/public/assets/assets/loader.gif', PCLZIP_OPT_REMOVE_PATH, Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH.'public/assets/');
 			}
-			
+
 			$notice_text = "";
 			$notice_text .= __('Using this data is only allowed with a valid licence of the jQuery Slider Revolution Plugin, which can be found at CodeCanyon: http://codecanyon.net/item/slider-revolution-responsive-jquery-plugin/2580848?ref=themepunch');
-			
+
 			if(!$usepcl){
 				$zip->addFromString("NOTICE.txt", $notice_text); //add slider settings
 			}else{
 				$pclzip->add(array(array( PCLZIP_ATT_FILE_NAME => 'NOTICE.txt',PCLZIP_ATT_FILE_CONTENT => $notice_text)));
 			}
-			
+
 		}
-		
+
 		if(!$usepcl){
 			$zip->addFromString("slider.html", $slider_html); //add slider settings
-			
+
 			$zip->close();
 		}else{
 			$pclzip->add(array(array( PCLZIP_ATT_FILE_NAME => 'slider.html',PCLZIP_ATT_FILE_CONTENT => $slider_html)));
 		}
-		
+
 		header("Content-type: application/zip");
 		header("Content-Disposition: attachment; filename=".Mage::helper('nwdrevslider/framework')->sanitize_title($slider->getAlias()).".zip");
 		header("Pragma: no-cache");
 		header("Expires: 0");
 		readfile(RevSliderGlobals::$uploadsUrlExportZip);
-		
+
 		@unlink(RevSliderGlobals::$uploadsUrlExportZip); //delete file after sending it to user
 		exit();
 	}
@@ -2117,7 +1996,7 @@ ob_end_clean();
 
 		$strSettings = serialize($data);
 		Mage::helper('nwdrevslider/framework')->update_option('revslider-global-settings', $data);
-		
+
 	}
 
 
@@ -2126,9 +2005,9 @@ ob_end_clean();
 	 * get general settigns values.
 	 */
 	static function getGeneralSettingsValues(){
-		
+
 		$arrValues = Mage::helper('nwdrevslider/framework')->get_option('revslider-global-settings', '');
-		
+
 		$arrValues = Mage::helper('nwdrevslider/framework')->maybe_unserialize($arrValues);
 
 		return($arrValues);
@@ -2158,7 +2037,7 @@ ob_end_clean();
 		}
 
 		if(!isset($arrMain["fullscreen_offset_container"])) $arrMain["fullscreen_offset_container"] = '';
-		
+
 		$arrMain["fullscreen_offset_container"] = $arrMain["fullscreen_offset_container"];
 
 		$data["main"] = $arrMain;
@@ -2207,21 +2086,21 @@ ob_end_clean();
 		return($arrOutput);
 	}
 
-	
+
 	public static function setCleanFontImport($font, $class = '', $url = '', $variants = array(), $subsets = array()){
 		global $revslider_fonts;
-		
+
 		$ret = '';
-		
+
 		if(!isset($revslider_fonts)) $revslider_fonts = array(); //if this is called without revslider.php beeing loaded
-		
+
 		$do_print = false;
 		$tcf = '';
 		if(!empty($variants) || !empty($subsets)){
 			if(!isset($revslider_fonts[$font])) $revslider_fonts[$font] = array();
 			if(!isset($revslider_fonts[$font]['variants'])) $revslider_fonts[$font]['variants'] = array();
 			if(!isset($revslider_fonts[$font]['subsets'])) $revslider_fonts[$font]['subsets'] = array();
-			
+
 			if(!empty($variants)){
 				foreach($variants as $k => $v){
 					if(!in_array($v, $revslider_fonts[$font]['variants'])){
@@ -2242,20 +2121,35 @@ ob_end_clean();
 			}
 		}
 	}
-	
-	
+
+
+	/**
+	 * set the rs_google_font to current date, so that it will be redownloaded
+	 *
+	 */
+	public static function deleteGoogleFonts(){
+		Mage::helper('nwdrevslider/framework')->update_option('rs_google_font', time());
+	}
+
+
 	/**
 	 * print html font import
 	 *
 	 */
 	public static function printCleanFontImport(){
 		global $revslider_fonts;
-		
+
 		$do_print = false;
 		$font_first = true;
 		$ret = '';
 		$tcf = '';
 		$tcf2 = '';
+        $temp = '';
+        $fonts = array();
+        $glob_vals = RevSliderOperations::getGeneralSettingsValues();
+        $dl_fonts = RevSliderFunctions::getVal($glob_vals, 'load_google_fonts', 'off');
+
+        if($dl_fonts === 'disable') return $ret;
 
         $setBase = Mage::helper('nwdrevslider/framework')->is_ssl() ? "https://" : "http://";
 
@@ -2263,54 +2157,135 @@ ob_end_clean();
 			foreach($revslider_fonts as $f_n => $f_s){
 				if($f_n !== ''){
 					if(isset($f_s['variants']) && !empty($f_s['variants']) || isset($f_s['subsets']) && !empty($f_s['subsets'])){
+                        $temp = '';
 						if(strpos($f_n, "href=") === false){
                             if($font_first == false) $tcf .= '%7C'; //'|';
-							$tcf .= urlencode($f_n).':';
-							
+                            $temp .= urlencode($f_n).':';
+
 							if(isset($f_s['variants']) && !empty($f_s['variants'])){
 								$mgfirst = true;
 								foreach($f_s['variants'] as $mgvk => $mgvv){
-									if(!$mgfirst) $tcf .= urlencode(',');
-									$tcf .= urlencode($mgvv);
+                                    if(!$mgfirst) $temp .= urlencode(',');
+                                    $temp .= urlencode($mgvv);
 									$mgfirst = false;
 								}
 							}
-							
+
+                            $fonts[$f_n] = $temp; //we do not want to add the subsets
+
 							if(isset($f_s['subsets']) && !empty($f_s['subsets'])){
 								$mgfirst = true;
 								foreach($f_s['subsets'] as $ssk => $ssv){
-									if($mgfirst) $tcf .= urlencode('&subset=');
-									if(!$mgfirst) $tcf .= urlencode(',');
-									$tcf .= urlencode($ssv);
+                                    if($mgfirst) $temp .= urlencode('&subset=');
+                                    if(!$mgfirst) $temp .= urlencode(',');
+                                    $temp .= urlencode($ssv);
 									$mgfirst = false;
 								}
 							}
-							
+
+                            $tcf .= $temp;
 						}else{
 							$f_n = str_replace(array('http://', 'https://'), array($setBase, $setBase), $f_n);
-							$tcf2 .= html_entity_decode(stripslashes($f_n));
+
+                            $temp = html_entity_decode(stripslashes($f_n));
+                            $tcf2 .= $temp;
+
+                            $fonts[$f_n] = $temp;
+
 						}
-					}
+
+                    }
 					$font_first = false;
 				}
 			}
 		}
-	
-		$url = RevSliderFront::modify_punch_url($setBase . 'fonts.googleapis.com/css?family=');
-		if($tcf !== ''){
-			$ret .= '<link href="'.$url.$tcf.'" rel="stylesheet" property="stylesheet" type="text/css" media="all">'; //id="rev-google-font"
-		}
-		if($tcf2 !== ''){
-			$ret .= html_entity_decode(stripslashes($tcf2));
-		}
-		
-		return Mage::helper('nwdrevslider/framework')->apply_filters('revslider_printCleanFontImport', $ret);
+
+        $fontPath = '/gfonts/';
+
+        if($dl_fonts === 'preload'){
+            if(!empty($fonts)){
+                $upload_dir    = Mage::helper('nwdrevslider/framework')->wp_upload_dir();
+                $base_dir    = $upload_dir['basedir'];
+                $base_url    = $upload_dir['baseurl'];
+                $rs_google_ts = Mage::helper('nwdrevslider/framework')->get_option('rs_google_font', 0);
+
+                foreach($fonts as $key => $font){
+                    //check if we downloaded the font already
+                    $font_name = preg_replace('/[^-a-z0-9 ]+/i', '', $key);
+                    $font_name = strtolower(str_replace(' ', '-', Mage::helper('nwdrevslider/framework')->esc_attr($font_name)));
+
+                    if(!is_file($base_dir . $fontPath . $font_name . '/' . $font_name . '.woff2') || filemtime($base_dir . $fontPath . $font_name . '/' . $font_name . '.woff2') < $rs_google_ts){
+                        if(!is_dir($base_dir . $fontPath)){
+                            mkdir($base_dir . $fontPath);
+                        }
+
+                        if(!is_dir($base_dir . $fontPath . $font_name)){
+                            mkdir($base_dir . $fontPath . $font_name);
+                        }
+
+                        $regex_url    = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+                        $url        = $setBase.'fonts.googleapis.com/css?family='.$font;
+                        $content    = Mage::helper('nwdrevslider/framework')->wp_remote_get($url);
+
+                        $body = RevSliderFunctions::getVal($content, 'body', '');
+
+                        if(preg_match_all($regex_url, $body, $found_fonts)){
+                                foreach($found_fonts as $found_font){
+                                $found_font = $found_font[0];
+                                $found_font = rtrim($found_font, ')');
+
+                                $f_c = Mage::helper('nwdrevslider/framework')->wp_remote_get($found_font);
+
+                                $f_c_body = RevSliderFunctions::getVal($f_c, 'body', '');
+
+                                $file = $base_dir . $fontPath. $font_name . '/' . $font_name . '.woff2';
+                                @mkdir(dirname($file));
+                                @file_put_contents($file, $f_c_body);
+
+                                break;
+                            }
+                        }
+                    }
+
+                    $f_raw        = explode(':', $font);
+                    $weights    = (!empty($f_raw) && is_array($f_raw) && isset($f_raw[1])) ? explode(',', $f_raw[1]) : array('400');
+                    $f_family    = str_replace('+', ' ', $f_raw[0]);
+
+                    if(!empty($weights) && is_array($weights)){
+                        $ret .= '<style type="text/css">';
+                        foreach($weights as $weight){
+                            $ret .=
+"@font-face {
+  font-family: '".$f_family."';
+  font-style: normal;
+  font-weight: ".$weight.";
+  src: local('".$f_family."'), local('".$f_family."'), url(".$base_url . $fontPath . $font_name . '/' . $font_name . '.woff2'.") format('woff2');
+}";
+                        }
+                        $ret .= '</style>';
+                    }
+                }
+            }
+
+        }else{
+    		$url = RevSliderFront::modify_punch_url($setBase . 'fonts.googleapis.com/css?family=');
+
+            if($tcf !== ''){
+    			$ret .= '<link href="'.$url.$tcf.'" rel="stylesheet" property="stylesheet" type="text/css" media="all">'; //id="rev-google-font"
+            }
+            if($tcf2 !== ''){
+                $ret .= html_entity_decode(stripslashes($tcf2));
+            }
+
+        }
+        return Mage::helper('nwdrevslider/framework')->apply_filters('revslider_printCleanFontImport', $ret);
 	}
-	
-	
+
+
 	/**
 	 *
 	 * get html font import
+	 * OBSOLOETE FUNCTION
 	 */
 	public static function getCleanFontImport($font, $class = '', $url = '', $variants = array(), $subsets = array()){
         global $revslider_fonts;
@@ -2380,22 +2355,24 @@ ob_end_clean();
 
 
 		if($do_print){
-		$font = str_replace(':800', ':400', $font);
-		$setBase = (Mage::helper('nwdrevslider/framework')->is_ssl()) ? "https://" : "http://";
-		
-		if($class !== '') $class = ' class="'.$class.'"';
+            $font = str_replace(':800', ':400', $font);
+            $setBase = (Mage::helper('nwdrevslider/framework')->is_ssl()) ? "https://" : "http://";
+
+            if($class !== '') $class = ' class="'.$class.'"';
 
 			if(!isset($revslider_fonts[$font])){
 				$revslider_fonts[$font] = array();
 			}
-		if(strpos($font, "href=") === false){ //fallback for old versions
-			$url = RevSliderFront::modify_punch_url($setBase . 'fonts.googleapis.com/css?family=');
-				$ret = '<link href="'.$url.urlencode($font.$tcf).'"'.$class.' rel="stylesheet" property="stylesheet" type="text/css" media="all">'; //id="rev-google-font"
-		}else{
-			$font = str_replace(array('http://', 'https://'), array($setBase, $setBase), $font);
-			$ret = html_entity_decode(stripslashes($font));
-		}
-	}
+            if(strpos($font, "href=") === false){ //fallback for old versions
+                $url = RevSliderFront::modify_punch_url($setBase . 'fonts.googleapis.com/css?family=');
+                $ret = '<link href="'.$url.urlencode($font.$tcf).'"'.$class.' rel="stylesheet" property="stylesheet" type="text/css" media="all">'; //id="rev-google-font"
+            }else{
+                $font = str_replace(array('http://', 'https://'), array($setBase, $setBase), $font);
+                $ret = html_entity_decode(stripslashes($font));
+
+                echo $ret;
+            }
+        }
 
 		return Mage::helper('nwdrevslider/framework')->apply_filters('revslider_getCleanFontImport', $ret, $font, $class, $url, $variants, $subsets);
 	}
@@ -2488,16 +2465,16 @@ ob_end_clean();
 		}
 
 	}
-	
+
 
 	public static function get_performance($val, $min, $max) {
-		
+
 		if ($val==0) $val = 1;
 		$arr = array();
 		//print_r(($max-$min)."/".($val-$min)."=");
 		$arr["proc"] = (($max-$min) / ($val-$min))*100;
 		//print_r($arr["proc"]."  --> ");
-		
+
 
 		if ($arr["proc"]>100) $arr["proc"] = 100;
 		if ($arr["proc"]<0) $arr["proc"] = 0;
@@ -2515,8 +2492,8 @@ ob_end_clean();
 
 		return $arr;
 	}
-	
-	
+
+
 	/**
 	 * view the estimated speed of the Slider
 	 * @since: 5.0
@@ -2526,24 +2503,24 @@ ob_end_clean();
 		ob_start();
 
 		$total_size = 0;
-		
+
 		$do_ssl = (Mage::helper('nwdrevslider/framework')->is_ssl()) ? 'http:' : 'https:';
-		
+
 		$slider = new RevSliderSlider();
 		$slider->initByID($sliderID);
 		$slides = $slider->getSlidesForExport();
-		
+
 		$static_slides = $slider->getStaticSlideForExport();
 		if(!empty($static_slides) && is_array($static_slides)){
 			foreach($static_slides as $s_slide){
 				$slides[] = $s_slide;
 			}
 		}
-		
+
 		$used_images = array();
 		$used_videos = array();
 		$used_captions = array();
-		
+
 		$using_kenburns = false;
 		$using_parallax = false;
 		$using_carousel = false;
@@ -2551,16 +2528,16 @@ ob_end_clean();
 		$using_videos = false;
 		$using_actions = false;
 		$using_layeranim = false;
-		
+
 		$img_size = 0;
 		$video_size = 0;
 		$slide_counter = 0;
 		$firstslide_size = 0;
 		$smartslide_size = 0;
-		
+
 		if($slider->getParam("use_parallax","off") == 'on')
 			$using_parallax = true;
-		
+
 		if($slider->getParam("slider-type","standard") == 'carousel')
 			$using_carousel = true;
 
@@ -2568,31 +2545,31 @@ ob_end_clean();
 		$enable_bullets = $slider->getParam('enable_bullets','off');
 		$enable_tabs = $slider->getParam('enable_tabs','off');
 		$enable_thumbnails = $slider->getParam('enable_thumbnails','off');
-		
+
 		if($enable_arrows == 'on' || $enable_bullets == 'on' || $enable_tabs == 'on' || $enable_thumbnails == 'on')
 			$using_navigation = true;
-		
+
 		if(!empty($slides) && count($slides) > 0){
 			foreach($slides as $key => $slide){
-				
+
 				if(isset($slide['params']['state']) && $slide['params']['state'] != 'published') continue;
 				if(!isset($slide['id'])) continue;
-				
+
 				$slide_counter++;
 
 				$slide_id = $slide['id'];
-				
+
 				if(isset($slide['params']['kenburn_effect']) && $slide['params']['kenburn_effect'] == 'on')
 					$using_kenburns = true;
-				
-				
+
+
 				if(!isset($slide['params']['image_source_type'])) $slide['params']['image_source_type'] = 'full';
-				
+
 				if(isset($slide['params']['image']) && $slide['params']['image'] != ''){
 					//add infos of image to an array
 					$infos = array();
 					$urlImage = false;
-					
+
 					switch($slide['params']['background_type']){
 						case 'streamyoutube':
 						case 'streaminstagram':
@@ -2602,7 +2579,7 @@ ob_end_clean();
 							$using_videos = true;
 						break;
 					}
-					
+
 					unset($slide['params']['image_id']);
 					if(isset($slide['params']['image_id'])){
 						$cur_img_id = $slide['params']['image_id'];
@@ -2615,12 +2592,12 @@ ob_end_clean();
 							$urlImage = Mage::helper('nwdrevslider/images')->wp_get_attachment_image_src($cur_img_id, $slide['params']['image_source_type']);
 						}
 					}
-					
+
 					if($urlImage !== false){
 						$infos['id'] = $cur_img_id;
 						$file = Mage::helper('nwdrevslider/images')->get_attached_file( $cur_img_id );
 						$infos['info'] = pathinfo( $file );
-						
+
 						if(file_exists( $file )){
 							$infos['size'] = filesize( $file );
 							$infos['size-format'] = Mage::helper('nwdrevslider/framework')->size_format($infos['size'], 2);
@@ -2635,34 +2612,34 @@ ob_end_clean();
 					}else{
 						$infos['id'] = 'external';
 					}
-					
+
 					if(strpos($slide_id, 'static_') !== false){
 						$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id=static_'.$sliderID);
 					}else{
 						$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id='.$slide_id);
 					}
-					
+
 					$used_images[$slide['params']['image']] = $infos;
 
 
 				}
-				
+
 				if(isset($slide['layers']) && !empty($slide['layers']) && count($slide['layers']) > 0){
-					
+
 					$using_layeranim = true;
-					
+
 					foreach($slide['layers'] as $lKey => $layer){
 						switch($layer['type']){
 							case 'image':
 								$infos = array();
 								if(isset($layer['image_url']) && trim($layer['image_url']) != ''){
-									
+
 									$cur_img_id = RevSliderFunctionsWP::get_image_id_by_url($layer['image_url']);
 									if($cur_img_id !== false){
 										if(!isset($layer['layer-image-size']) || $layer['layer-image-size'] == 'auto') $layer['layer-image-size'] = $slide['params']['image_source_type'];
-										
+
 										$urlImage = Mage::helper('nwdrevslider/images')->wp_get_attachment_image_src($cur_img_id, $layer['layer-image-size']);
-										
+
 										if($urlImage !== false){
 											$infos['id'] = $cur_img_id;
 											$file = Mage::helper('nwdrevslider/images')->get_attached_file( $cur_img_id );
@@ -2675,7 +2652,7 @@ ob_end_clean();
 													$firstslide_size += $infos['size'];
 												if ($slide_counter==1 || $slide_counter==2 || $slide_counter==count($slides))
 													$smartslide_size += $infos['size'];
-												
+
 											}else{
 												$infos['id'] = false;
 											}
@@ -2685,19 +2662,19 @@ ob_end_clean();
 									}else{
 										$infos['id'] = 'external';
 									}
-									
+
 									if(strpos($slide_id, 'static_') !== false){
 										$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id=static_'.$sliderID);
 									}else{
 										$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id='.$slide_id);
 									}
-									
+
 									$used_images[$layer['image_url']] = $infos; //image_url if image caption
 								}
 							break;
 							case 'video':
 								$using_videos = true;
-								
+
 								//get cover image if existing
 								$infos = array();
 								$poster_img = array();
@@ -2710,14 +2687,14 @@ ob_end_clean();
 								if(!empty($poster_img)){
 									foreach($poster_img as $img){
 										if(trim($img) == '') continue;
-										
+
 										$cur_img_id = RevSliderFunctionsWP::get_image_id_by_url($img);
-										
+
 										if($cur_img_id !== false){
 											if(!isset($layer['layer-image-size']) || $layer['layer-image-size'] == 'auto') $layer['layer-image-size'] = $slide['params']['image_source_type'];
-											
+
 											$urlImage = Mage::helper('nwdrevslider/images')->wp_get_attachment_image_src($cur_img_id, $layer['layer-image-size']);
-											
+
 											if($urlImage !== false){
 												$infos['id'] = $cur_img_id;
 												$file = Mage::helper('nwdrevslider/images')->get_attached_file( $cur_img_id );
@@ -2739,30 +2716,30 @@ ob_end_clean();
 										}else{
 											$infos['id'] = 'external';
 										}
-										
+
 										if(strpos($slide_id, 'static_') !== false){
 											$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id=static_'.$sliderID);
 										}else{
 											$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id='.$slide_id);
 										}
-										
+
 										$used_images[$img] = $infos; //image_url if image caption
 									}
 								}
-								
+
 								$infos = array();
 								if(isset($layer['video_type'])){
 									//add videos and try to get video size
 									if(isset($layer['video_data'])){
 										$video_arr = array();
 										$max_video_size = 0;
-										
+
 										if(strpos($slide_id, 'static_') !== false){
 											$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id=static_'.$sliderID);
 										}else{
 											$infos['url'] = RevSliderBaseAdmin::getViewUrl(RevSliderAdmin::VIEW_SLIDE, 'id='.$slide_id);
 										}
-										
+
 										switch($layer['video_type']){
 											case 'html5':
 												if(isset($layer['video_data']->urlMp4) && !empty($layer['video_data']->urlMp4)) $video_arr['mp4'] = $layer['video_data']->urlMp4;
@@ -2771,7 +2748,7 @@ ob_end_clean();
 												if(!empty($video_arr)){
 													foreach($video_arr as $type => $url){
 														$cur_id = RevSliderFunctionsWP::get_image_id_by_url($url);
-														
+
 														if($cur_id !== false){
 															$infos['id'] = $cur_id;
 															$file = Mage::helper('nwdrevslider/images')->get_attached_file( $cur_id );
@@ -2786,10 +2763,10 @@ ob_end_clean();
 														}else{
 															$infos['id'] = 'external';
 														}
-														
+
 														$used_videos[$url] = $infos;
 													}
-													
+
 													$video_size += $max_video_size;
 												}
 											break;
@@ -2804,22 +2781,22 @@ ob_end_clean();
 												$used_videos[$do_ssl.'//vimeo.com/'.$layer['video_data']->id] = $infos;
 											break;
 										}
-										
+
 									}
 								}
 							break;
 						}
-						
+
 						//check captions for actions
 						if(isset($layer['layer_action']) && !empty($layer['layer_action'])){
-							
+
 							$a_action = RevSliderFunctions::cleanStdClassToArray(RevSliderFunctions::getVal($layer['layer_action'], 'action', array()));
 							$a_link_type = RevSliderFunctions::cleanStdClassToArray(RevSliderFunctions::getVal($layer['layer_action'], 'link_type', array()));
-							
+
 							if(!empty($a_action)){
 								foreach($a_action as $num => $action){
 									if($using_actions == true) break;
-									
+
 									if($action !== 'link'){
 										$using_actions = true;
 									}else{
@@ -2828,9 +2805,9 @@ ob_end_clean();
 									}
 								}
 							}
-							
+
 						}
-						
+
 						if(isset($layer['style']) && $layer['style'] != '') $used_captions[$layer['style']] = true;
 					}
 				}
@@ -2843,13 +2820,13 @@ ob_end_clean();
 
 		$img_counter = 0;
 		$issues ="";
-		//$total_size += $video_size;		
+		//$total_size += $video_size;
 		?>
 
 		<span class="tp-clearfix" style="height:15px"></span>
 		<hr>
 		<span class="tp-clearfix" style="height:25px"></span>
-		
+
 		<!-- HEADER OF MONITORING -->
 		<span class="tp-monitor-performance-title"><?php echo __("Overall Slider Performance"); ?></span>
 		<span class="tp-monitor-performace-wrap">
@@ -2859,7 +2836,7 @@ ob_end_clean();
 			<span class="tp-monitor-fast"><?php echo __("Fast"); ?></span>
 		</span>
 		<span class="tp-clearfix" style="height:50px"></span>
-		
+
 		<span  class="tp-monitor-speed-table tp-monitor-single-speed">
 			<span class="tp-monitor-speed-cell">
 				<span class="tp-monitor-smalllabel"><?php echo __("Load Speed UMTS:"); ?></span>
@@ -2915,16 +2892,16 @@ ob_end_clean();
 			<span class="tp-monitor-smalllabel"><?php echo __("Preloaded Slides Size:"); ?></span>
 			<span class="tp-monitor-fullsize tp-monitor-single-speed">%firstslide_size%</span>
 			<span class="tp-monitor-fullsize tp-monitor-smart-speed">%smartslide_size%</span>
-			<span class="tp-monitor-fullsize tp-monitor-all-speed">%allslide_size%</span>		
+			<span class="tp-monitor-fullsize tp-monitor-all-speed">%allslide_size%</span>
 			<a class="button-primary revred tp-monitor-showdetails" data-target="#monitor-problems" style="float:right; width:160px;vertical-align:top;"><i class="eg-icon-info"></i>Show All Issues</a>
-		</span>		
+		</span>
 		<span class="tp-clearfix" style="height:15px"></span>
 		<hr>
 		<span class="tp-clearfix" style="height:25px"></span>
-		
+
 		<!-- THE IMAGE PERFORMANCE MESSING -->
 		<div id="monitor-problems" style="display:none">
-			<span class="tp-monitor-performance-title"><?php echo __("Need Some Attention"); ?></span>			
+			<span class="tp-monitor-performance-title"><?php echo __("Need Some Attention"); ?></span>
 			<span class="tp-clearfix" style="height:25px"></span>
 			<ul class="tp-monitor-list" id="monitor-problem-details" style="margin-bottom:15px;">
 			%issues%
@@ -2962,24 +2939,24 @@ ob_end_clean();
 			</span>
 			<span class="tp-clearfix" style="height:15px"></span>
 			<!-- THE IMAGE LIST -->
-			
+
 				<ul class="tp-monitor-list" id="monitor-image-details" style="display:none;margin-bottom:15px;">
 				<?php
-				foreach($used_images as $path => $image){		
+				foreach($used_images as $path => $image){
 					$_li = '<li class="tp-monitor-listli">';
-					
+
 
 					if(isset($image['size'])) {
 						$img_counter++;
-						if ($image['size']<200000) 
+						if ($image['size']<200000)
 							$_li .=  '<span class="tp-monitor-good"></span>';
 						else
-						if ($image['size']<400000) 
+						if ($image['size']<400000)
 							$_li .=   '<span class="tp-monitor-well"></span>';
-						else					
+						else
 							$_li .=   '<span class="tp-monitor-warning"></span>';
-						
-						if ($image['size']>1000000) 
+
+						if ($image['size']>1000000)
 							$_li .=   '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($image['size'],2).'</span>';
 						else
 							$_li .=   '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($image['size'],0).'</span>';
@@ -2990,7 +2967,7 @@ ob_end_clean();
 							$_li .=   '<span class="tp-monitor-warning"></span><span class="tp-monitor-size">'.__('missing').'</span>';
 						}
 					}
-					
+
 					$_li .=   '<span class="tp-monitor-file">';
 					if(!isset($image['info']['basename']) || empty($image['info']['basename'])){
 						$_li .=   '...'.substr($path,-20);
@@ -2998,27 +2975,27 @@ ob_end_clean();
 						$_li .=   substr($image['info']['basename'],-20);
 					}
 					$_li .=   '</span>';
-					
-					
+
+
 					if(isset($image['url'])) {
 						//$_li .=   ' <a href="'.$image['url'].'" target="_blank" class="tp-monitor-showimage"></a>';
 						$_li .=   ' <a href="'.$image['url'].'" target="_blank" class="tp-monitor-linktoslide"></a>';
-						
+
 					}
-					
+
 					$_li .=   '</li>';
 					echo $_li;
 					if ((isset($image['size']) && $image['size']>199999) || (!isset($image['size']) && !$image['id'] == 'external'))
-						$issues .= $_li; 
+						$issues .= $_li;
 				}
 
 				?>
 				</ul>
 
-			<?php		
+			<?php
 		}
 		?>
-			
+
 		<!-- VIDEO LIST -->
 		<?php
 		if(!empty($used_videos)){
@@ -3026,7 +3003,7 @@ ob_end_clean();
 			<span class="tp-clearfix" style="height:15px"></span>
 			<hr>
 			<span class="tp-clearfix" style="height:25px"></span>
-			
+
 			<!-- THE VIDEO PERFORMANCE MESSING -->
 			<span class="tp-monitor-performance-title"><?php echo __("Video Performance"); ?></span>
 			<span class="tp-monitor-performace-wrap">
@@ -3035,13 +3012,13 @@ ob_end_clean();
 				<span class="tp-monitor-ok"><?php echo __("Ok"); ?></span>
 				<span class="tp-monitor-fast"><?php echo __("Fast"); ?></span>
 			</span>
-			
+
 			<span class="tp-clearfix" style="height:35px"></span>
 
 			<!-- FULL SIZE OF SUBCATEGORY && SHOW/HIDE LIST -->
-			<span style="float:left;width:40%; display:block">				
+			<span style="float:left;width:40%; display:block">
 				<span class="tp-monitor-smalllabel"><?php echo __("Videos Loaded (max):"); ?></span>
-				<?php if ($video_size>0) {?>				
+				<?php if ($video_size>0) {?>
 					<span class="tp-monitor-imageicon"></span>
 					<span id="video_sub_size" class="tp-monitor-total-subsize"><?php echo Mage::helper('nwdrevslider/framework')->size_format($video_size,2); ?></span>
 				<?php } else {?>
@@ -3053,16 +3030,16 @@ ob_end_clean();
 				<span class="tp-monitor-showdetails" data-target="#monitor-video-details" data-open="</span><?php echo __("Hide Details"); ?>" data-close="</span><?php echo __("Show Details"); ?>"><span class="tp-monitor-openclose"></span><span class="tp-show-inner-btn"><?php echo __("Show Details"); ?></span></span>
 			</span>
 			<span class="tp-clearfix" style="height:15px"></span>
-			
+
 			<ul class="tp-monitor-list" id="monitor-video-details" style="margin-bottom:15px;display:none;">
 			<?php
-			foreach($used_videos as $path => $video){				
+			foreach($used_videos as $path => $video){
 				$_li = '<li class="tp-monitor-listli">';
-				
+
 				if(isset($video['size'])){
 					$_li .= '	<span class="tp-monitor-neutral"></span>';
-					
-					if ($video['size']>1000000) 
+
+					if ($video['size']>1000000)
 						$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($video['size'],2).'</span>';
 					else
 						$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($video['size'],0).'</span>';
@@ -3073,19 +3050,19 @@ ob_end_clean();
 						$_li .= '<span class="tp-monitor-warning"></span><span class="tp-monitor-size">'.__('missing').'</span>';
 					}
 				}
-				
+
 				$_li .= '<span class="tp-monitor-file">';
 				if(!isset($video['info']['basename']) || empty($video['info']['basename'])){
 					$_li .= '...'.substr($path,-20);
 				}else{
-					$_li .= substr($video['info']['basename'],-20); 
+					$_li .= substr($video['info']['basename'],-20);
 				}
 				$_li .= '</span>';
 
-				if(isset($image['url'])) {						
-						$_li .= ' <a href="'.$video['url'].'" target="_blank" class="tp-monitor-linktoslide"></a>';						
+				if(isset($image['url'])) {
+						$_li .= ' <a href="'.$video['url'].'" target="_blank" class="tp-monitor-linktoslide"></a>';
 					}
-				
+
 				$_li .= '</li>';
 				if (!isset($video['size']) && !$video['id'] == 'external')
 					$issues .= $_li;
@@ -3095,8 +3072,8 @@ ob_end_clean();
 			</ul>
 			<?php
 		}
-		
-		
+
+
 		$css_size = 0;
 		?>
 
@@ -3132,26 +3109,26 @@ ob_end_clean();
 		if(file_exists( Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/css/settings.css' )){
 			$fs = filesize( Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/css/settings.css' );
 			$_li ='<li class="tp-monitor-listli">';
-			if ($fs<60000) 
+			if ($fs<60000)
 				$_li .= '<span class="tp-monitor-good"></span>';
 			else
-			if ($fs<100000) 
+			if ($fs<100000)
 				$_li .= '<span class="tp-monitor-well"></span>';
-			else					
+			else
 			$_li .= '<span class="tp-monitor-warning"></span>';
-		
-			$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($fs,0).'</span>';			
+
+			$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($fs,0).'</span>';
 			$_li .= '<span class="tp-monitor-file">';
 			$_li .= __('css/settings.css');
 			$_li .= '</span>';
-		
+
 			$_li .= '</li>';
 
 			if ($fs>99999)
 				$issues .=$_li;
 
 			echo $_li;
-			
+
 			$total_size += $fs;
 			$css_size += $fs;
 		}
@@ -3160,19 +3137,19 @@ ob_end_clean();
 		$custom_css = RevSliderCssParser::compress_css($custom_css);
 
 		$_li = '<li class="tp-monitor-listli">';
-		if (strlen($custom_css)<50000) 
+		if (strlen($custom_css)<50000)
 			$_li .= '<span class="tp-monitor-good"></span>';
 		else
-		if (strlen($custom_css)<100000) 
+		if (strlen($custom_css)<100000)
 			$_li .= '<span class="tp-monitor-well"></span>';
-		else					
+		else
 			$_li .= '<span class="tp-monitor-warning"></span>';
-	
-		$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format(strlen($custom_css),0).'</span>';			
+
+		$_li .= '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format(strlen($custom_css),0).'</span>';
 		$_li .= '<span class="tp-monitor-file">';
 		$_li .= __('Static Styles');
 		$_li .= '</span>';
-		
+
 		$_li .= '</li>';
 
 		if(strlen($custom_css)>49999)
@@ -3183,8 +3160,8 @@ ob_end_clean();
 		$total_size += strlen($custom_css);
 		$css_size += strlen($custom_css);
 		*/
-		
-		
+
+
 		if(!empty($used_captions)){
 			$captions = array();
 			foreach($used_captions as $class => $val){
@@ -3194,21 +3171,21 @@ ob_end_clean();
 			}
 			$styles = RevSliderCssParser::parseArrayToCss($captions, "\n");
 			$styles = RevSliderCssParser::compress_css($styles);
-			
+
 			$_li = '<li class="tp-monitor-listli">';
-			if (strlen($styles)<50000) 
+			if (strlen($styles)<50000)
 				$_li .=  '<span class="tp-monitor-good"></span>';
 			else
-			if (strlen($styles)<100000) 
+			if (strlen($styles)<100000)
 				$_li .=  '<span class="tp-monitor-well"></span>';
-			else					
+			else
 				$_li .=  '<span class="tp-monitor-warning"></span>';
-		
-			$_li .=  '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format(strlen($styles),0).'</span>';			
+
+			$_li .=  '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format(strlen($styles),0).'</span>';
 			$_li .=  '<span class="tp-monitor-file">';
 			$_li .=  __('Dynamic Styles');
 			$_li .=  '</span>';
-			
+
 			$_li .=  '</li>';
 			if (strlen($styles)>49999)
 				$issues .=$_li;
@@ -3218,18 +3195,18 @@ ob_end_clean();
 			$total_size += strlen($styles);
 			$css_size += strlen($styles);
 		}
-		echo '</ul>';			
+		echo '</ul>';
 		echo ' <span style="display:none" id="css-size-hidden">'.Mage::helper('nwdrevslider/framework')->size_format($css_size, 2).'</span>';
-		
-		
-		
+
+
+
 		$js_size = 0;
-		
+
 		?>
 		<span class="tp-clearfix" style="height:15px"></span>
 			<hr>
 			<span class="tp-clearfix" style="height:25px"></span>
-			
+
 			<!-- THE jQuery PERFORMANCE MESSING -->
 			<span class="tp-monitor-performance-title"><?php echo __("jQuery Performance"); ?></span>
 			<span class="tp-monitor-performace-wrap">
@@ -3238,26 +3215,26 @@ ob_end_clean();
 				<span class="tp-monitor-ok"><?php echo __("Ok"); ?></span>
 				<span class="tp-monitor-fast"><?php echo __("Fast"); ?></span>
 			</span>
-			
+
 			<span class="tp-clearfix" style="height:35px"></span>
 
 			<!-- FULL SIZE OF SUBCATEGORY && SHOW/HIDE LIST -->
-			<span style="float:left;width:40%; display:block">				
-				<span class="tp-monitor-smalllabel"><?php echo __("jQuery Loaded:"); ?></span>				
-				<span class="tp-monitor-imageicon"></span><span id="jquery_sub_size" class="tp-monitor-total-subsize">%js_size%</span>				
+			<span style="float:left;width:40%; display:block">
+				<span class="tp-monitor-smalllabel"><?php echo __("jQuery Loaded:"); ?></span>
+				<span class="tp-monitor-imageicon"></span><span id="jquery_sub_size" class="tp-monitor-total-subsize">%js_size%</span>
 			</span>
 			<span style="float:left;width:60%; text-align:right;">
 				<span class="tp-monitor-showdetails" data-target="#monitor-jquery-details" data-open="</span><?php echo __("Hide Details"); ?>" data-close="</span><?php echo __("Show Details"); ?>"><span class="tp-monitor-openclose"></span><span class="tp-show-inner-btn"><?php echo __("Show Details"); ?></span></span>
 			</span>
 			<span class="tp-clearfix" style="height:15px"></span>
-		
-		<?php 
+
+		<?php
 		echo '<ul class="tp-monitor-list" id="monitor-jquery-details" style="margin-bottom:15px;display:none">';
-		
+
 		$jsfiles = array(
 			'jquery.themepunch.tools.min.js' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/js/jquery.themepunch.tools.min.js',
 			'jquery.themepunch.revolution.min.js' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/js/jquery.themepunch.revolution.min.js',
-			
+
 		);
 		//check which js files will be used by the Slider
 		if($using_kenburns == true) $jsfiles['revolution.extension.kenburn.min.js'] = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/js/extensions/revolution.extension.kenburn.min.js';
@@ -3270,34 +3247,34 @@ ob_end_clean();
 			$jsfiles['revolution.extension.carousel.min.js'] = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/js/extensions/revolution.extension.carousel.min.js';
 		else
 			$jsfiles['revolution.extension.slideanims.min.js'] = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . '/public/assets/js/extensions/revolution.extension.slideanims.min.js';
-			
-		
+
+
 		//get the js files
 		foreach($jsfiles as $name => $path){
 			if(file_exists( $path )){
 				$fs = filesize( $path );
-				echo '<li class="tp-monitor-listli">';			
-				echo '<span class="tp-monitor-good"></span>';											
-				echo '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($fs,0).'</span>';			
+				echo '<li class="tp-monitor-listli">';
+				echo '<span class="tp-monitor-good"></span>';
+				echo '<span class="tp-monitor-size">'.Mage::helper('nwdrevslider/framework')->size_format($fs,0).'</span>';
 				echo '<span class="tp-monitor-file">';
 				echo $name;
-				echo '</span>';		
+				echo '</span>';
 				echo '</li>';
 				$total_size += $fs;
 				$js_size += $fs;
 			}
 		}
-		
+
 		echo '</ul>';
 		echo ' <span style="display:none" id="css-size-hidden">'.Mage::helper('nwdrevslider/framework')->size_format($js_size, 2).'</span>';
 
 		$my_fonts = $slider->getParam('google_font', array());
-		
+
 		?>
 		<span class="tp-clearfix" style="height:15px"></span>
 			<hr>
 			<span class="tp-clearfix" style="height:25px"></span>
-			
+
 			<!-- THE Fonts PERFORMANCE MESSING -->
 			<span class="tp-monitor-performance-title"><?php echo __("Google Fonts Performance"); ?></span>
 			<span class="tp-monitor-performace-wrap">
@@ -3306,58 +3283,58 @@ ob_end_clean();
 				<span class="tp-monitor-ok"><?php echo __("Ok"); ?></span>
 				<span class="tp-monitor-fast"><?php echo __("Fast"); ?></span>
 			</span>
-			
+
 			<span class="tp-clearfix" style="height:35px"></span>
 
 			<!-- FULL SIZE OF SUBCATEGORY && SHOW/HIDE LIST -->
-			<span style="float:left;width:40%; display:block">				
-				<span class="tp-monitor-smalllabel"><?php echo __("Fonts Loaded:"); ?></span>				
-				<span class="tp-monitor-jsicon"></span><span class="tp-monitor-total-subsize">%font_size%</span>				
+			<span style="float:left;width:40%; display:block">
+				<span class="tp-monitor-smalllabel"><?php echo __("Fonts Loaded:"); ?></span>
+				<span class="tp-monitor-jsicon"></span><span class="tp-monitor-total-subsize">%font_size%</span>
 			</span>
 			<span style="float:left;width:60%; text-align:right;">
 				<span class="tp-monitor-showdetails" data-target="#monitor-fonts-details" data-open="</span><?php echo __("Hide Details"); ?>" data-close="</span><?php echo __("Show Details"); ?>"><span class="tp-monitor-openclose"></span><span class="tp-show-inner-btn"><?php echo __("Show Details"); ?></span></span>
 			</span>
 			<span class="tp-clearfix" style="height:15px"></span>
-		
-		<?php 		
+
+		<?php
 		//echo '<span class="tp-monitor-smalllabel">'.$font_url.'</span>';
-		
+
 		echo '<ul class="tp-monitor-list" id="monitor-fonts-details" style="margin-bottom:15px;display:none">';
 		$all_font_count = 0;
 		if(!empty($my_fonts)){
 			foreach($my_fonts as $c_font){
 				$fcount = RevSliderBase::get_font_weight_count($c_font);
 
-				$_li = '<li class="tp-monitor-listli">';			
+				$_li = '<li class="tp-monitor-listli">';
 
 				if ($fcount<4)
-					$_li .= '<span class="tp-monitor-good"></span>';															
+					$_li .= '<span class="tp-monitor-good"></span>';
 				else
 				if ($fcount<7)
-					$_li .= '<span class="tp-monitor-well"></span>';															
-				else				
-					$_li .= '<span class="tp-monitor-warning"></span>';															
-				
-				
+					$_li .= '<span class="tp-monitor-well"></span>';
+				else
+					$_li .= '<span class="tp-monitor-warning"></span>';
+
+
 				$_li .= '<span class="tp-monitor-file">';
 				$_li .= strip_tags($c_font);
-				$_li .= '</span>';		
-				$_li .= '</li>';	
+				$_li .= '</span>';
+				$_li .= '</li>';
 				if ($fcount > 4)
 					$issues .= $_li;
-				echo $_li;		
-				$all_font_count += $fcount;	
+				echo $_li;
+				$all_font_count += $fcount;
 			}
-		}		
+		}
 		echo '</ul>';
 
 		?>
 		</div><!-- END OF OVERALL Div-->
-		
+
 		<script>
 			(function(jQuery) {
 			jQuery(document).ready(function() {
-				
+
 				jQuery('body').on('click','.tp-monitor-showdetails',function() {
 					var bt = jQuery(this);
 					if (bt.hasClass("selected")) {
@@ -3369,7 +3346,7 @@ ob_end_clean();
 						bt.addClass("selected");
 						jQuery(bt.data('target')).slideDown(200);
 					}
-					
+
 				})
 			})
 			})($nwd_jQuery);
@@ -3378,7 +3355,7 @@ ob_end_clean();
 
 		$content = ob_get_contents();
 		ob_end_clean();
-		
+
 		if ($img_counter ==0) $img_counter = 1;
 		if ($slide_counter ==0) $slide_counter = 1;
 
@@ -3395,16 +3372,16 @@ ob_end_clean();
 		$content = str_replace("%overall_performance%",$overall["proc"],$content);
 		$content = str_replace("%overall_color%",$overall["col"],$content);
 		$content = str_replace("%overall_size%",Mage::helper('nwdrevslider/framework')->size_format($total_size,2),$content);
-		
+
 		$content = str_replace("%image_performance%",$image["proc"],$content);
 		$content = str_replace("%image_color%",$image["col"],$content);
-		
+
 		$content = str_replace("%css_performance%",$css["proc"],$content);
 		$content = str_replace("%css_color%",$css["col"],$content);
 		$content = str_replace("%css_size%",Mage::helper('nwdrevslider/framework')->size_format($css_size,2),$content);
-		
+
 		$content = str_replace("%js_performance%",$js["proc"],$content);
-		$content = str_replace("%js_color%",$js["col"],$content);		
+		$content = str_replace("%js_color%",$js["col"],$content);
 		$content = str_replace("%js_size%",Mage::helper('nwdrevslider/framework')->size_format($js_size,2),$content);
 
 		$content = str_replace("%font_performance%",$font["proc"],$content);
@@ -3432,23 +3409,23 @@ ob_end_clean();
 		$content = str_replace("%t1speed-smart%", gmdate('i:s',$smartslide_size/1180), $content);
 		echo $content;
 	}
-	
-	
-	
+
+
+
 	/**
 	 * these are the specific slider settings, which the user can switch between, for easier usage
 	 * @since: 5.0
 	 */
 	public static function get_preset_settings(){
 		$presets = array();
-		
+
 		//ThemePunch default presets are added here directly
-		
+
 		//preset -> standardpreset || heropreset || carouselpreset
 
 $presets[] = array (
     'settings' => array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/slideshow_auto_layout.png', 'name' => 'Slideshow-Auto', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -3460,15 +3437,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'on',
       'stop_slider' => 'off',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -3477,7 +3454,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -3629,11 +3606,11 @@ $presets[] = array (
       'custom_css' => '',
     ),
   );
-  
+
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ( 'class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/slideshow_auto_layout.png', 'name' => 'Slideshow-Full-Width', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -3645,15 +3622,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'on',
       'stop_slider' => 'off',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -3662,7 +3639,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -3816,9 +3793,9 @@ $presets[] = array (
   );
 
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/slideshow_auto_layout.png', 'name' => 'Slideshow-Full-Screen', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -3830,15 +3807,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'on',
       'stop_slider' => 'off',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -3847,7 +3824,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -3999,11 +3976,11 @@ $presets[] = array (
       'custom_css' => '',
     ),
   );
-  
+
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/thumb_auto1.png', 'name' => 'Thumbs-Bottom-Auto', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4015,15 +3992,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4032,7 +4009,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -4184,11 +4161,11 @@ $presets[] = array (
       'custom_css' => '',
     ),
   );
-  
+
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/thumbs_left_auto.png', 'name' => 'Thumbs-Left-Auto', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4200,15 +4177,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4217,7 +4194,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -4369,10 +4346,10 @@ $presets[] = array (
       'custom_css' => '',
     ),
   );
-  
+
 $presets[] = array (
     'settings' => array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/thumbs_right_auto.png', 'name' => 'Thumbs-Right-Auto', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4384,15 +4361,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4401,7 +4378,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -4554,9 +4531,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/scroll_fullscreen.png', 'name' => 'Vertical-Bullet-Full-Screen', 'preset' => 'standardpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4568,15 +4545,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4585,7 +4562,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'off',
@@ -4738,9 +4715,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/wide_fullscreen.png', 'name' => 'Wide-Full-Screen', 'preset' => 'heropreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4752,15 +4729,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4769,7 +4746,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'off',
@@ -4922,9 +4899,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/wide_fullscreen.png', 'name' => 'Wide-Full-Width', 'preset' => 'heropreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -4936,15 +4913,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -4953,7 +4930,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'off',
@@ -5106,9 +5083,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/wide_fullscreen.png', 'name' => 'Regular-Full-Screen', 'preset' => 'heropreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -5120,15 +5097,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -5137,7 +5114,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'off',
@@ -5290,9 +5267,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/wide_fullscreen.png', 'name' => 'Regular-Full-Width', 'preset' => 'heropreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -5304,15 +5281,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'off',                  
+      'enable_progressbar' => 'off',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -5321,7 +5298,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'off',
@@ -5474,9 +5451,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/cover_carousel_thumbs.png', 'name' => 'Cover-Flow-Thumbs', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -5488,15 +5465,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -5505,7 +5482,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -5658,9 +5635,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/cover_carousel_endless.png', 'name' => 'Cover-Flow-Infinite', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -5672,15 +5649,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -5689,7 +5666,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -5842,9 +5819,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/flat_carousel_thumbs.png', 'name' => 'Flat-Infinite-Thumbs', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -5856,15 +5833,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => '#111111',
       'padding' => '0',
@@ -5873,7 +5850,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6026,9 +6003,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/flat_carousel.png', 'name' => 'Flat-Infinite', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -6040,15 +6017,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => '#111111',
       'padding' => '0',
@@ -6057,7 +6034,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6210,9 +6187,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/flat_carousel_thumbs_left.png', 'name' => 'Flat-Thumbs-Left', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -6224,15 +6201,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => '#111111',
       'padding' => '0',
@@ -6241,7 +6218,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6394,9 +6371,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/carousel_thumbs_right_fullscreen.png', 'name' => 'Full-Screen-Thumbs-Right', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -6408,15 +6385,15 @@ $presets[] = array (
 	//data.layersettings - Default Settings for Layer
 	//data.layer - Layer as jQuery Object
 });',
-      'start_with_slide' => '1',      
+      'start_with_slide' => '1',
       'stop_on_hover' => 'off',
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => '#111111',
       'padding' => '0',
@@ -6425,7 +6402,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6578,9 +6555,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/cover_carousel_thumbs.png', 'name' => 'Cover-Flow-Full-Screen', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -6601,10 +6578,10 @@ $presets[] = array (
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -6613,7 +6590,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6766,9 +6743,9 @@ $presets[] = array (
     ),
   );
 $presets[] = array (
-    'settings' => 
+    'settings' =>
     array ('class' => '', 'image' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'admin/assets/images/sliderpresets/carousel_full_rounded.png', 'name' => 'Cover-Flow-Rounded', 'preset' => 'carouselpreset' ),
-    'values' => 
+    'values' =>
     array (
       'next_slide_on_window_focus' => 'off',
       'delay' => '9000',
@@ -6789,10 +6766,10 @@ $presets[] = array (
       'stop_slider' => 'on',
       'stop_after_loops' => '0',
       'stop_at_slide' => '1',
-      'shuffle' => 'off',      
+      'shuffle' => 'off',
       'viewport_start' => 'wait',
       'viewport_area' => '80',
-      'enable_progressbar' => 'on',                  
+      'enable_progressbar' => 'on',
       'background_dotted_overlay' => 'none',
       'background_color' => 'transparent',
       'padding' => '0',
@@ -6801,7 +6778,7 @@ $presets[] = array (
       'bg_fit' => 'cover',
       'bg_repeat' => 'no-repeat',
       'bg_position' => 'center center',
-      'position' => 'center',      
+      'position' => 'center',
       'use_spinner' => '-1',
       'spinner_color' => '#FFFFFF',
       'enable_arrows' => 'on',
@@ -6953,93 +6930,93 @@ $presets[] = array (
       'custom_javascript' => '',
     ),
   );
-		
+
 		//add the presets made from customers
 		$customer_presets = Mage::helper('nwdrevslider/framework')->get_option('revslider_presets', array());
-		
-		
+
+
 		$presets = array_merge($presets, $customer_presets);
-		
+
 		$presets = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_slider_presets', $presets);
-		
+
 		foreach($presets as $key => $preset){
 			if(intval($preset['settings']['image']) > 0){
 				$img = Mage::helper('nwdrevslider/images')->wp_get_attachment_image_src(Mage::helper('nwdrevslider/framework')->esc_attr($preset['settings']['image']), 'medium');
 				$presets[$key]['settings']['image'] = ($img !== false) ? $img['0'] : '';
 			}
 		}
-		
+
 		return $presets;
-		
+
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @since: 5.0
 	 **/
 	public static function add_preset_setting($data){
-		
+
 		if(!isset($data['settings']) || !isset($data['values'])) return __('Missing values to add preset');
-		
+
 		$customer_presets = Mage::helper('nwdrevslider/framework')->get_option('revslider_presets', array());
-		
+
 		$data['settings']['custom'] = true;
-		
+
 		$customer_presets[] = array(
 								'settings' => $data['settings'],
 								'values' => $data['values']
 							);
-		
+
         RevSliderFunctionsWP::update_option('revslider_presets', $customer_presets, 'off');
-		
+
 		return true;
 	}
-	
-	
+
+
 	/**
 	 * @since: 5.0
 	 **/
 	public static function remove_preset_setting($data){
-		
+
 		if(!isset($data['name'])) return __('Missing values to remove preset');
-		
+
 		$customer_presets = Mage::helper('nwdrevslider/framework')->get_option('revslider_presets', array());
-		
+
 		if(!empty($customer_presets)){
 			foreach($customer_presets as $key => $preset){
 				if($preset['settings']['name'] == $data['name']){
 					unset($customer_presets[$key]);
-					break;				
+					break;
 				}
 			}
 		}
-		
+
         RevSliderFunctionsWP::update_option('revslider_presets', $customer_presets, 'off');
-		
+
 		return true;
 	}
-	
-	
+
+
 	/**
 	 * @since: 5.0
 	 **/
 	public static function update_preset_setting($data){
-		
+
 		if(!isset($data['name'])) return __('Missing values to update preset');
-		
+
 		$customer_presets = Mage::helper('nwdrevslider/framework')->get_option('revslider_presets', array());
-		
+
 		if(!empty($customer_presets)){
 			foreach($customer_presets as $key => $preset){
 				if($preset['settings']['name'] == $data['name']){
 					$customer_presets[$key]['values'] = $data['values'];
-					break;				
+					break;
 				}
 			}
 		}
-		
+
         RevSliderFunctionsWP::update_option('revslider_presets', $customer_presets, 'off');
-		
+
 		return true;
 	}
 

@@ -1,7 +1,7 @@
 (function(jQuery) {
 
     /********************************************
-     * REVOLUTION 5.4.2 EXTENSION - KEN BURN
+     * REVOLUTION 5.4.8 EXTENSION - KEN BURN
      * @version: 1.3.1 (15.05.2017)
      * @requires jquery.themepunch.revolution.js
      * @author ThemePunch

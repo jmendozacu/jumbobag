@@ -1,4 +1,4 @@
-/**************************************	
+/**************************************
 -	SCOLL STYLING	-
 **************************************/
 
@@ -967,9 +967,12 @@ select.rs-layer-input-field										 { 	min-width:0;	height:25px;	line-height:2
 .rs-layer-toolbar-div                                            { 	margin:0 10px;	height:28px;	width:1px;	display:inline-block;	background:#ddd;	vertical-align:middle;}
 .rs-layer-toolbar-space                                          { 	margin:0 5px 0 0;	height:28px;	width:1px;	display:inline-block;	vertical-align:middle;}
 
-
-
-
+select.rs-layer-input-field option:empty {
+    display: none;
+}
+select.rs-layer-input-field option:disabled {
+    color: #444 !important;
+}
 
 #rs-align-wrapper .eg-icon-arrow-combo:before 		{	color:#000 !important;}
 #rs-align-wrapper .eg-icon-arrow-combo				{	transform:rotateZ(90deg);-webkit-transform:rotateZ(90deg);}

@@ -42,7 +42,14 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 		Mage::helper('nwdrevslider/framework')->add_action('plugins_loaded', array( 'RevSliderFront', 'createDBTables' ));
         Mage::helper('nwdrevslider/framework')->add_action('plugins_loaded', array( 'RevSliderPluginUpdate', 'do_update_checks' ));
         Mage::helper('nwdrevslider/framework')->add_action('wp_ajax_update_addon', array($revAddonAdmin, 'updateAddon'));
+
+        // temporary force no admin to load plugins as for frontend
+        if ($this->getRequest()->getParam('client_action') == 'preview_slider' && $this->getRequest()->getParam('only_markup') == 'true') {
+            Mage::helper('nwdrevslider/framework')->forceNoAdmin(true);
+        }
         Mage::helper('nwdrevslider/plugin')->loadPlugins();
+        Mage::helper('nwdrevslider/framework')->forceNoAdmin(false);
+        
 		return $this;
 	}
 
@@ -60,7 +67,7 @@ class Nwdthemes_Revslider_Adminhtml_NwdrevsliderController extends Mage_Adminhtm
 
 		if (Mage::helper('nwdrevslider/install')->validateInstall()) {
 		    $this->_redirect('*/*/error');
-		}		
+		}
 
 		$this->_initAction();
 		$this->_revSliderAdmin->onAddScripts();

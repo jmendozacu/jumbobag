@@ -52,8 +52,6 @@ Bottom,Unten
 "Bottom Left","Unten Links"
 "Bottom Right","Unten Rechts"
 Box-Shadow,Box-Schatten
-"By Compressing Output","Durch Komprimieren der Ausgabe"
-"By Echo Output","Durch echo der Ausgabe"
 "By Favorit","Bei Favorit"
 "By ID","Bei ID"
 "By Name","Bei Name"
@@ -208,7 +206,6 @@ High,Hoch
 "Installed Version","Installierte Version"
 "Invalid Email","Nicht valide Email"
 "Invalid Email/Could not connect to the Newsletter server","Nicht valide Email/Keine Verbindung zum Newsletter Server"
-"JQuery No Conflict Mode","jQuery No Conflict Modus"
 Large,Groß
 "Large Square","Großes Viereck"
 "Last Modify Date","Letzte Änderung"
@@ -291,7 +288,6 @@ Opacity,Deckkraft
 "Order updated","Reihenfolge aktualisiert"
 "Original CSS classname not found","Original CSS Classname nicht gefunden"
 "Original Size","Original Größe"
-"Output Filters Protection","Filter Schutz Ausgeben"
 "Overall Slider Performance","Gesamte Slider Leistung"
 "Overwrite current animation?","Aktuelle Animation überschreiben?"
 "Overwrite current static styles?","Überschreibe derzeitige Statische Styles?"
@@ -326,7 +322,6 @@ Published,Publiziert
 "Pulbishing Date","Veröffentlichtungs Datum"
 "Purchase Code Successfully Activated","Purchase Code erfolgreich aktiviert"
 "Purchase Code is invalid","Purchase Code ist nicht valide"
-"Put JS Includes To Body","JS Inkludierungen in den Body einfügen"
 "Really change font settings?","Fonts Einstellungen wirklich ändern?"
 "Really delete Class","Class wirklich löschen"
 "Really delete animation:","Animation wirklich löschen:"

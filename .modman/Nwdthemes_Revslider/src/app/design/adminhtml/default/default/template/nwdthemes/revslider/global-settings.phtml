@@ -24,11 +24,13 @@ $width_notebook = RevSliderBase::getVar($arrValues, 'width_notebook', 1024);
 $width_tablet = RevSliderBase::getVar($arrValues, 'width_tablet', 778);
 $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 
+$load_google_fonts = RevSliderBase::getVar($arrValues, 'load_google_fonts', 'off');
+
 ?>
 <div class='wrap'>
 	<div class="clear_both"></div>
 	<div class="title_line" style="margin-bottom:10px">
-		<?php 
+		<?php
 		$icon_general = '<div class="icon32" id="icon-options-general"></div>';
 		echo Mage::helper('nwdrevslider/framework')->apply_filters( 'rev_icon_general_filter', $icon_general );
 		?>
@@ -36,7 +38,7 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 	</div>
 
 	<div class="clear_both"></div>
-	
+
 	<div id="rs-global-settings-dialog-wrap">
 		<form name="form_general_settings" id="form_general_settings">
 			<script type="text/javascript">
@@ -76,7 +78,7 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Specify the handles or url keys for pages on the front end where slider includes will be included to. Example: cms_index_index,catalog_product_view,about-us"); ?></i>
 				</div>
 			</div>
-			
+
 			<div class="rs-global-setting">
 				<div class="rs-gs-tc">
 					<label><?php echo $this->__("Load all JavaScript libraries:"); ?></label>
@@ -112,8 +114,8 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Insert something in it and it will be used instead of https://fonts.googleapis.com/css?family= (For example: http://fonts.useso.com/css?family= which will also work for chinese visitors)"); ?></i>
 				</div>
 			</div>
-			
-			
+
+
 			<div class="rs-global-setting">
 				<div class="rs-gs-tc">
 					<label><?php echo $this->__("Default Settings for Advanced Responsive Grid Sizes:"); ?></label>
@@ -140,7 +142,7 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Define the default Grid Sizes for devices: Desktop, Tablet and Mobile"); ?></i>
 				</div>
 			</div>
-			
+
 			<div class="rs-global-setting">
 				<div class="rs-gs-tc">
 					<label><?php echo $this->__("Enable Logs:"); ?></label>
@@ -152,7 +154,7 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Enable console logs for debugging."); ?></i>
 				</div>
 			</div>
-			
+
 			<div class="rs-global-setting">
 				<div class="rs-gs-tc">
 					<label><?php echo $this->__("Enable Blank Page Creation for Slider Packages:"); ?></label>
@@ -164,7 +166,7 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Enable option to automatically create a Blank Page if a Slider Pack is installed."); ?></i>
 				</div>
 			</div>
-			
+
 			<div class="rs-global-setting">
 				<div class="rs-gs-tc">
 					<label><?php echo $this->__("Enable Blank Page Creation for Single Sliders:"); ?></label>
@@ -176,7 +178,27 @@ $width_mobile = RevSliderBase::getVar($arrValues, 'width_mobile', 480);
 					<i style=""><?php echo $this->__("Enable option to automatically create a Blank Page if a Single Slider is installed."); ?></i>
 				</div>
 			</div>
-			
+
+            <div class="rs-global-setting">
+                <div class="rs-gs-tc">
+                    <label><?php echo $this->__("Enable Google Font Download:"); ?></label>
+                </div>
+                <div class="rs-gs-tc">
+                    <select id="load_google_fonts" name="load_google_fonts">
+                        <option <?php Mage::helper('nwdrevslider/framework')->selected($load_google_fonts, 'off'); ?> value="off"><?php echo $this->__('Load from Google'); ?></option>
+                        <option <?php Mage::helper('nwdrevslider/framework')->selected($load_google_fonts, 'preload'); ?> value="preload"><?php echo $this->__('Preload from Google'); ?></option>
+                        <option <?php Mage::helper('nwdrevslider/framework')->selected($load_google_fonts, 'disable'); ?> value="disable"><?php echo $this->__('Disable, Load on your own'); ?></option>
+                    </select>
+                    <p><a id="trigger_font_deletion" class="button-primary revblue" original-title="" href="javascript:void(0);"><?php echo $this->__('Update Preload Fonts'); ?></a></p>
+                </div>
+                <div class="rs-gs-tc">
+                    <i style=""><?php echo $this->__("Set this option on how to handle Google Fonts:"); ?></i>
+                    <i style=""><?php echo $this->__("- Load from Google: will include fonts from Google Server."); ?></i>
+                    <i style=""><?php echo $this->__("- Preload from Google: will download used fonts from Google Server and store them on your installation."); ?></i>
+                    <i style=""><?php echo $this->__("- Disable: No fonts will be loaded, please include them yourself."); ?></i>
+                </div>
+            </div>
+
 		</form>
 	</div>
 	<div style="margin: 10px 0;">

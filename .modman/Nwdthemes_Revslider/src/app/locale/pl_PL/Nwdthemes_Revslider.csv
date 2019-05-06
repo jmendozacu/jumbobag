@@ -7,8 +7,6 @@ Appearance,Wygląd
 "Background Image Url","Adres http://.... obrazu tła"
 "Background color","Kolor tła"
 Bottom,Dół
-"By Compressing Output","Według rodzaju kompresji"
-"By Echo Output","Według Echo"
 Center,Wyśrodkowana
 "Choose the import file","Wybierz plik do importu"
 "Choose video type","Wybierz rodzaj wideo"
@@ -47,7 +45,6 @@ No,Nie
 None,Brak
 Off,Wyłącz
 On,Włącz
-"Output Filters Protection","Ochrona filtrów wyjściowych"
 "Pause Slider","Zatrzymaj suwak"
 Position,Pozycja
 "Position on the page","Pozycja na stornie"
@@ -55,7 +52,6 @@ Preview,Podgląd
 "Preview Slider","Poprzedni suwak"
 "Previous Slide","Poprzedni slajd"
 Published,Opublikowany
-"Put JS Includes To Body","Umieść JS w sekcji BODY"
 Regular,Normalny
 "Resume Slider","Wznów suwak"
 "Revolution Sliders","Revolution Slider"

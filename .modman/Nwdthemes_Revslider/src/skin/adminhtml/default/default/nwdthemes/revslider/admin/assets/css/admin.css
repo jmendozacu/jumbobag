@@ -1260,8 +1260,8 @@ div.star_red:before { content: '\f155'; font-family: "dashicons"; color:#e03301;
     height: 215px;
     background: #d5d5d5;
     z-index: 0;
-    
-    
+
+
 }
 
 #template_area .template_group_wrappers.template_package_parent:before {
@@ -1273,8 +1273,8 @@ div.star_red:before { content: '\f155'; font-family: "dashicons"; color:#e03301;
     height: 215px;
     background: #bbb;
     z-index: 0;
-    
-    
+
+
 }
 
 #leave_selected_template_package,
@@ -1453,7 +1453,7 @@ span.template_filter_button.template_local_filter.selected {
 .rs-premium-benefits-block  			{	padding: 20px 30px 30px; }
 .rs-premium-benefits-block .big_present { 	vertical-align: top; background:url(../images/oops/gift_big.png); width:48px;height:52px; display: inline-block; margin-right: 25px; }
 .rs-premium-benefits-block .big_diamond { 	vertical-align: top; background:url(../images/oops/diamond_big.png); width:52px;height:48px; display: inline-block; margin-right: 25px; }
-.rs-premium-benefits-block .big_light { 	vertical-align: top; background:url(../images/oops/light_big.png); width:40px;height:58px; display: inline-block; margin-right: 25px; } 
+.rs-premium-benefits-block .big_light { 	vertical-align: top; background:url(../images/oops/light_big.png); width:40px;height:58px; display: inline-block; margin-right: 25px; }
 .rs-premium-benefits-block h3 			{	font-size:20px; line-height:52px; font-weight:600; color:#00263b; margin-top:10px;margin-bottom:10px;}
 
 
@@ -2471,7 +2471,7 @@ input[name="rs-css-include[]"]											{	margin-right:17px;}
 
 .tls-addnewslider
 
-.tls-new-icon-wrapper	{	position: absolute;top:0px;:left:0px;width:100%;height:100%;display:block; text-align: center;font-size:35px;}
+.tls-new-icon-wrapper	{	position: absolute;top:0px;left:0px;width:100%;height:100%;display:block; text-align: center;font-size:35px;}
 .tls-new-icon			{	line-height:130px;vertical-align: middle; }
 .tls-new-icon:before	{	color:#252525 !important;}
 
@@ -3020,7 +3020,7 @@ input[name="rs-css-include[]"]											{	margin-right:17px;}
  -webkit-animation: cyclerotate 1.5s linear infinite;
  animation: cyclerotate 1.5s linear infinite;
 }
- 
+
 
 @-webkit-keyframes cyclerotate {
   100% { -webkit-transform: rotate(360deg); }
@@ -3065,7 +3065,7 @@ input[name="rs-css-include[]"]											{	margin-right:17px;}
 
 .rtl .fullscreen-dialog-window 	{	transform: translate3d(100%,0,0);}
 
-.rtl .fullscreen-dialog-window.show {	    
+.rtl .fullscreen-dialog-window.show {
     transform: translate3d(0%,0,0);
  }
 

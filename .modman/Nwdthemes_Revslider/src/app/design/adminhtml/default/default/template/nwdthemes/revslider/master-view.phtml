@@ -24,7 +24,7 @@
 		'tablet': '<?php echo RevSliderBase::getVar($glval, 'width_tablet', 992); ?>',
 		'mobile': '<?php echo RevSliderBase::getVar($glval, 'width_mobile', 480); ?>'
 	};
-	var revMageImageUploadUrl = '<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/images/index/type/[type]'); ?>';
+	var revMageImageUploadUrl = '<?php echo Mage::helper("adminhtml")->getUrl('adminhtml/nwdimages/index/type/[type]'); ?>';
 	wpColorPickerL10n = <?php echo json_encode(array(
 		'clear' => $this->__('Clear'),
 		'defaultString' => $this->__('Default'),
@@ -99,8 +99,8 @@
 		<input type="hidden" id="preview_sliderid" name="sliderid" value="">
 		<input type="hidden" id="preview_slider_markup" name="only_markup" value="">
 	</form>
-	
-	
+
+
 	<div id="dialog_preview_sliders" class="dialog_preview_sliders" title="Preview Slider" style="display:none;">
 		<iframe id="frame_preview_slider" name="frame_preview_slider" style="width: 100%;"></iframe>
 	</div>
@@ -237,7 +237,7 @@
 	$validated = Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false');
 	?>
 	rs_plugin_validated = <?php echo ($validated == 'true') ? 'true' : 'false'; ?>;
-	
+
 	var showWaitAMinute;
 
     (function(jQuery) {

@@ -6,10 +6,10 @@
  */
 
 class RevSliderTemplate {
-	
+
 	private $templates_list		= 'revslider/get-list.php';
 	private $templates_download	= 'revslider/download.php';
-	
+
 	private $templates_server_path	= '/revslider/images/';
 	private $templates_path			= '/templates';
 	private $templates_path_plugin	= 'admin/assets/imports/';
@@ -35,7 +35,7 @@ class RevSliderTemplate {
 	 * @since: 5.0.5
 	 */
 	public function _download_template($uid){
-		
+
         $return = false;
 		$uid = Mage::helper('nwdrevslider/framework')->esc_attr($uid);
 
@@ -56,7 +56,7 @@ class RevSliderTemplate {
 					'uid' => urlencode($uid),
                         'product' => urlencode(RevSliderGlobals::PLUGIN_SLUG)
 				),
-				'timeout' => 45 //DIRK 
+				'timeout' => 45 //DIRK
 			));
 
                 $response_code = Mage::helper('nwdrevslider/framework')->wp_remote_retrieve_response_code( $request );
@@ -85,55 +85,57 @@ class RevSliderTemplate {
                     }else{
                         $return = array('error' => __('Purchase Code is invalid'));
 					}
-				}
+				} else {
+                    $return = array('error' => isset($request['response']['message']) ? $request['response']['message'] : __('Can\'t download template from server.'));
+                }
 			}//else, check for error and print it to customer
 		}else{
             $return = array('error' => __('Can\'t write into the uploads folder "' . $upload_dir['basedir'].$this->templates_path . '", please change permissions and try again!'));
 		}
-		
+
         return $return;
 	}
-	
-	
+
+
 	/**
 	 * Delete the Template file
 	 * @since: 5.0.5
 	 */
 	public function _delete_template($uid){
 		$uid = Mage::helper('nwdrevslider/framework')->esc_attr($uid);
-		
+
 		$upload_dir = Mage::helper('nwdrevslider/framework')->wp_upload_dir(); // Set upload folder
-		
+
 		// Check folder permission and define file location
 		if( Mage::helper('nwdrevslider/filesystem')->wp_mkdir_p( $upload_dir['basedir'].$this->templates_path ) ) {
 			$file = $upload_dir['basedir']. $this->templates_path . '/' . $uid.'.zip';
-			
+
 			if(file_exists($file)){
 				//delete file
 				return unlink($file);
 			}
 		}
-		
+
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * Get the Templatelist from servers
 	 * @since: 5.0.5
 	 */
 	public function _get_template_list($force = false){
-		
+
 		$last_check = Mage::helper('nwdrevslider/framework')->get_option('revslider-templates-check');
-		
+
 		if($last_check == false){ //first time called
 			$last_check = 172801;
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-templates-check',  time());
 		}
-		
+
 		// Get latest Templates
 		if(time() - $last_check > 345600 || $force == true){ //4 days
-			
+
 			Mage::helper('nwdrevslider/framework')->update_option('revslider-templates-check',  time());
 
 			$code = (Mage::helper('nwdrevslider/framework')->get_option('revslider-valid', 'false') == 'false') ? '' : Mage::helper('nwdrevslider/framework')->get_option('revslider-code', '');
@@ -150,7 +152,7 @@ class RevSliderTemplate {
                         'product' => urlencode(RevSliderGlobals::PLUGIN_SLUG)
 				)
 			));
-			
+
                 $response_code = Mage::helper('nwdrevslider/framework')->wp_remote_retrieve_response_code( $request );
                 if($response_code == 200){
                     $done = true;
@@ -163,26 +165,26 @@ class RevSliderTemplate {
 
 			if(!Mage::helper('nwdrevslider/framework')->is_wp_error($request)) {
 				if($response = Mage::helper('nwdrevslider/framework')->maybe_unserialize($request['body'])) {
-					
+
 					$templates = json_decode($response, true);
-					
+
 					if(is_array($templates)) {
                         RevSliderFunctionsWP::update_option('rs-templates-new', $templates, false);
 					}
 				}
 			}
-			
+
 			$this->update_template_list();
 		}
 	}
-	
-	
+
+
 	/**
 	 * Update the Templatelist, move rs-templates-new into rs-templates
 	 * @since: 5.0.5
 	 */
 	private function update_template_list(){
-		
+
 		$new = Mage::helper('nwdrevslider/framework')->get_option('rs-templates-new', false);
 		$cur = Mage::helper('nwdrevslider/framework')->get_option('rs-templates', array());
         $cur = array();
@@ -202,9 +204,9 @@ class RevSliderTemplate {
 										$n['push_image'] = true; //push to get new image and replace
 									}
 									if(isset($c['is_new'])) $n['is_new'] = true; //is_new will stay until update is done
-									
+
 									$n['exists'] = true; //if this flag is not set here, the template will be removed from the list
-									
+
                                     if(isset($n['new_slider'])){
                                         unset($n['new_slider']); //remove this again, as the new flag should be removed now
                                     }
@@ -216,15 +218,15 @@ class RevSliderTemplate {
 								}
 							}
 						}
-						
+
 						if(!$found){
 							$n['exists'] = true;
                             $n['new_slider'] = true;
 							$cur['slider'][] = $n;
 						}
-						
+
 					}
-					
+
 					foreach($cur['slider'] as $ck => $c){ //remove no longer available Slider
 						if(!isset($c['exists'])){
 							unset($cur['slider'][$ck]);
@@ -232,24 +234,24 @@ class RevSliderTemplate {
 							unset($cur['slider'][$ck]['exists']);
 						}
 					}
-					
+
 					$cur['slides'] = $new['slides']; // push always all slides
 				}
 			}
-		
+
             RevSliderFunctionsWP::update_option('rs-templates', $cur, false);
             RevSliderFunctionsWP::update_option('rs-templates-new', false, false);
 		}
 	}
-	
-	
+
+
 	/**
 	 * Remove the is_new attribute which shows the "update available" button
 	 * @since: 5.0.5
 	 */
 	public function remove_is_new($uid){
 		$cur = Mage::helper('nwdrevslider/framework')->get_option('rs-templates', array());
-		
+
 		if(isset($cur['slider']) && is_array($cur['slider'])){
 			foreach($cur['slider'] as $ck => $c){
 				if($c['uid'] == $uid){
@@ -258,11 +260,11 @@ class RevSliderTemplate {
 				}
 			}
 		}
-		
+
         RevSliderFunctionsWP::update_option('rs-templates', $cur, false);
-		
+
 	}
-	
+
     /**
      * Public alias for _images_update()
      *
@@ -290,12 +292,12 @@ class RevSliderTemplate {
         $timer = time();
 
 		$reload = array();
-		
+
 		if(!empty($templates) && is_array($templates)){
 			$upload_dir = Mage::helper('nwdrevslider/framework')->wp_upload_dir(); // Set upload folder
 			if(!empty($templates['slider']) && is_array($templates['slider'])){
 				foreach($templates['slider'] as $key => $temp){
-					
+
                     // Can't connect or loading for too long
 			        if ($connection > 3 || time() - $timer > self::UPDATE_IMAGES_TIME_LIMIT)
                         continue;
@@ -304,7 +306,7 @@ class RevSliderTemplate {
 					if( Mage::helper('nwdrevslider/filesystem')->wp_mkdir_p( $upload_dir['basedir'].$this->templates_path ) ) {
 						$file = $upload_dir['basedir'] . $this->templates_path . '/' . $temp['img'];
 						$file_plugin = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . $this->templates_path_plugin . '/' . $temp['img'];
-						
+
 
 						if((!file_exists($file) && !file_exists($file_plugin)) || isset($temp['push_image'])){
                             if($curl !== false){
@@ -372,7 +374,7 @@ class RevSliderTemplate {
 						if( Mage::helper('nwdrevslider/filesystem')->wp_mkdir_p( $upload_dir['basedir'].$this->templates_path ) ) {
 							$file = $upload_dir['basedir'] . $this->templates_path . '/' . $tvalues['img'];
 							$file_plugin = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_PATH . $this->templates_path_plugin . '/' . $tvalues['img'];
-							
+
 							if((!file_exists($file) && !file_exists($file_plugin)) || isset($tvalues['push_image'])){ //update, so load again
                                 if($curl !== false){
                                     //curl_setopt( $curl, CURLOPT_CAINFO, RS_PLUGIN_PATH.'cert.crt'); //'sslcertificates'
@@ -411,7 +413,7 @@ class RevSliderTemplate {
 							}
 						}else{//use default images
 						}
-						
+
 					}
 				}
 			}
@@ -420,7 +422,7 @@ class RevSliderTemplate {
         RevSliderFunctionsWP::update_option('rs-templates', $templates, false); //remove the push_image
 	}
 
-	
+
 	/**
 	 * Copy a Slide to the Template Slide list
 	 * @since: 5.0
@@ -429,58 +431,58 @@ class RevSliderTemplate {
 		if(intval($slide_id) == 0) return false;
 		$slide_title = Mage::helper('nwdrevslider/framework')->sanitize_text_field($slide_title);
 		if(strlen(trim($slide_title)) < 3) return false;
-		
+
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$table_name = RevSliderGlobals::$table_slides;
-		
+
 		$duplicate = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %s", $slide_id), Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-		
+
 		if(empty($duplicate)) // slide not found
 			return false;
-		
+
 		unset($duplicate['id']);
-		
+
 		$duplicate['slider_id'] = -1; //-1 sets it to be a template
 		$duplicate['slide_order'] = -1;
-		
+
 		$params = json_decode($duplicate['params'], true);
 		$settings = json_decode($duplicate['settings'], true);
-		
+
 		$params['title'] = $slide_title;
 		$params['state'] = 'published';
-		
+
 		if(isset($slide_settings['width'])) $settings['width'] = intval($slide_settings['width']);
 		if(isset($slide_settings['height'])) $settings['height'] = intval($slide_settings['height']);
-		
+
 		$duplicate['params'] = json_encode($params);
 		$duplicate['settings'] = json_encode($settings);
-		
+
 		$response = $wpdb->insert($table_name, $duplicate);
-		
+
 		if($response)
 			return true;
-		
+
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * Get all Template Slides
 	 * @since: 5.0
 	 */
 	public function getTemplateSlides(){
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$table_name = RevSliderGlobals::$table_slides;
-		
+
 		$templates = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name WHERE slider_id = %s", -1), Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-		
+
 		//add default Template Slides here!
 		$default = $this->getDefaultTemplateSlides();
-		
+
 		$templates = array_merge($templates, $default);
-		
+
 		if(!empty($templates)){
 			foreach($templates as $key => $template){
 				$templates[$key]['params'] = json_decode($template['params'], true);
@@ -488,44 +490,44 @@ class RevSliderTemplate {
 				$templates[$key]['settings'] = json_decode($template['settings'], true);
 			}
 		}
-		
+
 		return $templates;
 	}
-	
-	
+
+
 	/**
 	 * Add default Template Slides that can't be deleted for example. Authors can add their own Slides here through Filter
 	 * @since: 5.0
 	 */
 	private function getDefaultTemplateSlides(){
 		$templates = array();
-		
+
 		$templates = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_set_template_slides', $templates);
-		
+
 		return $templates;
 	}
-	
-	
+
+
 	/**
 	 * get default ThemePunch default Slides
 	 * @since: 5.0
 	 */
 	public function getThemePunchTemplateSlides($sliders = false){
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$templates = array();
-		
+
 		$slide_defaults = array();//
-		
+
 		if($sliders == false){
 			$sliders = $this->getThemePunchTemplateSliders();
 		}
 		$table_name = RevSliderGlobals::$table_slides;
-		
+
 		if(!empty($sliders)){
 			foreach($sliders as $slider){
 				$slides = $this->getThemePunchTemplateDefaultSlides($slider['alias']);
-				
+
 				if(!isset($slider['installed'])){
 					$templates = array_merge($templates, $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name WHERE slider_id = %s", $slider['id']), Nwdthemes_Revslider_Helper_Query::ARRAY_A));
 				}else{
@@ -536,72 +538,72 @@ class RevSliderTemplate {
 						if(isset($slides[$key])) $templates[$key]['img'] = $slides[$key]['img'];
 					}
 				}
-				
+
 				/*else{
 					$templates = array_merge($templates, array($slide_defaults[$slider['alias']]));
 				}*/
 			}
 		}
-		
+
 		if(!empty($templates)){
 			foreach($templates as $key => $template){
 				if(!isset($template['installed'])){
 					$template['params'] = (isset($template['params'])) ? $template['params'] : '';
 					$template['layers'] = (isset($template['layers'])) ? $template['layers'] : '';
 					$template['settings'] = (isset($template['settings'])) ? $template['settings'] : '';
-					
+
 					$templates[$key]['params'] = json_decode($template['params'], true);
 					//$templates[$key]['layers'] = json_decode($template['layers'], true);
 					$templates[$key]['settings'] = json_decode($template['settings'], true);
-                    
+
                     //$templates[$key][]
                     //add missing uid and zipname
 				}
 			}
 		}
-		
+
 		return $templates;
 	}
-	
-	
+
+
 	/**
 	 * get default ThemePunch default Slides
 	 * @since: 5.0
 	 */
 	public function getThemePunchTemplateDefaultSlides($slider_alias){
-		
+
 		$templates = Mage::helper('nwdrevslider/framework')->get_option('rs-templates', array());
 		$slides = (isset($templates['slides']) && !empty($templates['slides'])) ? $templates['slides'] : array();
-		
+
 		return (isset($slides[$slider_alias])) ? $slides[$slider_alias] : array();
 	}
-	
-	
+
+
 	/**
 	 * Get default Template Sliders
 	 * @since: 5.0
 	 */
 	public function getDefaultTemplateSliders(){
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$sliders = array();
 		$check = array();
-		
+
 		$table_name = RevSliderGlobals::$table_sliders;
-		
+
 		//add themepunch default Sliders here
 		$check = $wpdb->get_results("SELECT * FROM $table_name WHERE type = 'template'", Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-		
+
 		$sliders = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_set_template_sliders', $sliders);
-		
+
 		/**
-		 * Example		 
+		 * Example
 			$sliders['Slider Pack Name'] = array(
 				array('title' => 'PJ Slider 1', 'alias' => 'pjslider1', 'width' => 1400, 'height' => 868, 'zip' => 'exwebproduct.zip', 'uid' => 'bde6d50c2f73f8086708878cf227c82b', 'installed' => false, 'img' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/imports/exwebproduct.jpg'),
 				array('title' => 'PJ Classic Slider', 'alias' => 'pjclassicslider', 'width' => 1240, 'height' => 600, 'zip' => 'classicslider.zip', 'uid' => 'a0d6a9248c9066b404ba0f1cdadc5cf2', 'installed' => false, 'img' => Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL .'admin/assets/imports/classicslider.jpg')
 			);
 		 **/
-		
+
 		if(!empty($check) && !empty($sliders)){
 			foreach($sliders as $key => $the_sliders){
 				foreach($the_sliders as $skey => $slider){
@@ -609,41 +611,41 @@ class RevSliderTemplate {
 						if($installed['alias'] == $slider['alias']){
 							$img = $slider['img'];
 							$sliders[$key][$skey] = $installed;
-							
+
 							$sliders[$key][$skey]['img'] = $img;
-							
+
 							$sliders[$key]['version'] = (isset($slider['version'])) ? $slider['version'] : '';
 							if(isset($slider['is_new'])) $sliders[$key]['is_new'] = true;
-							
+
 							$preview = (isset($slider['preview'])) ? $slider['preview'] : false;
 							if($preview !== false) $sliders[$key]['preview'] = $preview;
-							
+
 							break;
 						}
 					}
 				}
 			}
 		}
-		
+
 		return $sliders;
 	}
-	
-	
+
+
 	/**
 	 * get default ThemePunch default Sliders
 	 * @since: 5.0
 	 */
 	public function getThemePunchTemplateSliders(){
 		$wpdb = Mage::helper('nwdrevslider/query');
-		
+
 		$table_name = RevSliderGlobals::$table_sliders;
-		
+
 		//add themepunch default Sliders here
 		$sliders = $wpdb->get_results("SELECT * FROM $table_name WHERE type = 'template'", Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-		
+
 		$defaults = Mage::helper('nwdrevslider/framework')->get_option('rs-templates', array());
 		$defaults = (isset($defaults['slider'])) ? $defaults['slider'] : array();
-		
+
 		$latestVersion = Mage::helper('nwdrevslider/framework')->get_option('revslider-latest-version', RevSliderGlobals::SLIDER_REVISION);
 		$availableVersion = version_compare($latestVersion, RevSliderGlobals::SLIDER_REVISION, '>') ? $latestVersion : RevSliderGlobals::SLIDER_REVISION;
         $availablePlugins = array();
@@ -687,12 +689,12 @@ class RevSliderTemplate {
                             $defaults[$key] = array_merge($defaults[$key], $installed);
 
                             unset($defaults[$key]['installed']);
-							
+
 							$defaults[$key]['img'] = $img;
 							$defaults[$key]['version'] = $slider['version'];
 							$defaults[$key]['cat'] = $slider['cat'];
 							$defaults[$key]['filter'] = $slider['filter'];
-							
+
 							if(isset($slider['is_new'])){
 								$defaults[$key]['is_new'] = true;
 								$defaults[$key]['width'] = $slider['width'];
@@ -700,9 +702,9 @@ class RevSliderTemplate {
 							}
                             $defaults[$key]['zip'] = $slider['zip'];
                             $defaults[$key]['uid'] = $slider['uid'];
-                            
+
                             if(isset($slider['new_slider'])) $defaults[$key]['new_slider'] = $slider['new_slider'];
-							
+
 							if($preview !== false) $defaults[$key]['preview'] = $preview;
 							break;
 						}
@@ -734,8 +736,8 @@ class RevSliderTemplate {
 
 		return $defaults;
 	}
-	
-	
+
+
 	/**
 	 * check if image was uploaded, if yes, return path or url
 	 * @since: 5.0.5
@@ -747,7 +749,7 @@ class RevSliderTemplate {
 
 		if(file_exists($file)){ //downloaded image first, for update reasons
 			if($url){
-				$image = rtrim($upload_dir['baseurl'], '/') . $this->templates_path . '/' . $image;
+				$image = $upload_dir['baseurl'] . $this->templates_path . '/' . $image;
 			}else{
 				$image = $upload_dir['basedir'] . $this->templates_path . '/' . $image; //server path
 			}
@@ -863,7 +865,7 @@ class RevSliderTemplate {
                             $pr_icon = '<i class="eg-icon-cancel"></i>';
                             $allow_install = false;
                         }
-                        
+
                         echo '<li>';
                          echo $pr_icon; //echo the icon
                         if(isset($pr['url'])) echo '<a href="'.Mage::helper('nwdrevslider/framework')->esc_attr($pr['url']).'" target="_blank">';
@@ -873,10 +875,10 @@ class RevSliderTemplate {
                     }
                 }
                 ?>
-            </ul>        
+            </ul>
             <span class="ttm_space"></span>
             <span class="ttm_label_direct"><?php echo __('Available Version'); ?></span>
-            <span class="ttm_label_half ttm_available"><?php echo $template['version'];?></span>    
+            <span class="ttm_label_half ttm_available"><?php echo $template['version'];?></span>
             <span class="ttm_space"></span>
             <?php
             if($deny == '' && $allow_install == true){
@@ -899,7 +901,7 @@ class RevSliderTemplate {
             }
             ?>
             <span class="tp-clearfix" style="margin-bottom:5px"></span>
-            
+
 		</div>
 
 		<?php
@@ -926,8 +928,8 @@ class RevSliderTemplate {
 		}
 		?>
 		<div class="template_slide_item_import">
-			<div class="template_slide_item_img<?php echo $deny; ?>" 
-				data-src="<?php echo $template['img']; ?>" 
+			<div class="template_slide_item_img<?php echo $deny; ?>"
+				data-src="<?php echo $template['img']; ?>"
 				data-gridwidth="<?php echo $template['width']; ?>"
 				data-gridheight="<?php echo $template['height']; ?>"
 				data-zipname="<?php echo $template['zip']; ?>"
@@ -1026,8 +1028,8 @@ class RevSliderTemplate {
 
 		<?php
 	}
-	
-	
+
+
 	/**
 	 * output markup for template
 	 * @since: 5.0
@@ -1039,10 +1041,10 @@ class RevSliderTemplate {
 
 
 		if($slider_id !== false) $title = ''; //remove Title if Slider
-		
+
 		$width = RevSliderBase::getVar($settings, "width", 1240);
 		$height = RevSliderBase::getVar($settings, "height", 868);
-		
+
 		$bgType = RevSliderBase::getVar($params, "background_type","transparent");
 		$bgColor = RevSliderBase::getVar($params, "slide_bg_color","transparent");
 
@@ -1072,15 +1074,15 @@ class RevSliderTemplate {
 			$bgStyle .= "background-position: ".$bgPosition.";";
 		}
 		$bgStyle .= "background-repeat: ".$bgRepeat.";";
-		
-		
+
+
 		if(isset($template['img'])){
 			$thumb = $this->_check_file_path($template['img'], true);
 		}else{
 			$imageID = false; //RevSliderBase::getVar($params, "image_id");
 			if(empty($imageID)){
 				$thumb = RevSliderBase::getVar($params, "image");
-		
+
 				$imgID = RevSliderBase::get_image_id_by_url($thumb);
 				if($imgID !== false){
 					$thumb = RevSliderFunctionsWP::getUrlAttachmentImage($imgID, RevSliderFunctionsWP::THUMB_MEDIUM);
@@ -1088,7 +1090,7 @@ class RevSliderTemplate {
 			}else{
 				$thumb = RevSliderFunctionsWP::getUrlAttachmentImage($imageID,RevSliderFunctionsWP::THUMB_MEDIUM);
 			}
-		
+
 			if($thumb == '') $thumb = RevSliderBase::getVar($params, "image");
 		}
 
@@ -1106,7 +1108,7 @@ class RevSliderTemplate {
 
 			if($bgType=="solid")
 				$bg_fullstyle =' style="background-color:'.$bgColor.';" ';
-				
+
 			if($bgType=="trans" || $bgType=="transparent")
 				$bg_extraClass = 'mini-transparent';
 		}
@@ -1167,17 +1169,17 @@ class RevSliderTemplate {
                     if (isset($template['required'])) {
                         ?>
                         <li><?php
-                
-                
+
+
                         if(version_compare(RevSliderGlobals::SLIDER_REVISION, $template['required'], '>=')){
                             ?><i class="eg-icon-check"></i><?php
                         }else{
                             ?><i class="eg-icon-cancel"></i><?php
                             $allow_install = false;
-                        }                
+                        }
                         echo __('Slider Revolution Version');
                         echo ' '.$template['required'];
-                        ?></li>                    
+                        ?></li>
                         <?php
                     }
 
@@ -1255,7 +1257,7 @@ class RevSliderTemplate {
             <?php
         }
 	}
-	
+
 
     public function create_html_slides($tp_template_slider, $all_slider, $templates){
         ?>
@@ -1674,8 +1676,8 @@ class RevSliderTemplate {
 							slider_package_names["<?php echo $uid; ?>"] = {};
 							slider_package_names["<?php echo $uid; ?>"].name = "<?php echo Mage::helper('nwdrevslider/framework')->esc_html($spt); ?>";
 							slider_package_names["<?php echo $uid; ?>"].sliderid = "<?php echo $sid; ?>";
-							
-							
+
+
 
 							<?php
 						}

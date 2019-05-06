@@ -23,8 +23,6 @@ Arguments:,Argumentos:
 "Background color","Cor de fundo"
 Both,Ambos
 Bottom,Fundo
-"By Compressing Output","Saída Por Compressão"
-"By Echo Output","Saída Por Echo"
 Center,Centro
 "Choose Operation","Escolha Operação"
 "Choose Slider","Escolha Slider"
@@ -89,7 +87,6 @@ Height,Altura
 Help,Ajuda
 "Hide Controls:","Esconder Controles:"
 "Import Slider","Importar Slider"
-"JQuery No Conflict Mode","Modo de Não Confito JQuery"
 Left,Esquerda
 "Loading Preview...","Carregando Preview..."
 "Loop Video:","Loop de Video:"
@@ -115,7 +112,6 @@ None,Nenhum
 Off,Desligar
 On,LIgar
 Opacity,Opacidade
-"Output Filters Protection","Proteção de Filtros de Saída"
 "Overwrite current static styles?","Sobrescrever estilos estáticos atuais?"
 Past,Passado
 "Pause Slider","Pausar Slider"
@@ -129,7 +125,6 @@ Preview,Pré-visualização
 "Preview Slider","Slider Anterior"
 "Previous Slide","Slide Anterior"
 Published,Publicado
-"Put JS Includes To Body","Colocar Includes JS na Body"
 "Redraw Slider","Redesenhar Slider"
 Remove,Remover
 Replacing...,Substituindo...

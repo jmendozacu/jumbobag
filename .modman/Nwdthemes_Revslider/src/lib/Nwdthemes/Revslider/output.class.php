@@ -61,12 +61,12 @@ class RevSliderOutput {
 		return($slider);
 	}
 
-    
+
     public function getSliderHtmlID(){
         return $this->sliderHtmlID;
     }
-    
-    
+
+
 	/**
 	 * set language
 	 */
@@ -140,21 +140,21 @@ class RevSliderOutput {
 
 		return($response);
 	}
-	
-	
+
+
 	/**
 	 * Get the Hero Slide of the Slider
 	 * @since: 5.0
 	 */
 	private function getHeroSlide($slides){
 		$hero_id = $this->slider->getParam('hero_active', -1);
-		
-		
+
+
 		if(empty($slides)) return $slides;
-		
+
 		foreach($slides as $slide){
 			$slideID = $slide->getID();
-			
+
 			if($slideID == $hero_id){
 				return $slide;
 			}
@@ -164,13 +164,13 @@ class RevSliderOutput {
 				}
 			}
 		}
-		
+
 		//could not be found, use first slide
 		foreach($slides as $slide){
 			return $slide;
 		}
 	}
-	
+
 	/**
 	 *
 	 * filter the slides for one slide preview
@@ -178,18 +178,18 @@ class RevSliderOutput {
 	private function filterOneSlide($slides){
 
 		$oneSlideID = $this->oneSlideData['slideid'];
-        
-        
+
+
         if(strpos($oneSlideID, 'static_') !== false){
             $wpdb = Mage::helper('nwdrevslider/query');
             $sliderID = str_replace('static_', '', $oneSlideID);
-            
+
             $tmp_slides = $wpdb->get_results($wpdb->prepare("SELECT * FROM ".RevSliderGlobals::$table_static_slides." WHERE slider_id = %s", array($sliderID)), Nwdthemes_Revslider_Helper_Query::ARRAY_A);
-            
+
             if(!empty($tmp_slides)){
                 $n_slides = new RevSliderSlide();
                 $n_slides->initByData($tmp_slides[0]);
-                
+
                 $slides[0] = $n_slides;
                 $oneSlideID = $n_slides->getID();
             }
@@ -237,12 +237,12 @@ class RevSliderOutput {
 		$sliderType = $this->slider->getParam('slider_type');
 		$slider_type = $this->slider->getParam('slider-type'); //standard, carousel or hero
 		$source_type = $this->slider->getParam('source_type'); //vimeo, post ect.
-		
+
 		$publishedOnly = true;
         if($slider_type == 'hero' || !empty($order)){
 			$publishedOnly = false; //take all, even unpublished ones
 		}
-		
+
 		if($this->previewMode == true && $this->oneSlideMode == true){
 			$previewSlideID = RevSliderFunctions::getVal($this->oneSlideData, 'slideid');
 			$previewSlide = new RevSlide();
@@ -320,12 +320,12 @@ class RevSliderOutput {
 		}
 
 		$this->slidesNumIndex = $this->slider->getSlidesNumbersByIDs(true);
-		
+
         if($slider_type == 'hero' && empty($order) && empty($gal_ids)){ //we are a hero Slider, show only one Slide!
 			$hero = $this->getHeroSlide($slides);
 			$slides = (!empty($hero)) ? array($hero) : array();
 		}
-		
+
         //check if mobile, if yes, then remove certain slides
         $usragent = (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : '';
         $mobile = (strstr($usragent,'Android') || strstr($usragent,'webOS') || strstr($usragent,'iPhone') ||strstr($usragent,'iPod') || strstr($usragent,'iPad') || strstr($usragent,'Windows Phone') || Mage::helper('nwdrevslider/framework')->wp_is_mobile()) ? true : false;
@@ -357,10 +357,10 @@ class RevSliderOutput {
 		if($this->slider->isSlidesFromPosts()){
 			$post_based_slider = true;
 		}
-		
+
 		$slideWidth = $this->slider->getParam('width',900);
 		$slideHeight = $this->slider->getParam('height',300);
-		
+
 		$do_bullets = $this->slider->getParam('enable_bullets','off');
 		$do_thumbnails = $this->slider->getParam('enable_thumbnails','off');
 		$do_arrows = $this->slider->getParam('enable_arrows','off');
@@ -372,7 +372,7 @@ class RevSliderOutput {
 			$old_ll = $this->slider->getParam('lazy_load', 'off');
 			$lazyLoad = ($old_ll == 'on') ? 'all' : 'none';
 		}
-		
+
 		//for one slide preview
         //if($this->oneSlideMode == true)
         //    $slides = $this->filterOneSlide($slides);
@@ -384,7 +384,7 @@ class RevSliderOutput {
 		$startWithSlide = $this->slider->getStartWithSlideSetting();
 
 		$firstTransActive = $this->slider->getParam('first_transition_active', 'false');
-		
+
 		if($firstTransActive == 'on' && $slider_type !== 'hero'){
 
 			$firstTransition = $this->slider->getParam('first_transition_type', 'fade');
@@ -401,7 +401,7 @@ class RevSliderOutput {
 		}
 
 		$oneSlideLoop = $this->slider->getParam("loop_slide","loop");
-		
+
 		if(($oneSlideLoop == 'loop' || $oneSlideLoop == 'on') && $slider_type !== 'hero'){
 			if(count($slides) == 1 && $this->oneSlideMode == false){
 				$new_slide = clone reset($slides);
@@ -414,12 +414,12 @@ class RevSliderOutput {
 		}
 
 		if(count($slides) == 0) return false; // No Slides added yet
-		
+
 		$def_transition = $this->slider->getParam('def-slide_transition', 'fade');
 		$def_image_source_type = $this->slider->getParam('def-image_source_type', 'full');
-		
+
         $do_static = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_enable_static_layers', true);
-        
+
         if($do_static){
             $sliderID = $this->slider->getID();
             foreach($slides as $slide){
@@ -432,10 +432,11 @@ class RevSliderOutput {
                 break;
             }
         }
-        
+
 		$index = 0;
+
 		foreach($slides as $slide){
-                
+
 			$params = $slide->getParams();
 
 			$navigation_arrow_stlye = $this->slider->getParam('navigation_arrow_style', 'round');
@@ -444,7 +445,7 @@ class RevSliderOutput {
 			//check if date is set
 			$date_from = $slide->getParam('date_from', '');
 			$date_to = $slide->getParam('date_to', '');
-			
+
 			if($this->previewMode === false){ // do only if we are not in preview mode
 				$ts = Mage::helper('nwdrevslider/framework')->current_time('timestamp');
 
@@ -458,9 +459,9 @@ class RevSliderOutput {
 					if($ts > $date_to) continue;
 				}
 			}
-			
+
 			$transition = $slide->getParam('slide_transition', $def_transition);
-			
+
 			if(!is_array($transition)){
 				$transition_arr = explode(',', $transition);
 			}else{
@@ -480,24 +481,24 @@ class RevSliderOutput {
 					}
 				}
 			}
-			
+
 			$slotAmount = $slide->getParam('slot_amount', '7');
 			if(is_array($slotAmount)) $slotAmount = implode(',', $slotAmount);
-			
+
 			$imageAddParams = '';
-			
+
 			$isExternal = $slide->getParam('background_type', 'image');
 			if($isExternal != 'external'){
 				$urlSlideImage = $slide->getImageUrl();
-				
+
 				//get image alt
 				$alt_type = $slide->getParam('alt_option', 'media_library');
                 $title_type = $slide->getParam('title_option', 'media_library');
-				
+
 				$alt = '';
                 $img_title = '';
 				$img_id = $slide->getImageID();
-				
+
 				switch($alt_type){
 					case 'media_library':
 						$alt = Mage::helper('nwdrevslider/framework')->get_post_meta( $img_id, '_wp_attachment_image_alt', true );
@@ -511,7 +512,7 @@ class RevSliderOutput {
 						$alt = Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam('alt_attr', ''));
 					break;
 				}
-				
+
                 switch($title_type){
                     case 'media_library':
                         $img_title = Mage::helper('nwdrevslider/framework')->get_the_title($img_id);
@@ -525,12 +526,12 @@ class RevSliderOutput {
                         $img_title = Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam('title_attr', ''));
                     break;
                 }
-                
+
 				$img_w = '';
 				$img_h = '';
-				
+
 				$img_size = $slide->getParam('image_source_type', $def_image_source_type);
-				
+
 				if($img_id !== false){
 					$img_data = Mage::helper('nwdrevslider/framework')->wp_get_attachment_metadata( $img_id );
 					if($img_data !== false && !empty($img_data)){
@@ -540,7 +541,7 @@ class RevSliderOutput {
 								$img_h = (isset($img_data['sizes'][$img_size]['height'])) ? $img_data['sizes'][$img_size]['height'] : '';
 							}
 						}
-						
+
 						if($img_w == '' || $img_h == ''){
 							$img_w = (isset($img_data['width'])) ? $img_data['width'] : '';
 							$img_h = (isset($img_data['height'])) ? $img_data['height'] : '';
@@ -548,18 +549,18 @@ class RevSliderOutput {
 						$imageAddParams .= ' width="'.$img_w.'" height="'.$img_h.'"';
 					}
 				}
-				
+
 			}else{
                 $urlSlideImage = Mage::helper('nwdrevslider/framework')->esc_url($slide->getParam('slide_bg_external', ''));
                 $alt = Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam('alt_attr', ''));
                 $img_title = Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam('title_attr', ''));
-				
+
 				$img_w = $slide->getParam('ext_width', '1920');
 				$img_h = $slide->getParam('ext_height', '1080');
-				
+
 				$imageAddParams .= ' width="'.$img_w.'" height="'.$img_h.'"';
 			}
-			
+
 			if(isset($slide->ignore_alt)) $alt = '';
 
 			$bgType = $slide->getParam('background_type', 'image');
@@ -583,11 +584,11 @@ class RevSliderOutput {
 				case 'custom':
 					$is_special_nav = true;
 			}
-			
+
 
 			$htmlThumb = "";
 			if($isThumbsActive == true || $is_special_nav == true){
-				
+
 				$urlThumb = null;
 
 				if(empty($urlThumb)){
@@ -598,20 +599,20 @@ class RevSliderOutput {
                         $urlThumb = '';
                     }
                 }
-				
+
 				$thumb_do = $slide->getParam('thumb_dimension', 'slider');
 				if($thumb_do == 'slider'){ //use the slider settings for width / height
-				
+
 					$th_width = intval($this->slider->getParam('previewimage_width', $this->slider->getParam('thumb_width', 100)));
 					$th_height = intval($this->slider->getParam('previewimage_height', $this->slider->getParam('thumb_height', 50)));
-					
+
 					//$th_width = intval($this->slider->getParam('thumb_width', 100));
 					//$th_height = intval($this->slider->getParam('thumb_height', 50));
 					if($th_width == 0) $th_width = 100;
 					if($th_height == 0) $th_height = 50;
-					
-					if($source_type == 'youtube' || $source_type == 'vimeo' || 
-						$bgType == 'image' || $bgType == 'vimeo' || $bgType == 'youtube' || $bgType == 'html5' || 
+
+					if($source_type == 'youtube' || $source_type == 'vimeo' ||
+						$bgType == 'image' || $bgType == 'vimeo' || $bgType == 'youtube' || $bgType == 'html5' ||
 						$bgType == 'streamvimeo' || $bgType == 'streamyoutube' || $bgType == 'streaminstagram' || $bgType == 'streamtwitter' ||
 						$bgType == 'streamvimeoboth' || $bgType == 'streamyoutubeboth' || $bgType == 'streaminstagramboth' || $bgType == 'streamtwitterboth'){
 
@@ -624,9 +625,9 @@ class RevSliderOutput {
 								$urlThumb = $slide->getImageUrl();
 								$urlThumb = Mage::helper('nwdrevslider/images')->rev_aq_resize($urlThumb, $th_width, $th_height, true, true, true);
 							}
-							
+
 						}
-						
+
 						//if not - put regular image:
 						if(empty($urlThumb))
 							$urlThumb = $slide->getImageUrl();
@@ -638,9 +639,9 @@ class RevSliderOutput {
 				}
 
 				$urlThumb = $urlThumb ? : Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'public/assets/images/transparent.png';
-				
+
 				$htmlThumb = ' data-thumb="'.Mage::helper('nwdrevslider/images')->imageUrl($urlThumb).'" ';
-				
+
 			}
 
 			//get link
@@ -703,9 +704,9 @@ class RevSliderOutput {
 			//get duration
 			$htmlDuration = '';
 			$duration = $slide->getParam('transition_duration', $this->slider->getParam('def-transition_duration', ''));
-			
+
 			if(is_array($duration)) $duration = implode(',', $duration);
-			
+
 			if(!empty($duration))
 				$htmlDuration = ' data-masterspeed="'.$duration.'" ';
 
@@ -735,29 +736,29 @@ class RevSliderOutput {
 				}
 				$htmlRotation = ' data-rotate="'.$rot_string.'" ';
 			}
-			
+
 			$htmlEaseIn = '';
 			$easein = $slide->getParam('transition_ease_in', 'default');
 			if(!empty($easein) && is_array($easein)) $easein = implode(',', $easein);
 			if($easein !== ''){
 				$htmlEaseIn = ' data-easein="'.$easein.'"';
 			}
-			
+
 			$htmlEaseOut = '';
 			$easeout = $slide->getParam('transition_ease_out', 'default');
-			
+
 			if(!empty($easeout) && is_array($easeout)) $easeout = implode(',', $easeout);
 
 			if($easeout !== ''){
 				$frame_end['ease'] = $easeout;
 				$htmlEaseOut = ' data-easeout="'.$easeout.'"';
 			}
-			
+
 			$fullWidthVideoData = $this->getSlideFullWidthVideoData($slide);
-			
+
 			//set first slide transition
 			$htmlFirstTrans = '';
-			
+
 			if($index == $startWithSlide && $slider_type !== 'hero'){
 				$htmlFirstTrans = $htmlFirstTransWrap;
 			}//first trans
@@ -774,7 +775,7 @@ class RevSliderOutput {
 				break;
 				case 'solid':
 					$urlSlideImage = $urlImageTransparent;
-					$slideBGColor = TPColorpicker::get($slide->getParam('slide_bg_color', '#d0d0d0'));										
+					$slideBGColor = TPColorpicker::get($slide->getParam('slide_bg_color', '#d0d0d0'));
 					$styleImage = "data-bgcolor='".$slideBGColor."' style='background:".$slideBGColor."'";
 				break;
 				case 'streamvimeo':
@@ -796,7 +797,7 @@ class RevSliderOutput {
 					}
 				break;
 			}
-			
+
 			if(trim($urlSlideImage) == '') $urlSlideImage = $urlImageTransparent; //go back to transparent if img is empty
 
 			//additional params
@@ -804,14 +805,14 @@ class RevSliderOutput {
 				$imageAddParams .= ' data-lazyload="'.$urlSlideImage.'"';
 				$urlSlideImage = Nwdthemes_Revslider_Helper_Framework::$RS_PLUGIN_URL.'public/assets/images/dummy.png';
 			}
-			
+
 			//additional background params
 			$bgFit = $slide->getParam('bg_fit', $this->slider->getParam('def-background_fit', 'cover'));
 			$bgFitX = intval($slide->getParam('bg_fit_x', $this->slider->getParam('def-bg_fit_x', '100')));
 			$bgFitY = intval($slide->getParam('bg_fit_y', $this->slider->getParam('def-bg_fit_y', '100')));
 
 			$bgPosition = $slide->getParam('bg_position', $this->slider->getParam('def-bg_position', 'center center'));
-			
+
 			if($bgType == 'streamvimeoboth' || $bgType == 'streamyoutubeboth' || $bgType == 'streaminstagramboth' || $bgType == 'streamtwitterboth'){
 				if($this->checkIfStreamVideoExists($slide)){
 					$bgPosition = 'center center';
@@ -821,7 +822,7 @@ class RevSliderOutput {
 					$bgPosition = 'center center';
 				}
 			}
-			
+
 			$bgPositionX = intval($slide->getParam('bg_position_x', $this->slider->getParam('def-bg_position_x', '0')));
 			$bgPositionY = intval($slide->getParam('bg_position_y', $this->slider->getParam('def-bg_position_y', '0')));
 
@@ -839,7 +840,7 @@ class RevSliderOutput {
 			$kb_ease = $slide->getParam('kb_easing', $this->slider->getParam('def-kb_easing', 'Linear.easeNone'));
 			$kb_start_fit = $slide->getParam('kb_start_fit', $this->slider->getParam('def-kb_start_fit', '100'));
 			$kb_end_fit = $slide->getParam('kb_end_fit', $this->slider->getParam('def-kb_end_fit', '100'));
-			
+
 			$kb_start_offset_x = $slide->getParam('kb_start_offset_x', $this->slider->getParam('def-kb_start_offset_x', '0'));
 			$kb_start_offset_y = $slide->getParam('kb_start_offset_y', $this->slider->getParam('def-kb_start_offset_y', '0'));
 			$kb_end_offset_x = $slide->getParam('kb_end_offset_x', $this->slider->getParam('def-kb_end_offset_x', '0'));
@@ -851,7 +852,7 @@ class RevSliderOutput {
             $kb_blur_end = $slide->getParam('kb_blur_end', $this->slider->getParam('def-kb_blur_end', '0'));
 
 			$kb_pz = '';
-			
+
 			if($kenburn_effect == "on" && ($bgType == 'image' || $bgType == 'external')){
 				$kb_pz .= ' data-kenburns="on"';
 				$kb_pz .= ' data-duration="'.$kb_duration.'"';
@@ -864,7 +865,7 @@ class RevSliderOutput {
 				$kb_pz .= ' data-blurend="'.$kb_blur_end.'"';
 				$kb_pz .= ' data-offsetstart="'.$kb_start_offset_x.' '.$kb_start_offset_y.'"';
 				$kb_pz .= ' data-offsetend="'.$kb_end_offset_x.' '.$kb_end_offset_y.'"';
-				
+
             }else{ //only set if kenburner is off and not a background video
                 if($bgType == 'youtube' || $bgType == 'html5' || $bgType == 'vimeo' || $bgType == 'streamvimeo' || $bgType == 'streamyoutube' || $bgType == 'streaminstagram' || $bgType == 'streamtwitter'){
                     $imageAddParams .= ' data-bgfit="cover"';
@@ -903,23 +904,23 @@ class RevSliderOutput {
 				$the_post = Mage::helper('nwdrevslider/framework')->get_post($slide->getID());
 				$new_title = @Mage::helper('nwdrevslider/framework')->get_the_title($slide->getID());
 				$the_excerpt = strip_tags(Mage::helper('nwdrevslider/framework')->strip_shortcodes($the_post->post_excerpt));
-				
+
 				$slide_title = ' data-title="'.stripslashes(Mage::helper('nwdrevslider/framework')->esc_attr($new_title)).'"';
 				$slide_description = ' data-description="'.str_replace(array("\'", '\"'), array("'", '"'), Mage::helper('nwdrevslider/framework')->esc_attr($the_excerpt)).'"';
 			}else{
 				$slide_title = ' data-title="'.stripslashes(Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam("title","Slide"))).'"';
 				$slide_description = ' data-description="'.str_replace(array("\'", '\"'), array("'", '"'), Mage::helper('nwdrevslider/framework')->esc_attr($slide->getParam('slide_description', ''))).'"';
 			}
-			
+
 			$slide_id = $slide->getID();
 			if($slide->getParam('slide_id','') !== '') $slide_id = Mage::helper('nwdrevslider/framework')->esc_attr($slide_id);
-			
+
 			$add_params = '';
 			for($mi=1;$mi<=10;$mi++){
 				$pa = $slide->getParam('params_'.$mi,'');
-				
+
 				//add meta functionality here
-				
+
 				if($pa !== ''){
                     $pa_limit = $slide->getParam('params_'.$mi.'_chars',10,RevSlider::FORCE_NUMERIC);
 					$pa = strip_tags($pa);
@@ -927,31 +928,31 @@ class RevSliderOutput {
 				}
                 $add_params .= ' data-param'.$mi.'="'.stripslashes(Mage::helper('nwdrevslider/framework')->esc_attr($pa)).'"';
 			}
-			
+
 			$use_parallax = $this->slider->getParam("use_parallax", $this->slider->getParam('use_parallax', 'off'));
 
 			$parallax_attr = '';
 			if($use_parallax == 'on'){
 				$slide_level = $slide->getParam('slide_parallax_level', '-');
 				if($slide_level == '-') $slide_level = 'off';
-					
+
 				$parallax_attr = ' data-bgparallax="'.$slide_level.'"';
 			}
-			
+
             $hideslideafter = $slide->getParam("hideslideafter",0);
 
             $hsom = $slide->getParam('hideslideonmobile', 'off');
-            
+
             if($img_title !== '') $img_title = ' title="'.$img_title.'"';
-            
+
 			//Html rev-main-
 			echo '	<!-- SLIDE  -->'."\n";
             echo '    <li data-index="rs-'.$slide_id.'" data-transition="'.$transition.'" data-slotamount="'. $slotAmount.'" data-hideafterloop="'.$hideslideafter.'" data-hideslideonmobile="'.$hsom.'" '.$add_rand.$htmlParams.$slide_title.$add_params.$slide_description;
-            
+
             Mage::helper('nwdrevslider/framework')->do_action('revslider_add_li_data', $this->slider, $slide);
-            
+
             echo '>'."\n";
-            
+
 
 			echo '		<!-- MAIN IMAGE -->'."\n";
             echo '        <img src="'. $urlSlideImage .'" '. $styleImage.' alt="'. $alt . '"'. $img_title.' '. $imageAddParams. $kb_pz . $parallax_attr .' class="rev-slidebg" data-no-retina>'."\n";
@@ -988,18 +989,18 @@ class RevSliderOutput {
 			$this->putCreativeZones();
 			$this->putCreativeGroups();
 			$this->putCreativeLayer();
-			
+
 			Mage::helper('nwdrevslider/framework')->do_action('revslider_add_layer_html', $this->slider, $slide);
-			
+
 			echo "	</li>\n";
-			
-            
+
+
             $index++;
-			
+
 		}	//get foreach
 
 		echo "</ul>\n";
-        
+
         if($do_static && !empty($this->static_slide)){
             $layers = $this->static_slide->getLayers();
 			$this->layers = $layers;
@@ -1008,36 +1009,36 @@ class RevSliderOutput {
                 $staticoverflow = $this->static_slide->getParam('staticoverflow', '');
                 if (!empty($staticoverflow) && $staticoverflow=="hidden")
                     $htmlstaticoverflow = 'overflow:hidden;width:100%;height:100%;top:0px;left:0px;';
-				
+
 				// new static layers position option
 				$staticlayserposition = '';
 				$staticlayserpos = $this->static_slide->getParam('staticlayersposition', 'front');
 				if(!empty($staticlayserpos) && $staticlayserpos === 'back') $staticlayserposition = ' tp-static-layers-back';
-                
+
                 //check for static layers
 				echo '<div style="'.$htmlstaticoverflow.'" class="tp-static-layers' . $staticlayserposition . '">'."\n";
 				$this->slide = $this->static_slide;
 
 				$this->putCreativeLayer(true);
-                
+
                 Mage::helper('nwdrevslider/framework')->do_action('revslider_add_static_layer_html', $this->slider);
-                
+
                 echo '</div>'."\n";
             }
 		}
-		
+
         $this->add_custom_navigation_css($slides);
-        
+
 	}
-	
-	
+
+
 	/**
 	 * check if a stream video exists
 	 * @since: 5.0
 	 */
 	public function checkIfStreamVideoExists($slide){
 		$type = $slide->getParam('background_type', 'image');
-		
+
 		$vid = '';
 		switch($type){
 			case 'streamyoutubeboth'://youtube
@@ -1058,21 +1059,21 @@ class RevSliderOutput {
 					if($vid !== '') return true;
 			break;
 		}
-		
+
 		return ($vid == '') ? false : true;
 	}
-	
-	
+
+
 	/**
 	 * add background video layer
 	 * @since: 5.0
 	 */
 	public function putBackgroundVideo($slide){
-		
+
 		$add_data = '';
-		
+
 		$videoType = $slide->getParam('background_type', 'image');
-		
+
 		$poster_url = $slide->getImageUrl();
 
 		$cover = $slide->getParam('video_force_cover', 'on');
@@ -1084,10 +1085,10 @@ class RevSliderOutput {
 		$force_rewind = $slide->getParam('video_force_rewind', 'off');
 		$mute_video = $slide->getParam('video_mute', 'on');
 		$volume_video = $slide->getParam('video_volume', '100');
-		
+
 		$video_start_at = $slide->getParam('video_start_at', '');
 		$video_end_at = $slide->getParam('video_end_at', '');
-		
+
 		//------------------------
 		$videoWidth = '100%';
 		$videoHeight = '100%';
@@ -1103,14 +1104,14 @@ class RevSliderOutput {
 			if(is_object($videoWidth)) $videoWidth = RevSliderFunctions::get_biggest_device_setting($videoWidth, $this->enabled_sizes);
 			if(is_object($videoHeight)) $videoHeight = RevSliderFunctions::get_biggest_device_setting($videoHeight, $this->enabled_sizes);
 		}
-		
+
 		$add_data = ($force_rewind == 'on') ? '			data-forcerewind="on"'." \n" : '';
 		$add_data .= ($mute_video == 'on') ? '			data-volume="mute"'." \n" : '';
-		
+
 		$setBase = (Mage::helper('nwdrevslider/framework')->is_ssl()) ? 'https://' : 'http://';
-		
+
 		$video_added = false;
-		
+
 		switch($videoType){
 			case 'streamtwitter':
 			case 'streamtwitterboth':
@@ -1118,58 +1119,58 @@ class RevSliderOutput {
 				$youtube_id = $slide->getParam('slide_bg_youtube', '');
 				$vimeo_id = $slide->getParam('slide_bg_vimeo', '');
 				$html_mpeg = $slide->getParam('slide_bg_html_mpeg', '');
-				
+
 				if($youtube_id !== ''){
 					$arguments = $slide->getParam('video_arguments', RevSliderGlobals::DEFAULT_YOUTUBE_ARGUMENTS);
 					$speed = $slide->getParam('video_speed', '1');
-				
+
 					if(empty($arguments))
 						$arguments = RevSliderGlobals::DEFAULT_YOUTUBE_ARGUMENTS;
-					
+
 					if($mute_video == 'off'){
 						$add_data .= '			data-volume="'.intval($volume_video).'"'." \n";
 						$arguments = 'volume='.intval($volume_video).'&amp;'.$arguments;
 					}
-					
-					$arguments.=';origin='.$setBase.$_SERVER['SERVER_NAME'].';';
+
+					$arguments.=';origin=' . rtrim(Mage::getBaseUrl(), '/') . ';';
 					$add_data .= '			data-ytid="'.$youtube_id.'"'." \n";
 					$add_data .= '			data-videoattributes="version=3&amp;enablejsapi=1&amp;html5=1&amp;'.$arguments.'"'." \n";
 					$add_data .= '			data-videorate="'.$speed.'"'." \n";
 					$add_data .= '			data-videowidth="'.$videoWidth.'"'." \n";
 					$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
 					$add_data .= '			data-videocontrols="none"'." \n";
-					
+
 					$video_added = true;
 				}elseif($vimeo_id !== ''){
 					$arguments = $slide->getParam('video_arguments_vim', RevSliderGlobals::DEFAULT_VIMEO_ARGUMENTS);
-				
+
 					if(empty($arguments))
 						$arguments = RevSliderGlobals::DEFAULT_VIMEO_ARGUMENTS;
-					
+
 					if($mute_video == 'off'){
 						$add_data .= '			data-volume="'.intval($volume_video).'"'." \n";
 					}
-					
+
 					//check if full URL
 					if(strpos($vimeo_id, 'http') !== false){
 						//we have full URL, split it to ID
 						$video_id = explode('vimeo.com/', $vimeo_id);
 						$vimeo_id = $video_id[1];
 					}
-					
+
 					$add_data .= '			data-vimeoid="'.$vimeo_id.'"'." \n";
 					$add_data .= '			data-videoattributes="'.$arguments.'"'." \n";
 					$add_data .= '			data-videowidth="'.$videoWidth.'"'." \n";
 					$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
 					$add_data .= '			data-videocontrols="none"'." \n";
-					
+
 					$video_added = true;
 				}elseif($html_mpeg !== ''){
 					$add_data .=  '			data-videowidth="'.$videoWidth.'"'." \n";
 					$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
-					
+
 					if(!empty($html_mpeg)) $add_data .= '			data-videomp4="'.$html_mpeg.'"'." \n";
-					
+
                     $add_data .= '            data-videopreload="auto"'." \n";
 
                     $video_added = true;
@@ -1180,88 +1181,88 @@ class RevSliderOutput {
 			case 'youtube':
 				$arguments = $slide->getParam('video_arguments', RevSliderGlobals::DEFAULT_YOUTUBE_ARGUMENTS);
 				$speed = $slide->getParam('video_speed', '1');
-				
+
 				if(empty($arguments))
 					$arguments = RevSliderGlobals::DEFAULT_YOUTUBE_ARGUMENTS;
-				
+
 				if($mute_video == 'off'){
 					$add_data .= '			data-volume="'.intval($volume_video).'"'." \n";
 					$arguments = 'volume='.intval($volume_video).'&amp;'.$arguments;
 				}
-				
+
 				$youtube_id = $slide->getParam('slide_bg_youtube', '');
-				
+
 				if($youtube_id == '') return false;
-				
+
 				//check if full URL
 				if(strpos($youtube_id, 'http') !== false){
 					//we have full URL, split it to ID
 					parse_str( parse_url( $youtube_id, PHP_URL_QUERY ), $my_v_ret );
 					$youtube_id = $my_v_ret['v'];
 				}
-				
-				$arguments.=';origin='.$setBase.$_SERVER['SERVER_NAME'].';';
+
+				$arguments.=';origin=' . rtrim(Mage::getBaseUrl(), '/') . ';';
 				$add_data .= '			data-ytid="'.$youtube_id.'"'." \n";
 				$add_data .= '			data-videoattributes="version=3&amp;enablejsapi=1&amp;html5=1&amp;'.$arguments.'"'." \n";
 				$add_data .= '			data-videorate="'.$speed.'"'." \n";
 				$add_data .= '			data-videowidth="'.$videoWidth.'"'." \n";
 				$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
 				$add_data .= '			data-videocontrols="none"'." \n";
-				
+
 				$video_added = true;
-				
+
 			break;
 			case 'streamvimeo':
 			case 'streamvimeoboth':
 			case 'vimeo':
 				$arguments = $slide->getParam('video_arguments_vim', RevSliderGlobals::DEFAULT_VIMEO_ARGUMENTS);
-				
+
 				if(empty($arguments))
 					$arguments = RevSliderGlobals::DEFAULT_VIMEO_ARGUMENTS;
-				
+
 				if($mute_video == 'off'){
 					$add_data .= '			data-volume="'.intval($volume_video).'"'." \n";
 				}
-				
+
 				$vimeo_id = $slide->getParam('slide_bg_vimeo', '');
-				
+
 				if($vimeo_id == '') return false;
-				
+
 				//check if full URL
 				if(strpos($vimeo_id, 'http') !== false){
 					//we have full URL, split it to ID
 					$video_id = explode('vimeo.com/', $vimeo_id);
 					$vimeo_id = $video_id[1];
 				}
-				
+
 				$add_data .= '			data-vimeoid="'.$vimeo_id.'"'." \n";
 				$add_data .= '			data-videoattributes="'.$arguments.'"'." \n";
 				$add_data .= '			data-videowidth="'.$videoWidth.'"'." \n";
 				$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
 				$add_data .= '			data-videocontrols="none"'." \n";
-				
+
 				$video_added = true;
 			break;
 			case 'streaminstagram':
 			case 'streaminstagramboth':
 			case 'html5':
-				
+
 				$html_mpeg = Mage::helper('nwdrevslider/images')->imageUrl( $slide->getParam('slide_bg_html_mpeg', '') );
 				$html_webm = Mage::helper('nwdrevslider/images')->imageUrl( $slide->getParam('slide_bg_html_webm', '') );
 				$html_ogv =  Mage::helper('nwdrevslider/images')->imageUrl( $slide->getParam('slide_bg_html_ogv', '')  );
-				
+
 				if($videoType == 'streaminstagram' || $videoType == 'streaminstagramboth'){
 					$html_webm = '';
 					$html_ogv = '';
 				}
-				
+
 				$add_data .=  '			data-videowidth="'.$videoWidth.'"'." \n";
 				$add_data .= '			data-videoheight="'.$videoHeight.'"'." \n";
 
 				if(!empty($html_ogv)) $add_data .= '			data-videoogv="'.$html_ogv.'"'." \n";
 				if(!empty($html_webm)) $add_data .= '			data-videowebm="'.$html_webm.'"'." \n";
 				if(!empty($html_mpeg)) $add_data .= '			data-videomp4="'.$html_mpeg.'"'." \n";
-				
+
                 $add_data .= '            data-videopreload="auto"'." \n";
 
                 if($mute_video == 'off'){
@@ -1272,44 +1273,44 @@ class RevSliderOutput {
 				$video_added = true;
 			break;
 		}
-		
+
 		if($video_added == false) return false; // return here if no valid video was found.
-		
+
 		if($video_start_at !== '')
 			$add_data .= '			data-videostartat="'.$video_start_at.'"'." \n";
 		if($video_end_at !== '')
 			$add_data .= '			data-videoendat="'.$video_end_at.'"'." \n";
-		
+
 		if($loop === true){ //fallback
 			$add_data .= '			data-videoloop="loop"'." \n";
 		}else{
 			$add_data .= '			data-videoloop="'.$loop.'"'." \n";
 		}
-		
+
 		if($cover == 'on'){
 			if($dotted_overlay !== 'none')
 				$add_data .= '			data-dottedoverlay="'.$dotted_overlay.'"'." \n";
-				
+
 			$add_data .=  '			data-forceCover="1"'." \n";
-				
+
 
 		}
-		
+
         if(!empty($ratio))
             $add_data .= '            data-aspectratio="'.$ratio.'"'." \n";
-            
+
 		$add_data .= '			data-autoplay="true"'." \n";
 		$add_data .= '			data-autoplayonlyfirsttime="false"'." \n";
         if($nextslide === 'on')
 			$add_data .= '			data-nextslideatend="true"'." \n";
-		
+
 		echo "\n		<!-- BACKGROUND VIDEO LAYER -->\n";
 		echo '		<div class="rs-background-video-layer" '."\n";
 		echo $add_data;
         echo '></div>';
 	}
 
-	
+
 	/**
 	 * put creative layer
 	 */
@@ -1318,7 +1319,7 @@ class RevSliderOutput {
 			return(false);
 
 		$layers = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_putCreativeLayer', $this->layers, $this, $static_slide);
-		
+
 		$this->container_mode = '';
 
 		foreach($layers as $layer){
@@ -1392,7 +1393,7 @@ class RevSliderOutput {
 			$frame_end['frame'] = '999';
 		}
 
-				
+
 		//add new filters options
 		//$frame_start['to']
 		$blurfilter = RevSliderFunctions::getVal($layer['deformation'], 'blurfilter', 0);
@@ -1408,7 +1409,7 @@ class RevSliderOutput {
 			$hover_grayscalefilter = RevSliderFunctions::getVal($layer['deformation-hover'], 'grayscalefilter', 0);
 			$hover_brightnessfilter = RevSliderFunctions::getVal($layer['deformation-hover'], 'brightnessfilter', 100);
 		}
-		
+
 		//$frame_start['from']
 		$anim_blurfilter_start = RevSliderFunctions::getVal($layer, 'blurfilter_start', 0);
 		$anim_grayscalefilter_start = RevSliderFunctions::getVal($layer, 'grayscalefilter_start', 0);
@@ -1433,7 +1434,7 @@ class RevSliderOutput {
 							$hover_brightnessfilter != 100 && $hover_brightnessfilter != '100%' ||
 							$anim_brightnessfilter_start != 100 && $anim_brightnessfilter_start != '100%' ||
 							$anim_brightnessfilter_end != 100 && $anim_brightnessfilter_end != '100%') ? true : false;
-							
+
 		$isFullWidthVideo = false;
 		switch($type){
 			case 'video':
@@ -1481,7 +1482,7 @@ class RevSliderOutput {
 			}
 
 			$class = RevSliderFunctions::getVal($layer, 'style');
-			
+
 			if(trim($class) !== ''){
 				$this->class_include['.'.trim($class)] = true; //add classname for style inclusion
 				//get class styles for further compare usage
@@ -1548,7 +1549,7 @@ class RevSliderOutput {
 					if(is_array($dbr)) $dbr = implode(' ', $dbr);
 					$dc = (isset($this->in_class_usage[trim($class)]['params']->{'css_cursor'})) ? $this->in_class_usage[trim($class)]['params']->{'css_cursor'} : $dc;
 				$pe = (isset($this->in_class_usage[trim($class)]['params']->{'pointer_events'})) ? $this->in_class_usage[trim($class)]['params']->{'pointer_events'} : $pe;
-					
+
 				}
 			}
 
@@ -1568,11 +1569,11 @@ class RevSliderOutput {
 		if($anim_brightnessfilter_start != 100 && $anim_brightnessfilter_start != '100%' || $brightness_write_all){
 			$tcin .= 'fbr:'.$anim_brightnessfilter_start.';';
 		}
-		
+
 			if($tcin !== ''){
 				$frame_start['from'] = $tcin;
 			}
-			
+
 			$do_mask_in = RevSliderFunctions::getVal($layer, 'mask_start',false);
 			if($do_mask_in){
 				$tmask = RevSliderOperations::parseCustomMaskByArray($layer, 'start');
@@ -1580,21 +1581,21 @@ class RevSliderOutput {
 					$frame_start['mask'] = $tmask;
 				}
 			}
-			
+
 			//set output class:
 
 			$layer_2d_rotation = intval(RevSliderFunctions::getVal($layer, '2d_rotation', '0'));
-			
+
 			$internal_class = RevSliderFunctions::getVal($layer, 'internal_class', '');
 
             $layer_selectable = RevSliderFunctions::getVal($layer, 'layer-selectable', 'default');
-			
+
 			$outputClass = 'tp-caption '. trim($class);
 
 		$d_hovers = (array) RevSliderFunctions::getVal($layer, 'deformation-hover', array());
 		$pointerevents = RevSliderFunctions::getVal($d_hovers, 'pointer_events', 'auto');
 		if($pointerevents == 'none') $outputClass .= ' tp-no-events';
-		
+
 			$outputClass = trim($outputClass) . ' ' . $internal_class . ' ';
             if ($layer_selectable !== "default"){
                 if($layer_selectable == 'on'){
@@ -1605,7 +1606,7 @@ class RevSliderOutput {
                     $outputClass = trim($outputClass) . ' tp-layer-selectable ';
                 }
             }
-			
+
 		$time = RevSliderFunctions::getVal($frame_start, 'time', RevSliderFunctions::getVal($layer, 'time', 0));
 		$time_relative = RevSliderFunctions::getVal($frame_start, 'time_relative', RevSliderFunctions::getVal($layer, 'timedelay', 'none'));
 		if($time_relative !== 'none'){
@@ -1614,18 +1615,18 @@ class RevSliderOutput {
 
 		$frame_start['speed'] = RevSliderFunctions::getVal($frame_start, 'speed', RevSliderFunctions::getVal($layer, 'speed', '300')); //fallback
 		$frame_start['easing'] = RevSliderFunctions::getVal($frame_start, 'easing', RevSliderFunctions::getVal($layer, 'easing', 'easeOutExpo')); //fallback
-				
-		if (RevSliderFunctions::getVal($frame_start, 'use_text_c')==1) 
+
+		if (RevSliderFunctions::getVal($frame_start, 'use_text_c')==1)
 			$frame_start['color'] = TPColorpicker::get(RevSliderFunctions::getVal($frame_start, 'text_c', 'transparent'));
 
-		if (RevSliderFunctions::getVal($frame_start, 'use_bg_c')==1) 
+		if (RevSliderFunctions::getVal($frame_start, 'use_bg_c')==1)
 			$frame_start['bgcolor'] = TPColorpicker::get(RevSliderFunctions::getVal($frame_start, 'bg_c', 'transparent'));
-		
+
 		unset($frame_start['use_text_c']);
 		unset($frame_start['use_bg_c']);
 		unset($frame_start['text_c']);
 		unset($frame_start['bg_c']);
-		
+
 		$frame_start['sfx_effect'] = RevSliderFunctions::getVal($frame_start, 'sfx_effect', RevSliderFunctions::getVal($layer, 'sfx_effect', '')); //fallback
 		$frame_start['sfxcolor'] = TPColorpicker::get(RevSliderFunctions::getVal($frame_start, 'sfxcolor', RevSliderFunctions::getVal($layer, 'sfxcolor', '#ffffff'))); //fallback
 
@@ -1636,13 +1637,13 @@ class RevSliderOutput {
 		$splitout = RevSliderFunctions::getVal($frame_end, 'split', RevSliderFunctions::getVal($layer, 'endsplit', 'none'));
 		$splitindir = RevSliderFunctions::getVal($frame_start, 'split_direction', RevSliderFunctions::getVal($layer, 'split_direction', 'forward'));
 		$splitoutdir = RevSliderFunctions::getVal($frame_end, 'split_direction', RevSliderFunctions::getVal($layer, 'endsplit_direction', 'forward'));
-		
-		$elementdelay = intval(RevSliderFunctions::getVal($frame_start, 'splitdelay', RevSliderFunctions::getVal($layer, 'splitdelay', 0)));		
+
+		$elementdelay = intval(RevSliderFunctions::getVal($frame_start, 'splitdelay', RevSliderFunctions::getVal($layer, 'splitdelay', 0)));
 		$endelementdelay = intval(RevSliderFunctions::getVal($frame_end, 'splitdelay', RevSliderFunctions::getVal($layer, 'endsplitdelay', 0)));
-			
+
 
 			$basealign = RevSliderFunctions::getVal($layer, 'basealign', 'grid');
-			
+
 			if($elementdelay > 0) $elementdelay /= 100;
 			if($endelementdelay > 0) $endelementdelay /= 100;
 
@@ -1668,7 +1669,7 @@ class RevSliderOutput {
             }elseif(function_exists('qtranxf_useCurrentLanguageIfNotFoundUseDefaultLanguage')){ //use qTranslate X
                 $text_toggle = qtranxf_useCurrentLanguageIfNotFoundUseDefaultLanguage($text_toggle);
             }
-			
+
             if(trim($ids) == ''){
                 if($static_slide){
                     $ids = 'slider-'.preg_replace("/[^\w]+/", "", $this->slider->getID()).'-layer-'.$unique_id;
@@ -1676,7 +1677,7 @@ class RevSliderOutput {
 					$ids = 'slide-'.preg_replace("/[^\w]+/", "", $this->slideID).'-layer-'.$unique_id;
                 }
             }
-                
+
 			$ids = ($ids != '') ? ' id="'.$ids.'"' : '';
 			$classes = ($classes != '') ? ' '.$classes : '';
 			$title = ($title != '') ? ' title="'.$title.'"' : '';
@@ -1765,12 +1766,13 @@ class RevSliderOutput {
                     }
 
                     $svg_val = RevSliderFunctions::getVal($layer, 'svg', false);
+				$svg_val = (array)$svg_val;
 
                     $static_styles = RevSliderFunctions::getVal($layer, 'static_styles', array());
-                    
+
                     if(!empty($static_styles)){
                         $static_styles = (array)$static_styles;
-                        
+
                         if(!empty($static_styles['color'])){
                             if(is_object($static_styles['color'])){
 								$use_color = RevSliderFunctions::get_biggest_device_setting($static_styles['color'], $this->enabled_sizes);
@@ -1793,7 +1795,7 @@ class RevSliderOutput {
                         }
                     }
 
-                    
+
 
 				break;
 				default:
@@ -1804,7 +1806,7 @@ class RevSliderOutput {
 					$html = Mage::helper('nwdrevslider/framework')->do_shortcode(stripslashes($html));
                     $html_toggle = $text_toggle;
                     $html_toggle = Mage::helper('nwdrevslider/framework')->do_shortcode(stripslashes($html_toggle));
-					
+
 					global $fa_icon_var, $pe_7s_var;
 					foreach($this->icon_sets as $is){
 						if(strpos($html, $is) !== false){ //include default Icon Sets if used
@@ -1812,7 +1814,7 @@ class RevSliderOutput {
 							$$font_var = true;
 						}
 					}
-					
+
 					$max_width = RevSliderFunctions::getVal($layer, 'max_width', 'auto');
 					$max_height = RevSliderFunctions::getVal($layer, 'max_height', 'auto');
 					$white_space = RevSliderFunctions::getVal($layer, 'whitespace', 'nowrap');
@@ -1829,12 +1831,12 @@ class RevSliderOutput {
 						$max_height = ($max_height !== 'none') ? RevSliderFunctions::add_missing_val($max_height) : $max_height;
 						$inline_styles .= ' max-width: '.$max_height.'; max-width: '.$max_height.';';
 					}
-					
+
 					$inline_styles .= ' white-space: '.$white_space.';';
 
 					//add more inline styling
 					$static_styles = RevSliderFunctions::getVal($layer, 'static_styles', array());
-					
+
 					if(!empty($static_styles)){
 						$static_styles = (array)$static_styles;
 						if(!empty($static_styles['font-size'])){
@@ -1844,8 +1846,7 @@ class RevSliderOutput {
 							}else{
 								$mcfs = $static_styles['font-size'];
 							}
-							if($mcfs !== $dfos) $inline_styles .= ' font-size: '.$mcfs.';';
-
+							if ( ! empty($mcfs) && $mcfs !== $dfos) $inline_styles .= ' font-size: '.$mcfs.';';
 						}
 						if(!empty($static_styles['line-height'])){
 							$static_styles['line-height'] = RevSliderFunctions::add_missing_val($static_styles['line-height'], 'px');
@@ -1854,7 +1855,7 @@ class RevSliderOutput {
 							}else{
 								$mclh = $static_styles['line-height'];
 							}
-							if($mclh !== $dlh) $inline_styles .= ' line-height: '.$mclh.';';
+							if ( ! empty($mcfs) && $mclh !== $dlh) $inline_styles .= ' line-height: '.$mclh.';';
 						}
 						if(!empty($static_styles['font-weight'])){
 							if(is_object($static_styles['font-weight'])){
@@ -1878,6 +1879,15 @@ class RevSliderOutput {
                             if ($use_color != $dco)
                                 $inline_styles .= ' color: ' . $use_color . ';';
                         }
+                        if(!empty($static_styles['letter-spacing'])){
+                            $static_styles['letter-spacing'] = RevSliderFunctions::add_missing_val($static_styles['letter-spacing'], 'px');
+                            if(is_object($static_styles['letter-spacing'])){
+                                $mcls = RevSliderFunctions::get_biggest_device_setting($static_styles['letter-spacing'], $this->enabled_sizes);
+                            }else{
+                                $mcls = $static_styles['letter-spacing'];
+                            }
+                            if( ! empty($mcls) && $mcls !== $dls) $inline_styles .= ' letter-spacing: '.$mcls.';';
+                        }
 
                      }
 
@@ -1888,7 +1898,7 @@ class RevSliderOutput {
 					$additional = '';
 
 					$cover_mode = RevSliderFunctions::getVal($layer, 'cover_mode', array());
-					
+
 					if(is_string($cover_mode)){
 						$cover_mode = array('desktop' => $cover_mode, 'notebook' => $cover_mode, 'tablet' => $cover_mode, 'mobile' => $cover_mode);
 					}else{ //change to array
@@ -1901,7 +1911,7 @@ class RevSliderOutput {
 					if($this->adv_resp_sizes == true){
 						$y_is_single = true;
 						$x_is_single = true;
-						
+
 						if($scaleX !== ''){
 							if(!is_object($scaleX)){
 								if(trim($scaleX) == '' || $scaleX == 'NaNpx') $scaleX = 'auto';
@@ -1918,7 +1928,7 @@ class RevSliderOutput {
 								}
 								$myScaleX = RevSliderFunctions::normalize_device_settings($scaleX, $this->enabled_sizes, 'html-array', array('NaNpx' => '', 'auto' => ''));
 								if($myScaleX == "['','','','']") $myScaleX = '';
-								
+
 								if(strpos($myScaleX, '[') !== false) $y_is_single = false;
 							}
 							if($y_is_single){ //force to array if voffset is also array
@@ -1947,7 +1957,7 @@ class RevSliderOutput {
 
 								$myScaleY = RevSliderFunctions::normalize_device_settings($scaleY, $this->enabled_sizes, 'html-array', array('NaNpx' => '', 'auto' => ''));
 								if($myScaleY == "['','','','']") $myScaleY = '';
-								
+
 								if(strpos($myScaleY, '[') !== false) $y_is_single = false;
 							}
 							if($y_is_single){ //force to array if voffset is also array
@@ -1959,15 +1969,15 @@ class RevSliderOutput {
 								}
 							}
 						}
-						
-						
+
+
 					}else{
 						$myScaleX = (is_object($scaleX)) ? RevSliderFunctions::get_biggest_device_setting($scaleX, $this->enabled_sizes) : $scaleX;
 						if(trim($myScaleX) == '' || $myScaleX == 'NaNpx') $myScaleX = 'auto';
 
 						$myScaleY = (is_object($scaleY)) ? RevSliderFunctions::get_biggest_device_setting($scaleY, $this->enabled_sizes) : $scaleY;
 						if(trim($myScaleY) == '' || $myScaleY == 'NaNpx') $myScaleY = 'auto';
-						
+
 						foreach($cover_mode as $cvmk => $cvmv){
 							if($cvmv == 'fullwidth' || $cvmv == 'cover') $myScaleX = 'full';
 							if($cvmv == 'fullheight' || $cvmv == 'cover') $myScaleY = 'full';
@@ -1975,7 +1985,7 @@ class RevSliderOutput {
 							if($cvmv == 'cover-proportional') $myScaleY = 'full-proportional';
 							break;
 						}
-						
+
 					}
 
 					if($scaleX != '') $additional .= ' data-ww="'.$myScaleX.'"';
@@ -2060,9 +2070,9 @@ class RevSliderOutput {
 					if(Mage::helper('nwdrevslider/framework')->is_ssl()){
 						$urlImage = str_replace("http://", "https://", $urlImage);
 					}
-					
+
 					$do_ll = RevSliderFunctions::getVal($layer, "lazy-load", 'auto');
-					
+
 					$imageAddParams = "";
 					$lazyLoad = $this->slider->getParam('lazy_load_type', false);
 					if($lazyLoad === false){ //do fallback checks to removed lazy_load value since version 5.0 and replaced with an enhanced version
@@ -2079,13 +2089,13 @@ class RevSliderOutput {
 							$additional .= ' class="forceseo"';
 						}
 					}
-					
+
 					$html = '<img src="'.$urlImage.'" alt="'.$alt.'"'.$additional.$imageAddParams.' data-no-retina>';
 					$imageLink = RevSliderFunctions::getVal($layer, "link","");
-					
+
 					//add more inline styling
 					$static_styles = RevSliderFunctions::getVal($layer, 'static_styles', array());
-					
+
 					if(!empty($static_styles) && trim($class) !== ''){
 						$static_styles = (array)$static_styles;
 						if(!empty($static_styles['line-height'])){
@@ -2098,7 +2108,7 @@ class RevSliderOutput {
 							if($mclh !== $dlh) $inline_styles .= ' line-height: '.$mclh.';';
 						}
 					}
-					
+
                     if($layer_2d_rotation !== 0)
                         $do_rotation = true;
                 break;
@@ -2113,19 +2123,19 @@ class RevSliderOutput {
                     $v_visible = RevSliderFunctions::strToBool($v_visible);
                     $videopreload = RevSliderFunctions::getVal($videoData, "preload_audio");
                     $videopreloadwait = RevSliderFunctions::getVal($videoData, "preload_wait");
-                    
+
                     $start_at = RevSliderFunctions::getVal($videoData, 'start_at');
                     $htmlStartAt = ($start_at !== '') ? ' data-videostartat="'.$start_at.'"' : '';
                     $end_at = RevSliderFunctions::getVal($videoData, 'end_at');
                     $htmlEndAt = ($end_at !== '') ? ' data-videoendat="'.$end_at.'"' : '';
-                    
+
                     $rewind = RevSliderFunctions::getVal($videoData, 'forcerewind');
                     $rewind = RevSliderFunctions::strToBool($rewind);
                     $htmlRewind = ($rewind == true) ? ' data-forcerewind="on"' : '';
-                    
+
                     $volume = RevSliderFunctions::getVal($videoData, "volume", '100');
                     $htmlMute = '            data-volume="'.intval($volume).'"';
-                    
+
                     if($v_visible === true){
                         $videoclass.= ' tp-hiddenaudio';
                     }
@@ -2141,50 +2151,50 @@ class RevSliderOutput {
 						if(is_object($videoWidth)) $videoWidth = RevSliderFunctions::get_biggest_device_setting($videoWidth, $this->enabled_sizes);
 						if(is_object($videoHeight)) $videoHeight = RevSliderFunctions::get_biggest_device_setting($videoHeight, $this->enabled_sizes);
                     }
-                    
+
                     $videoloop = RevSliderFunctions::getVal($videoData, "videoloop");
-                    
+
                     $add_data .= ($v_controls) ? ' data-videocontrols="none"' : ' data-videocontrols="controls"';
                     $add_data .= ' data-videowidth="'.$videoWidth.'" data-videoheight="'.$videoHeight.'"';
-                    
+
                     if(!empty($videopreload)){
                         $add_data .= ' data-videopreload="'.$videopreload.'"';
                         $add_data .= ' data-videopreloadwait="'.intval($videopreloadwait).'"';
                     }
-                    
+
                     $add_data .= ' data-audio="html5"';
                     $urlAudio = Mage::helper('nwdrevslider/framework')->esc_attr(RevSliderFunctions::getVal($videoData, 'urlAudio'));
                     if(!empty($urlAudio)) $add_data .= ' data-videomp4="'. Mage::helper('nwdrevslider/images')->imageUrl($urlAudio).'"';
-                    
-                    
+
+
                     if(RevSliderFunctions::strToBool($videoloop) == true){ //fallback
                         $add_data .= ' data-videoloop="loop"';
                     }else{
                         $add_data .= ' data-videoloop="'.$videoloop.'"';
                     }
-                    
+
                     $videoAutoplay = false;
-                    
+
                     if(array_key_exists("autoplayonlyfirsttime", $videoData)){
                         $autoplayonlyfirsttime = RevSliderFunctions::strToBool(RevSliderFunctions::getVal($videoData, "autoplayonlyfirsttime"));
                         if($autoplayonlyfirsttime == true) $videoAutoplay = '1sttime';
                     }
-                    
+
                     if($videoAutoplay == false){
                         if(array_key_exists("autoplay", $videoData))
                             $videoAutoplay = RevSliderFunctions::getVal($videoData, "autoplay");
                         else    //backword compatability
                             $videoAutoplay = RevSliderFunctions::getVal($layer, "video_autoplay");
                     }
-                    
+
                     if($videoAutoplay !== false && $videoAutoplay !== 'false'){
                         if($videoAutoplay === true || $videoAutoplay === 'true') $videoAutoplay = 'on';
-						
+
                         $htmlVideoAutoplay = '            data-autoplay="'.$videoAutoplay.'"'." \n";
                     }else{
                         $htmlVideoAutoplay = '            data-autoplay="off"'." \n";
                     }
-                    
+
                     $videoNextSlide = RevSliderFunctions::getVal($videoData, "nextslide");
                     $videoNextSlide = RevSliderFunctions::strToBool($videoNextSlide);
 
@@ -2194,7 +2204,7 @@ class RevSliderOutput {
                     $stopallvideo = RevSliderFunctions::getVal($videoData, "stopallvideo");
                     $stopallvideo = RevSliderFunctions::strToBool($stopallvideo);
                     $htmlDisableOnMobile .= ($stopallvideo)    ? '            data-stopallvideos="true"'." \n" : '';
-					
+
 				break;
 				case 'video':
 					$videoType = trim(RevSliderFunctions::getVal($layer, 'video_type'));
@@ -2209,18 +2219,18 @@ class RevSliderOutput {
 					$htmlStartAt = ($start_at !== '') ? ' data-videostartat="'.$start_at.'"' : '';
 					$end_at = RevSliderFunctions::getVal($videoData, 'end_at');
 					$htmlEndAt = ($end_at !== '') ? ' data-videoendat="'.$end_at.'"' : '';
-					
+
 					$show_cover_pause = RevSliderFunctions::getVal($videoData, 'show_cover_pause');
 					$show_cover_pause = RevSliderFunctions::strToBool($show_cover_pause);
 					$htmlCoverPause = ($show_cover_pause == true) ? ' data-showcoveronpause="on"' : '';
-					
+
 					$rewind = RevSliderFunctions::getVal($videoData, 'forcerewind');
 					$rewind = RevSliderFunctions::strToBool($rewind);
 					$htmlRewind = ($rewind == true) ? ' data-forcerewind="on"' : '';
-					
+
 					$only_poster_on_mobile = (isset($layer['video_data']->use_poster_on_mobile)) ? $layer['video_data']->use_poster_on_mobile : '';
 					$only_poster_on_mobile = RevSliderFunctions::strToBool($only_poster_on_mobile);
-					
+
 					if($isFullWidthVideo == true){ // || $cover == true
 						$videoWidth = '100%';
 						$videoHeight = '100%';
@@ -2239,17 +2249,17 @@ class RevSliderOutput {
 					}
 
 					$setBase = (Mage::helper('nwdrevslider/framework')->is_ssl()) ? 'https://' : 'http://';
-					
+
 					$cover = RevSliderFunctions::getVal($videoData, 'cover');
 					$cover = RevSliderFunctions::strToBool($cover);
-					
+
 					$videoloop = RevSliderFunctions::getVal($videoData, "videoloop");
-					
+
 					$mute = RevSliderFunctions::getVal($videoData, "mute");
 					$mute = RevSliderFunctions::strToBool($mute);
-					
+
 					$htmlMute = ($mute)	? '			data-volume="mute"' : '';
-					
+
 					switch($videoType){
 						case 'streamyoutube':
 						case 'streamyoutubeboth':
@@ -2257,16 +2267,16 @@ class RevSliderOutput {
 							if($videoType == 'streamyoutube' || $videoType == 'streamyoutubeboth'){ //change $videoID to the stream!
 								$videoID = $this->slide->getParam('slide_bg_youtube', '');
 							}
-							
+
 							if(empty($videoArgs))
 								$videoArgs = RevSliderGlobals::DEFAULT_YOUTUBE_ARGUMENTS;
-							
+
 							if(!$mute){
 								$volume = RevSliderFunctions::getVal($videoData, "volume", '100');
 								$htmlMute = '			data-volume="'.intval($volume).'"';
 								$videoArgs = 'volume='.intval($volume).'&'.$videoArgs;
 							}
-							
+
 							if($start_at !== ''){
 								$start_raw = explode(':', $start_at);
 								if(count($start_raw) == 2){
@@ -2289,20 +2299,20 @@ class RevSliderOutput {
 								}
 								$videoArgs .= ($end_at !== '') ? '&end='.$end_at : '';
 							}
-							
+
 							//check if full URL
 							if(strpos($videoID, 'http') !== false){
 								//we have full URL, split it to ID
 								parse_str( parse_url( $videoID, PHP_URL_QUERY ), $my_v_ret );
 								$videoID = $my_v_ret['v'];
 							}
-							
+
 							$videospeed = RevSliderFunctions::getVal($videoData, 'videospeed', '1');
 							$play_inline = RevSliderFunctions::getVal($videoData, 'video_play_inline', false);
 							$play_inline = RevSliderFunctions::strToBool($play_inline);
 
 							$videoArgs.=';origin='.$setBase.$_SERVER['SERVER_NAME'].';';
-							
+
 							$add_data = ' data-ytid="'.$videoID.'" data-videoattributes="version=3&amp;enablejsapi=1&amp;html5=1&amp;'.$videoArgs.'" data-videorate="'.$videospeed.'" data-videowidth="'.$videoWidth.'" data-videoheight="'.$videoHeight.'"';
 							$add_data .= ($v_controls) ? ' data-videocontrols="none"' : ' data-videocontrols="controls"';
 							if($play_inline){
@@ -2316,7 +2326,7 @@ class RevSliderOutput {
 							if($videoType == 'streamvimeo' || $videoType == 'streamvimeoboth'){ //change $videoID
 								$videoID = $this->slide->getParam('slide_bg_vimeo', '');
 							}
-							
+
 							if(empty($videoArgs))
 								$videoArgs = RevSliderGlobals::DEFAULT_VIMEO_ARGUMENTS;
 
@@ -2325,15 +2335,15 @@ class RevSliderOutput {
 								//we have full URL, split it to ID
 								$videoID = (int) substr(parse_url($videoID, PHP_URL_PATH), 1);
 							}
-							
+
 							if(!$mute){
 								$volume = RevSliderFunctions::getVal($videoData, "volume", '100');
 								$htmlMute = '			data-volume="'.intval($volume).'"';
 							}
-							
+
 							$add_data = ' data-vimeoid="'.$videoID.'" data-videoattributes="'.$videoArgs.'" data-videowidth="'.$videoWidth.'" data-videoheight="'.$videoHeight.'"';
 
-							
+
 						break;
 						case 'streaminstagram':
                         case 'streaminstagramboth':
@@ -2393,47 +2403,47 @@ class RevSliderOutput {
                             RevSliderFunctions::throwError("wrong video type: $videoType");
                             break;
                     }
-					
+
 					if(RevSliderFunctions::strToBool($videoloop) == true){ //fallback
 						$add_data .= ' data-videoloop="loop"';
 					}else{
 						$add_data .= ' data-videoloop="'.$videoloop.'"';
 					}
-					
+
 					if($cover == true){
 						$dotted = RevSliderFunctions::getVal($videoData, "dotted");
 						if($dotted !== 'none')
 							$add_data .= ' data-dottedoverlay="'.$dotted.'"';
-							
+
 						$add_data .=  ' data-forceCover="1"';
-							
+
 						$ratio = RevSliderFunctions::getVal($videoData, "ratio");
 							if(!empty($ratio))
 								$add_data .= ' data-aspectratio="'.$ratio.'"';
 					}
-					
+
 					$videoAutoplay = false;
-					
+
 					if(array_key_exists("autoplayonlyfirsttime", $videoData)){
 						$autoplayonlyfirsttime = RevSliderFunctions::strToBool(RevSliderFunctions::getVal($videoData, "autoplayonlyfirsttime"));
 						if($autoplayonlyfirsttime == true) $videoAutoplay = '1sttime';
 					}
-					
+
 					if($videoAutoplay == false){
 						if(array_key_exists("autoplay", $videoData))
 							$videoAutoplay = RevSliderFunctions::getVal($videoData, "autoplay");
 						else	//backword compatability
 							$videoAutoplay = RevSliderFunctions::getVal($layer, "video_autoplay");
 					}
-					
+
 					if($videoAutoplay !== false && $videoAutoplay !== 'false'){
 						if($videoAutoplay === true || $videoAutoplay === 'true') $videoAutoplay = 'on';
-						
+
 						$htmlVideoAutoplay = '			data-autoplay="'.$videoAutoplay.'"'." \n";
 					}else{
 						$htmlVideoAutoplay = '			data-autoplay="off"'." \n";
 					}
-					
+
 					$videoNextSlide = RevSliderFunctions::getVal($videoData, "nextslide");
 					$videoNextSlide = RevSliderFunctions::strToBool($videoNextSlide);
 
@@ -2452,7 +2462,7 @@ class RevSliderOutput {
                             $htmlVideoThumbnail .= '            data-noposteronmobile="off"'." \n";
 						}
 					}
-					
+
 					$disable_on_mobile = RevSliderFunctions::getVal($videoData, "disable_on_mobile");
 					$disable_on_mobile = RevSliderFunctions::strToBool($disable_on_mobile);
 					$htmlDisableOnMobile = ($disable_on_mobile)	? '			data-disablevideoonmobile="1"'." \n" : '';
@@ -2558,7 +2568,7 @@ class RevSliderOutput {
 			case 'group':
 				break;
 			}
-			
+
 			$has_trigger = false;
 			foreach($this->layers as $cl){
 				if($has_trigger) break;
@@ -2583,7 +2593,7 @@ class RevSliderOutput {
 					}
 				}
 			}
-			
+
 			$last_trigger_state = '';
 			$animation_overwrite = 'default';
 			$trigger_memory = 'keep';
@@ -2592,9 +2602,9 @@ class RevSliderOutput {
 			if($has_trigger){
 				$animation_overwrite = RevSliderFunctions::getVal($layer, 'animation_overwrite', 'wait');
 				$trigger_memory = RevSliderFunctions::getVal($layer, 'trigger_memory', 'keep');
-				
+
 				$last_trigger_state = '			data-lasttriggerstate="'.Mage::helper('nwdrevslider/framework')->esc_attr($trigger_memory).'"';
-				
+
 			}
 			if($animation_overwrite == 'waitin' || $animation_overwrite == 'wait'){
 				$time = 'bytrigger';
@@ -2645,7 +2655,7 @@ class RevSliderOutput {
 					$endTime = $endTime - ($time + $speed);
 				}
 			}
-			
+
 			$show_on_hover = RevSliderFunctions::getVal($layer, 'show-on-hover', false);
             if($show_on_hover === 'show-on-hover' || is_array($show_on_hover) && $show_on_hover[0] == 'show-on-hover') $show_on_hover = false;//fix for layers that occured in version 5.2.2 and 5.2.3
 
@@ -2669,7 +2679,7 @@ class RevSliderOutput {
 			if ($columnbreak==="tablet") $columnbreak = 2;
 			if ($columnbreak==="mobile") $columnbreak = 3;
 		}
-				
+
 			//add animation to class
 		$endAnimation = trim(RevSliderFunctions::getVal($frame_end, 'animation', RevSliderFunctions::getVal($layer, 'endanimation')));
 			if($endAnimation == "fade") $endAnimation = "tp-fade";
@@ -2677,9 +2687,9 @@ class RevSliderOutput {
 		if(!array_key_exists($endAnimation, $this->endAnimations) && array_key_exists($endAnimation, $this->customEndAnimations)){ //if true, add custom animation
 				//check with custom values, if same, we do not need to write all down and just refer
 			}
-			
+
 			$tcout = '';
-			
+
 			if($endAnimation !== 'auto'){
 				$tcout = RevSliderOperations::parseCustomAnimationByArray($layer, 'end', $frame_end);
 			}else{ //automatic reverse
@@ -2700,12 +2710,12 @@ class RevSliderOutput {
 		unset($frame_end['text_c']);
 		unset($frame_end['bg_c']);
 
-		$frame_end['sfx_effect'] = RevSliderFunctions::getVal($frame_end, 'sfx_effect', RevSliderFunctions::getVal($layer, 'sfx_effect', '')); 
+		$frame_end['sfx_effect'] = RevSliderFunctions::getVal($frame_end, 'sfx_effect', RevSliderFunctions::getVal($layer, 'sfx_effect', ''));
 		$frame_end['sfxcolor'] = TPColorpicker::get(RevSliderFunctions::getVal($frame_end, 'sfxcolor', RevSliderFunctions::getVal($layer, 'sfxcolor', '#ffffff'))); //fallback
 
 		$frame_end['speed'] = $es;
 		$frame_end['easing'] = $ee;
-			
+
 		if($anim_blurfilter_end != 0 && $anim_blurfilter_end != '0px' || $blur_write_all){
 			$tcout .= 'fb:'.$anim_blurfilter_end.';';
 		}
@@ -2716,11 +2726,11 @@ class RevSliderOutput {
 		if($anim_brightnessfilter_end != 100 && $anim_brightnessfilter_end != '100%' || $brightness_write_all){
 			$tcout .= 'fbr:'.$anim_brightnessfilter_end.';';
 		}
-		
+
 			if($tcout !== ''){
 				$frame_end['to'] = $tcout;
 			}
-			
+
 			$do_mask_out = RevSliderFunctions::getVal($layer, 'mask_end',false);
 			if($do_mask_out){
 				$tmask = RevSliderOperations::parseCustomMaskByArray($layer, 'end');
@@ -2731,7 +2741,7 @@ class RevSliderOutput {
 
 			//slide link
 			$html_simple_link = '';
-			
+
 			//hidden under resolution
 			$htmlHidden = '';
 			$layerHidden = RevSliderFunctions::getVal($layer, 'hiddenunder');
@@ -2778,7 +2788,7 @@ class RevSliderOutput {
 						$myTop = "['".$myTop."','".$myTop."','".$myTop."','".$myTop."']";
 					}
 				}
-				
+
 				if(!is_object($alignHor)){
 					$myHor = $alignHor;
 					$myHor = "['".$myHor."','".$myHor."','".$myHor."','".$myHor."']";
@@ -2791,7 +2801,7 @@ class RevSliderOutput {
 					}
 				}
 
-				
+
 				if(!is_object($alignVert)){
 					$myVer = $alignVert;
 					$myVer = "['".$myVer."','".$myVer."','".$myVer."','".$myVer."']";
@@ -2804,10 +2814,10 @@ class RevSliderOutput {
 					}
 				}
 
-				
+
 				$htmlPosX = ' data-x="'.$myHor.'" data-hoffset="'.$myLeft.'"';
 				$htmlPosY = ' data-y="'.$myVer.'" data-voffset="'.$myTop.'"';
-				
+
 				$static_styles = RevSliderFunctions::getVal($layer, 'static_styles', array());
 				if(!empty($static_styles)){
 					$static_styles = (array)$static_styles;
@@ -2832,7 +2842,7 @@ class RevSliderOutput {
 					if(!empty($static_styles['color'])){
 						if(is_object($static_styles['color'])){
 							$def_val = (array) RevSliderFunctions::getVal($layer, 'deformation', array());
-							
+
 							foreach($static_styles['color'] as $sk => $sv){
                                 $color_trans = RevSliderFunctions::getVal($def_val, 'color-transparency', false);
                                 $static_styles['color']->$sk = TPColorpicker::convert($sv, $color_trans);
@@ -2851,22 +2861,22 @@ class RevSliderOutput {
                         }
                     }
 				}
-				
+
 				$max_width = RevSliderFunctions::getVal($layer, 'max_width', 'auto');
 				$max_height = RevSliderFunctions::getVal($layer, 'max_height', 'auto');
 				$white_space = RevSliderFunctions::getVal($layer, 'whitespace', 'nowrap');
-				
+
 				$cover_mode = RevSliderFunctions::getVal($layer, 'cover_mode', array());
-				
+
 				if(is_string($cover_mode)){
 					$cover_mode = array('desktop' => $cover_mode, 'notebook' => $cover_mode, 'tablet' => $cover_mode, 'mobile' => $cover_mode);
 				}else{ //change to array
 					$cover_mode = (array) $cover_mode;
 				}
-				
+
 				if(is_object($max_width)){
 					$max_width = RevSliderFunctions::normalize_device_settings($max_width, $this->enabled_sizes);
-					
+
 					if($max_width->desktop == 'auto') $max_width->desktop = 'none';
 					if($max_width->notebook == 'auto') $max_width->notebook = 'none';
 					if($max_width->tablet == 'auto') $max_width->tablet = 'none';
@@ -2875,7 +2885,7 @@ class RevSliderOutput {
 				}
 				if(is_object($max_height)){
 					$max_height = RevSliderFunctions::normalize_device_settings($max_height, $this->enabled_sizes);
-					
+
 					if($max_height->desktop == 'auto') $max_height->desktop = 'none';
 					if($max_height->notebook == 'auto') $max_height->notebook = 'none';
 					if($max_height->tablet == 'auto') $max_height->tablet = 'none';
@@ -2884,10 +2894,10 @@ class RevSliderOutput {
 				}
 				if(is_object($white_space)){
 					$white_space = RevSliderFunctions::normalize_device_settings($white_space, $this->enabled_sizes);
-					
+
 					if($white_space->desktop == $white_space->notebook && $white_space->desktop == $white_space->tablet && $white_space->desktop == $white_space->mobile) $white_space = $white_space->desktop;
 				}
-				
+
 				switch($type){
 					case 'shape':
 					case 'image':
@@ -2955,19 +2965,19 @@ class RevSliderOutput {
                     case 'svg':
 					break;
 				}
-				
+
 				if($type !== 'video'){
 					$static_data .= (is_object($max_width)) ? str_replace('px', '', "			data-width=\"['".implode("','", (array)$max_width)."']\"")."\n" : str_replace('px', '', '			data-width="'.$max_width.'"')."\n";
 					$static_data .= (is_object($max_height)) ? str_replace('px', '', "			data-height=\"['".implode("','", (array)$max_height)."']\"")."\n" : str_replace('px', '', '			data-height="'.$max_height.'"')."\n";
 				}
 				$static_data .= (is_object($white_space)) ? str_replace('px', '', "			data-whitespace=\"['".implode("','", (array)$white_space)."']\"")."\n" : str_replace('px', '', '			data-whitespace="'.$white_space.'"')."\n";
-				
+
 			}else{
 				if(is_object($alignHor)) $alignHor = RevSliderFunctions::get_biggest_device_setting($alignHor, $this->enabled_sizes);
 				if(is_object($alignVert)) $alignVert = RevSliderFunctions::get_biggest_device_setting($alignVert, $this->enabled_sizes);
 				if(is_object($left)) $left = RevSliderFunctions::get_biggest_device_setting($left, $this->enabled_sizes);
 				if(is_object($top)) $top = RevSliderFunctions::get_biggest_device_setting($top, $this->enabled_sizes);
-				
+
 				switch($alignHor){
 					default:
 					case 'left':
@@ -2980,7 +2990,7 @@ class RevSliderOutput {
 						$htmlPosX = ' data-x="right" data-hoffset="'.$left.'"';
 					break;
 				}
-				
+
 				switch($alignVert){
 					default:
 					case 'top':
@@ -2994,18 +3004,18 @@ class RevSliderOutput {
 						$htmlPosY = ' data-y="bottom" data-voffset="'.$top.'"';
 					break;
 				}
-				
-				
+
+
 				$max_width = RevSliderFunctions::getVal($layer, 'max_width', 'auto');
 				$max_height = RevSliderFunctions::getVal($layer, 'max_height', 'auto');
 				$cover_mode = RevSliderFunctions::getVal($layer, 'cover_mode', array());
-				
+
 				if(is_string($cover_mode)){
 					$cover_mode = array('desktop' => $cover_mode, 'notebook' => $cover_mode, 'tablet' => $cover_mode, 'mobile' => $cover_mode);
 				}else{ //change to array
 					$cover_mode = (array) $cover_mode;
 				}
-				
+
 				switch($type){
 					case 'shape':
 					case 'image':
@@ -3070,19 +3080,19 @@ class RevSliderOutput {
 							}
 						}
 					break;
-                    case 'svg':                        
-                        
+                    case 'svg':
+
 					break;
 				}
-				
+
 				if($type !== 'video'){
 					$static_data .= (is_object($max_width)) ? str_replace('px', '', "			data-width=\"['".implode("','", (array)$max_width)."']\"")."\n" : str_replace('px', '', '			data-width="'.$max_width.'"')."\n";
 					$static_data .= (is_object($max_height)) ? str_replace('px', '', "			data-height=\"['".implode("','", (array)$max_height)."']\"")."\n" : str_replace('px', '', '			data-height="'.$max_height.'"')."\n";
 				}
 			}
-			
+
 			$style_string = '';
-			
+
 			$vis_desktop = RevSliderFunctions::getVal($layer, 'visible-desktop', true);
 			$vis_notebook = RevSliderFunctions::getVal($layer, 'visible-notebook', true);
 			$vis_tablet = RevSliderFunctions::getVal($layer, 'visible-tablet', true);
@@ -3091,18 +3101,18 @@ class RevSliderOutput {
 			$vis_desktop = ($vis_desktop === true) ? 'on' : 'off';
 			$vis_tablet = ($vis_tablet === true) ? 'on' : 'off';
 			$vis_mobile = ($vis_mobile === true) ? 'on' : 'off';
-			
+
 			if($vis_notebook == 'off' || $vis_desktop == 'off' || $vis_tablet == 'off' || $vis_mobile == 'off')
 				$static_data .= "			data-visibility=\"['".$vis_desktop."','".$vis_notebook."','".$vis_tablet."','".$vis_mobile."']\"\n";
-			
+
 			$il_style = (array)RevSliderFunctions::getVal($layer, 'inline', array());
 			$adv_style = (array)RevSliderFunctions::getVal($layer, 'advanced', array());
-			
+
 			//add deformation and hover deformation to the layers
 			$def_val = (array) RevSliderFunctions::getVal($layer, 'deformation', array());
 		//get hover stuff, because of css_cursor
 		$def_val_h = (array) RevSliderFunctions::getVal($layer, 'deformation-hover', array());
-		
+
 			$def = array();
 			$st_idle = array();
 			$def['o'] = array(RevSliderFunctions::getVal($def_val, 'opacity', '0'), '0');
@@ -3112,7 +3122,7 @@ class RevSliderOutput {
 			$def['skY'] = array(RevSliderFunctions::getVal($def_val, 'skewy', '0'), '0');
 			$def['rX'] = array(RevSliderFunctions::getVal($def_val, 'xrotate', '0'), '0');
 			$def['rY'] = array(RevSliderFunctions::getVal($def_val, 'yrotate', '0'), '0');
-		$def['rZ'] = array(RevSliderFunctions::getVal($layer, '2d_rotation', '0'), '0');		
+		$def['rZ'] = array(RevSliderFunctions::getVal($layer, '2d_rotation', '0'), '0');
 			$orix = RevSliderFunctions::getVal($def_val, '2d_origin_x', '50%');
 			if(strpos($orix, '%') === false) $orix .= '%';
 			$oriy = RevSliderFunctions::getVal($def_val, '2d_origin_y', '50%');
@@ -3120,7 +3130,7 @@ class RevSliderOutput {
 			$def['tO'] = array($orix . ' ' . $oriy, '50% 50%');
 			$def['tP'] = array(RevSliderFunctions::getVal($def_val, 'pers', '600'), '600');
 			$def['z'] = array(RevSliderFunctions::getVal($def_val, 'z', '0'), '0');
-			
+
 			$st_idle['font-family'] = array(str_replace('"', "'", RevSliderFunctions::getVal($def_val, 'font-family', '')), str_replace('"', "'", $dff));
             $st_idle['text-transform']     = array(RevSliderFunctions::getVal($def_val, 'text-transform', 'left'), $dttr);
 
@@ -3228,11 +3238,11 @@ class RevSliderOutput {
 
 		//add the pointer_events to the idle styles
 		$pointer_events = RevSliderFunctions::getVal($def_val_h, 'pointer_events', 'auto');
-		
+
 		if(trim($pointer_events) !== '' && $pointer_events !== 'auto'){
 			$st_idle['pointer-events']  =  array($pointer_events, 'auto');
 		}
-		
+
         $def_string = '';
         foreach($def as $key => $value){
             if(trim($value[0]) == '' || $value[0] == $value[1]) continue;
@@ -3592,7 +3602,7 @@ class RevSliderOutput {
 								$a_link_open_in[$num] = (isset($a_link_open_in[$num])) ? $a_link_open_in[$num] : '';
 								$a_image_link[$num] = (isset($a_image_link[$num])) ? $a_image_link[$num] : '';
                                 $a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-								
+
 								$a_events[] = array(
 									'event' => $a_tooltip_event[$num],
 									'action' => 'simplelink',
@@ -3611,7 +3621,7 @@ class RevSliderOutput {
 								if(isset($a_link_follow[$num]) && $a_link_follow[$num] == "nofollow" ){
 									$html_simple_link .=' rel="nofollow"';
 								}
-								
+
 								//write textdecoration always, even if none
 								$def_val = (array) RevSliderFunctions::getVal($layer, 'deformation', array());
 								$te_de = RevSliderFunctions::getVal($def_val, 'text-decoration', 'none');
@@ -3629,7 +3639,7 @@ class RevSliderOutput {
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_jump_to_slide[$num] = (isset($a_jump_to_slide[$num])) ? $a_jump_to_slide[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'jumptoslide',
@@ -3640,7 +3650,7 @@ class RevSliderOutput {
 						case 'next':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'jumptoslide',
@@ -3651,7 +3661,7 @@ class RevSliderOutput {
 						case 'gofullscreen':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'gofullscreen',
@@ -3661,37 +3671,37 @@ class RevSliderOutput {
                         case 'toggle_global_mute_video':
                             $a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
                             $a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-                            
+
                             $a_events[] = array(
                                 'event' => $a_tooltip_event[$num],
-                                'action' => 'toggle_global_mute_video',                                
+                                'action' => 'toggle_global_mute_video',
                                 'delay' => $a_action_delay[$num]
                             );
                         break;
 						case 'exitfullscreen':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
-								'action' => 'exitfullscreen',								
+								'action' => 'exitfullscreen',
 								'delay' => $a_action_delay[$num]
 							);
 						break;
 						case 'togglefullscreen':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
-								'action' => 'togglefullscreen',								
+								'action' => 'togglefullscreen',
 								'delay' => $a_action_delay[$num]
 							);
 						break;
 						case 'prev':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'jumptoslide',
@@ -3755,7 +3765,7 @@ class RevSliderOutput {
 						case 'start_in':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'startlayer',
@@ -3766,7 +3776,7 @@ class RevSliderOutput {
 						case 'start_out':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'stoplayer',
@@ -3778,7 +3788,7 @@ class RevSliderOutput {
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_toggle_layer_type[$num] = (isset($a_toggle_layer_type[$num])) ? $a_toggle_layer_type[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'togglelayer',
@@ -3790,7 +3800,7 @@ class RevSliderOutput {
 						case 'start_video':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'playvideo',
@@ -3801,7 +3811,7 @@ class RevSliderOutput {
 						case 'stop_video':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'stopvideo',
@@ -3812,7 +3822,7 @@ class RevSliderOutput {
                         case 'mute_video':
                             $a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
                             $a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-                            
+
                             $a_events[] = array(
                                 'event' => $a_tooltip_event[$num],
                                 'action' => 'mutevideo',
@@ -3823,7 +3833,7 @@ class RevSliderOutput {
                         case 'unmute_video':
                             $a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
                             $a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-                            
+
                             $a_events[] = array(
                                 'event' => $a_tooltip_event[$num],
                                 'action' => 'unmutevideo',
@@ -3834,7 +3844,7 @@ class RevSliderOutput {
 						case 'toggle_video':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'togglevideo',
@@ -3845,7 +3855,7 @@ class RevSliderOutput {
                         case 'toggle_mute_video':
                             $a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
                             $a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-                            
+
                             $a_events[] = array(
                                 'event' => $a_tooltip_event[$num],
                                 'action' => 'toggle_mute_video',
@@ -3856,7 +3866,7 @@ class RevSliderOutput {
 						case 'simulate_click':
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'simulateclick',
@@ -3868,7 +3878,7 @@ class RevSliderOutput {
 							$a_tooltip_event[$num] = (isset($a_tooltip_event[$num])) ? $a_tooltip_event[$num] : '';
 							$a_action_delay[$num] = (isset($a_action_delay[$num])) ? $a_action_delay[$num] : '';
 							$a_toggle_class[$num] = (isset($a_toggle_class[$num])) ? $a_toggle_class[$num] : '';
-							
+
 							$a_events[] = array(
 								'event' => $a_tooltip_event[$num],
 								'action' => 'toggleclass',
@@ -3892,12 +3902,12 @@ class RevSliderOutput {
 				}
 				$a_html .= "'\n";
 			}
-			
+
 			//check for loop animation here
 			$do_loop = RevSliderFunctions::getVal($layer, 'loop_animation', 'none');
 			$loop_data = '';
 			$loop_class = '';
-			
+
 			if($do_loop !== 'none'){
 				$loop_class = ' '.$do_loop;
 				switch($do_loop){
@@ -3915,7 +3925,7 @@ class RevSliderOutput {
 						$loop_data.= ' data-speed="'.RevSliderFunctions::getVal($layer, 'loop_speed', '2').'"';
 						$loop_data.= ' data-origin="'.RevSliderFunctions::getVal($layer, 'loop_xorigin', '50').'% '.RevSliderFunctions::getVal($layer, 'loop_yorigin', '50').'%"';
 					break;
-					
+
 					case 'rs-slideloop':
 						$loop_data.= ' data-easing="'.RevSliderFunctions::getVal($layer, 'loop_easing', 'Power3.easeInOut').'"';
 						$loop_data.= ' data-speed="'.RevSliderFunctions::getVal($layer, 'loop_speed', '1').'"';
@@ -3939,12 +3949,12 @@ class RevSliderOutput {
 				}
 			}
 
-            if (!empty($svg_val) &&  sizeof($svg_val)>0) $outputClass .=' tp-svg-layer';
+		if (!empty($svg_val) && is_array($svg_val) && sizeof($svg_val)>0) $outputClass .=' tp-svg-layer';
 
 			$layer_id = $this->zIndex - 4;
-			
+
 			$use_tag = RevSliderFunctions::getVal($layer, 'html_tag', 'div');
-			
+
 			if($html_simple_link !== '') $use_tag = 'a';
 
 			if($special_type !== false){ //if we are special type, only allow div to be the structure, as we will close with a div outside of this function
@@ -3958,9 +3968,9 @@ class RevSliderOutput {
 			echo ($classes != '') ? ' '.$classes : '';
 			echo $parallax_class;
 			if($static_slide) echo ' tp-static-layer';
-			
+
 			echo $videoclass;
-			
+
 			echo "\" \n";
 			echo $html_simple_link;
 			echo ($ids != '') ? '			'.$ids." \n" : '';
@@ -3974,7 +3984,7 @@ class RevSliderOutput {
 
 			echo '            data-type="'.Mage::helper('nwdrevslider/framework')->esc_attr($type).'"'." \n";
 			if ($columnbreak != '') echo '            data-columnbreak="'.$columnbreak.'"'." \n";
-			
+
 			if($type == 'text' || $type == 'button'){ //only output if we are a text layer
 				$frame_start['split'] = $splitin;
 				$frame_end['split'] = $splitout;
@@ -3983,13 +3993,13 @@ class RevSliderOutput {
 			Mage::helper('nwdrevslider/framework')->do_action('revslider_add_layer_attributes', $layer, $this->slide, $this->slider);
 
 			echo $a_html;
-			
+
             // SVG OUTPUT
-            if (!empty($svg_val) && sizeof($svg_val)>0) {                
-                echo '            data-svg_src="'.Mage::helper('nwdrevslider')->convertAssetUrlForOutput($svg_val->{'src'}).'"'." \n";
-                echo '            data-svg_idle="sc:'.$svg_val->{'svgstroke-color'}.';sw:'.$svg_val->{'svgstroke-width'}.';sda:'.$svg_val->{'svgstroke-dasharray'}.';sdo:'.$svg_val->{'svgstroke-dashoffset'}.';"'." \n";
-                if($is_hover_active){
-                    echo '            data-svg_hover="sc:'.$svg_val->{'svgstroke-hover-color'}.';sw:'.$svg_val->{'svgstroke-hover-width'}.';sda:'.$svg_val->{'svgstroke-hover-dasharray'}.';sdo:'.$svg_val->{'svgstroke-hover-dashoffset'}.';"'." \n";
+			if (!empty($svg_val) && is_array($svg_val) && sizeof($svg_val)>0){
+				echo '            data-svg_src="'.Mage::helper('nwdrevslider')->convertAssetUrlForOutput($svg_val['src']).'"'." \n";
+				echo '            data-svg_idle="sc:'.$svg_val['svgstroke-color'].';sw:'.$svg_val['svgstroke-width'].';sda:'.$svg_val['svgstroke-dasharray'].';sdo:'.$svg_val['svgstroke-dashoffset'].';"'." \n";
+				if($is_hover_active){
+					echo '            data-svg_hover="sc:'.$svg_val['svgstroke-hover-color'].';sw:'.$svg_val['svgstroke-hover-width'].';sda:'.$svg_val['svgstroke-hover-dasharray'].';sdo:'.$svg_val['svgstroke-hover-dashoffset'].';"'." \n";
                 }
             }
 
@@ -3997,7 +4007,7 @@ class RevSliderOutput {
 				echo '			data-basealign="'.$basealign.'"'." \n";
 			}
 			$ro = RevSliderFunctions::getVal($layer, 'responsive_offset', true);
-			
+
 			if($ro!=1){
 				echo '			data-responsive_offset="off"'." \n";
 			} else {
@@ -4026,7 +4036,7 @@ class RevSliderOutput {
 					$start_on_slide = '-1';
 					$end_on_slide = '-1';
 				}
-				
+
 				echo '			data-startslide="'.$start_on_slide.'"'." \n";
 				echo '			data-endslide="'.$end_on_slide.'"'." \n";
 			}
@@ -4036,7 +4046,7 @@ class RevSliderOutput {
 			if($splitout !== 'none'){
 			$frame_end['splitdelay'] = round($endelementdelay,4);
 			}
-				
+
 
 		if(!empty($frame_start)){
 			//remove unneeded things in output
@@ -4376,13 +4386,13 @@ class RevSliderOutput {
 		$spinner_color = $this->slider->getParam('spinner_color', '#FFFFFF');
 
 		$debugmode = ($this->slider->getParam("jquery_debugmode","off")=='on') ? 'true' : 'false';
-		
+
 
 		//set thumb amount
 		$numSlides = $this->slider->getNumSlides(true);
 
 		//get stop slider options
-		
+
 		$stopSlider = $this->slider->getParam("stop_slider","off");
 		$stopAfterLoops = $this->slider->getParam("stop_after_loops","0");
 		$stopAtSlide = $this->slider->getParam("stop_at_slide","2");
@@ -4420,12 +4430,12 @@ class RevSliderOutput {
 		//FALLBACK
 		$enable_arrows = $this->slider->getParam('enable_arrows','off');
 		$arrowsType = ($enable_arrows == 'on') ? 'solo' : 'none';
-		
+
 
 		//More Mobile Options
 		$hideThumbsOnMobile = $this->slider->getParam("hide_thumbs_on_mobile","off");
 		$enable_progressbar =  $this->slider->getParam('enable_progressbar','on');
-		
+
 		$disableKenBurnOnMobile =  $this->slider->getParam("disable_kenburns_on_mobile","off");
 
 		$swipe_velocity = $this->slider->getParam("swipe_velocity","0.7",RevSlider::VALIDATE_NUMERIC);
@@ -4451,12 +4461,12 @@ class RevSliderOutput {
 				$parallax_ddd_bgfreeze=$this->slider->getParam("ddd_parallax_bgfreeze","off");
 				$parallax_ddd_overflow=$this->slider->getParam("ddd_parallax_overflow","off");
 				$parallax_ddd_layer_overflow=$this->slider->getParam("ddd_parallax_layer_overflow","off");
-				
+
 				$parallax_ddd_overflow= $parallax_ddd_overflow == "off" ? "visible" : "hidden";
 				$parallax_ddd_layer_overflow= $parallax_ddd_layer_overflow == "off" ? "visible" : "hidden";
 				$parallax_ddd_zcorrection = $this->slider->getParam("ddd_parallax_zcorrection","400");
 			}
-			
+
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_1","5"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_2","10"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_3","15"));
@@ -4470,7 +4480,7 @@ class RevSliderOutput {
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_11","46"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_12","47"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_13","48"));
-			$parallax_level[] = intval($this->slider->getParam("parallax_level_14","49"));			
+			$parallax_level[] = intval($this->slider->getParam("parallax_level_14","49"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_15","50"));
 			$parallax_level[] = intval($this->slider->getParam("parallax_level_16","55"));
 			$parallax_level = implode(',', $parallax_level);
@@ -4478,33 +4488,33 @@ class RevSliderOutput {
 
 		$operations = new RevSliderOperations();
 		$arrValues = $operations->getGeneralSettingsValues();
-		
+
 		$do_delay = $this->slider->getParam("start_js_after_delay","0");
 		$do_delay = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_add_js_delay', $do_delay);
 		$do_delay = intval($do_delay);
-		
+
 		$js_to_footer = (isset($arrValues['js_to_footer']) && $arrValues['js_to_footer'] == 'on') ? true : false;
-		
+
 		$slider_type = $this->slider->getParam('slider-type', 'standard');
-		
+
 		//add inline style into the footer
 		if($js_to_footer && $this->previewMode == false && $markup_export == false){
 			ob_start();
 		}
-		
+
 		$nav_css = '';
-		
+
 		if($markup_export === true){
 			echo '<!-- STYLE -->';
 		}
-		//ADD SCOPED INLINE STYLES 			
+		//ADD SCOPED INLINE STYLES
 		$this->add_inline_styles();
-        
+
 		if($markup_export === true){
 			echo '<!-- /STYLE -->';
 		}
 		$csizes = RevSliderFunctions::get_responsive_size($this);
-		
+
 		if($markup_export === true){
 			echo '<!-- SCRIPT -->';
 		}
@@ -4530,7 +4540,7 @@ class RevSliderOutput {
 
                 <?php if(!$markup_export){ //not needed for html markup export ?>
 					if (setREVStartSize!==undefined) setREVStartSize(
-		    <?php 
+		    <?php
             echo "{c: '#". $this->sliderHtmlID ."',";
                    if (isset($csizes['level']) && !empty($csizes['level'])) {
                        echo " responsiveLevels: [" . $csizes['level'] . "],";
@@ -4562,12 +4572,12 @@ class RevSliderOutput {
 
                <?php } ?>
                var revapi<?php echo $sliderID; ?>,
-			   tpj;    
-(function() {            
-    if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();    
-	function onLoad() {  
+			   tpj;
+(function() {
+    if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded",onLoad); else onLoad();
+	function onLoad() {
 		if (tpj===undefined) { tpj = jQuery; }
-<?php        
+<?php
                echo '				if(tpj("#' . $this->sliderHtmlID . '").revolution == undefined){' . "\n";
                echo '					revslider_showDoubleJqueryError("#' . $this->sliderHtmlID . '");' . "\n";
                echo '				}else{' . "\n";
@@ -5154,11 +5164,11 @@ class RevSliderOutput {
 
             Mage::helper('nwdrevslider/framework')->add_action('wp_print_footer_scripts', array($this, 'add_inline_js'), 100);
 		}
-		
+
 		if($markup_export === true){
 			echo '<!-- /SCRIPT -->';
 		}
-		
+
 		switch($use_spinner){
 			case '1':
 			case '2':
@@ -5174,7 +5184,7 @@ class RevSliderOutput {
 						document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
 					}
 					</script>
-					<?php 
+					<?php
 				}else{
 					if($markup_export === true){
 						echo '<!-- STYLE -->';
@@ -5235,16 +5245,16 @@ class RevSliderOutput {
 				if($markup_export === true){
 					echo '<!-- STYLE -->';
 				}
-				?><style type="text/css"><?php echo RevSliderCssParser::compress_css(stripslashes($this->slider->getParam('custom_css', '')));?></style><?php	
+				?><style type="text/css"><?php echo RevSliderCssParser::compress_css(stripslashes($this->slider->getParam('custom_css', '')));?></style><?php
 				if($markup_export === true){
 					echo '<!-- /STYLE -->';
 				}
 			}
 		}
-        
-        
+
+
         //add custom Slide CSS here
-        
+
 		if(trim($nav_css) !== ''){
 			if(!Mage::helper('nwdrevslider/framework')->is_admin()){
 				?><script>
@@ -5272,8 +5282,8 @@ class RevSliderOutput {
 				}
 			}
 		}
-	
-        
+
+
         if(!$markup_export){ //not needed for html markup export
 			if(Mage::helper('nwdrevslider/framework')->has_action('wp_footer', array($this, 'add_inline_double_jquery_error')) === false){
 				Mage::helper('nwdrevslider/framework')->add_action('wp_footer', array($this, 'add_inline_double_jquery_error'));
@@ -5289,7 +5299,7 @@ class RevSliderOutput {
 		echo $this->rev_inline_js;
 
 	}
-    
+
     /**
      * Output revslider_showDoubleJqueryError
      */
@@ -5317,10 +5327,10 @@ class RevSliderOutput {
 	 * Output Dynamic Inline Styles
 	 */
 	public function add_inline_styles(){
-	
+
 		if(!Mage::helper('nwdrevslider/framework')->is_admin()){
 			echo '<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss="';
-		} 
+		}
 		else echo "<style>";
 
 		$db = new RevSliderDB();
@@ -5333,7 +5343,7 @@ class RevSliderOutput {
 
 		$styles = RevSliderCssParser::parseDbArrayToCss($styles, "\n");
 		$styles = RevSliderCssParser::compress_css($styles);
-		
+
 		if(!Mage::helper('nwdrevslider/framework')->is_admin()){
 			echo addslashes($styles).'";
 				if(htmlDiv) {
@@ -5344,12 +5354,12 @@ class RevSliderOutput {
 					document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
 				}
             </script>'."\n";
-		} 
+		}
 		else echo $styles.'</style>';
 
 	}
 
-	
+
 	/**
 	 * put inline error message in a box.
 	 */
@@ -5402,12 +5412,12 @@ class RevSliderOutput {
 	 * @param $data - mixed, can be ID ot Alias.
 	 */
     public function putSliderBase($sliderID, $gal_ids = array(), $markup_export = false, $settings = array(), $order = array()){
-		
+
         $this->markup_export = $markup_export;
-        
+
 		try{
 			$slver = Mage::helper('nwdrevslider/framework')->apply_filters('revslider_remove_version', RevSliderGlobals::SLIDER_REVISION);
-			
+
 			self::$sliderSerial++;
 
 			$this->slider = new RevSlider();
@@ -5418,18 +5428,18 @@ class RevSliderOutput {
 			}
 
             Mage::helper('nwdrevslider/framework')->do_action('revslider_modify_core_settings', $this->slider);
-			
+
             //modify settings if there are any special settings given through the shortcode
             if(!empty($settings))
                 $this->modify_settings($settings);
-            
+
 			//modify settings for admin preview mode
 			if($this->previewMode == true)
 				$this->modifyPreviewModeSettings();
 
 			//edit html before slider
 			$htmlBeforeSlider = "";
-			
+
 			if($markup_export === true){
 				$htmlBeforeSlider .= '<!-- FONT -->';
 			}
@@ -5437,17 +5447,17 @@ class RevSliderOutput {
 				$googleFont = $this->slider->getParam("google_font");
 				if(is_array($googleFont)){
 					foreach($googleFont as $key => $font){
-						
+
 					}
 				}else{
 					RevSliderOperations::setCleanFontImport($googleFont);
 				}
 			}
-			
+
 			//add all google fonts of layers
 			$gfsubsets = $this->slider->getParam("subsets",array());
 			$gf = $this->slider->getUsedFonts(false);
-			
+
 			foreach($gf as $gfk => $gfv){
 				$variants = array();
 				if(!empty($gfv['variants'])){
@@ -5468,7 +5478,7 @@ class RevSliderOutput {
 			}
 
 			$htmlBeforeSlider .= RevSliderOperations::printCleanFontImport();
-			
+
 			if($markup_export === true){
 				$htmlBeforeSlider .= '<!-- /FONT -->';
 			}
@@ -5490,9 +5500,9 @@ class RevSliderOutput {
 			if($this->slider->getParam('enable_thumbnails', 'off') == 'on'){
 				$wrapperHeigh += $this->slider->getParam('thumb_height');
 			}
-            
+
             $slider_id = $this->slider->getParam('slider_id', '');
-            
+
             if(trim($slider_id) !== ''){
                 $this->sliderHtmlID = $slider_id;
             }else{
@@ -5502,9 +5512,9 @@ class RevSliderOutput {
 			$containerStyle = "";
 
 			$sliderPosition = $this->slider->getParam("position","center");
-			
+
 			$do_overflow = '';
-			
+
 			//set position:
 			if($sliderType != "fullscreen"){
 
@@ -5520,7 +5530,7 @@ class RevSliderOutput {
 						$containerStyle .= "float:right;";
 					break;
 				}
-				
+
 				if($this->slider->getParam('main_overflow_hidden','on') == 'on'){
 					$do_overflow = ' tp-overflow-hidden';
 				}
@@ -5559,9 +5569,9 @@ class RevSliderOutput {
 				$backgroundFit = Mage::helper('nwdrevslider/framework')->esc_attr($this->slider->getParam('bg_fit', $this->slider->getParam('def-background_fit', 'cover')));
 				$backgroundRepeat = Mage::helper('nwdrevslider/framework')->esc_attr($this->slider->getParam('bg_repeat', $this->slider->getParam('def-bg_repeat', 'no-repeat')));
 				$backgroundPosition = Mage::helper('nwdrevslider/framework')->esc_attr($this->slider->getParam('bg_position', $this->slider->getParam('def-bg_position', 'center center')));
-				
+
 				if(!empty($backgroundImage))
-					$containerStyle .= "background-image:url(".$backgroundImage.");background-repeat:".$backgroundRepeat.";background-size:".$backgroundFit.";background-position:".$backgroundPosition.";";
+					$containerStyle .= "background-image:url(".Mage::helper('nwdrevslider/images')->imageUrl($backgroundImage).");background-repeat:".$backgroundRepeat.";background-size:".$backgroundFit.";background-position:".$backgroundPosition.";";
 			}
 
 			//set wrapper and slider class:
@@ -5588,7 +5598,7 @@ class RevSliderOutput {
 					$containerStyle .= "height:".$bannerHeight."px;width:".$bannerWidth."px;";
 				break;
 			}
-			
+
 			$maxWidth = $this->slider->getParam('max_width', '0', RevSlider::FORCE_NUMERIC);
 			if($maxWidth > 0 && $this->slider->getParam('slider_type') == 'auto'){
 				$containerStyle.='max-width:'. $maxWidth.'px;';
@@ -5601,12 +5611,12 @@ class RevSliderOutput {
 			$progress_height =  $this->slider->getParam('progress_height','5');
             $progress_opa =  $this->slider->getParam('progress_opa',false);
 			$progressbar_color =  $this->slider->getParam('progressbar_color','#000000');
-			
+
 			if($enable_progressbar !== 'on' || $slider_type == 'hero')
 				$timerBar = 'hide';
 
             $progress_style = ' style="height: '.Mage::helper('nwdrevslider/framework')->esc_attr($progress_height).'px; background: '.TPColorpicker::convert($progressbar_color, $progress_opa).';"';
-			
+
 			switch($timerBar){
 				case "top":
 					$htmlTimerBar = '<div class="tp-bannertimer"'.$progress_style.'></div>';
@@ -5618,7 +5628,7 @@ class RevSliderOutput {
 					$htmlTimerBar = '<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>';
 				break;
 			}
-			
+
 
 			//check inner / outer border
 			$paddingType = $this->slider->getParam("padding_type","outer");
@@ -5638,7 +5648,7 @@ class RevSliderOutput {
 
 			echo $htmlBeforeSlider."\n";
 			echo '<div id="'.$this->sliderHtmlID_wrapper.'" class="'. $sliderWrapperClass .'"'.$add_alias.$source_type;
-			
+
 			$show_alternate = $this->slider->getParam("show_alternative_type","off");
 			if($show_alternate !== 'off'){
 				$show_alternate_image = $this->slider->getParam("show_alternate_image","");
@@ -5653,9 +5663,9 @@ class RevSliderOutput {
 				}else{
 					echo ' data-aie8="disabled" ';
 				}
-				
+
 			}
-			
+
 			echo ' style="'. $containerStyle .'">'."\n";
 
 			echo '<!-- START REVOLUTION SLIDER '. $revSliderVersion .' '. $sliderType .' mode -->'."\n";
@@ -5668,9 +5678,9 @@ class RevSliderOutput {
             echo $this->putSlides($gal_ids, $order);
 			echo $htmlTimerBar;
 			echo '	</div>'."\n";
-			
+
 			$this->putJS($markup_export);
-			
+
 			echo '</div>';
 			echo '<!-- END REVOLUTION SLIDER -->';
 		}catch(Exception $e){
@@ -5680,30 +5690,30 @@ class RevSliderOutput {
 		}
 
 	}
-    
+
     public function add_custom_navigation_css($slides){
         $rs_nav = new RevSliderNavigation();
         $all_navs = $rs_nav->get_all_navigations();
         $slider_type = $this->slider->getParam('slider-type');
-        
+
         $enable_arrows = $this->slider->getParam('enable_arrows','off');
         $enable_bullets = $this->slider->getParam('enable_bullets','off');
         $enable_tabs = $this->slider->getParam('enable_tabs','off');
         $enable_thumbnails = $this->slider->getParam('enable_thumbnails','off');
-        
+
         if($slider_type !== 'hero' && ($enable_arrows == 'on' || $enable_bullets == 'on' || $enable_tabs == 'on' || $enable_thumbnails == 'on')){
             if(!empty($slides)){
                 foreach($slides as $slide){
-                    
+
                     $navigation_arrow_style = $this->slider->getParam('navigation_arrow_style','round');
                     $navigation_bullets_style = $this->slider->getParam('navigation_bullets_style','round');
                     $tabs_style = $this->slider->getParam('tabs_style','round');
                     $thumbnails_style = $this->slider->getParam('thumbnails_style','round');
-                    
+
                     if(!empty($all_navs)){
                         foreach($all_navs as $cur_nav){
                             //get modifications out, wrap the class with slide class to be specific
-                            
+
                             if($enable_arrows == 'on' && $cur_nav['handle'] == $navigation_arrow_style){
                                 $this->rev_custom_navigation_css .= $rs_nav->add_placeholder_sub_modifications($cur_nav['css']['arrows'], $cur_nav['handle'], 'arrows', $cur_nav['settings'], $slide, $this)."\n";
                             }
@@ -5719,13 +5729,13 @@ class RevSliderOutput {
                         }
                     }
                 }
-                
+
                 if($this->markup_export === true){
                     echo '<!-- STYLE -->';
                 }
                 if(!Mage::helper('nwdrevslider/framework')->is_admin()){
                     echo '<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss="';
-                } 
+                }
                 else echo "<style>";
 
                 if(!Mage::helper('nwdrevslider/framework')->is_admin()){
@@ -5738,9 +5748,9 @@ class RevSliderOutput {
                             document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
                         }
                     </script>'."\n";
-                } 
+                }
                 else echo $this->rev_custom_navigation_css.'</style>';
-                
+
                 if($this->markup_export === true){
                     echo '<!-- /STYLE -->';
                 }

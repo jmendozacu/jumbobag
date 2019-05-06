@@ -2,23 +2,23 @@
 
     /**************************************************************************
      * jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider
- * @version: 5.4.7 (31.01.2018)
+ * @version: 5.4.8 (10.06.2018)
      * @requires jQuery v1.7 or later (tested on 1.9)
      * @author ThemePunch
      **************************************************************************/
-    (function(jQuery,undefined){
+;(function(jQuery,undefined){
         "use strict";
 
         var version = {
-					core : "5.4.7",
+					core : "5.4.8",
             "revolution.extensions.actions.min.js":"2.1.0",
             "revolution.extensions.carousel.min.js":"1.2.1",
             "revolution.extensions.kenburn.min.js":"1.3.1",
-					"revolution.extensions.layeranimation.min.js":"3.6.4", 
-            "revolution.extensions.navigation.min.js":"1.3.3",
-            "revolution.extensions.parallax.min.js":"2.2.0",
-            "revolution.extensions.slideanims.min.js":"1.7",
-					"revolution.extensions.video.min.js":"2.2.0"  
+					"revolution.extensions.layeranimation.min.js":"3.6.5",
+					"revolution.extensions.navigation.min.js":"1.3.5",
+					"revolution.extensions.parallax.min.js":"2.2.3",
+					"revolution.extensions.slideanims.min.js":"1.8",
+					"revolution.extensions.video.min.js":"2.2.2"
 				   };
 
         jQuery.fn.extend({
@@ -511,11 +511,11 @@
                 var c=jQuery(this);
                 if (c!=undefined && c.length>0 && jQuery('body').find('#'+c.attr('id')).length>0 && c[0].opt!==undefined) {
                     if (!c[0].opt.sliderisrunning) {
-						
+
 						// fixes revapi.revstart();
 						c[0].opt.c=c;
 						c[0].opt.ul = c.find('>ul');
-						
+
                         runSlider(c,c[0].opt);
                         return true;
                     }
@@ -752,14 +752,16 @@
                 M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
                 return M[1];
             },
-	
+
 	/*
 		Jason / Safari 11 Video autoplay fix
 	*/
 	isSafari11: function() {
 
-		return jQuery.trim(_R.get_browser().toLowerCase()) === 'safari' && parseFloat(_R.get_browser_version()) >= 11;
-		
+		var browser = jQuery.trim(_R.get_browser().toLowerCase());
+		if(jQuery.trim(navigator.userAgent.toLowerCase()).search('edge') !== -1 || browser === 'msie') return false;
+		return browser.match(/safari|chrome/);
+
 	},
 
             // GET THE HORIZONTAL OFFSET OF SLIDER BASED ON THE THU`MBNAIL AND TABS LEFT AND RIGHT SIDE
@@ -1045,7 +1047,7 @@
                 o.modulesfailing = true;
                 return false;
             }
-	
+
             jQuery.ajax({
                 url:o.jsFileLocation+s+o.extensions_suffix+'?version='+version.core,
                 'dataType':'script',
@@ -1787,8 +1789,6 @@
                     if (opt.lazyType=="all" || (opt.lazyType=="smart" && (i==0 || i == 1 || i == opt.slideamount || i == opt.slideamount-1))) {
                         loadImages(li,opt,i);
                         waitForCurrentImages(li,opt,function() {
-                            //if (opt.sliderType=="carousel")
-                            //punchgs.TweenLite.to(li,1,{autoAlpha:1,ease:punchgs.Power3.easeInOut});
                         });
                     }
 
@@ -2957,7 +2957,7 @@
             nextli.find('.rs-background-video-layer').each(function(i) {
                 if (_ISM && (!opt.fallbacks.allowHTML5AutoPlayOnAndroid)) return false;
                 var _nc = jQuery(this);
-                _R.resetVideo(_nc,opt,false,true);    
+                _R.resetVideo(_nc,opt,false,true);
                 punchgs.TweenLite.fromTo(_nc,1,{autoAlpha:0},{autoAlpha:1,ease:punchgs.Power3.easeInOut,delay:0.2,onComplete:function() {
                     if (_R.animcompleted) _R.animcompleted(_nc,opt);
                 }});

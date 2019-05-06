@@ -27,7 +27,6 @@
 "Access Secret","Accesso Segreto"
 "Access Token","Token accesso"
 Actions,Azioni
-"Activate a protection against wordpress output filters that adds html blocks to the shortcode output like P and BR.","Attivare una protezione contro i filtri di uscita wordpress che aggiunge blocchi html all'uscita shortcode come P e BR."
 Add,Aggiungere
 "Add Blank Slide","Aggiungi diapositiva vuota"
 "Add Bulk Slides","Aggiungere diapositive Bulk"
@@ -131,8 +130,6 @@ Box-Shadow,Box-shadow
 Bullets,Caratteristiche:
 Button,Pulsante
 Buttons,Pulsanti
-"By Compressing Output","Per compressione di Output"
-"By Echo Output","Per Echo di Output"
 "By Favorit","Con Favorit"
 "By ID","Per ID"
 "By Name","Per nome"
@@ -517,7 +514,6 @@ Instagram,"Account di Instagram"
 "It will keep aspect ratio and ignore max height of Layer Grid by upscaling. Layer Area will be vertical centered.","Manterrà proporzioni e ignorare l'altezza massima di griglia Strato dopo upscaling. Strato Area sarà verticale centrato."
 "Italic Font","Italic caratteri"
 "Italic Font On/Off","Italic caratteri On / Off"
-"JQuery No Conflict Mode","JQuery Non in modalità Conflitto"
 "Jump to Slide","Vai a scorrere"
 "Keep Aspect Ratio (on/off)","Mantieni proporzioni (on / off)"
 "Keep Hidden","tenere nascosto"
@@ -712,7 +708,6 @@ Original,Originale
 "Outer Bottom","inferiore esterno"
 "Outer Left","esterno sinistro"
 "Outer Right","esterno destro"
-"Output Filters Protection","Filtri di protezione Output"
 "Overall Slider Performance","Prestazioni generali Slider"
 "Overwrite Selected Settings on all Slides","Sovrascrivere le impostazioni selezionate in tutte le diapositive"
 "Overwrite current animation?","Sovrascrivere animazione corrente?"
@@ -785,7 +780,6 @@ Published,Pubblicato
 "Purchase Code Successfully Activated","Codice di acquisto attivato con Successo"
 "Purchase Code already registered!","Codice di acquisto già registrato!"
 "Purchase Code is invalid","Codice di acquisto non valido"
-"Put JS Includes To Body","Mettere JS Incluso nel corpo"
 "Put in the Facebook App ID","Mettere in Facebook App ID"
 "Put in the Facebook App secret","Mettere nel segreto Facebook App"
 "Put in the ID of the YouTube channel","Mettere l'ID del canale YouTube"
@@ -1151,8 +1145,6 @@ Transitions,Transizioni
 Transparent,Trasparente
 "Trigger Memory","memoria trigger"
 Troubleshooting,"Risoluzione dei problemi"
-"Try this to fix some javascript conflicts of type: TypeError: tpj('#rev_slider_1_1').show().revolution is not a function","Prova questo per risolvere alcuni conflitti javascript di tipo: TypeError:. TPJ ( '# rev_slider_1_1') show () rivoluzione non è una funzione."
-"Turns on / off jquery noconflict mode. Try to enable this option if javascript conflicts exist on the page.","Attiva / disattiva la modalità jquery noConflict. Cercate di abilitare questa opzione se esistono conflitti JavaScript nella pagina."
 "Turns on / off visible Debug Mode on Front End.","Attiva / disattiva la modalità di debug visibile sul front-end."
 Twitter,Twittero
 "Twitter Name @","nome Twitter"

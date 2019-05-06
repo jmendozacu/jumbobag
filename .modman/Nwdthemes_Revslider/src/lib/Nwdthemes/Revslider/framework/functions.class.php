@@ -4,9 +4,9 @@
  * @link      http://www.themepunch.com/
  * @copyright 2015 ThemePunch
  */
- 
+
 class RevSliderFunctions{
-	
+
 	public static function throwError($message,$code=null){
 		if(!empty($code)){
 			throw new Exception($message,$code);
@@ -14,25 +14,25 @@ class RevSliderFunctions{
 			throw new Exception($message);
 		}
 	}
-	
-	
+
+
 	/**
 	 * set output for download
 	 */
 	public static function downloadFile($str,$filename="output.txt"){
-		
+
 		//output for download
 		header('Content-Description: File Transfer');
 		header('Content-Type: text/html; charset=UTF-8');
 		header("Content-Disposition: attachment; filename=".$filename.";");
 		header("Content-Transfer-Encoding: binary");
-		header("Content-Length: ".strlen($str));			
-		echo $str;			
+		header("Content-Length: ".strlen($str));
+		echo $str;
 		exit();
 	}
-	
-	
-	
+
+
+
 	/**
 	 * turn boolean to string
 	 */
@@ -41,31 +41,31 @@ class RevSliderFunctions{
 			return($bool);
 		if($bool == true)
 			return("true");
-		else 
+		else
 			return("false");
 	}
-	
+
 	/**
 	 * convert string to boolean
 	 */
 	public static function strToBool($str){
 		if(is_bool($str))
 			return($str);
-			
+
 		if(empty($str))
 			return(false);
-			
+
 		if(is_numeric($str))
 			return($str != 0);
-			
+
 		$str = strtolower($str);
 		if($str == "true")
 			return(true);
-			
+
 		return(false);
 	}
-	
-	
+
+
 	/**
 	 * get value from array. if not - return alternative
 	 */
@@ -82,7 +82,7 @@ class RevSliderFunctions{
 		return($altVal);
 	}
 
-	
+
 	//------------------------------------------------------------
     // get variable from post or from get. post wins.
 	public static function getPostGetVariable($name,$initVar = ""){
@@ -91,27 +91,27 @@ class RevSliderFunctions{
 		else if(isset(Nwdthemes_Revslider_Helper_Data::$_GET[$name])) $var = Nwdthemes_Revslider_Helper_Data::$_GET[$name];
 		return($var);
 	}
-	
-	
+
+
 	//------------------------------------------------------------
 	public static function getPostVariable($name,$initVar = ""){
 		$var = $initVar;
 		if(isset($_POST[$name])) $var = $_POST[$name];
 		return($var);
 	}
-	
-	
+
+
 	//------------------------------------------------------------
 	public static function getGetVar($name,$initVar = ""){
 		$var = $initVar;
 		if(isset(Nwdthemes_Revslider_Helper_Data::$_GET[$name])) $var = Nwdthemes_Revslider_Helper_Data::$_GET[$name];
 		return($var);
 	}
-	
+
     public static function sortByOrder($a, $b) {
         return $a['order'] - $b['order'];
     }
-	
+
 	/**
 	 * validate that some file exists, if not - throw error
 	 */
@@ -123,25 +123,25 @@ class RevSliderFunctions{
 		$message = $errorPrefix." ".Mage::helper('nwdrevslider/framework')->esc_attr($filepath)." not exists!";
 		self::throwError($message);
 	}
-	
+
 	/**
 	 * validate that some value is numeric
 	 */
 	public static function validateNumeric($val,$fieldName=""){
 		self::validateNotEmpty($val,$fieldName);
-		
+
 		if(empty($fieldName))
 			$fieldName = "Field";
 
 		if(!is_numeric($val))
 			self::throwError("$fieldName should be numeric ");
 	}
-	
+
 	/**
 	 * validate that some variable not empty
 	 */
 	public static function validateNotEmpty($val,$fieldName=""){
-		
+
 		if(empty($fieldName))
 			$fieldName = "Field";
         ;
@@ -149,12 +149,12 @@ class RevSliderFunctions{
 			self::throwError("Field <b>$fieldName</b> should not be empty");
 	}
 
-	
+
 	//------------------------------------------------------------
 	//get path info of certain path with all needed fields
 	public static function getPathInfo($filepath){
 		$info = pathinfo($filepath);
-		
+
 		//fix the filename problem
 		if(!isset($info["filename"])){
 			$filename = $info["basename"];
@@ -162,40 +162,40 @@ class RevSliderFunctions{
 				$filename = substr($info["basename"],0,(-strlen($info["extension"])-1));
 			$info["filename"] = $filename;
 		}
-		
+
 		return($info);
 	}
-	
+
 	/**
 	 * Convert std class to array, with all sons
 	 * @param unknown_type $arr
 	 */
 	public static function convertStdClassToArray($arr){
 		$arr = (array)$arr;
-		
+
 		$arrNew = array();
-		
+
 		foreach($arr as $key=>$item){
 			$item = (array)$item;
 			$arrNew[$key] = $item;
 		}
-		
+
 		return($arrNew);
 	}
-	
+
 	public static function cleanStdClassToArray($arr){
 		$arr = (array)$arr;
-		
+
 		$arrNew = array();
-		
+
 		foreach($arr as $key=>$item){
 			$arrNew[$key] = $item;
 		}
-		
+
 		return($arrNew);
 	}
-	
-	
+
+
 	/**
 	 * encode array into json for client side
 	 */
@@ -205,12 +205,12 @@ class RevSliderFunctions{
 			$json = json_encode($arr);
 			$json = addslashes($json);
 		}
-		
+
 
         if(empty($json)) $json = '{}';
 
 		$json = "'".$json."'";
-		
+
 		return($json);
 	}
 
@@ -234,15 +234,15 @@ class RevSliderFunctions{
 
 		return($_data);
 	}
-	
-	
+
+
 	/**
 	 * do "trim" operation on all array items.
 	 */
 	public static function trimArrayItems($arr){
 		if(gettype($arr) != "array")
 			RevSliderFunctions::throwError("trimArrayItems error: The type must be array");
-		
+
 		foreach ($arr as $key=>$item){
 			if(is_array($item)){
 				foreach($item as $key => $value){
@@ -252,42 +252,42 @@ class RevSliderFunctions{
 				$arr[$key] = trim($item);
 			}
 		}
-		
+
 		return($arr);
 	}
-	
-	
+
+
 	/**
 	 * get link html
 	 */
 	public static function getHtmlLink($link,$text,$id="",$class=""){
-		
+
 		if(!empty($class))
 			$class = " class='$class'";
-		
+
 		if(!empty($id))
 			$id = " id='$id'";
-			
+
 		$html = "<a href=\"$link\"".$id.$class.">$text</a>";
 		return($html);
 	}
-	
+
 	/**
 	 * get select from array
 	 */
 	public static function getHTMLSelect($arr,$default="",$htmlParams="",$assoc = false){
-		
+
 		$html = "<select $htmlParams>";
-		foreach($arr as $key=>$item){				
+		foreach($arr as $key=>$item){
 			$selected = "";
-			
+
 			if($assoc == false){
 				if($item == $default) $selected = " selected ";
-			}else{ 
+			}else{
 				if(trim($key) == trim($default)) $selected = " selected ";
 			}
-			
-			
+
+
 			if($assoc == true)
 				$html .= "<option $selected value='$key'>$item</option>";
 			else
@@ -296,8 +296,8 @@ class RevSliderFunctions{
 		$html.= "</select>";
 		return($html);
 	}
-	
-	
+
+
 	/**
 	 * convert assoc array to array
 	 */
@@ -305,12 +305,12 @@ class RevSliderFunctions{
 		$arr = array();
 		foreach($assoc as $item)
 			$arr[] = $item;
-		
+
 		return($arr);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * strip slashes from textarea content after ajax request to server
 	 */
 	public static function normalizeTextareaContent($content){
@@ -320,15 +320,15 @@ class RevSliderFunctions{
 		$content = trim($content);
 		return($content);
 	}
-	
-	
+
+
 	/**
 	 * get text intro, limit by number of words
 	 */
 	public static function getTextIntro($text, $limit){
-		 
+
 		$arrIntro = explode(' ', $text, $limit);
-		 
+
 		if (count($arrIntro)>=$limit) {
 			array_pop($arrIntro);
 			$intro = implode(" ",$arrIntro);
@@ -338,40 +338,36 @@ class RevSliderFunctions{
 		} else {
 			$intro = implode(" ",$arrIntro);
 		}
-		  
+
 		$intro = preg_replace('`\[[^\]]*\]`','',$intro);
 		return($intro);
 	}
-	
-	
+
+
 	/**
 	 * add missing px/% to value, do also for object and array
 	 * @since: 5.0
 	 **/
 	public static function add_missing_val($obj, $set_to = 'px'){
 
-		if(is_array($obj)){
+		if (is_string($obj)) {
+			if(strpos($obj, $set_to) === false && strpos($obj, '%') === false && $obj !== ''){
+				$obj .= $set_to;
+			}
+		} elseif(is_array($obj)){
 			foreach($obj as $key => $value){
-				if(strpos($value, $set_to) === false && ($set_to == 'px' && substr($value, -1) != '%')){
-					$obj[$key] = $value.$set_to;
-				}
+				$obj[$key] = self::add_missing_val($value, $set_to);
 			}
 		}elseif(is_object($obj)){
 			foreach($obj as $key => $value){
-				if(strpos($value, $set_to) === false && ($set_to == 'px' && substr($value, -1) != '%')){
-					$obj->$key = $value.$set_to;
-				}
-			}
-		}else{
-			if(strpos($obj, $set_to) === false && ($set_to == 'px' && substr($obj, -1) != '%')){
-				$obj .= $set_to;
+				$obj->$key = self::add_missing_val($value, $set_to);
 			}
 		}
-		
+
 		return $obj;
 	}
-	
-	
+
+
 	/**
 	 * normalize object with device informations depending on what is enabled for the Slider
 	 * @since: 5.0
@@ -381,7 +377,7 @@ class RevSliderFunctions{
 		notebook
 		tablet
 		mobile*/
-		
+
 		if(!empty($set_to_if)){
 			foreach($obj as $key => $value) {
 				foreach($set_to_if as $from => $to){
@@ -389,7 +385,7 @@ class RevSliderFunctions{
 				}
 			}
 		}
-		
+
 		$inherit_size = self::get_biggest_device_setting($obj, $enabled_devices);
 		if($enabled_devices['desktop'] == 'on'){
 			if(!isset($obj->desktop) || $obj->desktop === ''){
@@ -400,7 +396,7 @@ class RevSliderFunctions{
 		}else{
 			$obj->desktop = $inherit_size;
 		}
-		
+
 		if($enabled_devices['notebook'] == 'on'){
 			if(!isset($obj->notebook) || $obj->notebook === ''){
 				$obj->notebook = $inherit_size;
@@ -410,7 +406,7 @@ class RevSliderFunctions{
 		}else{
 			$obj->notebook = $inherit_size;
 		}
-		
+
 		if($enabled_devices['tablet'] == 'on'){
 			if(!isset($obj->tablet) || $obj->tablet === ''){
 				$obj->tablet = $inherit_size;
@@ -420,7 +416,7 @@ class RevSliderFunctions{
 		}else{
 			$obj->tablet = $inherit_size;
 		}
-		
+
 		if($enabled_devices['mobile'] == 'on'){
 			if(!isset($obj->mobile) || $obj->mobile === ''){
 				$obj->mobile = $inherit_size;
@@ -430,7 +426,7 @@ class RevSliderFunctions{
 		}else{
 			$obj->mobile = $inherit_size;
 		}
-		
+
 		switch($return){
 			case 'obj':
 				//order according to: desktop, notebook, tablet, mobile
@@ -449,45 +445,45 @@ class RevSliderFunctions{
 				}
 			break;
 		}
-		
+
 		return $obj;
 	}
-	
-	
+
+
 	/**
 	 * return biggest value of object depending on which devices are enabled
 	 * @since: 5.0
 	 **/
 	public static function get_biggest_device_setting($obj, $enabled_devices){
-		
+
 		if($enabled_devices['desktop'] == 'on'){
 			if(isset($obj->desktop) && $obj->desktop != ''){
 				return $obj->desktop;
 			}
 		}
-		
+
 		if($enabled_devices['notebook'] == 'on'){
 			if(isset($obj->notebook) && $obj->notebook != ''){
 				return $obj->notebook;
 			}
 		}
-		
+
 		if($enabled_devices['tablet'] == 'on'){
 			if(isset($obj->tablet) && $obj->tablet != ''){
 				return $obj->tablet;
 			}
 		}
-		
+
 		if($enabled_devices['mobile'] == 'on'){
 			if(isset($obj->mobile) && $obj->mobile != ''){
 				return $obj->mobile;
 			}
 		}
-		
+
 		return '';
 	}
-	
-	
+
+
 	/**
 	 * change hex to rgba
 	 */
@@ -499,7 +495,7 @@ class RevSliderFunctions{
         }
 
         $hex = str_replace("#", "", $hex);
-		
+
         if(strlen($hex) == 3) {
             $r = hexdec(substr($hex,0,1).substr($hex,0,1));
             $g = hexdec(substr($hex,1,1).substr($hex,1,1));
@@ -511,7 +507,7 @@ class RevSliderFunctions{
             $g = hexdec(substr($hex,2,2));
             $b = hexdec(substr($hex,4,2));
         }
-        
+
         if($do_rgb){
             $ret = $r.', '.$g.', '.$b;
         }else{
@@ -524,22 +520,22 @@ class RevSliderFunctions{
         }
 
     }
-	
+
 
 	public static function isrgb($rgba){
 		if(strpos($rgba, 'rgb') !== false) return true;
-		
+
 		return false;
 	}
 
-	
+
 	/**
 	 * change rgba to hex
 	 * @since: 5.0
 	 */
 	public static function rgba2hex($rgba){
 		if(strtolower($rgba) == 'transparent') return $rgba;
-		
+
 		$temp = explode(',', $rgba);
 		$rgb = array();
 		if(count($temp) == 4) unset($temp[3]);
@@ -548,35 +544,35 @@ class RevSliderFunctions{
 			if(strlen($t) < 2) $t = '0'.$t;
 			$rgb[] = $t;
 		}
-		
+
 		return '#'.implode('', $rgb);
 	}
-	
-	
+
+
 	/**
 	 * get transparency from rgba
 	 * @since: 5.0
 	 */
 	public static function get_trans_from_rgba($rgba, $in_percent = false){
 		if(strtolower($rgba) == 'transparent') return 100;
-		
+
 		$temp = explode(',', $rgba);
 		if(count($temp) == 4){
 			return ($in_percent) ? preg_replace('/[^\d.]/', '', $temp[3]) : preg_replace('/[^\d.]/', "", $temp[3]) * 100;
 		}
 		return 100;
 	}
-	
-	
+
+
 	public static function get_responsive_size($slider){
 		$operations = new RevSliderOperations();
 		$arrValues = $operations->getGeneralSettingsValues();
-		
+
 		$enable_custom_size_notebook = $slider->slider->getParam('enable_custom_size_notebook','off');
 		$enable_custom_size_tablet = $slider->slider->getParam('enable_custom_size_tablet','off');
 		$enable_custom_size_iphone = $slider->slider->getParam('enable_custom_size_iphone','off');
 		$adv_resp_sizes = ($enable_custom_size_notebook == 'on' || $enable_custom_size_tablet == 'on' || $enable_custom_size_iphone == 'on') ? true : false;
-		
+
 		if($adv_resp_sizes == true){
 			$width = $slider->slider->getParam("width", 1240, RevSlider::FORCE_NUMERIC);
             $def = $width;
@@ -625,10 +621,10 @@ class RevSliderFunctions{
             }else{
                 $height.= $def;
             }
-						
+
 			$responsive = (isset($arrValues['width'])) ? $arrValues['width'] : '1240';
 			$def = (isset($arrValues['width'])) ? $arrValues['width'] : '1240';
-			
+
 			$responsive.= ',';
 			if($enable_custom_size_notebook == 'on'){
 				$responsive.= (isset($arrValues['width_notebook'])) ? $arrValues['width_notebook'] : '1024';
@@ -650,23 +646,23 @@ class RevSliderFunctions{
 			}else{
 				$responsive.= $def;
 			}
-			
+
 			return array(
 				'level' => $responsive,
 				'height' => $height,
 				'width' => $width
 			);
 		}else{
-			
+
 			$responsive = (isset($arrValues['width'])) ? $arrValues['width'] : '1240';
 			$def = (isset($arrValues['width'])) ? $arrValues['width'] : '1240';
-			$responsive.= ',';			
+			$responsive.= ',';
 			$responsive.= (isset($arrValues['width_notebook'])) ? $arrValues['width_notebook'] : '1024';
-			$responsive.= ',';	
+			$responsive.= ',';
 			$responsive.= (isset($arrValues['width_tablet'])) ? $arrValues['width_tablet'] : '778';
-			$responsive.= ',';			
+			$responsive.= ',';
 			$responsive.= (isset($arrValues['width_mobile'])) ? $arrValues['width_mobile'] : '480';
-			
+
 			return array(
 				'visibilitylevel' => $responsive,
 				'height' => $slider->slider->getParam("height", "868", RevSlider::FORCE_NUMERIC),
@@ -674,6 +670,6 @@ class RevSliderFunctions{
 			);
 		}
 	}
-	
-	
+
+
 }

@@ -611,7 +611,11 @@ var UniteAdminRev;
                             }
                             Windows.close('browser_window');
                             transport.responseText = transport.responseText.replace(/(\r\n|\n|\r)/gm, "").trim();
-                            onInsert(transport.responseText, Base64.encode(transport.responseText));
+
+                            var data = JSON.parse(transport.responseText);
+                            if (data.image) {
+                                onInsert(data.image, Base64.encode(data.image), data.width, data.height);
+                            }
 
                         } catch (e) {
                             alert(e.message);
@@ -1744,6 +1748,13 @@ var UniteAdminRev;
             jQuery("#trigger_database_creation").click(function(){
                 UniteAdminRev.ajaxRequest("fix_database_issues",{},function(response){});
             });
+
+		//button trigger table creation process
+		jQuery("#trigger_font_deletion").click(function(){
+			if(confirm('This will update all downloaded Google Fonts')){
+				UniteAdminRev.ajaxRequest("trigger_font_deletion",{},function(response){});
+			}
+		});
 
 
         }

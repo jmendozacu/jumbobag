@@ -1,12 +1,12 @@
 (function(jQuery) {
 
     /************************************************
- * REVOLUTION 5.4.6.4 EXTENSION - LAYER ANIMATION
- * @version: 3.6.4 (28.11.2017)
+ * REVOLUTION 5.4.8 EXTENSION - LAYER ANIMATION
+ * @version: 3.6.5 (10.06.2018)
      * @requires jquery.themepunch.revolution.js
      * @author ThemePunch
      ************************************************/
-    (function($) {
+;(function($) {
         "use strict";
 
         var _R = jQuery.fn.revolution,
@@ -15,7 +15,7 @@
             extension = {	alias:"LayerAnimation Min JS",
                 name:"revolution.extensions.layeranimation.min.js",
 					min_core: "5.4.6.4",
-					version:"3.6.4"
+					version:"3.6.5"
             };
 
 
@@ -346,8 +346,8 @@
                     internrecall = obj.recall,
                     preset = obj.preset,
                     rtl = jQuery('body').hasClass("rtl"),
-                    datas
-
+			datas;
+		
                 _._pw = _._pw===undefined ? _nc.closest('.tp-parallax-wrap') : _._pw;
                 _._lw = _._lw===undefined ? _nc.closest('.tp-loop-wrap') : _._lw;
                 _._mw = _._mw===undefined ? _nc.closest('.tp-mask-wrap') : _._mw;
@@ -573,14 +573,6 @@
                     }
                     var ww =  makeArray(_nc.data('videowidth'),opt)[opt.curWinRange] || makeArray(_nc.data('videowidth'),opt) || "auto",
                         hh =  makeArray(_nc.data('videoheight'),opt)[opt.curWinRange] || makeArray(_nc.data('videoheight'),opt) || "auto";
-
-                    /*if (!jQuery.isNumeric(ww) && ww.indexOf("%")>0) {
-                     hh = (parseFloat(hh)*opt.bh)+"px";
-                     } else {
-                     ww = (parseFloat(ww)*opt.bw)+"px";
-                     hh = (parseFloat(hh)*opt.bh)+"px";
-                     }*/
-
 
                     if (ww==="auto" || (!jQuery.isNumeric(ww) && ww.indexOf("%")>0)) {
                         ww = ww==="auto" ? "auto" : _._ba==="grid" ? opt.gridwidth[opt.curWinRange]*opt.bw : _._gw;
@@ -1561,6 +1553,10 @@
                 _.animdirection="out";
                 _.visibleelement=false;
                 _R.unToggleState(_.layertoggledby);
+                //RESET VIDEO AFTER REMOVING LAYER
+                if (_._nctype==="video" && _R.resetVideo) setTimeout(function() {
+                    _R.resetVideo(_nc,opt);
+                },100);
             }
             _.current_frame = frame_index;
             _.current_timeline = tl;

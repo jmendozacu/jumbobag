@@ -5,6 +5,93 @@ NWDthemes.com - Slider Revolution Responsive Magento Extension
 
 
 
+3 December 2018
+---------------
+Version 5.4.8.3
+
+
+Changes:
+
+ * Allowed access to slider Media Gallery for users with access to Slider Revolution
+
+
+
+11 October 2018
+---------------
+Version 5.4.8.2
+
+
+Bugfixes:
+
+ * Fixed display of error message on template import
+ * Fixed sort by random in product based slider
+ * Fixed warning in getting Facebook stream
+ * Fixed error on slider import error
+ * Fixed empty letter-spacing value if no letter spacing specified
+
+
+
+25 July 2018
+---------------
+Version 5.4.8.1
+
+
+New Features:
+
+ * Added Exploding Layers Add-On
+ * Added Paint Brush Add-On
+
+Changes:
+
+ * Changed inclusion of JS and CSS asssets of Add-Ons on frontend and in export to HTML
+
+Bugfixes:
+
+ * Fixed bug with combination of Product slider and Typewriter Add-On
+ * Fixed empty px values of line-hegiht and font-size that break validation
+ * Fixed inital image size in add image layer
+ * Fixed layer actions options titles in slide editor
+
+
+
+22 June 2018
+---------------
+Version 5.4.8
+
+
+New Features:
+
+ * GDPR Policy Updates: https://nwdthemes.com/2018/05/24/nwdthemes-extensions-and-new-gdpr-policy-compliance/
+ * Added options for GDPR: Added Global Setting to download Google Fonts instead of including them
+ * Added options for GDPR: Added Global Setting to stop the inclusion of Google Fonts completely
+ * Added (Re)Load Add-On
+ * Added BubbleMorph Add-On
+ * Added Distortion Add-On
+
+Changes:
+
+ * Updated Google Fonts List
+ * YouTube videos now loaded from youtube-nocookie.com
+ * Changed database checks to lower the query count
+ * Changed line endings of two svg files from CR to CRLF
+
+Bugfixes:
+
+ * Fixed YouTube BG video not loading sometimes in the latest Chrome
+ * Fixed incorrect Vimeo Layer position on slide change
+ * Fixed PHP count() warning messages occuring on latest PHP builds
+ * Fixed a small Visual Composer page builder issue
+ * Fixed Video Playback Issues with Chrome Browser
+ * Fixed and adapted to new Instagram requirements
+ * Moved admin/images controller to admin/nwdimages controller to avoid conflicts
+ * Fixed display of slides thumbnails in navigation
+ * Fixed typo in admin.css
+ * Fixed problem with layer letter spacing option on front end
+ * Added missing cursor files for export to HTML of carousel sliders
+ * Fixed slider background image url
+
+
+
 10 April 2018
 ---------------
 Version 5.4.7.2
@@ -29,7 +116,7 @@ Bugfixes:
  * Fixed getting tempaltes when Add-Ons list is empty
  * Fixed non static methods calling in apply_action
  * Fixed admin area detection
- 
+
 
 
 20 February 2018
@@ -49,7 +136,7 @@ Changes:
 Bugfixes:
 
  * Further fixes for DOMContentLoaded issues where document height was not well calculated at start
- * Fixed DOMContentLoaded issues and extended with fall back on Document Ready State to support Deferred 
+ * Fixed DOMContentLoaded issues and extended with fall back on Document Ready State to support Deferred
  * Fixed Instagram Author not displaying correctly
  * Removed create_function() to retrieve compatibility with latest PHP versions
  * Fixed Instagram Content/Title not displaying correctly
@@ -174,7 +261,7 @@ Version 5.4.5
 
 New Features:
 
- * Set Parallax BG and Layers Speed/Delay Globally independent. 15 Levels Depth still available ! 
+ * Set Parallax BG and Layers Speed/Delay Globally independent. 15 Levels Depth still available !
  * Added Color Animation Attributes like Background and Font Color for Shape and Text Layers
  * Added Brightness Filter Attribute for Idle, Hover, Start and End Animation frames to provide new Effects on Layers
  * Added Grayscale, Brightness, Blur Slide Transitions in different Combinations
@@ -773,7 +860,7 @@ version 5.1.6.2
 Changes:
 
  * Moved filter modules function to public static
- 
+
 Bugfixes:
 
  * Fix for horizontal scroll in admin interface
@@ -789,7 +876,7 @@ version 5.1.6.1
 New Features:
 
  * Store View visibility option for slides
- 
+
 Bugfixes:
 
  * Fixed caption styles translation

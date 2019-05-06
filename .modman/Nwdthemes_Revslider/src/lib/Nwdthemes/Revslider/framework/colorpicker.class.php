@@ -2,7 +2,7 @@
 /**
  * @author    ThemePunch <info@themepunch.com>
  * @link      http://www.themepunch.com/
- * @version: 1.0.4 (7.9.2017)
+ * @version: 1.0.5 (13.6.2018)
  * @copyright 2017 ThemePunch
  */
 
@@ -93,12 +93,15 @@ class TPColorpicker {
             $color = '#' . $color;
         }
 
-        if(strpos($color,'#') !== false ) {
+        if (strpos($color,'#') !== false ) {
             return TPColorpicker::processRgba(TPColorpicker::sanitizeHex($color), $opacity);
-        } else {
+        } elseif (strpos($color, 'rgb') !== false) {
             $color = TPColorpicker::rgbValues($color, 3);
             return TPColorpicker::rgbaString($color[0], $color[1], $color[2], $opacity);
         }
+
+        return 'transparent';
+
     }
 
 
@@ -107,7 +110,7 @@ class TPColorpicker {
      * @since 5.3.1.6
      */
 		public static function process($clr, $processColor = false){
-			
+
 			if(empty($clr)) return array('transparent', 'transparent');
 
 			if(!is_string($clr) ) {
@@ -151,7 +154,7 @@ class TPColorpicker {
 				$clr = preg_replace('/\s+/', '', $clr);
 				return array($clr, 'hex');
 			}
-			
+
 			return array('transparent', 'transparent');
 
     }
@@ -327,7 +330,7 @@ class TPColorpicker {
         }
 
         $color .= ')';
-		
+
 		return $color;
     }
 

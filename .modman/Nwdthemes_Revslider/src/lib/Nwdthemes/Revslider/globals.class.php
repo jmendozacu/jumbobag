@@ -4,10 +4,10 @@
  * @link      http://www.themepunch.com/
  * @copyright 2015 ThemePunch
  */
- 
+
 class RevSliderGlobals{
 
-    const SLIDER_REVISION = '5.4.7.2';
+    const SLIDER_REVISION = '5.4.8.3';
     const PLUGIN_SLUG = 'revslider_magento';
 	const TABLE_SLIDERS_NAME = "nwdrevslider/sliders";
 	const TABLE_SLIDES_NAME = "nwdrevslider/slides";

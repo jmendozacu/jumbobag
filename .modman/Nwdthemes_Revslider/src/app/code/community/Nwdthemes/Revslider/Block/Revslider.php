@@ -45,55 +45,19 @@ class Nwdthemes_Revslider_Block_Revslider extends Mage_Core_Block_Template
      *  Include scritps and styles
      */
 
-    protected function addHeadIncludes()
-    {
+    protected function addHeadIncludes() {
 
         $this->_renderSlider();
         Mage::helper('nwdrevslider/framework')->do_action('wp_enqueue_scripts');
 
-        $addons = array(
-            'beforeafter'   => $this->_slider->getParam('beforeafter_enabled', false) == 'true',
-            'duotonefilters'=> $this->_slider->getParam('duotonefilters_enabled', false) == 'true',
-            'filmstrip'     => $this->_slider->getParam('filmstrip_enabled', false) == 'true',
-            'panorama'      => $this->_slider->getParam('panorama_enabled', false) == 'true',
-            'particles'     => $this->_slider->getParam('particles_enabled', false) == 'true',
-            'polyfold'      => $this->_slider->getParam('polyfold_top_enabled', false) == 'true' ||
-                               $this->_slider->getParam('polyfold_bottom_enabled', false) == 'true',
-            'revealer'      => $this->_slider->getParam('revealer_enabled', false) == 'true',
-            'slicey'        => $this->_slider->getParam('slicey_enabled', false) == 'true',
-            'snow'          => $this->_slider->getParam('snow_enabled', false) == 'true',
-            'typewriter'    => $this->_slider->getParam('typewriter_defaults_enabled', false) == 'true',
-            'weather'       => $this->_slider->getParam('revslider-weather-enabled', false) == 'true',
-            'whiteboard'    => $this->_slider->getParam('wb_enable', false) == 'on'
-        );
-
         $content = '';
 
         foreach (Mage::helper('nwdrevslider/framework')->getFromRegister('styles') as $_handle => $_style) {
-            if (strpos($_style, Mage::getDesign()->getSkinUrl('nwdthemes/revslider')) === false) {
-                $addStyle = false;
-                foreach ($addons as $_key => $_status) {
-                    if ($_status && strpos($_style, $_key) !== false) {
-                        $addStyle = true;
-                    }
-                }
-            } else {
-                $addStyle = true;
-            }
-
-            if ($addStyle) {
-                $content .= '<link  rel="stylesheet" type="text/css"  media="all" href="' . $_style . '" />' . "\n";
-            }
+            $content .= '<link  rel="stylesheet" type="text/css"  media="all" href="' . $_style . '" />' . "\n";
         }
 
         foreach (Mage::helper('nwdrevslider/framework')->getFromRegister('scripts') as $_handle => $_script) {
-            if (strpos($_script, Mage::getDesign()->getSkinUrl('nwdthemes/revslider')) === false) {
-                foreach ($addons as $_key => $_status) {
-                    if ($_status && strpos($_script, $_key) !== false) {
-                        $content .= '<script type="text/javascript" src="' . $_script . '"></script>' . "\n";
-                    }
-                }
-            }
+            $content .= '<script type="text/javascript" src="' . $_script . '"></script>' . "\n";
         }
 
         $localizeScripts = Mage::helper('nwdrevslider/framework')->getFromRegister('localize_scripts');
@@ -118,7 +82,7 @@ class Nwdthemes_Revslider_Block_Revslider extends Mage_Core_Block_Template
 
 	public function renderSlider() {
 		if ( Mage::helper('nwdall')->getCfg('general/enabled', 'nwdrevslider_config') ) {
-			
+
 			$this->_renderSlider();
 
             if(!empty($this->_slider)) {

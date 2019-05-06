@@ -70,7 +70,7 @@ class Nwdthemes_Revslider_Helper_Products extends Mage_Core_Helper_Abstract {
         } else {
             $productsCollection->addAttributeToSelect('*');
         }
-		
+
 		if (isset($query['tax_query'][0]['taxonomy'])
 			&& $query['tax_query'][0]['taxonomy'] == 'category'
 			&& isset($query['tax_query'][0]['terms'])
@@ -118,20 +118,24 @@ class Nwdthemes_Revslider_Helper_Products extends Mage_Core_Helper_Abstract {
 		} else {
 			return array();
 		}
-        
+
         Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($productsCollection);
         Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($productsCollection);
         Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($productsCollection);
-			
-		if (isset($query['orderby'])) {
+
+		if (isset($query['orderby']) && $query['orderby'] != 'rand') {
 			$productsCollection->setOrder($query['orderby'], isset($query['order']) ? $query['order'] : 'desc');
-		}	
-			
+		}
+
 		if (isset($query['showposts'])) {
 			$productsCollection->setPageSize($query['showposts']);
-		}	
-			
+		}
+
 		$productsCollection->getSelect()->group('e.entity_id');
+
+		if (isset($query['orderby']) && $query['orderby'] == 'rand') {
+			$productsCollection->getSelect()->order(new Zend_Db_Expr('RAND()'));
+		}
 
 		$products = array();
 		foreach ($productsCollection as $product) {
@@ -271,6 +275,6 @@ class Nwdthemes_Revslider_Helper_Products extends Mage_Core_Helper_Abstract {
 		$this->_categories[$category->getId()] = $arrCategory;
 
 		return $arrCategory;
-	}	
-	
+	}
+
 }

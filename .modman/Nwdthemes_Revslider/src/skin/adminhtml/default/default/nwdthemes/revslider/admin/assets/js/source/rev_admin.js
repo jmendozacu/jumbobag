@@ -1379,9 +1379,9 @@ var RevSliderAdmin;
                         //modify the dialog with some informations
                         jQuery('#import_dialog_box_action').html('');
 
-                        if(response.error.length > 0){
-                            for(var key in response.error){
-                                jQuery('#import_dialog_box').append('<div>'+response.error[key]+'</div>');
+                        if(response.error.length > 0) {
+                            for(var key in response.error) if (response.error.hasOwnProperty(key)) {
+                                jQuery('#import_dialog_box').append('<div class="import_failure">'+response.error[key]+'</div>');
                             }
                         }else{
                             for(var key in response.success) if (response.success.hasOwnProperty(key)) {
@@ -1390,14 +1390,13 @@ var RevSliderAdmin;
                             if(response.open !== false){ //open created page
                                 jQuery('#import_dialog_box').append('<div>'+rev_lang.draft_created+'</div>');
                                 window.open(response.open, '_blank');
-
                             }
                             if(response.view !== false){ //redirect
                                 jQuery('#import_dialog_box').append('<div>'+rev_lang.slider_import_success_reload+'</div>');
                                 location.href = response.view;
                             }
                         }
-                    }, true);
+                    }, true, false);
                 }
             }
 
@@ -2821,6 +2820,12 @@ var RevSliderAdmin;
                             objIcon.attr("title",response.title);
                             objIcon.data("lang",lang);
                             objIcon.show();
+
+                            if(realSlideID == curSlideID){
+                                //update the lang of the current Slide also here in the data
+                                jQuery('select[name="lang"] option[value="'+lang+'"]').attr('selected', true);
+                                jQuery('select[name="lang"]').change();
+                            }
                             break;
                         case "add":
                             objIcon.show();
