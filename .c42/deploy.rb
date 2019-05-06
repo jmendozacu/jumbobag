@@ -37,7 +37,7 @@ on :load do
 end
 
 set :application, "jumbobag"
-set :repository,  "git@github.com:commit42/jumbobag.git"
+set :repository,  "git@github.com:pofmagicfingers/jumbobag.git"
 
 set :scm, :git
 set :git_enable_submodules, 1
