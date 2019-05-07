@@ -1,4 +1,4 @@
-FROM occitech/magento:php7.0.13-apache
+FROM occitech/magento:php7.0-apache
 MAINTAINER Occitech <contact@occitech.fr>
 
 ENV APACHE_LOG_DIR ../../var/log/apache2

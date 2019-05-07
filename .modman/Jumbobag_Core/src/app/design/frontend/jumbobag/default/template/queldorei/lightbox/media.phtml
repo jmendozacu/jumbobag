@@ -68,14 +68,24 @@
         jQuery(document).on('ready', function () {
             var play3dButton = document.querySelector('.product-image-3dviewer-link')
             play3dButton.addEventListener('click', function(event) {
+                play3dButton.classList.add('product-image-3dviewer-link--hidden');
                 event.preventDefault();
                 event.stopPropagation();
-                window.viewer3DOptions.ready();
-                document.querySelector('.product-image-3dviewer').classList.remove('product-image-3dviewer--hidden')
+                if(!window.viewer3D) {
+                    window.viewer3DOptions.ready();
+                    document.querySelector('.product-image-3dviewer').classList.add('product-image-3dviewer--loading')
+                    document.querySelector('.product-image-3dviewer').classList.remove('product-image-3dviewer--hidden')
+                }
             }, false)
         });
     </script>
-
+    <style>
+        .catalog-product-view .informations-produit .product-images .product-image img {
+            width: 100%;
+            height: auto;
+            padding: 70px;
+        }
+    </style>
     <div class="product-image product-image-3dviewer-container">
         <?php
             $_img = '<img class="product-image-img" src="'.$this->helper('catalog/image')->init($product, 'image')->resize($imgX, $imgY).'" data-srcX2="'.$this->helper('catalog/image')->init($product, 'image')->resize(500, 500).'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';

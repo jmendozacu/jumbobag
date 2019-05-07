@@ -26,6 +26,7 @@
 
 ?>
 <?php $_product = $this->getProduct() ?>
+<?php $inStockLabel = $_product->getData("texte_perso_dispo"); ?>
 
 <?php if($_product->isSaleable()): ?>
 <script type="text/javascript">
@@ -40,7 +41,7 @@
     <?php echo $this->getChildHtml('bundle_prices') ?>
 </div>
 <?php if ($_product->isAvailable()): ?>
-    <p class="availability in-stock"><?php echo $this->helper('catalog')->__('Availability:') ?> <span><?php echo $this->helper('catalog')->__('In stock') ?></span></p>
+    <p class="availability in-stock"><?php echo $this->helper('catalog')->__('Availability:') ?> <span><?php echo empty($inStockLabel) ? $this->helper('catalog')->__('In stock') : "<span class='custom-availability-text'>".$inStockLabel."</span>" ?></span></p>
 <?php else: ?>
     <p class="availability out-of-stock"><?php echo $this->helper('catalog')->__('Availability:') ?> <span><?php echo $this->helper('catalog')->__('Out of stock') ?></span></p>
 <?php endif; ?>

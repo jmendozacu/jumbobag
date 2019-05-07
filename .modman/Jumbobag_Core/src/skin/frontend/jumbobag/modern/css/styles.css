@@ -1554,12 +1554,16 @@ tr.summary-details-excluded {
 .availability {
 	margin: 0;
 }
-.availability span {
+.availability span,
+.availability span span {
 	font-weight: bold;
 }
 .availability.out-of-stock span {
 	color: #d83820;
 }
+
+.availability span span.custom-availability-text{color:#eb5e00;}
+
 .availability-only {
 	margin: 0 0 7px;
 }
@@ -7300,8 +7304,4 @@ footer .liens-footer .liens-footer-inner {
 body.fixbandesbleues .presentation-produit-wrapper,
 body.fixbandesbleues .entretien-wrapper {
 	background: transparent !important;
-}
-
-.rev_slider .tp-mask-wrap {
-	display: none !important;
 }

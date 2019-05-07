@@ -641,15 +641,17 @@ Product.ConfigurableSwatches.prototype = {
      **/
     checkStockStatus: function() {
         var inStock = true;
+        var customInStockText = null;
         var checkOptions = arguments.length ? arguments[0] : this._E.activeConfigurableOptions;
         // Set out of stock if any selected item is not enabled
         checkOptions.each( function(selectedOpt) {
+            customInStockText = selectedOpt.inStockLabel;
             if (!selectedOpt._f.enabled) {
                 inStock = false;
                 throw $break;
             }
         });
-        this.setStockStatus( inStock );
+        this.setStockStatus(inStock, customInStockText );
     },
     /**
      *
@@ -657,12 +659,18 @@ Product.ConfigurableSwatches.prototype = {
      *
      * @var inStock - boolean
      **/
-    setStockStatus: function(inStock) {
+    setStockStatus: function(inStock, inStockCustomText ) {
         if (inStock) {
             this._E.availability.each(function(el) {
                 var el = $(el);
                 el.addClassName('in-stock').removeClassName('out-of-stock');
-                el.select('span').invoke('update', Translator.translate('In Stock'));
+                var label = 
+                    typeof inStockCustomText === "string" 
+                    && inStockCustomText.trim().length > 0 
+                    ? "<span class='custom-availability-text'>"+inStockCustomText.trim()+"</span>"
+                    : Translator.translate('In Stock');
+
+                el.select('span').invoke('update', label);
             });
 
             this._E.cartBtn.btn.each(function(el, index) {

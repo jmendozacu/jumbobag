@@ -15,6 +15,7 @@ class Jumbobag_Catalog_Block_Catalog_Product_View_Type_Configurable extends Mage
         $store      = $this->getCurrentStore();
         $taxHelper  = Mage::helper('tax');
         $currentProduct = $this->getProduct();
+        $master_dispo_label = $currentProduct->getData("texte_perso_dispo");
 
         $preconfiguredFlag = $currentProduct->hasPreconfiguredValues();
         if ($preconfiguredFlag) {
@@ -85,6 +86,14 @@ class Jumbobag_Catalog_Block_Catalog_Product_View_Type_Configurable extends Mage
                         $productsIndex = array();
                     }
 
+                    $dispo_label = $master_dispo_label;
+                    if(!empty($productId)) {
+                        $children_dispo_label = Mage::getModel('catalog/product')->load($productId)->getData("texte_perso_dispo");
+                        if(!empty($children_dispo_label)) {
+                            $dispo_label = $children_dispo_label;
+                        }
+                    }
+
                     $info['options'][] = array(
                         'id'        => $value['value_index'],
                         'label'     => $value['label'],
@@ -92,6 +101,7 @@ class Jumbobag_Catalog_Block_Catalog_Product_View_Type_Configurable extends Mage
                         'oldPrice'  => $this->_prepareOldPrice($value['pricing_value'], $value['is_percent']),
                         'products'  => $productsIndex,
                         'productId'  => $productId,
+                        'inStockLabel' => $dispo_label
                     );
                     $optionPrices[] = $configurablePrice;
                 }

@@ -39,6 +39,9 @@ Listen 80
 <VirtualHost *:80>
     ServerName $MAGENTO_HOST
     DocumentRoot /var/www/htdocs
+
+    # Detect the Load-Balancer-Header and set the header magento expects
+    SetEnvIf X-Forwarded-Proto https HTTPS=on
 </VirtualHost>
 
 AccessFileName .htaccess

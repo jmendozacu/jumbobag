@@ -450,6 +450,7 @@ tr.summary-details-excluded{font-style:italic;}
 .availability span{font-weight:bold;}
 .availability.in-stock span{}
 .availability.out-of-stock span{color:#d83820;}
+.availability span span.custom-availability-text{color:#eb5e00;}
 .availability-only{margin:0 0 7px;}
 .availability-only a{background:url(../images/i_availability_only_arrow.gif) 100% 0 no-repeat;cursor:pointer;padding-right:15px;}
 .availability-only .expanded{background-position:100% -15px;}
@@ -602,7 +603,13 @@ tr.summary-details-excluded{font-style:italic;}
 .cart .checkout-types{float:right;text-align:right;}
 .cart .checkout-types .paypal-or{margin:0 8px;line-height:2.3;}
 .cart .totals .checkout-types .paypal-or{clear:both;display:block;padding:3px 55px 8px 0;line-height:1.0;font-size:11px;}
-.cart-table .item-msg{font-size:10px;}
+.cart-table .item-msg{
+	font-size:12px;
+	display: block;
+    float: left;
+    clear: both;
+    color: black;
+}
 .cart .cart-collaterals{padding:25px 0 0;}
 .cart .cart-collaterals .col2-set{float:left;width:700px;}
 .cart .crosssell{}
@@ -2565,10 +2572,6 @@ h2.p2 span strong {
 tr .ecotaxe {
     font-size: 0.8em;
     text-align: left;
-}
-
-.rev_slider .tp-mask-wrap {
-	display: none !important;
 }
 
 @media (max-width: 1024px) {

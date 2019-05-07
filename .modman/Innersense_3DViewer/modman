@@ -3,6 +3,7 @@ src/app/etc/modules/Innersense_3DViewer.xml			app/etc/modules/Innersense_3DViewe
 src/app/locale/fr_FR/Innersense_3DViewer.csv		app/locale/fr_FR/Innersense_3DViewer.csv
 src/app/code/community/Innersense/3DViewer			app/code/community/Innersense/3DViewer
 src/skin/frontend/base/default/css/innersense		skin/frontend/base/default/css/innersense
+src/skin/frontend/base/default/images/innersense		skin/frontend/base/default/images/innersense
 
 src/app/design/frontend/base/default/layout/innersense	  app/design/frontend/base/default/layout/innersense
 src/app/design/frontend/base/default/template/innersense  app/design/frontend/base/default/template/innersense

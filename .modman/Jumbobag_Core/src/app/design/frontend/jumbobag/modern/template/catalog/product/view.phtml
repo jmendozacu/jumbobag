@@ -216,9 +216,10 @@ echo $this->getChildHtml('extrahint');
                             <?php echo $this->getChildHtml('product_ecotax') ?>
                         </div>
                         <?php $_product = $this->getProduct() ?>
+                        <?php $inStockLabel = $_product->getData("texte_perso_dispo"); ?>
                         <?php if ($this->displayProductStockStatus()): ?>
                             <?php if ($_product->isAvailable()): ?>
-                                <p class="availability in-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('In stock') ?></span></p>
+                                <p class="availability in-stock"><?php echo $this->__('Availability:') ?> <span><?php echo empty($inStockLabel) ? $this->helper('catalog')->__('In stock') : "<span class='custom-availability-text'>".$inStockLabel."</span>"; ?></span></p>
                             <?php else: ?>
                                 <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('Out of stock') ?></span></p>
                             <?php endif; ?>

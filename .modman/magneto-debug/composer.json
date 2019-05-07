@@ -1,0 +1,22 @@
+{
+  "name": "madalinoprea/magneto-debug",
+  "description": "Development Debug Toolbar for Magento 1.x",
+  "type": "magento-module",
+  "keywords": ["Magento", "logging", "performance"],
+  "homepage": "https://github.com/madalinoprea/magneto-debug",
+  "license": "MIT",
+  "authors": [
+    {"name": "Madalin Oprea (Mario)"}
+  ],
+  "support": {
+    "wiki": "https://github.com/madalinoprea/magneto-debug/wiki",
+    "issues": "https://github.com/madalinoprea/magneto-debug/issues",
+    "source": "https://github.com/madalinoprea/magneto-debug"
+  },
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "suggest": {
+    "ecomdev/ecomdev_phpunit": "Allows to verify compatibility by running module's unit tests"
+  }
+}

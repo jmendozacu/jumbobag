@@ -12,3 +12,5 @@ src/app/design/frontend/jumbobag/modern/layout/* app/design/frontend/jumbobag/mo
 src/app/design/frontend/jumbobag/modern/template/* app/design/frontend/jumbobag/modern/template/
 
 src/skin/frontend/jumbobag skin/frontend/jumbobag
+
+src/app/locale/fr_FR/Jumbobag_Core.csv app/locale/fr_FR/Jumbobag_Core.csv
