@@ -46,21 +46,21 @@
     .or-floor-image{ left: 89px; top: 304px;}
     .or-plant-image{ left: 0px; top: 16px;}
     .or-poof-image{ left: 118px; top: 60px;}
-    .or-price-image{ left: 433px; top: 168px; -webkit-animation-delay: .50s; animation-delay: .50s;}
+    .or-price-image{ left: 433px; top: 168px; -webkit-animation-delay: .25s; animation-delay: .25s;}
     .or-table-image{ left: 344px; top: 245px;}
-    .or-best-image{ left: 376px; top: 0px; -webkit-animation-delay: .75s; animation-delay: .75s; }
-    .or-bl-text-image{ left: 438px; top: 238px; -webkit-animation-delay: .75s; animation-delay: .75s; }
+    .or-best-image{ left: 376px; top: 0px; -webkit-animation-delay: .375s; animation-delay: .375s; }
+    .or-bl-text-image{ left: 438px; top: 238px; -webkit-animation-delay: .375s; animation-delay: .375s; }
 
     .ani-image-con-two{max-width: 540px; position: relative; height: 460px;}
-    .di-red-image{ left: 47px; top: 32px; z-index: 1; -webkit-animation-delay: 1.5s; animation-delay: 1.5s;}
+    .di-red-image{ left: 47px; top: 32px; z-index: 1; -webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
     .di-red-image img{ max-width: 227px;}
-    .di-blue-image{ left: 208px; top: 0px; z-index: 2; -webkit-animation-delay: 1s; animation-delay: 1s;}
+    .di-blue-image{ left: 208px; top: 0px; z-index: 2; -webkit-animation-delay: 0.30s; animation-delay: 0.30s;}
     .di-blue-image img{ max-width:315px;}
     .di-print-image{ left: 79px; top: 54px; z-index: 3;}
     .di-print-image img{ max-width:402px;}
-    .di-green-image{ left: 268px; top: 214px; z-index: 4; -webkit-animation-delay: .50s; animation-delay: .50s;}
+    .di-green-image{ left: 268px; top: 214px; z-index: 4; -webkit-animation-delay: .2s; animation-delay: .2s;}
     .di-green-image img{ max-width: 264px;}
-    .di-bl-price-image{ left: 0px; top: 0px; z-index: 5; -webkit-animation-delay: 1.5s; animation-delay: 1.5s;}
+    .di-bl-price-image{ left: 0px; top: 0px; z-index: 5; -webkit-animation-delay: 9.5s; animation-delay: 0.5s;}
     .di-bl-price-image img{ max-width: 246px;}
 
     .ani-image-con-three{max-width: 503px; position: relative; height: 422px;}
@@ -72,19 +72,19 @@
     .fl-pool-image img{max-width: 380px;}
     .fl-swimbag-image{ left: 158px; top: 145px; z-index: 4; -webkit-animation-delay: .25s; animation-delay: .25s;}
     .fl-swimbag-image img{ max-width: 327px;}
-    .fl-extra-image{ left: 49px; top: 153px; z-index: 5;  -webkit-animation-delay: .50s; animation-delay: .50s;}
+    .fl-extra-image{ left: 49px; top: 153px; z-index: 5;  -webkit-animation-delay: .35s; animation-delay: .35s;}
     .fl-extra-image img{ max-width: 236px;}
-    .fl-price-image{ left: 249px; top: 40px; z-index: 6;  -webkit-animation-delay: 1s; animation-delay: 1s;}
+    .fl-price-image{ left: 249px; top: 40px; z-index: 6;  -webkit-animation-delay: 0.6s; animation-delay: 0.6s;}
     .fl-price-image img{ max-width:104px;}
 
     .ani-image-con-four{max-width: 502px; position: relative; height: 404px;}
     .xt-xtrem-image{ left: 108px; top: 10px; z-index: 1;}
     .xt-xtrem-image img{ max-width:370px;}
-    .xt-plane-image{ left: 90px; top: 0px; z-index: 2; -webkit-animation-delay: .50s; animation-delay: .50s;}
+    .xt-plane-image{ left: 90px; top: 0px; z-index: 2; -webkit-animation-delay: .25s; animation-delay: .25s;}
     .xt-plane-image img{ max-width: 370px; }
-    .xt-fr-image{ left: 80px; top: 202px; z-index: 3; -webkit-animation-delay: .50s; animation-delay: .50s;}
+    .xt-fr-image{ left: 80px; top: 202px; z-index: 3; -webkit-animation-delay: .25s; animation-delay: .25s;}
     .xt-fr-image img{max-width: 424px;}
-    .xt-bl-text-image{ left: 0px; top: 51px; z-index: 4; -webkit-animation-delay: 1s; animation-delay: 1s;}
+    .xt-bl-text-image{ left: 0px; top: 51px; z-index: 4; -webkit-animation-delay: 0.5s; animation-delay: 0.5s;}
     .xt-bl-text-image img{ max-width: 147px;}
 
 
@@ -96,44 +96,41 @@
 <link rel= "stylesheet" href= "/skin/frontend/jumbobag/default/css/animatehome.css" >
 <body class="<?php echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?><?php echo Mage::getStoreConfig('shoppersettings/design/responsive') ? '': ' non-responsive ' ?>">
 <script type="text/javascript">
-    jQuery(document).ready(function(){
+    jQuery(function(){
 
-        jQuery(window).scroll(function() {
+        var animateCounters = function() {
             if (jQuery(document).scrollTop() > 300)
             {
                 jQuery('.counter').each(function() {
                     var $this = jQuery(this),
-                        countTo = $this.attr('data-count');
+                        countTo = ($this.attr('data-count') || "").trim(),
+                        significants = (countTo.match(/^[0-9]+\.([0-9]+)$|()()/)[1]||"").length,
+                        updateText = function() {
+                            $this.text((+this.countNum).toFixed(significants));
+                        };
 
-                    jQuery({ countNum: $this.text()}).animate({
-                            countNum: countTo
-                        },
-
+                    jQuery({ countNum: $this.text() }).animate(
+                        { countNum: countTo },
                         {
 
-                            duration: 3000,
+                            duration: 2000,
                             easing:'linear',
                             step: function() {
-                                $this.text(Math.floor(this.countNum));
+                                $this.text((+this.countNum).toFixed(significants));
                             },
                             complete: function() {
-                                $this.text(this.countNum);
-                                //alert('finished');
+                                $this.text((+this.countNum).toFixed(significants));
+
+                                jQuery(window).off("scroll", animateCounters);
                             }
-
-                        });
-
-
-
+                        }
+                    );
                 });
             }
-            else
-            {
+        }
 
-            }
-        });
-
-
+        jQuery(window).scroll(animateCounters);
+        animateCounters();
 
         jQuery(".owl-carousel").owlCarousel({
             loop:true,
@@ -171,23 +168,6 @@
                     <?php echo $this->getChildHtml('content') ?>
 
                     <?php echo $this->getLayout()->createBlock('nwdrevslider/revslider')->setAlias('home-slider')->toHtml(); ?>
-
-                    <script>
-                        var player;
-
-                        function onYouTubeIframeAPIReady() {
-                            player = new YT.Player('ytplayer', {
-                                events: {
-                                    'onReady': onPlayerReady
-                                }
-                            });
-                        }
-
-                        function onPlayerReady(event) {
-                            player.mute();
-                            player.playVideo();
-                        }
-                    </script>
                     <section id="intro">
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-poufs-fauteuils')->toHtml(); ?>
                     </section>
