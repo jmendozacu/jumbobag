@@ -2573,10 +2573,6 @@ tr .ecotaxe {
     text-align: left;
 }
 
-.rev_slider .tp-mask-wrap {
-	display: none !important;
-}
-
 @media (max-width: 1024px) {
 		.hidden-mobile, .hidden-tablet {
 				display: none;

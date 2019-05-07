@@ -62,6 +62,7 @@ lib/Nwdthemes/Revslider
 skin/frontend/base/default/images/innersense
 app/locale/fr_FR/Jumbobag_Core.csv
 
+app/etc/modules/Sheep_Debug.xml
 app/code/community/Sheep/
 app/design/adminhtml/default/default/layout/sheep_debug.xml
 app/design/adminhtml/default/default/template/sheep_debug
