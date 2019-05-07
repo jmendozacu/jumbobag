@@ -38,7 +38,7 @@
 <?php $_associatedProducts = $this->getAssociatedProducts(); ?>
 <?php $_hasAssociatedProducts = count($_associatedProducts) > 0; ?>
 <?php if ($_product->isAvailable() && $_hasAssociatedProducts): ?>
-    <p class="availability availability-grouped in-stock"><?php echo $this->__('Availability:') ?> <span><?php echo empty($inStockLabel) ? $this->__('In stock') : $inStockLabel; ?></span></p>
+    <p class="availability availability-grouped in-stock"><?php echo $this->__('Availability:') ?> <span><?php echo empty($inStockLabel) ? $this->__('In stock') : "<span class='custom-availability-text'>".$inStockLabel."</span>" ?></span></p>
 <?php else: ?>
     <p class="availability availability-grouped out-of-stock"><?php echo $this->__('Availability:') ?> <span><?php echo $this->__('Out of stock') ?></span></p>
 <?php endif; ?>

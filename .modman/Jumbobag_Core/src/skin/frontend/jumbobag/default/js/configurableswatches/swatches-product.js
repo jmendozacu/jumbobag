@@ -667,9 +667,9 @@ Product.ConfigurableSwatches.prototype = {
                 var label = 
                     typeof inStockCustomText === "string" 
                     && inStockCustomText.trim().length > 0 
-                    ? inStockCustomText.trim() 
+                    ? "<span class='custom-availability-text'>"+inStockCustomText.trim()+"</span>"
                     : Translator.translate('In Stock');
-                    
+
                 el.select('span').invoke('update', label);
             });
 

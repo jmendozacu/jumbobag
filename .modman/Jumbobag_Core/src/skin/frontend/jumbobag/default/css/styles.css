@@ -450,6 +450,7 @@ tr.summary-details-excluded{font-style:italic;}
 .availability span{font-weight:bold;}
 .availability.in-stock span{}
 .availability.out-of-stock span{color:#d83820;}
+.availability span span.custom-availability-text{color:#eb5e00;}
 .availability-only{margin:0 0 7px;}
 .availability-only a{background:url(../images/i_availability_only_arrow.gif) 100% 0 no-repeat;cursor:pointer;padding-right:15px;}
 .availability-only .expanded{background-position:100% -15px;}

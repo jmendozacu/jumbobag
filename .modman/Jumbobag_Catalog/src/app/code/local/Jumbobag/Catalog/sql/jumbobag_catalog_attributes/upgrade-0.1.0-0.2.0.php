@@ -1,5 +1,6 @@
 <?php
-Mage::log('-- Start Jumbobag_Core upgrade 1.2.2 --');
+Mage::log('-- Start Jumbobag_Catalog upgrade 0.2.0 --');
+
 $installer = $this;
 $installer->startSetup();
 
@@ -51,4 +52,4 @@ $entityTypeId = Mage::getModel('catalog/product')
 ->getId();
 
 $installer->endSetup();
-Mage::log('-- End Jumbobag_Core upgrade 1.2.2 --');
+Mage::log('-- End Jumbobag_Catalog upgrade 0.2.0 --');
