@@ -2585,3 +2585,72 @@ tr .ecotaxe {
 				display: none;
 		}
 }
+
+.home-references {
+  display: block;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-references div {
+  display: block;
+  float: left;
+  max-width: 130px;
+  margin: 5px 10px;
+}
+
+#instagram h2 {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    color: #31419f;
+    text-transform: uppercase;
+    font-size: 34px;
+    margin-top: 80px;
+    text-align: center;
+}
+
+#instagram p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.instagram-posts {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.instagram-posts {
+  display: none;
+}
+
+.instagram-posts.show {
+  display: flex;
+}
+
+.instagram-posts a {
+  background: #F5F5F2;
+  margin: 8px 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.instagram-posts img {
+  margin: 8px;
+  max-width: 200px !important;
+  border: 1px solid #CCC;
+}
+
+@media (max-width: 767px) {
+  #instagram h2 {
+    margin-top: -65px;
+  }
+
+  .instagram-posts img {
+    max-width: 320px !important;
+  }
+}

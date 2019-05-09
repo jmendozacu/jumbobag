@@ -63,7 +63,7 @@
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <name>js/instafeed.min.js</name>
+                <name>js/jumbobag.js</name>
             </action>
             <action method="addItem">
                 <type>skin_js</type>

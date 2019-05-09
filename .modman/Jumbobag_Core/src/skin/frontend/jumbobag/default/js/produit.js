@@ -103,21 +103,6 @@
       $(".btn-wrapper").fadeIn("slow");
     });
 
-    var userFeed = new Instafeed({
-      get: "user",
-      userId: "288979969",
-      clientId: "891b12ab6a29467784c4af7c11e24cca",
-      accessToken: "288979969.891b12a.b1b28da8f8594e9998a27f3cf46bf628",
-      resolution: "standard_resolution",
-      template:
-        '<div class="col-xs-3"><a href="{{link}}" target="_blank" id="{{id}}"><img src="{{image}}"/></a></div>',
-      sortBy: "most-recent",
-      limit: 4,
-      links: false
-    });
-
-    userFeed.run();
-
     if ($(window).width() < 768) {
       $(".footer_to_hide")
         .find(".responsive-footer h4")
