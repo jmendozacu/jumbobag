@@ -2620,7 +2620,8 @@ tr .ecotaxe {
 }
 
 .instagram-posts {
-  justify-content: space-around;
+  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
@@ -2647,7 +2648,7 @@ tr .ecotaxe {
 
 @media (max-width: 767px) {
   #instagram h2 {
-    margin-top: -65px;
+    margin-top: -40px;
   }
 
   .instagram-posts img {
