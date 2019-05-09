@@ -2615,7 +2615,7 @@ tr .ecotaxe {
   font-weight: 300;
   font-size: 16px;
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   text-align: center;
 }
 
@@ -2648,7 +2648,7 @@ tr .ecotaxe {
 
 @media (max-width: 767px) {
   #instagram h2 {
-    margin-top: -40px;
+    margin-top: -10px;
   }
 
   .instagram-posts img {

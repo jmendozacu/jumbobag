@@ -7336,10 +7336,6 @@ body.fixbandesbleues .entretien-wrapper {
 }
 
 @media (max-width: 767px) {
-  #instagram h2 {
-    margin-top: -40px;
-  }
-
   .instagram-posts img {
     max-width: 320px !important;
   }
